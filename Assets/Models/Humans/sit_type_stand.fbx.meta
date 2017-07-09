@@ -1,0 +1,233 @@
+fileFormatVersion: 2
+guid: cd95e51ed8c76a945ac35165d25b15be
+timeCreated: 1499433747
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: computer
+    100002: controllers
+    100004: controllers_10
+    100006: controllers_11
+    100008: controllers_12
+    100010: controllers_13
+    100012: controllers_14
+    100014: controllers_15
+    100016: controllers_16
+    100018: controllers_2
+    100020: controllers_3
+    100022: controllers_5
+    100024: controllers_6
+    100026: controllers_7
+    100028: controllers_8
+    100030: controllers_9
+    100032: desk
+    100034: ears
+    100036: hair
+    100038: Joint_2_Goal_left
+    100040: Joint_2_Goal_right
+    100042: Joint_4_Goal_left
+    100044: Joint_4_Goal_right
+    100046: Joint_Pole_left
+    100048: Joint_Pole_right
+    100050: joints
+    100052: joints_10
+    100054: joints_11
+    100056: joints_12
+    100058: joints_13
+    100060: joints_14
+    100062: joints_15
+    100064: joints_16
+    100066: joints_17
+    100068: joints_18
+    100070: joints_19
+    100072: joints_2
+    100074: joints_20
+    100076: joints_21
+    100078: joints_22
+    100080: joints_23
+    100082: joints_24
+    100084: joints_25
+    100086: joints_26
+    100088: joints_27
+    100090: joints_28
+    100092: joints_29
+    100094: joints_3
+    100096: joints_30
+    100098: joints_31
+    100100: joints_32
+    100102: joints_33
+    100104: joints_34
+    100106: joints_35
+    100108: joints_36
+    100110: joints_4
+    100112: joints_5
+    100114: joints_6
+    100116: joints_7
+    100118: joints_8
+    100120: joints_9
+    100122: keyboard
+    100124: LEG_left
+    100126: LEG_RIGHT
+    100128: mesh
+    100130: mouse
+    100132: //RootNode
+    400000: computer
+    400002: controllers
+    400004: controllers_10
+    400006: controllers_11
+    400008: controllers_12
+    400010: controllers_13
+    400012: controllers_14
+    400014: controllers_15
+    400016: controllers_16
+    400018: controllers_2
+    400020: controllers_3
+    400022: controllers_5
+    400024: controllers_6
+    400026: controllers_7
+    400028: controllers_8
+    400030: controllers_9
+    400032: desk
+    400034: ears
+    400036: hair
+    400038: Joint_2_Goal_left
+    400040: Joint_2_Goal_right
+    400042: Joint_4_Goal_left
+    400044: Joint_4_Goal_right
+    400046: Joint_Pole_left
+    400048: Joint_Pole_right
+    400050: joints
+    400052: joints_10
+    400054: joints_11
+    400056: joints_12
+    400058: joints_13
+    400060: joints_14
+    400062: joints_15
+    400064: joints_16
+    400066: joints_17
+    400068: joints_18
+    400070: joints_19
+    400072: joints_2
+    400074: joints_20
+    400076: joints_21
+    400078: joints_22
+    400080: joints_23
+    400082: joints_24
+    400084: joints_25
+    400086: joints_26
+    400088: joints_27
+    400090: joints_28
+    400092: joints_29
+    400094: joints_3
+    400096: joints_30
+    400098: joints_31
+    400100: joints_32
+    400102: joints_33
+    400104: joints_34
+    400106: joints_35
+    400108: joints_36
+    400110: joints_4
+    400112: joints_5
+    400114: joints_6
+    400116: joints_7
+    400118: joints_8
+    400120: joints_9
+    400122: keyboard
+    400124: LEG_left
+    400126: LEG_RIGHT
+    400128: mesh
+    400130: mouse
+    400132: //RootNode
+    2300000: computer
+    2300002: desk
+    2300004: ears
+    2300006: hair
+    2300008: keyboard
+    2300010: mouse
+    3300000: computer
+    3300002: desk
+    3300004: ears
+    3300006: hair
+    3300008: keyboard
+    3300010: mouse
+    4300000: mouse
+    4300002: keyboard
+    4300004: computer
+    4300006: desk
+    4300008: ears
+    4300010: hair
+    4300012: mesh
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+    13700000: mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

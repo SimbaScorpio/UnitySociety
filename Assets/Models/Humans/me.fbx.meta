@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: 810ce52a23b0c83449643db963be27f2
+timeCreated: 1496224928
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm1
+    100002: arm1_2
+    100004: CINEMA_4D_Editor
+    100006: Circle_1
+    100008: Group9278
+    100010: head
+    100012: heel
+    100014: heel_2
+    100016: hip
+    100018: Joint_1
+    100020: Joint_1_2
+    100022: Joint_1_3
+    100024: Joint_1_4
+    100026: Joint_1_5
+    100028: Joint_1_6
+    100030: Joint_1_7
+    100032: Joint_1_8
+    100034: Joint_2
+    100036: Joint_2_2
+    100038: Joint_2_3
+    100040: Joint_2_4
+    100042: Joint_2_5
+    100044: Joint_2_6
+    100046: Joint_2_7
+    100048: Joint_2_Goal
+    100050: Joint_2_Goal_2
+    100052: Joint_3
+    100054: Joint_3_2
+    100056: Joint_3_3
+    100058: Joint_3_4
+    100060: Joint_3_5
+    100062: Joint_3_6
+    100064: Joint_3_Goal
+    100066: Joint_3_Goal_2
+    100068: Joint_4
+    100070: Joint_4_2
+    100072: leg
+    100074: leg1
+    100076: leg1_2
+    100078: leg1_Pole
+    100080: leg1_Pole_2
+    100082: leg_2
+    100084: main
+    100086: mainfoot
+    100088: mainfoot_2
+    100090: //RootNode
+    100092: Null
+    100094: Null_2
+    100096: pole
+    100098: pole_2
+    100100: Polygon
+    100102: toe
+    100104: toe_2
+    400000: arm1
+    400002: arm1_2
+    400004: CINEMA_4D_Editor
+    400006: Circle_1
+    400008: Group9278
+    400010: head
+    400012: heel
+    400014: heel_2
+    400016: hip
+    400018: Joint_1
+    400020: Joint_1_2
+    400022: Joint_1_3
+    400024: Joint_1_4
+    400026: Joint_1_5
+    400028: Joint_1_6
+    400030: Joint_1_7
+    400032: Joint_1_8
+    400034: Joint_2
+    400036: Joint_2_2
+    400038: Joint_2_3
+    400040: Joint_2_4
+    400042: Joint_2_5
+    400044: Joint_2_6
+    400046: Joint_2_7
+    400048: Joint_2_Goal
+    400050: Joint_2_Goal_2
+    400052: Joint_3
+    400054: Joint_3_2
+    400056: Joint_3_3
+    400058: Joint_3_4
+    400060: Joint_3_5
+    400062: Joint_3_6
+    400064: Joint_3_Goal
+    400066: Joint_3_Goal_2
+    400068: Joint_4
+    400070: Joint_4_2
+    400072: leg
+    400074: leg1
+    400076: leg1_2
+    400078: leg1_Pole
+    400080: leg1_Pole_2
+    400082: leg_2
+    400084: main
+    400086: mainfoot
+    400088: mainfoot_2
+    400090: //RootNode
+    400092: Null
+    400094: Null_2
+    400096: pole
+    400098: pole_2
+    400100: Polygon
+    400102: toe
+    400104: toe_2
+    2300000: Group9278
+    3300000: Group9278
+    4300000: Polygon
+    4300002: Group9278
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Polygon
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: CINEMA_4D_Main
+      takeName: CINEMA_4D_Main
+      firstFrame: 8
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CINEMA_4D_Editor
+        weight: 1
+      - path: Circle_1
+        weight: 1
+      - path: Circle_1/head
+        weight: 1
+      - path: Circle_1/head/Joint_1_5
+        weight: 1
+      - path: Circle_1/head/Joint_1_5/Joint_2_5
+        weight: 1
+      - path: Circle_1/main
+        weight: 1
+      - path: Circle_1/main/hip
+        weight: 1
+      - path: Circle_1/main/Joint_1_6
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1/Joint_1_7
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1/Joint_1_7/Joint_2_6
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1/Joint_1_7/Joint_2_6/Joint_3_4
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1/Joint_1_7/Joint_2_6/Joint_4
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1/Joint_1_7/Joint_2_6/Joint_4/Joint_3_3
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1_2
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1_2/Joint_1_8
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1_2/Joint_1_8/Joint_2_7
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1_2/Joint_1_8/Joint_2_7/Joint_3_6
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1_2/Joint_1_8/Joint_2_7/Joint_4_2
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/arm1_2/Joint_1_8/Joint_2_7/Joint_4_2/Joint_3_5
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/Joint_2_Goal
+        weight: 1
+      - path: Circle_1/main/Joint_1_6/Joint_2_Goal_2
+        weight: 1
+      - path: Group9278
+        weight: 1
+      - path: leg
+        weight: 1
+      - path: leg/Null
+        weight: 1
+      - path: leg/Null/leg1
+        weight: 1
+      - path: leg/Null/leg1/Joint_2
+        weight: 1
+      - path: leg/Null/leg1/Joint_2/Joint_3
+        weight: 1
+      - path: leg/Null/leg1/Joint_2/Joint_3/Joint_1
+        weight: 1
+      - path: leg/Null/leg1/Joint_2/Joint_3/Joint_1/Joint_1_2
+        weight: 1
+      - path: leg/Null/leg1/Joint_2/Joint_3/Joint_1/Joint_1_2/Joint_2_2
+        weight: 1
+      - path: leg/Null/leg1_Pole
+        weight: 1
+      - path: leg/Null/mainfoot
+        weight: 1
+      - path: leg/Null/mainfoot/heel
+        weight: 1
+      - path: leg/Null/mainfoot/heel/Joint_3_Goal
+        weight: 1
+      - path: leg/Null/mainfoot/toe
+        weight: 1
+      - path: leg/pole
+        weight: 1
+      - path: leg_2
+        weight: 1
+      - path: leg_2/Null_2
+        weight: 1
+      - path: leg_2/Null_2/leg1_2
+        weight: 1
+      - path: leg_2/Null_2/leg1_2/Joint_2_3
+        weight: 1
+      - path: leg_2/Null_2/leg1_2/Joint_2_3/Joint_3_2
+        weight: 1
+      - path: leg_2/Null_2/leg1_2/Joint_2_3/Joint_3_2/Joint_1_3
+        weight: 1
+      - path: leg_2/Null_2/leg1_2/Joint_2_3/Joint_3_2/Joint_1_3/Joint_1_4
+        weight: 1
+      - path: leg_2/Null_2/leg1_2/Joint_2_3/Joint_3_2/Joint_1_3/Joint_1_4/Joint_2_4
+        weight: 1
+      - path: leg_2/Null_2/leg1_Pole_2
+        weight: 1
+      - path: leg_2/Null_2/mainfoot_2
+        weight: 1
+      - path: leg_2/Null_2/mainfoot_2/heel_2
+        weight: 1
+      - path: leg_2/Null_2/mainfoot_2/heel_2/Joint_3_Goal_2
+        weight: 1
+      - path: leg_2/Null_2/mainfoot_2/toe_2
+        weight: 1
+      - path: leg_2/pole_2
+        weight: 1
+      - path: Polygon
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
