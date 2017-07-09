@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActionChat : ActionAuto
+public class ActionChat : ActionThread
 {
 	public GameObject obj;
 	public string content;
@@ -15,60 +15,58 @@ public class ActionChat : ActionAuto
 	private Animator animator;
 
 
-	void Start()
+	void Start ()
 	{
 		this.ID = ActionID.CHAT;
 	}
 
 
-	public void setting(GameObject obj, string content, float duration, ActionCompleted callback)
+	public void Setting (GameObject obj, string content, float duration, ActionCompleted callback)
 	{
 		this.obj = obj;
 		this.content = content;
 		this.duration = duration + 0.2f;
 		this.monitor = callback;
 
-		canvas = obj.transform.Find("Bubble").gameObject;
-		animator = canvas.GetComponent<Animator>();
+		canvas = obj.transform.Find ("Bubble").gameObject;
+		if (!canvas)
+			Finish ();
+		
+		animator = canvas.GetComponent<Animator> ();
 
-		this.Begin();
+		this.Begin ();
 	}
 
 
-	void Begin()
+	void Begin ()
 	{
-		canvas.SetActive(true);
-		canvas.GetComponentInChildren<Text>().text = content;
-		animator.SetBool("IsPoping", true);
+		canvas.SetActive (true);
+		canvas.GetComponentInChildren<Text> ().text = content;
+		animator.SetBool ("IsPoping", true);
 	}
 
 
-	void Finish()
+	void Finish ()
 	{
-		if (monitor != null)
-		{
-			monitor.OnActionCompleted(this);
+		if (monitor != null) {
+			monitor.OnActionCompleted (this);
 		}
-		Destroy(this);
+		Destroy (this);
 	}
 
 
-	void Update()
+	void Update ()
 	{
-		if (duration < 0)
-		{
-			this.Finish();
-		}
-		else
-		{
+		if (duration < 0) {
+			this.Finish ();
+		} else {
 			duration -= Time.deltaTime;
-			if (duration <= 0.2f)
-			{
-				animator.SetBool("IsPoping", false);
+			if (duration <= 0.2f) {
+				animator.SetBool ("IsPoping", false);
 			}
 			//canvas.transform.LookAt(Camera.main.transform.position);
 			//canvas.transform.Rotate(new Vector3(0, 180, 0));
-			canvas.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+			canvas.transform.rotation = Quaternion.Euler (new Vector3 (0, 0, 0));
 		}
 	}
 }

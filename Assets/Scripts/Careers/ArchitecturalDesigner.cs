@@ -4,45 +4,44 @@ using UnityEngine;
 
 public class ArchitecturalDesigner : Person
 {
-	void Start()
+	void Start ()
 	{
 		this.C_ID = CareerID.ARCHITECT;
 
-		RandomDestination();
+		RandomDestination ();
 	}
 
 
-	private void RandomDestination()
+	private void RandomDestination ()
 	{
-		Vector3 pos = NavMeshManager.GetInstance().GetRandomPoint();
-		this.SetDestination(pos);
+		Vector3 pos = NavMeshManager.GetInstance ().GetRandomPoint ();
+		this.SetDestination (pos);
 	}
 
 
-	public override void OnActionCompleted(Action ac)
+	public override void OnActionCompleted (Action ac)
 	{
-		switch (ac.ID)
-		{
-			case ActionID.SETDESTINATION:
-				this.GetComponent<Animator>().SetTrigger("PlayVR");
-				FacilityInfo.Status = Status.USING;
-				break;
+		switch (ac.ID) {
+		case ActionID.SETDESTINATION:
+			this.GetComponent<Animator> ().SetTrigger ("PlayVR");
+			FacilityInfo.Status = Status.USING;
+			break;
 		}
 	}
 
 
-	public void AnimPlayVRFinished()
+	public void AnimPlayVRFinished ()
 	{
-		this.Chat("VR played!", 2);
+		this.Chat ("VR played!", 2);
 		FacilityInfo.Status = Status.NULL;
-		RandomDestination();
+		RandomDestination ();
 	}
 
 
 	public Facility script;
 	public Status status;
 
-	void FixedUpdate()
+	void FixedUpdate ()
 	{
 		script = FacilityInfo.FacilityScript;
 		status = FacilityInfo.Status;

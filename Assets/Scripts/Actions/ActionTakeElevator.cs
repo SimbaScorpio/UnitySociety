@@ -2,22 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionTakeElevator : ActionAuto
+public class ActionTakeElevator : ActionMultiple
 {
 	public GameObject obj;
 	public FacilityElevator elevator;
 	public int waitingFloor;
 	public int targetFloor;
 
-
 	private ActionCompleted monitor = null;
 
-	void Start()
+	void Start ()
 	{
 		this.ID = ActionID.TAKEELEVATOR;
 	}
 
-	public void setting(GameObject obj, FacilityElevator elevator, int waitingFloor, int targetFloor, ActionCompleted callback)
+	public void Setting (GameObject obj, FacilityElevator elevator, int waitingFloor, int targetFloor, ActionCompleted callback)
 	{
 		this.obj = obj;
 		this.elevator = elevator;
@@ -25,26 +24,25 @@ public class ActionTakeElevator : ActionAuto
 		this.targetFloor = targetFloor;
 		this.monitor = callback;
 
-		this.Begin();
+		this.Begin ();
 	}
 
 
-	void Begin()
+	void Begin ()
 	{
-		Person person = obj.GetComponent<Person>();
+		Person person = obj.GetComponent<Person> ();
 		person.FacilityInfo.FacilityScript = elevator;
 		person.FacilityInfo.Status = Status.QUEUING;
 
-		elevator.AddWaiting(obj, waitingFloor, targetFloor);
+		elevator.AddWaiting (obj, waitingFloor, targetFloor);
 	}
 
 
-	public void Finish()
+	public void Finish ()
 	{
-		if (monitor != null)
-		{
-			monitor.OnActionCompleted(this);
+		if (monitor != null) {
+			monitor.OnActionCompleted (this);
 		}
-		Destroy(this);
+		Destroy (this);
 	}
 }

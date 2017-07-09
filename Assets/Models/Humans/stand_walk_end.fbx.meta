@@ -138,7 +138,7 @@ ModelImporter:
     4300000: mesh
     4300002: mesh_2
     4300004: mesh_3
-    7400000: CINEMA_4D_Main
+    7400000: Walk
     9500000: //RootNode
     13700000: mesh_3
   materials:
@@ -163,7 +163,161 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: CINEMA_4D_Main
+      firstFrame: 12
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: controllers
+        weight: 1
+      - path: controllers/controllers_2
+        weight: 1
+      - path: controllers/controllers_2/controllers_3
+        weight: 1
+      - path: joints
+        weight: 1
+      - path: joints/joints_2
+        weight: 1
+      - path: joints/joints_2/joints_3
+        weight: 1
+      - path: joints/joints_2/joints_3/joints_4
+        weight: 1
+      - path: joints/joints_2/joints_3/joints_4/joints_5
+        weight: 1
+      - path: joints/joints_2/joints_3/joints_4/joints_5/joints_6
+        weight: 1
+      - path: joints/joints_2/joints_3/joints_4/joints_5/joints_6/joints_7
+        weight: 1
+      - path: joints/joints_8
+        weight: 1
+      - path: joints/joints_8/joints_9
+        weight: 1
+      - path: joints/joints_8/joints_9/joints_10
+        weight: 1
+      - path: joints/joints_8/joints_9/joints_10/joints_11
+        weight: 1
+      - path: joints/joints_8/joints_9/joints_10/joints_11/joints_12
+        weight: 1
+      - path: joints/joints_8/joints_9/joints_10/joints_11/joints_12/joints_13
+        weight: 1
+      - path: joints/joints_14
+        weight: 1
+      - path: joints/joints_14/joints_15
+        weight: 1
+      - path: joints/joints_14/joints_15/controllers_9
+        weight: 1
+      - path: joints/joints_14/joints_15/controllers_10
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_16
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_16/joints_17
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_16/joints_17/joints_18
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/controllers_5
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/controllers_6
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_22
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_22/joints_23
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_22/joints_23/joints_24
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_25
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_25/joints_26
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_25/joints_26/joints_27
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/controllers_7
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/controllers_8
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_31
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_31/joints_32
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_31/joints_32/joints_33
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_34
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_34/joints_35
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_34/joints_35/joints_36
+        weight: 1
+      - path: LEG_left
+        weight: 1
+      - path: LEG_left/controllers_14
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_15
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_15/Joint_4_Goal_left
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_15/Joint_Pole_left
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_16
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_16/Joint_2_Goal_left
+        weight: 1
+      - path: LEG_RIGHT
+        weight: 1
+      - path: LEG_RIGHT/controllers_11
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_12
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_12/Joint_4_Goal_right
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_12/Joint_Pole_right
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_13
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_13/Joint_2_Goal_right
+        weight: 1
+      - path: mesh
+        weight: 1
+      - path: mesh_2
+        weight: 1
+      - path: mesh_3
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
