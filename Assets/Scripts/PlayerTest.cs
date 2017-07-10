@@ -1,20 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerTest : MonoBehaviour
 {
-	private Animator anim;
+	//private Animator anim;
+	//private NavMeshAgent agent;
 
 	// Use this for initialization
-	void Awake()
+	void Awake ()
 	{
-		anim = GetComponent<Animator>();
+		//anim = GetComponent<Animator> ();
+		//agent = GetComponent<NavMeshAgent> ();
 	}
 	
 	// Update is called once per frame
-	void Update()
+	void Update ()
 	{
+		if (Input.GetMouseButtonDown (0)) {
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray.origin, ray.direction, out hit)) {
+				print (hit.point);
+				ActionManager.GetInstance ().ApplyMoveToAction (this.gameObject, hit.point, ActionID.MOVETO, null);
+			}
+		}
+		/*
 		if (Input.GetKey(KeyCode.W))
 		{
 			anim.SetBool("IsWalking", true);
@@ -35,5 +47,6 @@ public class PlayerTest : MonoBehaviour
 		{
 			anim.SetBool("IsSiting", false);
 		}
+		*/
 	}
 }
