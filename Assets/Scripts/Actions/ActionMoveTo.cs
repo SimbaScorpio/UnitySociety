@@ -45,7 +45,7 @@ public class ActionMoveTo : ActionSingle, ActionCompleted
 
 	void Begin (Vector3 targetPosition)
 	{
-		person.Action = this;
+		//person.Action = this;
 		isBegin = true;
 
 		agent.SetDestination (targetPosition);

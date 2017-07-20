@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class PlayerTest : MonoBehaviour
 {
+	public Text text;
+
 	//private Animator anim;
-	//private NavMeshAgent agent;
 
 	// Use this for initialization
 	void Awake ()
 	{
 		//anim = GetComponent<Animator> ();
-		//agent = GetComponent<NavMeshAgent> ();
 	}
 	
 	// Update is called once per frame
@@ -23,30 +23,80 @@ public class PlayerTest : MonoBehaviour
 			RaycastHit hit;
 			if (Physics.Raycast (ray.origin, ray.direction, out hit)) {
 				print (hit.point);
-				ActionManager.GetInstance ().ApplyMoveToAction (this.gameObject, hit.point, ActionID.MOVETO, null);
+				ActionManager.GetInstance ().ApplyWalkToAction (this.gameObject, hit.point, null);
+				//ActionManager.GetInstance ().ApplyMoveToAction (this.gameObject, hit.point, ActionID.MOVETO, null);
 			}
 		}
+
 		/*
-		if (Input.GetKey(KeyCode.W))
-		{
-			anim.SetBool("IsWalking", true);
+		if (Input.GetKey (KeyCode.W)) {
+			anim.SetBool ("IsWalking", true);
+		} else {
+			anim.SetBool ("IsWalking", false);
 		}
-		else
-		{
-			anim.SetBool("IsWalking", false);
+		if (Input.GetKey (KeyCode.Q)) {
+			anim.SetBool ("IsStairing", true);
+		} else {
+			anim.SetBool ("IsStairing", false);
 		}
-		if (Input.GetKeyDown(KeyCode.P))
-		{
-			anim.SetTrigger("PlayVR");
+		if (Input.GetKey (KeyCode.S)) {
+			anim.SetBool ("IsSitting", true);
+		} else {
+			anim.SetBool ("IsSitting", false);
 		}
-		if (Input.GetKey(KeyCode.S))
-		{
-			anim.SetBool("IsSiting", true);
-		}
-		else
-		{
-			anim.SetBool("IsSiting", false);
-		}
-		*/
+	*/
+
 	}
+
+	/*
+	public void OnIdle ()
+	{
+		print ("Idle");
+		text.text = "Idle";
+	}
+
+	public void OnWalk ()
+	{
+		print ("Walk");
+		if (anim.GetBool ("IsWalking"))
+			text.text = "Walk";
+	}
+
+	public void OnUpStairs ()
+	{
+		print ("UpStairs");
+		if (anim.GetBool ("IsStairing"))
+			text.text = "Up Stairs";
+	}
+
+	public void OnSitDown ()
+	{
+		print ("SitDown");
+		text.text = "Sit Down";
+	}
+
+	public void OnStandUp ()
+	{
+		print ("StandUp");
+		text.text = "Stand Up";
+	}
+
+	public void OnTypeAndClick ()
+	{
+		print ("TypeAndClick");
+		text.text = "Type And Click";
+	}
+
+	public void OnScratchHead ()
+	{
+		print ("ScratchHead");
+		text.text = "Scratch Head";
+	}
+
+	public void OnWorry ()
+	{
+		print ("Worry");
+		text.text = "Worry";
+	}
+	*/
 }

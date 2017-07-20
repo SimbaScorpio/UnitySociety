@@ -55,13 +55,6 @@ public class ActionManager : Object
 		return ac;
 	}
 
-	public Action ApplyChatAction (GameObject obj, string content, float duration, ActionCompleted callback)
-	{
-		ActionChat ac = obj.AddComponent<ActionChat> ();
-		ac.Setting (obj, content, duration, callback);
-		return ac;
-	}
-
 	public Action ApplyLookAtAction (GameObject obj, Vector3 lookAtTargetPosition, ActionCompleted callback)
 	{
 		/*
@@ -70,6 +63,81 @@ public class ActionManager : Object
 			lookat.Finish ();*/
 		ActionLookAt ac = obj.AddComponent<ActionLookAt> ();
 		ac.Setting (obj, lookAtTargetPosition, callback);
+		return ac;
+	}
+
+
+
+	// Movement
+	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, Quaternion destinationRotation, ActionCompleted callback)
+	{
+		ActionWalkTo ac = obj.AddComponent<ActionWalkTo> ();
+		ac.Setting (obj, destinationPosition, true, destinationRotation, callback);
+		return ac;
+	}
+
+	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, ActionCompleted callback)
+	{
+		ActionWalkTo ac = obj.AddComponent<ActionWalkTo> ();
+		ac.Setting (obj, destinationPosition, false, Quaternion.identity, callback);
+		return ac;
+	}
+
+
+	// ChatBubble
+	public Action ApplyChatAction (GameObject obj, string content, float duration, ActionCompleted callback)
+	{
+		obj = obj.transform.Find ("Bubble").gameObject;
+		if (!obj)
+			return null;
+		ActionChat ac = obj.GetComponent<ActionChat> ();
+		if (ac == null)
+			ac = obj.AddComponent<ActionChat> ();
+		ac.Setting (obj, content, duration, callback);
+		return ac;
+	}
+
+
+	// Animation
+	public Action ApplySitDownAction (GameObject obj, ActionCompleted callback)
+	{
+		ActionSitDown ac = obj.AddComponent<ActionSitDown> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyStandUpAction (GameObject obj, ActionCompleted callback)
+	{
+		ActionStandUp ac = obj.AddComponent<ActionStandUp> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplySimpleClickAction (GameObject obj, ActionCompleted callback)
+	{
+		ActionSimpleClick ac = obj.AddComponent<ActionSimpleClick> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplySimpleTypeAction (GameObject obj, ActionCompleted callback)
+	{
+		ActionSimpleType ac = obj.AddComponent<ActionSimpleType> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyWorryAction (GameObject obj, ActionCompleted callback)
+	{
+		ActionWorry ac = obj.AddComponent<ActionWorry> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyScratchHeadAction (GameObject obj, ActionCompleted callback)
+	{
+		ActionScratchHead ac = obj.AddComponent<ActionScratchHead> ();
+		ac.Setting (obj, callback);
 		return ac;
 	}
 }
@@ -100,14 +168,14 @@ public class ActionSingle : Action
 		ActionSingle[] ac = GetComponents<ActionSingle> ();
 		if (ac.Length == 2) {
 			if (ac [0].ID != ActionID.MOVETO) {
-				Destroy (ac [0]);
+				ac [0].Free ();
 			} else if (ID != ActionID.AVOID) {
-				Destroy (ac [0]);
+				ac [0].Free ();
 			}
 		}
 		if (ac.Length > 2) {
 			for (int i = 0; i < ac.Length - 1; ++i) {
-				Destroy (ac [i]);
+				ac [i].Free ();
 			}
 		}
 	}
@@ -130,9 +198,16 @@ public enum ActionID
 {
 	IDLE,
 	MOVETO,
+	WALKTO,
 	AVOID,
 	LOOKAT,
 	CHAT,
 	TAKEELEVATOR,
-	SETDESTINATION
+	SETDESTINATION,
+	SITDOWN,
+	STANDUP,
+	SIMPLECLICK,
+	SIMPLETYPE,
+	SCRATCHHEAD,
+	WORRY,
 }

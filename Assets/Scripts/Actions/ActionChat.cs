@@ -5,68 +5,82 @@ using UnityEngine.UI;
 
 public class ActionChat : ActionThread
 {
-	public GameObject obj;
-	public string content;
-	public float duration;
-
+	private GameObject bubble;
+	public string content = "";
+	public float duration = -1.0f;
 	private ActionCompleted monitor = null;
 
-	private GameObject canvas;
+	public Queue<string> contents = new Queue<string> ();
+	private Queue<float> durations = new Queue<float> ();
+	private Queue<ActionCompleted> monitors = new Queue<ActionCompleted> ();
+
 	private Animator animator;
+	private bool startCounting = false;
 
-
-	void Start ()
+	public void Setting (GameObject bubble, string content, float duration, ActionCompleted callback)
 	{
-		this.ID = ActionID.CHAT;
-	}
-
-
-	public void Setting (GameObject obj, string content, float duration, ActionCompleted callback)
-	{
-		this.obj = obj;
-		this.content = content;
-		this.duration = duration + 0.2f;
-		this.monitor = callback;
-
-		canvas = obj.transform.Find ("Bubble").gameObject;
-		if (!canvas)
-			Finish ();
-		
-		animator = canvas.GetComponent<Animator> ();
-
-		this.Begin ();
+		if (this.bubble == null) {
+			this.ID = ActionID.CHAT;
+			this.bubble = bubble;
+			this.content = content;
+			this.duration = duration;
+			this.monitor = callback;
+			animator = bubble.GetComponent<Animator> ();
+			Begin ();
+		} else {
+			contents.Enqueue (content);
+			durations.Enqueue (duration);
+			monitors.Enqueue (callback);
+			print (contents.Count);
+			animator.SetBool ("IsPoping", false);
+		}
 	}
 
 
 	void Begin ()
 	{
-		canvas.SetActive (true);
-		canvas.GetComponentInChildren<Text> ().text = content;
+		bubble.SetActive (true);
+		bubble.GetComponentInChildren<Text> ().text = content;
 		animator.SetBool ("IsPoping", true);
+		startCounting = false;
 	}
 
 
-	void Finish ()
+	public void OnChatStarted ()
 	{
+		print ("OnChatStarted");
+		startCounting = true;
+	}
+
+
+	public void OnChatFinished ()
+	{
+		print ("OnChatFinished");
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}
-		Destroy (this);
+		if (contents.Count > 0) {
+			content = contents.Dequeue ();
+			duration = durations.Dequeue ();
+			monitor = monitors.Dequeue ();
+			Begin ();
+		} else {
+			bubble.SetActive (false);
+			Destroy (this);
+		}
 	}
+
+
 
 
 	void Update ()
 	{
-		if (duration < 0) {
-			this.Finish ();
-		} else {
+		if (duration < 0)
+			animator.SetBool ("IsPoping", false);
+		if (startCounting)
 			duration -= Time.deltaTime;
-			if (duration <= 0.2f) {
-				animator.SetBool ("IsPoping", false);
-			}
-			//canvas.transform.LookAt(Camera.main.transform.position);
-			//canvas.transform.Rotate(new Vector3(0, 180, 0));
-			canvas.transform.rotation = Quaternion.Euler (new Vector3 (0, 0, 0));
-		}
+		//bubble.transform.LookAt(Camera.main.transform.position);
+		//bubble.transform.Rotate(new Vector3(0, 180, 0));
+		bubble.transform.rotation = Quaternion.Euler (new Vector3 (0, 180, 0));
 	}
 }
