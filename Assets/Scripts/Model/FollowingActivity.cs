@@ -11,5 +11,5 @@ public class FollowingActivity
 	public string composition_movement_name;
 	public int num_other_people;
 	public Self self;
-	//public OtherPerson[] other_people;
+	public ThirdPerson[] other_people;
 }

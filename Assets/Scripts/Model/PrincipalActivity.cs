@@ -11,5 +11,5 @@ public class PrincipalActivity
 	public string composite_movement_name;
 	public int num_other_people;
 	public Self self;
-	public OtherPerson[] other_people;
+	public SecondPerson[] other_people;
 }

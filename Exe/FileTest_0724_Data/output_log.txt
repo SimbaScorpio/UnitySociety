@@ -21,16 +21,16 @@ Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\FileTest_0724_Data\M
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\FileTest_0724_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\FileTest_0724_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\FileTest_0724_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.025 seconds
+- Completed reload, in  0.036 seconds
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\FileTest_0724_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\FileTest_0724_Data\Managed\System.dll (this message is harmless)
 desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.717531 ms
+UnloadTime: 0.730941 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 3a74 -> priority: 1 
-  Thread -> id: 2d6c -> priority: 1 
-  Thread -> id: 4a84 -> priority: 1 
-  Thread -> id: 8a0 -> priority: 1 
+  Thread -> id: 164c -> priority: 1 
+  Thread -> id: 3d08 -> priority: 1 
+  Thread -> id: 576c -> priority: 1 
+  Thread -> id: 32a8 -> priority: 1 
