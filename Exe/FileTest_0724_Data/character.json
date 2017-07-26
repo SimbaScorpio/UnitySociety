@@ -1,0 +1,19 @@
+{
+	"characters": [{
+		"id": 1,
+		"name": "Anny",
+		"bodyType": 1,
+		"clothing": 1
+	},{
+		"id": 2,
+		"name": "Bob",
+		"bodyType": 2,
+		"clothing": 3
+	},{
+		"id": 3,
+		"name": "David",
+		"bodyType": 2,
+		"clothing": 2
+	}
+	]
+}

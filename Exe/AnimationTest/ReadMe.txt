@@ -1,2 +1,0 @@
-AnimationTest_1 是以"walking still"骨骼作为所有动画的共用骨骼
-AnimationTest_2 是以"worrying"骨骼作为所有动画的共用骨骼

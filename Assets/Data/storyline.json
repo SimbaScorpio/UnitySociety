@@ -1,0 +1,119 @@
+{
+	"characters": [
+		{
+			"id": 1,
+			"name": "David",
+			"career": "设计师",
+			"initial_position": "location_1",
+			"body_type": "default",
+			"clothing": "default",
+			"spare_time_main": "敲击键盘",
+			"spare_time_aid": [
+				"移动鼠标",
+				"坐姿挠头"
+			]
+		},
+		{
+			"id": 2,
+			"name": "Tom",
+			"career": "程序员",
+			"initial_position": "location_2",
+			"body_type": "default",
+			"clothing": "default",
+			"spare_time_main": "敲击键盘",
+			"spare_time_aid": [
+				"移动鼠标",
+				"坐姿挠头"
+			]
+		}
+	],
+
+	"jobs": [
+		{
+			"id": 1,
+			"name": "设计师甲",
+			"candidates": [
+				"David"
+			]
+		},
+		{
+			"id": 2,
+			"name": "程序员甲",
+			"candidates": [
+				"Tom"
+			]
+		}
+	],
+
+	"composite_movements": [
+		{
+			"id": 1,
+			"name": "发送邮件",
+			"components": [
+				"移动鼠标",
+				"敲击键盘",
+				"敲击键盘",
+				"敲击键盘"
+			]
+		},
+		{
+			"id": 2,
+			"name": "使用电脑",
+			"components": [
+				"敲击键盘"
+			]
+		}
+	],
+
+	"storyline_spots": [
+		{
+			"id": 1,
+			"start_time": 20,
+			"end_time": 100,
+			"spot_name": "请人修电脑",
+			"principal": "设计师甲",
+			"principal_activities": [
+				{
+					"pa_id": 1,
+					"duration": 10,
+					"description": "发邮件给程序员甲让他去使用另一台电脑",
+					"composite_movement_name": "发送邮件",
+					"num_other_people": 1,
+					"self": {
+						"location_to_type": 0,
+						"location_to": null,
+						"bubble_type": 1,
+						"bubble_duration": 2,
+						"bubble_content": "发送邮件……",
+						"screen": null
+					},
+					"other_people": {
+						"name": "程序员甲",
+						"location_to_type": 0,
+						"location_to": null,
+						"bubble_type": 1,
+						"bubble_duration": 2,
+						"bubble_content": "接受邮件……",
+						"num_following_activities": [
+							{
+								"fa_id": 1,
+								"duration": 10,
+								"description": "修电脑",
+								"composite_movement_name": "使用电脑",
+								"num_other_people": 0,
+								"self": {
+									"location_to_type": 1,
+									"location_to": "location_3",
+									"bubble_type": 1,
+									"bubble_duration": 10,
+									"bubble_content": "正在修电脑……",
+									"screen": null
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	]
+}

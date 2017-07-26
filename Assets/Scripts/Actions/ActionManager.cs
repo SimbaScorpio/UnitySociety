@@ -22,24 +22,13 @@ public class ActionManager : Object
 		}
 	}
 
+	//-------------------
 	public Action ApplyMoveToAction (GameObject obj, Vector3 position, ActionID type, ActionCompleted callback)
 	{
-		/*
-		if (type == ActionID.MOVETO) {
-			ActionMoveTo[] movetos = obj.GetComponents<ActionMoveTo> ();
-			foreach (ActionMoveTo moveto in movetos)
-				Destroy (moveto);
-		}
-
-		ActionLookAt[] lookats = obj.GetComponents<ActionLookAt> ();
-		foreach (ActionLookAt lookat in lookats)
-			lookat.Finish ();
-		*/
 		ActionMoveTo ac = obj.AddComponent<ActionMoveTo> ();
 		ac.Setting (obj, position, type, callback);
 		return ac;
 	}
-
 
 	public Action ApplyElevatorAction (GameObject obj, FacilityElevator elevator, int waitingFloor, int targetFloor, ActionCompleted callback)
 	{
@@ -57,14 +46,11 @@ public class ActionManager : Object
 
 	public Action ApplyLookAtAction (GameObject obj, Vector3 lookAtTargetPosition, ActionCompleted callback)
 	{
-		/*
-		ActionLookAt[] lookats = obj.GetComponents<ActionLookAt> ();
-		foreach (ActionLookAt lookat in lookats)
-			lookat.Finish ();*/
 		ActionLookAt ac = obj.AddComponent<ActionLookAt> ();
 		ac.Setting (obj, lookAtTargetPosition, callback);
 		return ac;
 	}
+	//----------------------
 
 
 
@@ -87,7 +73,7 @@ public class ActionManager : Object
 	// ChatBubble
 	public Action ApplyChatAction (GameObject obj, string content, float duration, ActionCompleted callback)
 	{
-		obj = obj.transform.Find ("Bubble").gameObject;
+		obj = obj.transform.Find ("hip_ctrl").transform.Find ("Bubble").gameObject;
 		if (!obj)
 			return null;
 		ActionChat ac = obj.GetComponent<ActionChat> ();

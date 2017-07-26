@@ -32,7 +32,7 @@ public class ActionChat : ActionThread
 			durations.Enqueue (duration);
 			monitors.Enqueue (callback);
 			print (contents.Count);
-			animator.SetBool ("IsPoping", false);
+			animator.SetTrigger ("Fade");
 		}
 	}
 
@@ -41,7 +41,7 @@ public class ActionChat : ActionThread
 	{
 		bubble.SetActive (true);
 		bubble.GetComponentInChildren<Text> ().text = content;
-		animator.SetBool ("IsPoping", true);
+		animator.SetTrigger ("Pop");
 		startCounting = false;
 	}
 
@@ -66,11 +66,9 @@ public class ActionChat : ActionThread
 			Begin ();
 		} else {
 			bubble.SetActive (false);
-			Destroy (this);
+			Free ();
 		}
 	}
-
-
 
 
 	void Update ()
