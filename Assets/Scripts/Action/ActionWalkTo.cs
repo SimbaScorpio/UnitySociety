@@ -9,7 +9,7 @@ public class ActionWalkTo : ActionSingle
 	public Vector3 destinationPosition;
 	public bool finalRotate = false;
 	public Quaternion destinationRotation;
-	private ActionCompleted monitor;
+	private IActionCompleted monitor;
 
 	private Animator animator;
 	private NavMeshAgent agent;
@@ -26,7 +26,7 @@ public class ActionWalkTo : ActionSingle
 
 	private readonly int hashSpeedPara = Animator.StringToHash ("Speed");
 
-	public void Setting (GameObject obj, Vector3 destinationPosition, bool finalRotate, Quaternion destinationRotation, ActionCompleted monitor)
+	public void Setting (GameObject obj, Vector3 destinationPosition, bool finalRotate, Quaternion destinationRotation, IActionCompleted monitor)
 	{
 		this.ID = ActionID.WALKTO;
 		this.obj = obj;

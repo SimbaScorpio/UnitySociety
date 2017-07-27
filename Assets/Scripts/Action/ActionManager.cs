@@ -24,14 +24,14 @@ public class ActionManager : Object
 
 
 	// Movement
-	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, Quaternion destinationRotation, ActionCompleted callback)
+	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, Quaternion destinationRotation, IActionCompleted callback)
 	{
 		ActionWalkTo ac = obj.AddComponent<ActionWalkTo> ();
 		ac.Setting (obj, destinationPosition, true, destinationRotation, callback);
 		return ac;
 	}
 
-	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, ActionCompleted callback)
+	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, IActionCompleted callback)
 	{
 		ActionWalkTo ac = obj.AddComponent<ActionWalkTo> ();
 		ac.Setting (obj, destinationPosition, false, Quaternion.identity, callback);
@@ -40,7 +40,7 @@ public class ActionManager : Object
 
 
 	// ChatBubble
-	public Action ApplyChatAction (GameObject obj, string content, float duration, ActionCompleted callback)
+	public Action ApplyChatAction (GameObject obj, string content, float duration, IActionCompleted callback)
 	{
 		obj = obj.transform.Find ("hip_ctrl").transform.Find ("Bubble").gameObject;
 		if (!obj)
@@ -54,35 +54,35 @@ public class ActionManager : Object
 
 
 	// Animation
-	public Action ApplySitDownAction (GameObject obj, ActionCompleted callback)
+	public Action ApplySitDownAction (GameObject obj, IActionCompleted callback)
 	{
 		ActionSitDown ac = obj.AddComponent<ActionSitDown> ();
 		ac.Setting (obj, callback);
 		return ac;
 	}
 
-	public Action ApplyStandUpAction (GameObject obj, ActionCompleted callback)
+	public Action ApplyStandUpAction (GameObject obj, IActionCompleted callback)
 	{
 		ActionStandUp ac = obj.AddComponent<ActionStandUp> ();
 		ac.Setting (obj, callback);
 		return ac;
 	}
 
-	public Action ApplySimpleClickAction (GameObject obj, ActionCompleted callback)
+	public Action ApplySimpleClickAction (GameObject obj, IActionCompleted callback)
 	{
 		ActionSimpleClick ac = obj.AddComponent<ActionSimpleClick> ();
 		ac.Setting (obj, callback);
 		return ac;
 	}
 
-	public Action ApplySimpleTypeAction (GameObject obj, ActionCompleted callback)
+	public Action ApplySimpleTypeAction (GameObject obj, IActionCompleted callback)
 	{
 		ActionSimpleType ac = obj.AddComponent<ActionSimpleType> ();
 		ac.Setting (obj, callback);
 		return ac;
 	}
 
-	public Action ApplyScratchHeadAction (GameObject obj, ActionCompleted callback)
+	public Action ApplyScratchHeadAction (GameObject obj, IActionCompleted callback)
 	{
 		ActionScratchHead ac = obj.AddComponent<ActionScratchHead> ();
 		ac.Setting (obj, callback);
@@ -91,7 +91,7 @@ public class ActionManager : Object
 }
 
 
-public interface ActionCompleted
+public interface IActionCompleted
 {
 	void OnActionCompleted (Action action);
 }

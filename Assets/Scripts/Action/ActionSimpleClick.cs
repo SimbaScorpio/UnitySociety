@@ -6,11 +6,11 @@ public class ActionSimpleClick : ActionSingle
 {
 	public GameObject obj;
 	private Animator animator;
-	private ActionCompleted monitor;
+	private IActionCompleted monitor;
 
 	private GameObject mouse;
 
-	public void Setting (GameObject obj, ActionCompleted monitor)
+	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
 		this.ID = ActionID.SIMPLECLICK;
 		this.obj = obj;

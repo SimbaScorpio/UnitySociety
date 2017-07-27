@@ -6,9 +6,9 @@ public class ActionSimpleType : ActionSingle
 {
 	public GameObject obj;
 	private Animator animator;
-	private ActionCompleted monitor;
+	private IActionCompleted monitor;
 
-	public void Setting (GameObject obj, ActionCompleted monitor)
+	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
 		this.ID = ActionID.SIMPLETYPE;
 		this.obj = obj;

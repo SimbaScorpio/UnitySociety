@@ -6,7 +6,7 @@
 			"career": "设计师",
 			"initial_position": "location_1",
 			"body_type": "default",
-			"clothing": "default",
+			"clothing": "player_2",
 			"spare_time_main": "敲击键盘",
 			"spare_time_aid": [
 				"移动鼠标",
@@ -19,7 +19,7 @@
 			"career": "程序员",
 			"initial_position": "location_2",
 			"body_type": "default",
-			"clothing": "default",
+			"clothing": "player_1",
 			"spare_time_main": "敲击键盘",
 			"spare_time_aid": [
 				"移动鼠标",

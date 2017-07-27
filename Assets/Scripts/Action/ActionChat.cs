@@ -8,16 +8,16 @@ public class ActionChat : ActionThread
 	private GameObject bubble;
 	public string content = "";
 	public float duration = -1.0f;
-	private ActionCompleted monitor = null;
+	private IActionCompleted monitor = null;
 
 	public Queue<string> contents = new Queue<string> ();
 	private Queue<float> durations = new Queue<float> ();
-	private Queue<ActionCompleted> monitors = new Queue<ActionCompleted> ();
+	private Queue<IActionCompleted> monitors = new Queue<IActionCompleted> ();
 
 	private Animator animator;
 	private bool startCounting = false;
 
-	public void Setting (GameObject bubble, string content, float duration, ActionCompleted callback)
+	public void Setting (GameObject bubble, string content, float duration, IActionCompleted callback)
 	{
 		if (this.bubble == null) {
 			this.ID = ActionID.CHAT;

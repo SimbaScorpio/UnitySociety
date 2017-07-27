@@ -9,8 +9,8 @@ public class Character
 	public string name;
 	public string career;
 	public string initial_position;
-	public int body_type;
-	public int clothing;
+	public string body_type;
+	public string clothing;
 	public string spare_time_main;
 	public string[] spare_time_aid;
 }

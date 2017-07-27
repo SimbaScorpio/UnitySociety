@@ -28,9 +28,8 @@ public class FileManager : MonoBehaviour
 			Debug.Log (www.error);
 		else {
 			string json = www.text;
-			print (json);
-			StoryLine storyline = JsonUtility.FromJson<StoryLine> (json);
-			print (storyline.storyline_spots [0].principal_activities [0].other_people [0].following_activities [0].self.bubble_content);
+			StorylineManager.GetInstance ().storyline = JsonUtility.FromJson<StoryLine> (json);
+			StorylineManager.GetInstance ().Initialize ();
 		}
 	}
 }
