@@ -13,6 +13,11 @@ public class StorylineManager : MonoBehaviour
 
 	public GameObject PlayerPrefab;
 
+	private float time;
+	private bool isTicking;
+
+	private bool[] spotHasStarted;
+
 	private static StorylineManager instance;
 
 	public static StorylineManager GetInstance ()
@@ -35,6 +40,8 @@ public class StorylineManager : MonoBehaviour
 		InitializeCharacters ();
 		InitializeCompositeMovements ();
 		InitializeJobs ();
+		RandomlyArrangeJobCandidates ();
+		InitializeSelfParameters ();
 	}
 
 	void InitializeCharacters ()
@@ -50,6 +57,7 @@ public class StorylineManager : MonoBehaviour
 			GameObject player = Instantiate (PlayerPrefab, initialLocation.position, initialLocation.rotation) as GameObject;
 			Material clothing = MaterialCollection.Get (cha.clothing);
 			player.transform.Find ("mesh").GetComponent<Renderer> ().material = clothing;
+			player.name = cha.name;
 
 			if (nameToCharacter.ContainsKey (cha.name)) {
 				Log.warn ("Initialize character [" + i + "] warning: overlapped name");
@@ -91,8 +99,114 @@ public class StorylineManager : MonoBehaviour
 		}
 	}
 
-	public void RandomlyArrangeJobCandidate ()
+	public void RandomlyArrangeJobCandidates ()
 	{
+		List<string> names = new List<string> ();
+		foreach (string name in nameToJob.Keys) {
+			names.Add (name);
+		}
+		nameToJobCandidate.Clear ();
+		if (!RecursivelyArrangeJobCandidate (names, 0)) {
+			Log.error ("Select job candidates failed: impossible combination");
+		}
+	}
+
+	bool RecursivelyArrangeJobCandidate (List<string> jobNames, int i)
+	{
+		if (i >= jobNames.Count)
+			return true;
 		
+		Job job = nameToJob [jobNames [i]];
+		if (job.candidates.Length == 0) {
+			Log.warn ("Select job candidate [" + jobNames [i] + "] warning: no candidates");
+			return RecursivelyArrangeJobCandidate (jobNames, i + 1);
+		}
+
+		List<string> possibleChaNames = new List<string> ();
+		foreach (string chaName in job.candidates) {
+			if (!nameToCharacter.ContainsKey (chaName)) {
+				Log.warn ("Character [" + chaName + "] in job [" + jobNames [i] + "] is illegal: cannot find");
+				continue;
+			}
+			if (!nameToJobCandidate.ContainsValue (chaName))
+				possibleChaNames.Add (chaName);
+		}
+		if (possibleChaNames.Count == 0) {
+			nameToJobCandidate.Remove (jobNames [i]);
+			return false;
+		}
+
+		int index = Random.Range (0, possibleChaNames.Count);
+		nameToJobCandidate [jobNames [i]] = possibleChaNames [index];
+		while (!RecursivelyArrangeJobCandidate (jobNames, i + 1)) {
+			possibleChaNames.RemoveAt (index);
+			if (possibleChaNames.Count == 0) {
+				nameToJobCandidate.Remove (jobNames [i]);
+				return false;
+			}
+			index = Random.Range (0, possibleChaNames.Count);
+			nameToJobCandidate [jobNames [i]] = possibleChaNames [index];
+		}
+		return true;
+	}
+
+	void InitializeSelfParameters ()
+	{
+		time = 0.0f;
+		isTicking = false;
+		spotHasStarted = new bool[storyline.storyline_spots.Length];
+		for (int i = 0; i < storyline.storyline_spots.Length; ++i)
+			spotHasStarted [i] = false;
+	}
+
+	bool StartStorylineSpot (StoryLineSpot spot)
+	{
+		GameObject obj = nameToCharacterObj [spot.principal];
+		Person person = obj.GetComponent<Person> ();
+		return person.AddPrincipalActivities (spot.principal_activities);
+	}
+
+	void EndStorylineSpot (StoryLineSpot spot)
+	{
+		GameObject obj = nameToCharacterObj [spot.principal];
+		Person person = obj.GetComponent<Person> ();
+		person.Stop ();
+	}
+
+
+	public void Tick ()
+	{
+		time = 0.0f;
+		isTicking = true;
+	}
+
+	void Update ()
+	{
+		if (!isTicking)
+			return;
+		time += Time.deltaTime;
+		for (int i = 0; i < storyline.storyline_spots.Length; ++i) {
+			StoryLineSpot spot = storyline.storyline_spots [i];
+			if (string.IsNullOrEmpty (spot.principal)) {
+				spotHasStarted [i] = true;
+				Log.warn ("Spot [" + spot.spot_name + "] misses principal: skipped");
+			} else if (spot.principal_activities.Length == 0) {
+				spotHasStarted [i] = true;
+				Log.warn ("Spot [" + spot.spot_name + "] misses principal activities: skipped");
+			} else {
+				if (time >= spot.start_time && time < spot.end_time) {
+					if (!spotHasStarted [i]) {
+						if (StartStorylineSpot (spot)) {
+							spotHasStarted [i] = true;
+						} else {
+							Log.warn ("Try to start spot [" + spot.spot_name + "] failed: principal busy");
+						}
+					}
+				} else if (time >= spot.end_time) {
+					spotHasStarted [i] = true;
+					EndStorylineSpot (spot);
+				}
+			}
+		}
 	}
 }

@@ -9,6 +9,7 @@ public class PrincipalActivity
 	public float duration;
 	public string description;
 	public string composite_movement_name;
+	public int contact_type;
 	public int num_other_people;
 	public Self self;
 	public SecondPerson[] other_people;

@@ -10,7 +10,7 @@ public class ActionStandUp : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.ID = ActionID.STANDUP;
+		this.id = ActionID.STANDUP;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
@@ -19,6 +19,12 @@ public class ActionStandUp : ActionSingle
 
 	public void OnStandUpFinished ()
 	{
+		StartCoroutine (wait ());
+	}
+
+	IEnumerator wait ()
+	{
+		yield return new WaitForEndOfFrame ();
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}

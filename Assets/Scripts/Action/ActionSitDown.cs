@@ -10,7 +10,7 @@ public class ActionSitDown : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.ID = ActionID.SITDOWN;
+		this.id = ActionID.SITDOWN;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
@@ -19,6 +19,12 @@ public class ActionSitDown : ActionSingle
 
 	public void OnSitDownFinished ()
 	{
+		StartCoroutine (wait ());
+	}
+
+	IEnumerator wait ()
+	{
+		yield return new WaitForEndOfFrame ();
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}

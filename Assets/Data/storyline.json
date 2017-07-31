@@ -33,13 +33,15 @@
 			"id": 1,
 			"name": "设计师甲",
 			"candidates": [
-				"David"
+				"David",
+				"Tom"
 			]
 		},
 		{
 			"id": 2,
 			"name": "程序员甲",
 			"candidates": [
+				"David",
 				"Tom"
 			]
 		}
@@ -78,6 +80,7 @@
 					"duration": 10,
 					"description": "发邮件给程序员甲让他去使用另一台电脑",
 					"composite_movement_name": "发送邮件",
+					"contact_type": 1,
 					"num_other_people": 1,
 					"self": {
 						"location_to_type": 0,
@@ -102,6 +105,7 @@
 									"duration": 10,
 									"description": "修电脑",
 									"composite_movement_name": "使用电脑",
+									"contact_type": 1,
 									"num_other_people": 0,
 									"self": {
 										"location_to_type": 1,

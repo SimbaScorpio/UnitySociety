@@ -28,16 +28,23 @@ public class ActionWalkTo : ActionSingle
 
 	public void Setting (GameObject obj, Vector3 destinationPosition, bool finalRotate, Quaternion destinationRotation, IActionCompleted monitor)
 	{
-		this.ID = ActionID.WALKTO;
-		this.obj = obj;
-		this.finalRotate = finalRotate;
-		this.destinationPosition = destinationPosition;
-		this.destinationRotation = destinationRotation;
-		this.monitor = monitor;
-		this.animator = obj.GetComponent<Animator> ();
-		this.agent = obj.GetComponent<NavMeshAgent> ();
-
-		Begin ();
+		if (this.obj == null) {
+			this.id = ActionID.WALKTO;
+			this.obj = obj;
+			this.finalRotate = finalRotate;
+			this.destinationPosition = destinationPosition;
+			this.destinationRotation = destinationRotation;
+			this.monitor = monitor;
+			this.animator = obj.GetComponent<Animator> ();
+			this.agent = obj.GetComponent<NavMeshAgent> ();
+			Begin ();
+		} else {
+			this.finalRotate = finalRotate;
+			this.destinationPosition = destinationPosition;
+			this.destinationRotation = destinationRotation;
+			this.monitor = monitor;
+			Begin ();
+		}
 	}
 
 	void Begin ()
@@ -47,6 +54,7 @@ public class ActionWalkTo : ActionSingle
 			destinationPosition = hit.position;
 		}
 		agent.updateRotation = false;
+		agent.ResetPath ();
 		agent.SetDestination (destinationPosition);
 		agent.isStopped = false;
 	}
@@ -71,8 +79,6 @@ public class ActionWalkTo : ActionSingle
 		animator.speed = speed * ANIMATORSPEEDPROPOTION;
 
 		if (transform.position == destinationPosition) {
-			animator.speed = 1;
-			agent.ResetPath ();
 			Finish ();
 		}
 	}
@@ -100,8 +106,10 @@ public class ActionWalkTo : ActionSingle
 		transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, TURNSMOOTHING * Time.deltaTime);
 	}
 
-	void Finish ()
+	public void Finish ()
 	{
+		animator.speed = 1;
+		agent.ResetPath ();
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}

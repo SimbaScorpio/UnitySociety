@@ -8,7 +8,7 @@ public class Self
 	public int location_to_type;
 	public string location_to;
 	public int bubble_type;
-	public float bubble_duration;
+	public int bubble_duration;
 	public string bubble_content;
 	public string screen;
 }

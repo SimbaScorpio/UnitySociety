@@ -24,17 +24,12 @@ public class ActionManager : Object
 
 
 	// Movement
-	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, Quaternion destinationRotation, IActionCompleted callback)
+	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, bool finalRotate, Quaternion destinationRotation, IActionCompleted callback)
 	{
-		ActionWalkTo ac = obj.AddComponent<ActionWalkTo> ();
-		ac.Setting (obj, destinationPosition, true, destinationRotation, callback);
-		return ac;
-	}
-
-	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, IActionCompleted callback)
-	{
-		ActionWalkTo ac = obj.AddComponent<ActionWalkTo> ();
-		ac.Setting (obj, destinationPosition, false, Quaternion.identity, callback);
+		ActionWalkTo ac = obj.GetComponent<ActionWalkTo> ();
+		if (ac == null)
+			ac = obj.AddComponent<ActionWalkTo> ();
+		ac.Setting (obj, destinationPosition, finalRotate, destinationRotation, callback);
 		return ac;
 	}
 
@@ -42,13 +37,13 @@ public class ActionManager : Object
 	// ChatBubble
 	public Action ApplyChatAction (GameObject obj, string content, float duration, IActionCompleted callback)
 	{
-		obj = obj.transform.Find ("hip_ctrl").transform.Find ("Bubble").gameObject;
-		if (!obj)
+		GameObject bubble = obj.transform.Find ("hip_ctrl").transform.Find ("Bubble").gameObject;
+		if (bubble == null)
 			return null;
-		ActionChat ac = obj.GetComponent<ActionChat> ();
+		ActionChat ac = bubble.GetComponent<ActionChat> ();
 		if (ac == null)
-			ac = obj.AddComponent<ActionChat> ();
-		ac.Setting (obj, content, duration, callback);
+			ac = bubble.AddComponent<ActionChat> ();
+		ac.Setting (obj, bubble, content, duration, callback);
 		return ac;
 	}
 
@@ -56,6 +51,7 @@ public class ActionManager : Object
 	// Animation
 	public Action ApplySitDownAction (GameObject obj, IActionCompleted callback)
 	{
+		obj.GetComponent<Person> ().isStanding = false;
 		ActionSitDown ac = obj.AddComponent<ActionSitDown> ();
 		ac.Setting (obj, callback);
 		return ac;
@@ -63,6 +59,7 @@ public class ActionManager : Object
 
 	public Action ApplyStandUpAction (GameObject obj, IActionCompleted callback)
 	{
+		obj.GetComponent<Person> ().isStanding = true;
 		ActionStandUp ac = obj.AddComponent<ActionStandUp> ();
 		ac.Setting (obj, callback);
 		return ac;
@@ -88,52 +85,40 @@ public class ActionManager : Object
 		ac.Setting (obj, callback);
 		return ac;
 	}
-}
 
 
-public interface IActionCompleted
-{
-	void OnActionCompleted (Action action);
-}
-
-
-public class Action : MonoBehaviour
-{
-	public ActionID ID;
-
-	public void Free ()
+	public bool IsSitAction (string actionName)
 	{
-		Destroy (this);	// 卸载脚本
+		if (actionName == "起立" || actionName == "敲击键盘" || actionName == "移动鼠标" || actionName == "坐姿挠头")
+			return true;
+		return false;
 	}
-}
+
+	public bool IsStandAction (string actionName)
+	{
+		if (actionName == "坐下")
+			return true;
+		return false;
+	}
 
 
-public class ActionSingle : Action
-{
-	// 独立动作
-}
-
-
-public class ActionMultiple : Action
-{
-	// 复合动作
-}
-
-
-public class ActionThread : Action
-{
-	// 同存动作
-}
-
-
-public enum ActionID
-{
-	IDLE,
-	WALKTO,
-	CHAT,
-	SITDOWN,
-	STANDUP,
-	SIMPLECLICK,
-	SIMPLETYPE,
-	SCRATCHHEAD
+	public Action ApplyAction (string actionName, GameObject obj, IActionCompleted monitor)
+	{
+		switch (actionName) {
+		case "坐下":
+			obj.GetComponent<Person> ().isStanding = false;
+			return ApplySitDownAction (obj, monitor);
+		case "起立":
+			obj.GetComponent<Person> ().isStanding = true;
+			return ApplyStandUpAction (obj, monitor);
+		case "敲击键盘":
+			return ApplySimpleTypeAction (obj, monitor);
+		case "移动鼠标":
+			return ApplySimpleClickAction (obj, monitor);
+		case "坐姿挠头":
+			return ApplyScratchHeadAction (obj, monitor);
+		default:
+			return null;
+		}
+	}
 }

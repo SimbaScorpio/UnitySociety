@@ -9,6 +9,7 @@ public class FollowingActivity
 	public float duration;
 	public string description;
 	public string composition_movement_name;
+	public int contact_type;
 	public int num_other_people;
 	public Self self;
 	public ThirdPerson[] other_people;

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ActionChat : ActionThread
 {
+	private GameObject obj;
 	private GameObject bubble;
 	public string content = "";
 	public float duration = -1.0f;
@@ -17,10 +18,11 @@ public class ActionChat : ActionThread
 	private Animator animator;
 	private bool startCounting = false;
 
-	public void Setting (GameObject bubble, string content, float duration, IActionCompleted callback)
+	public void Setting (GameObject obj, GameObject bubble, string content, float duration, IActionCompleted callback)
 	{
-		if (this.bubble == null) {
-			this.ID = ActionID.CHAT;
+		if (this.obj == null) {
+			this.id = ActionID.CHAT;
+			this.obj = obj;
 			this.bubble = bubble;
 			this.content = content;
 			this.duration = duration;
@@ -31,7 +33,6 @@ public class ActionChat : ActionThread
 			contents.Enqueue (content);
 			durations.Enqueue (duration);
 			monitors.Enqueue (callback);
-			print (contents.Count);
 			animator.SetTrigger ("Fade");
 		}
 	}
@@ -48,14 +49,18 @@ public class ActionChat : ActionThread
 
 	public void OnChatStarted ()
 	{
-		print ("OnChatStarted");
 		startCounting = true;
 	}
 
 
 	public void OnChatFinished ()
 	{
-		print ("OnChatFinished");
+		StartCoroutine (wait ());
+	}
+
+	IEnumerator wait ()
+	{
+		yield return new WaitForEndOfFrame ();
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}
@@ -69,7 +74,6 @@ public class ActionChat : ActionThread
 			Free ();
 		}
 	}
-
 
 	void Update ()
 	{

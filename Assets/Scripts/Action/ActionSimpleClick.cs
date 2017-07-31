@@ -7,16 +7,14 @@ public class ActionSimpleClick : ActionSingle
 	public GameObject obj;
 	private Animator animator;
 	private IActionCompleted monitor;
-
 	private GameObject mouse;
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.ID = ActionID.SIMPLECLICK;
+		this.id = ActionID.SIMPLECLICK;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
-
 		mouse = obj.transform.Find ("mouse").gameObject;
 		mouse.SetActive (true);
 		animator.SetTrigger ("SimpleClick");
@@ -24,6 +22,12 @@ public class ActionSimpleClick : ActionSingle
 
 	public void OnSimpleClickFinished ()
 	{
+		StartCoroutine (wait ());
+	}
+
+	IEnumerator wait ()
+	{
+		yield return new WaitForEndOfFrame ();
 		mouse.SetActive (false);
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
