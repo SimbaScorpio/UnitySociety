@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StorylineManager : MonoBehaviour
 {
-	public StoryLine storyline;
+	public Storyline storyline;
 	public Dictionary<string, GameObject> nameToCharacterObj;
 	public Dictionary<string, Character> nameToCharacter;
 	public Dictionary<string, CompositeMovement> nameToCompositeMovement;
@@ -42,6 +42,7 @@ public class StorylineManager : MonoBehaviour
 		InitializeJobs ();
 		RandomlyArrangeJobCandidates ();
 		InitializeSelfParameters ();
+		Tick ();
 	}
 
 	void InitializeCharacters ()
@@ -159,16 +160,18 @@ public class StorylineManager : MonoBehaviour
 			spotHasStarted [i] = false;
 	}
 
-	bool StartStorylineSpot (StoryLineSpot spot)
+	bool StartStorylineSpot (StorylineSpot spot)
 	{
-		GameObject obj = nameToCharacterObj [spot.principal];
+		string name = nameToJobCandidate [spot.principal];
+		GameObject obj = nameToCharacterObj [name];
 		Person person = obj.GetComponent<Person> ();
 		return person.AddPrincipalActivities (spot.principal_activities);
 	}
 
-	void EndStorylineSpot (StoryLineSpot spot)
+	void EndStorylineSpot (StorylineSpot spot)
 	{
-		GameObject obj = nameToCharacterObj [spot.principal];
+		string name = nameToJobCandidate [spot.principal];
+		GameObject obj = nameToCharacterObj [name];
 		Person person = obj.GetComponent<Person> ();
 		person.Stop ();
 	}
@@ -186,10 +189,13 @@ public class StorylineManager : MonoBehaviour
 			return;
 		time += Time.deltaTime;
 		for (int i = 0; i < storyline.storyline_spots.Length; ++i) {
-			StoryLineSpot spot = storyline.storyline_spots [i];
+			StorylineSpot spot = storyline.storyline_spots [i];
 			if (string.IsNullOrEmpty (spot.principal)) {
 				spotHasStarted [i] = true;
 				Log.warn ("Spot [" + spot.spot_name + "] misses principal: skipped");
+			} else if (!nameToJob.ContainsKey (spot.principal)) {
+				spotHasStarted [i] = true;
+				Log.warn ("Spot [" + spot.spot_name + "] has undefined principal [" + spot.principal + "] : skipped");
 			} else if (spot.principal_activities.Length == 0) {
 				spotHasStarted [i] = true;
 				Log.warn ("Spot [" + spot.spot_name + "] misses principal activities: skipped");

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class StoryLineSpot
+public class StorylineSpot
 {
-	public int id;
 	public float start_time;
 	public float end_time;
 	public string spot_name;

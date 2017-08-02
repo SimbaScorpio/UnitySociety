@@ -5,12 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class FollowingActivity
 {
-	public int fa_id;
 	public float duration;
 	public string description;
-	public string composition_movement_name;
-	public int contact_type;
-	public int num_other_people;
+	public string composite_movement_name;
 	public Self self;
 	public ThirdPerson[] other_people;
 }

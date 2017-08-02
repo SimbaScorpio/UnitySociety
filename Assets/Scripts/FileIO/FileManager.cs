@@ -28,7 +28,7 @@ public class FileManager : MonoBehaviour
 			Debug.Log (www.error);
 		else {
 			string json = www.text;
-			StorylineManager.GetInstance ().storyline = JsonUtility.FromJson<StoryLine> (json);
+			StorylineManager.GetInstance ().storyline = JsonUtility.FromJson<Storyline> (json);
 			StorylineManager.GetInstance ().Initialize ();
 		}
 	}

@@ -1,9 +1,7 @@
 {
 	"characters": [
 		{
-			"id": 1,
 			"name": "David",
-			"career": "设计师",
 			"initial_position": "location_1",
 			"body_type": "default",
 			"clothing": "player_2",
@@ -14,9 +12,7 @@
 			]
 		},
 		{
-			"id": 2,
 			"name": "Tom",
-			"career": "程序员",
 			"initial_position": "location_2",
 			"body_type": "default",
 			"clothing": "player_1",
@@ -30,7 +26,6 @@
 
 	"jobs": [
 		{
-			"id": 1,
 			"name": "设计师甲",
 			"candidates": [
 				"David",
@@ -38,7 +33,6 @@
 			]
 		},
 		{
-			"id": 2,
 			"name": "程序员甲",
 			"candidates": [
 				"David",
@@ -49,44 +43,36 @@
 
 	"composite_movements": [
 		{
-			"id": 1,
 			"name": "发送邮件",
-			"components": [
-				"移动鼠标",
-				"敲击键盘",
-				"敲击键盘",
-				"敲击键盘"
-			]
+			"mainrole_main": "敲击键盘",
+			"mainrole_aid": ["移动鼠标"],
+			"otherroles_main": "敲击键盘",
+			"otherroles_aid": []
 		},
 		{
-			"id": 2,
 			"name": "使用电脑",
-			"components": [
-				"敲击键盘"
-			]
+			"mainrole_main": "敲击键盘",
+			"mainrole_aid": ["移动鼠标"],
+			"otherroles_main": null,
+			"otherroles_aid": []
 		}
 	],
 
 	"storyline_spots": [
 		{
-			"id": 1,
-			"start_time": 20,
+			"start_time": 10,
 			"end_time": 100,
 			"spot_name": "请人修电脑",
 			"principal": "设计师甲",
 			"principal_activities": [
 				{
-					"pa_id": 1,
 					"duration": 10,
 					"description": "发邮件给程序员甲让他去使用另一台电脑",
 					"composite_movement_name": "发送邮件",
-					"contact_type": 1,
-					"num_other_people": 1,
 					"self": {
 						"location_to_type": 0,
 						"location_to": null,
 						"bubble_type": 1,
-						"bubble_duration": 2,
 						"bubble_content": "发送邮件……",
 						"screen": null
 					},
@@ -96,22 +82,17 @@
 							"location_to_type": 0,
 							"location_to": null,
 							"bubble_type": 1,
-							"bubble_duration": 2,
 							"bubble_content": "接受邮件……",
 							"screen": null,
 							"following_activities": [
 								{
-									"fa_id": 1,
 									"duration": 10,
 									"description": "修电脑",
 									"composite_movement_name": "使用电脑",
-									"contact_type": 1,
-									"num_other_people": 0,
 									"self": {
 										"location_to_type": 1,
 										"location_to": "location_3",
 										"bubble_type": 1,
-										"bubble_duration": 10,
 										"bubble_content": "正在修电脑……",
 										"screen": null
 									},

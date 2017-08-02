@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class CompositeMovement
 {
-	public int id;
 	public string name;
-	public string[] components;
+	public string mainrole_main;
+	public string[] mainrole_aid;
+	public string otherroles_main;
+	public string[] otherroles_aid;
 }
