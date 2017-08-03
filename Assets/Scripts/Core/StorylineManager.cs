@@ -17,6 +17,7 @@ public class StorylineManager : MonoBehaviour
 	private bool isTicking;
 
 	private bool[] spotHasStarted;
+	private bool[] spotHasEnded;
 
 	private static StorylineManager instance;
 
@@ -156,8 +157,11 @@ public class StorylineManager : MonoBehaviour
 		time = 0.0f;
 		isTicking = false;
 		spotHasStarted = new bool[storyline.storyline_spots.Length];
-		for (int i = 0; i < storyline.storyline_spots.Length; ++i)
+		spotHasEnded = new bool[storyline.storyline_spots.Length];
+		for (int i = 0; i < storyline.storyline_spots.Length; ++i) {
 			spotHasStarted [i] = false;
+			spotHasEnded [i] = false;
+		}	
 	}
 
 	bool StartStorylineSpot (StorylineSpot spot)
@@ -204,13 +208,17 @@ public class StorylineManager : MonoBehaviour
 					if (!spotHasStarted [i]) {
 						if (StartStorylineSpot (spot)) {
 							spotHasStarted [i] = true;
+							Log.info ("Spot [" + spot.spot_name + "] started");
 						} else {
 							Log.warn ("Try to start spot [" + spot.spot_name + "] failed: principal busy");
 						}
 					}
 				} else if (time >= spot.end_time) {
-					spotHasStarted [i] = true;
-					EndStorylineSpot (spot);
+					if (!spotHasEnded [i]) {
+						spotHasEnded [i] = true;
+						EndStorylineSpot (spot);
+						Log.info ("Spot [" + spot.spot_name + "] killed");
+					}
 				}
 			}
 		}

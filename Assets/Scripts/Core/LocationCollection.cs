@@ -6,6 +6,7 @@ public class LocationCollection : ScriptableObject
 {
 	private static Dictionary<string, Transform> locations;
 	private static string defaultName = "location_1";
+	private static string objectLocationSuffix = "地点";
 
 	public static Transform Get (string name)
 	{
@@ -20,6 +21,7 @@ public class LocationCollection : ScriptableObject
 		}
 
 		if (string.IsNullOrEmpty (name)) {
+			Log.error ("Try to get a null location");
 			return locations [defaultName];
 		}
 			
@@ -35,5 +37,30 @@ public class LocationCollection : ScriptableObject
 				return obj.transform;
 			}
 		}
+	}
+
+
+	public static Transform GetNearestObject (Vector3 position, string objectName)
+	{
+		if (string.IsNullOrEmpty (objectName)) {
+			Log.error ("Try to get a null object's location ");
+			return locations [defaultName];
+		}
+		objectName += objectLocationSuffix;
+		GameObject[] locationObjs = GameObject.FindGameObjectsWithTag (objectName);
+		if (locationObjs.Length == 0) {
+			Log.error ("There is no such object location tag [" + objectName + "]");
+			return locations [defaultName];
+		}
+		Transform closest = locations [defaultName];
+		float minDistance = float.MaxValue;
+		for (int i = 0; i < locationObjs.Length; ++i) {
+			float distance = Vector3.Distance (position, locationObjs [i].transform.position);
+			if (distance < minDistance) {
+				minDistance = distance;
+				closest = locationObjs [i].transform;
+			}
+		}
+		return closest;
 	}
 }

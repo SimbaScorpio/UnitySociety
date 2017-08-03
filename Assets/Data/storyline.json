@@ -60,8 +60,8 @@
 
 	"storyline_spots": [
 		{
-			"start_time": 10,
-			"end_time": 100,
+			"start_time": 1,
+			"end_time": 150,
 			"spot_name": "请人修电脑",
 			"principal": "设计师甲",
 			"principal_activities": [

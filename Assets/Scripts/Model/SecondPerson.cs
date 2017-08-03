@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SecondPerson
+public class SecondPerson : Self
 {
 	public string name;
-	public int location_to_type;
-	public string location_to;
-	public int bubble_type;
-	public string bubble_content;
-	public string screen;
 	public FollowingActivity[] following_activities;
 }
