@@ -40,9 +40,9 @@ public class ActionManager : Object
 		GameObject bubble = obj.transform.Find ("hip_ctrl").transform.Find ("Bubble").gameObject;
 		if (bubble == null)
 			return null;
-		ActionChat ac = bubble.GetComponent<ActionChat> ();
+		ActionChatBubble ac = bubble.GetComponent<ActionChatBubble> ();
 		if (ac == null)
-			ac = bubble.AddComponent<ActionChat> ();
+			ac = bubble.AddComponent<ActionChatBubble> ();
 		ac.Setting (obj, bubble, content, duration, callback);
 		return ac;
 	}
@@ -65,16 +65,16 @@ public class ActionManager : Object
 		return ac;
 	}
 
-	public Action ApplySimpleClickAction (GameObject obj, IActionCompleted callback)
+	public Action ApplyClickAction (GameObject obj, IActionCompleted callback)
 	{
-		ActionSimpleClick ac = obj.AddComponent<ActionSimpleClick> ();
+		ActionClick ac = obj.AddComponent<ActionClick> ();
 		ac.Setting (obj, callback);
 		return ac;
 	}
 
-	public Action ApplySimpleTypeAction (GameObject obj, IActionCompleted callback)
+	public Action ApplyTypeAction (GameObject obj, IActionCompleted callback)
 	{
-		ActionSimpleType ac = obj.AddComponent<ActionSimpleType> ();
+		ActionType ac = obj.AddComponent<ActionType> ();
 		ac.Setting (obj, callback);
 		return ac;
 	}
@@ -85,6 +85,72 @@ public class ActionManager : Object
 		ac.Setting (obj, callback);
 		return ac;
 	}
+
+	public Action ApplyHandOnChinAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionHandOnChin ac = obj.AddComponent<ActionHandOnChin> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyUseCameraAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionUseCamera ac = obj.AddComponent<ActionUseCamera> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplySpeechAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionSpeech ac = obj.AddComponent<ActionSpeech> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyPickUpTelephoneAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionPickUpTelephone ac = obj.AddComponent<ActionPickUpTelephone> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyPutDownTelephoneAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionPutDownTelephone ac = obj.AddComponent<ActionPutDownTelephone> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyDialTelephoneAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionDialTelephone ac = obj.AddComponent<ActionDialTelephone> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyUseTelephoneAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionUseTelephone ac = obj.AddComponent<ActionUseTelephone> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	public bool IsSitAction (string actionName)
@@ -112,9 +178,9 @@ public class ActionManager : Object
 			obj.GetComponent<Person> ().isStanding = true;
 			return ApplyStandUpAction (obj, monitor);
 		case "敲击键盘":
-			return ApplySimpleTypeAction (obj, monitor);
+			return ApplyTypeAction (obj, monitor);
 		case "移动鼠标":
-			return ApplySimpleClickAction (obj, monitor);
+			return ApplyClickAction (obj, monitor);
 		case "坐姿挠头":
 			return ApplyScratchHeadAction (obj, monitor);
 		default:

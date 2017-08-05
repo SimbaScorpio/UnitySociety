@@ -8,7 +8,8 @@ public class Coder : MonoBehaviour, IActionCompleted
 
 	void Start ()
 	{
-		ActionManager.GetInstance ().ApplyWalkToAction (this.gameObject, chair.position, true, chair.rotation, this);
+		//ActionManager.GetInstance ().ApplyWalkToAction (this.gameObject, chair.position, true, chair.rotation, this);
+		ActionManager.GetInstance ().ApplySpeechAction (this.gameObject, this);
 	}
 
 	public void OnActionCompleted (Action ac)
@@ -23,14 +24,15 @@ public class Coder : MonoBehaviour, IActionCompleted
 
 	void RandomSitDownAnimation ()
 	{
-		//int index = Random.Range (0, 3);
-		int index = 0;
+		int index = Random.Range (0, 4);
 		if (index == 0) {
-			ActionManager.GetInstance ().ApplySimpleTypeAction (this.gameObject, this);
+			ActionManager.GetInstance ().ApplyTypeAction (this.gameObject, this);
 		} else if (index == 1) {
 			ActionManager.GetInstance ().ApplyScratchHeadAction (this.gameObject, this);
 		} else if (index == 2) {
-			ActionManager.GetInstance ().ApplySimpleClickAction (this.gameObject, this);
+			ActionManager.GetInstance ().ApplyClickAction (this.gameObject, this);
+		} else if (index == 3) {
+			ActionManager.GetInstance ().ApplyHandOnChinAction (this.gameObject, this);
 		}
 	}
 }

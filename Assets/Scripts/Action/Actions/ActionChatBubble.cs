@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActionChat : ActionThread
+public class ActionChatBubble : ActionThread
 {
 	private GameObject obj;
 	private GameObject bubble;
@@ -21,7 +21,7 @@ public class ActionChat : ActionThread
 	public void Setting (GameObject obj, GameObject bubble, string content, float duration, IActionCompleted callback)
 	{
 		if (this.obj == null) {
-			this.id = ActionID.CHAT;
+			this.id = ActionID.CHATBUBBLE;
 			this.obj = obj;
 			this.bubble = bubble;
 			this.content = content;
@@ -35,6 +35,7 @@ public class ActionChat : ActionThread
 			monitors.Enqueue (callback);
 			animator.SetTrigger ("Fade");
 		}
+		print (contents.Count);
 	}
 
 
@@ -78,7 +79,7 @@ public class ActionChat : ActionThread
 	void Update ()
 	{
 		if (duration < 0)
-			animator.SetBool ("IsPoping", false);
+			animator.SetTrigger ("Fade");
 		if (startCounting)
 			duration -= Time.deltaTime;
 		//bubble.transform.LookAt(Camera.main.transform.position);

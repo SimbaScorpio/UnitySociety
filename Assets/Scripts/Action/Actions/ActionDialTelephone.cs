@@ -2,33 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionSimpleClick : ActionSingle
+public class ActionDialTelephone : ActionSingle
 {
 	public GameObject obj;
 	private Animator animator;
 	private IActionCompleted monitor;
-	private GameObject mouse;
+	private bool inMyState = false;
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.SIMPLECLICK;
+		this.id = ActionID.DIALTELEPHONE;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
-		mouse = obj.transform.Find ("mouse").gameObject;
-		mouse.SetActive (true);
-		animator.SetTrigger ("SimpleClick");
+		animator.SetTrigger ("拨打电话");
 	}
 
-	public void OnSimpleClickFinished ()
+	void Update ()
 	{
-		StartCoroutine (wait ());
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("拨打电话")) {
+			inMyState = true;
+		} else if (inMyState) {
+			Finish ();
+		}
 	}
 
-	IEnumerator wait ()
+	public void Finish ()
 	{
-		yield return new WaitForEndOfFrame ();
-		mouse.SetActive (false);
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}

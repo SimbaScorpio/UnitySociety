@@ -2,29 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionSitDown : ActionSingle
+public class ActionPutDownTelephone : ActionSingle
 {
 	public GameObject obj;
 	private Animator animator;
 	private IActionCompleted monitor;
+	private bool inMyState = false;
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.SITDOWN;
+		this.id = ActionID.PUTDOWNTELEPHONE;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
-		animator.SetTrigger ("SitDown");
+		animator.SetTrigger ("放下电话");
 	}
 
-	public void OnSitDownFinished ()
+	void Update ()
 	{
-		StartCoroutine (wait ());
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("放下电话")) {
+			inMyState = true;
+		} else if (inMyState) {
+			Finish ();
+		}
 	}
 
-	IEnumerator wait ()
+	public void Finish ()
 	{
-		yield return new WaitForEndOfFrame ();
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}

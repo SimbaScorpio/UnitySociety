@@ -7,6 +7,7 @@ public class ActionScratchHead : ActionSingle
 	public GameObject obj;
 	private Animator animator;
 	private IActionCompleted monitor;
+	private bool inMyState = false;
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
@@ -14,17 +15,20 @@ public class ActionScratchHead : ActionSingle
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
-		animator.SetTrigger ("ScratchHead");
+		animator.SetTrigger ("挠头思考");
 	}
 
-	public void OnScratchHeadFinished ()
+	void Update ()
 	{
-		StartCoroutine (wait ());
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("挠头思考")) {
+			inMyState = true;
+		} else if (inMyState) {
+			Finish ();
+		}
 	}
 
-	IEnumerator wait ()
+	public void Finish ()
 	{
-		yield return new WaitForEndOfFrame ();
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}
