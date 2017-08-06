@@ -10,15 +10,15 @@ public class ActionUseCamera : ActionSingle
 	private bool inMyState = false;
 	private GameObject cameraObj;
 
-	public void Setting (GameObject obj, IActionCompleted monitor)
+	public void Setting (GameObject obj, GameObject cameraObj, IActionCompleted monitor)
 	{
 		this.id = ActionID.USECAMERA;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
 		animator.SetTrigger ("使用相机");
-
-		cameraObj.SetActive (true);
+		this.cameraObj = cameraObj;
+		this.cameraObj.SetActive (true);
 	}
 
 	void Update ()

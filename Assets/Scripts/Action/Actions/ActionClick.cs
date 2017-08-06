@@ -16,14 +16,14 @@ public class ActionClick : ActionSingle
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
-		animator.SetTrigger ("点鼠标");
+		animator.SetTrigger ("点击鼠标");
 		mouse = obj.transform.Find ("mouse").gameObject;
 		mouse.SetActive (true);
 	}
 
 	void Update ()
 	{
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("点鼠标")) {
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("点击鼠标")) {
 			inMyState = true;
 		} else if (inMyState) {
 			Finish ();

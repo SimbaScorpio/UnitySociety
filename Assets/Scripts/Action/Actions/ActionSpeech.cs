@@ -10,15 +10,15 @@ public class ActionSpeech : ActionSingle
 	private bool inMyState = false;
 	private GameObject paper;
 
-	public void Setting (GameObject obj, IActionCompleted monitor)
+	public void Setting (GameObject obj, GameObject paper, IActionCompleted monitor)
 	{
 		this.id = ActionID.SPEECH;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
 		animator.SetTrigger ("发言");
-		paper = obj.transform.Find ("Polygon").gameObject;
-		paper.SetActive (true);
+		this.paper = paper;
+		this.paper.SetActive (true);
 	}
 
 	void Update ()

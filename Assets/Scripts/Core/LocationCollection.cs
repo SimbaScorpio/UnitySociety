@@ -52,7 +52,7 @@ public class LocationCollection : ScriptableObject
 			Log.error ("There is no such object location tag [" + objectName + "]");
 			return locations [defaultName];
 		}
-		Transform closest = locations [defaultName];
+		Transform closest = locationObjs [0].transform;
 		float minDistance = float.MaxValue;
 		for (int i = 0; i < locationObjs.Length; ++i) {
 			float distance = Vector3.Distance (position, locationObjs [i].transform.position);

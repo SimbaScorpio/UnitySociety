@@ -37,7 +37,7 @@ public class ActionManager : Object
 	// ChatBubble
 	public Action ApplyChatAction (GameObject obj, string content, float duration, IActionCompleted callback)
 	{
-		GameObject bubble = obj.transform.Find ("hip_ctrl").transform.Find ("Bubble").gameObject;
+		GameObject bubble = obj.transform.Find ("hip_ctrl/Bubble").gameObject;
 		if (bubble == null)
 			return null;
 		ActionChatBubble ac = bubble.GetComponent<ActionChatBubble> ();
@@ -51,7 +51,6 @@ public class ActionManager : Object
 	// Animation
 	public Action ApplySitDownAction (GameObject obj, IActionCompleted callback)
 	{
-		obj.GetComponent<Person> ().isStanding = false;
 		ActionSitDown ac = obj.AddComponent<ActionSitDown> ();
 		ac.Setting (obj, callback);
 		return ac;
@@ -59,7 +58,6 @@ public class ActionManager : Object
 
 	public Action ApplyStandUpAction (GameObject obj, IActionCompleted callback)
 	{
-		obj.GetComponent<Person> ().isStanding = true;
 		ActionStandUp ac = obj.AddComponent<ActionStandUp> ();
 		ac.Setting (obj, callback);
 		return ac;
@@ -95,15 +93,17 @@ public class ActionManager : Object
 
 	public Action ApplyUseCameraAction (GameObject obj, IActionCompleted callback)
 	{
+		GameObject cameraObj = obj.transform.Find ("hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/camera2").gameObject;
 		ActionUseCamera ac = obj.AddComponent<ActionUseCamera> ();
-		ac.Setting (obj, callback);
+		ac.Setting (obj, cameraObj, callback);
 		return ac;
 	}
 
 	public Action ApplySpeechAction (GameObject obj, IActionCompleted callback)
 	{
+		GameObject paper = obj.transform.Find ("Polygon").gameObject;
 		ActionSpeech ac = obj.AddComponent<ActionSpeech> ();
-		ac.Setting (obj, callback);
+		ac.Setting (obj, paper, callback);
 		return ac;
 	}
 
@@ -133,58 +133,5 @@ public class ActionManager : Object
 		ActionUseTelephone ac = obj.AddComponent<ActionUseTelephone> ();
 		ac.Setting (obj, callback);
 		return ac;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public bool IsSitAction (string actionName)
-	{
-		if (actionName == "起立" || actionName == "敲击键盘" || actionName == "移动鼠标" || actionName == "坐姿挠头")
-			return true;
-		return false;
-	}
-
-	public bool IsStandAction (string actionName)
-	{
-		if (actionName == "坐下")
-			return true;
-		return false;
-	}
-
-
-	public Action ApplyAction (string actionName, GameObject obj, IActionCompleted monitor)
-	{
-		switch (actionName) {
-		case "坐下":
-			obj.GetComponent<Person> ().isStanding = false;
-			return ApplySitDownAction (obj, monitor);
-		case "起立":
-			obj.GetComponent<Person> ().isStanding = true;
-			return ApplyStandUpAction (obj, monitor);
-		case "敲击键盘":
-			return ApplyTypeAction (obj, monitor);
-		case "移动鼠标":
-			return ApplyClickAction (obj, monitor);
-		case "坐姿挠头":
-			return ApplyScratchHeadAction (obj, monitor);
-		default:
-			return null;
-		}
 	}
 }

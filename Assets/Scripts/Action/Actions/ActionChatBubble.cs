@@ -35,7 +35,6 @@ public class ActionChatBubble : ActionThread
 			monitors.Enqueue (callback);
 			animator.SetTrigger ("Fade");
 		}
-		print (contents.Count);
 	}
 
 

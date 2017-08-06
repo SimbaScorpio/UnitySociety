@@ -8,8 +8,7 @@ public class Coder : MonoBehaviour, IActionCompleted
 
 	void Start ()
 	{
-		//ActionManager.GetInstance ().ApplyWalkToAction (this.gameObject, chair.position, true, chair.rotation, this);
-		ActionManager.GetInstance ().ApplySpeechAction (this.gameObject, this);
+		ActionManager.GetInstance ().ApplyWalkToAction (this.gameObject, chair.position, true, chair.rotation, this);
 	}
 
 	public void OnActionCompleted (Action ac)
@@ -34,5 +33,12 @@ public class Coder : MonoBehaviour, IActionCompleted
 		} else if (index == 3) {
 			ActionManager.GetInstance ().ApplyHandOnChinAction (this.gameObject, this);
 		}
+	}
+
+	void Update ()
+	{
+		Action ac = GetComponent<Action> ();
+		if (ac == null)
+			Log.warn ("nope");
 	}
 }

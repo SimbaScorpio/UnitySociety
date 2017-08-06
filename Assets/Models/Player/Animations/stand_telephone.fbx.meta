@@ -285,7 +285,7 @@ ModelImporter:
     - serializedVersion: 16
       name: "\u7AD9\u59FF\u4F7F\u7528\u7535\u8BDD"
       takeName: CINEMA_4D_Main
-      firstFrame: 121
+      firstFrame: 144
       lastFrame: 192
       wrapMode: 0
       orientationOffsetY: 0
@@ -541,8 +541,8 @@ ModelImporter:
     - serializedVersion: 16
       name: "\u7AD9\u59FF\u7B49\u5F85\u7535\u8BDD"
       takeName: CINEMA_4D_Main
-      firstFrame: 120
-      lastFrame: 121
+      firstFrame: 143
+      lastFrame: 144
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

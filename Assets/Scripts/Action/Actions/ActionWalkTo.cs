@@ -15,10 +15,10 @@ public class ActionWalkTo : ActionSingle
 	private NavMeshAgent agent;
 
 	private const float NAVMESHSAMPLEDISTANCE = 4f;
-	private const float STOPDISTANCEPROPOTION = 0.1f;
+	private const float STOPDISTANCEPROPOTION = 0.05f;
 	private const float TURNSPEEDTHRESHOLD = 0.1f;
 	private const float SPEEDDAMPTIME = 0.5f;
-	private const float SLOWINGSPEED = 0.2f;
+	private const float SLOWINGSPEED = 0.05f;
 	private const float TURNSMOOTHING = 15f;
 	private const float ANIMATORSPEEDPROPOTION = 1.5f;
 

@@ -15,12 +15,12 @@ public class ActionType : ActionSingle
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
-		animator.SetTrigger ("打字");
+		animator.SetTrigger ("敲击键盘");
 	}
 
 	void Update ()
 	{
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("打字")) {
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("敲击键盘")) {
 			inMyState = true;
 		} else if (inMyState) {
 			Finish ();

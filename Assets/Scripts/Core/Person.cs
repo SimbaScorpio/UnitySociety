@@ -7,7 +7,6 @@ public class Person : MonoBehaviour, IActionCompleted
 	public Person parent;
 	public bool isPrincipal;
 	public bool isBeingControlled;
-	public bool isStanding = true;
 
 	private CompositeMovement compositeMovement;
 	private float compositeTiming;
@@ -23,12 +22,11 @@ public class Person : MonoBehaviour, IActionCompleted
 	private List<Person> children;
 
 	private StorylineManager storylineManager;
-	private ActionManager actionManager;
 	private Character character;
+	private ActionDealer actionDealer;
 
 	private float staticAidPossibility = 0.1f;
-	private string spareTimeAidTemp;
-	private float distanceError = 1f;
+	private float distanceError = 0.5f;
 
 
 	void Start ()
@@ -40,7 +38,7 @@ public class Person : MonoBehaviour, IActionCompleted
 		principalActivities = new List<PrincipalActivity> ();
 		followingActivities = new List<FollowingActivity> ();
 		storylineManager = StorylineManager.GetInstance ();
-		actionManager = ActionManager.GetInstance ();
+		actionDealer = GetComponent<ActionDealer> ();
 		character = storylineManager.nameToCharacter [this.name];
 	}
 
@@ -140,38 +138,19 @@ public class Person : MonoBehaviour, IActionCompleted
 	{
 		Transform initialTranform = LocationCollection.Get (character.initial_position);
 		if (Vector3.Distance (transform.position, initialTranform.position) > distanceError) {
-			if (!isStanding) {
-				actionManager.ApplyStandUpAction (gameObject, null);
-			} else {
-				actionManager.ApplyWalkToAction (gameObject, initialTranform.position, true, initialTranform.rotation, null);
+			if (actionDealer.TryNotSitting (null)) {
+				ActionManager.GetInstance ().ApplyWalkToAction (gameObject, initialTranform.position, true, initialTranform.rotation, null);
 			}
 		} else {
-			if (!string.IsNullOrEmpty (spareTimeAidTemp)) {
-				actionManager.ApplyAction (spareTimeAidTemp, gameObject, null);
-				spareTimeAidTemp = null;
-			} else if (isStanding && actionManager.IsSitAction (character.spare_time_main)) {
-				actionManager.ApplySitDownAction (gameObject, null);
-			} else if (!isStanding && actionManager.IsStandAction (character.spare_time_main)) {
-				actionManager.ApplyStandUpAction (gameObject, null);
+			if (character.spare_time_aid.Length == 0) {
+				actionDealer.ApproachAction (character.spare_time_main, null);
 			} else {
-				if (character.spare_time_aid.Length == 0) {
-					actionManager.ApplyAction (character.spare_time_main, gameObject, null);
+				int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
+				if (aidPossiblity == 0) {
+					int index = Random.Range (0, character.spare_time_aid.Length);
+					actionDealer.ApproachAction (character.spare_time_aid [index], null);
 				} else {
-					int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
-					if (aidPossiblity == 0) {
-						int index = Random.Range (0, character.spare_time_aid.Length);
-						spareTimeAidTemp = character.spare_time_aid [index];
-						if (isStanding && actionManager.IsSitAction (spareTimeAidTemp)) {
-							actionManager.ApplySitDownAction (gameObject, null);
-						} else if (!isStanding && actionManager.IsStandAction (spareTimeAidTemp)) {
-							actionManager.ApplyStandUpAction (gameObject, null);
-						} else {
-							actionManager.ApplyAction (spareTimeAidTemp, gameObject, null);
-							spareTimeAidTemp = null;
-						}
-					} else {
-						actionManager.ApplyAction (character.spare_time_main, gameObject, null);
-					}
+					actionDealer.ApproachAction (character.spare_time_main, null);
 				}
 			}
 		}
@@ -296,21 +275,15 @@ public class Person : MonoBehaviour, IActionCompleted
 			}
 			break;
 		case 1:
-			if (isStanding && actionManager.IsSitAction (compositeMovement.mainrole_main)) {
-				actionManager.ApplySitDownAction (gameObject, null);
-			} else if (!isStanding && actionManager.IsStandAction (compositeMovement.mainrole_main)) {
-				actionManager.ApplyStandUpAction (gameObject, null);
+			if (compositeMovement.mainrole_aid.Length == 0) {
+				actionDealer.ApproachAction (compositeMovement.mainrole_main, null);
 			} else {
-				if (compositeMovement.mainrole_aid.Length == 0) {
-					actionManager.ApplyAction (compositeMovement.mainrole_main, gameObject, null);
+				int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
+				if (aidPossiblity == 0) {
+					int index = Random.Range (0, compositeMovement.mainrole_aid.Length);
+					actionDealer.ApproachAction (compositeMovement.mainrole_aid [index], null);
 				} else {
-					int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
-					if (aidPossiblity == 0) {
-						int index = Random.Range (0, compositeMovement.mainrole_aid.Length);
-						actionManager.ApplyAction (compositeMovement.mainrole_aid [index], gameObject, null);
-					} else {
-						actionManager.ApplyAction (compositeMovement.mainrole_main, gameObject, null);
-					}
+					actionDealer.ApproachAction (compositeMovement.mainrole_main, null);
 				}
 			}
 			break;
@@ -359,21 +332,15 @@ public class Person : MonoBehaviour, IActionCompleted
 				}
 				break;
 			case 1:
-				if (isStanding && actionManager.IsSitAction (compositeMovement.otherroles_main)) {
-					actionManager.ApplySitDownAction (person.gameObject, null);
-				} else if (!isStanding && actionManager.IsStandAction (compositeMovement.otherroles_main)) {
-					actionManager.ApplyStandUpAction (person.gameObject, null);
+				if (compositeMovement.otherroles_aid.Length == 0) {
+					person.actionDealer.ApproachAction (compositeMovement.otherroles_main, null);
 				} else {
-					if (compositeMovement.otherroles_aid.Length == 0) {
-						actionManager.ApplyAction (compositeMovement.otherroles_main, person.gameObject, null);
+					int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
+					if (aidPossiblity == 0) {
+						int index = Random.Range (0, compositeMovement.otherroles_aid.Length);
+						person.actionDealer.ApproachAction (compositeMovement.otherroles_aid [index], null);
 					} else {
-						int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
-						if (aidPossiblity == 0) {
-							int index = Random.Range (0, compositeMovement.otherroles_aid.Length);
-							actionManager.ApplyAction (compositeMovement.otherroles_aid [index], person.gameObject, null);
-						} else {
-							actionManager.ApplyAction (compositeMovement.otherroles_main, person.gameObject, null);
-						}
+						person.actionDealer.ApproachAction (compositeMovement.otherroles_main, null);
 					}
 				}
 				break;
@@ -396,13 +363,11 @@ public class Person : MonoBehaviour, IActionCompleted
 				return true;
 			}
 			destination = LocationCollection.Get (self.location_to);
-			if (Vector3.Distance (transform.position, destination.position) <= distanceError)
+			if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
 				return true;
 			if (doAction) {
-				if (!isStanding)
-					actionManager.ApplyStandUpAction (gameObject, null);
-				else
-					actionManager.ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, this);
+				if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
+					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, this);
 			}
 			return false;
 		case 2:	// closest location
@@ -411,13 +376,11 @@ public class Person : MonoBehaviour, IActionCompleted
 				return true;
 			}
 			destination = LocationCollection.GetNearestObject (transform.position, self.location_to);
-			if (Vector3.Distance (transform.position, destination.position) <= distanceError)
+			if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
 				return true;
 			if (doAction) {
-				if (!isStanding)
-					actionManager.ApplyStandUpAction (gameObject, null);
-				else
-					actionManager.ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, this);
+				if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
+					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, this);
 			}
 			return false;
 		default:
@@ -430,13 +393,17 @@ public class Person : MonoBehaviour, IActionCompleted
 	void CheckEveryOneInPosition ()
 	{
 		if (isPrincipal) {
+			if (!IsAtProperLocation (currentPrincipalActivity.self, gameObject, false))
+				return;
 			for (int i = 0; i < secondChildren.Count; ++i)
-				if (children [i].parent != this || !IsAtProperLocation (secondChildren [i], null, false))
+				if (children [i].parent != this || !IsAtProperLocation (secondChildren [i], children [i].gameObject, false))
 					return;
 			state = 1;
 		} else {
+			if (!IsAtProperLocation (currentFollowingActivity.self, gameObject, false))
+				return;
 			for (int i = 0; i < thirdChildren.Count; ++i)
-				if (children [i].parent != this || !IsAtProperLocation (thirdChildren [i], null, false))
+				if (children [i].parent != this || !IsAtProperLocation (thirdChildren [i], children [i].gameObject, false))
 					return;
 			state = 1;
 		}
