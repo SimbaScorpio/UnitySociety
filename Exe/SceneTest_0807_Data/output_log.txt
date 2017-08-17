@@ -19,20 +19,40 @@ Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0807_Data\
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0807_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0807_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0807_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.039 seconds
+- Completed reload, in  0.063 seconds
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0807_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0807_Data\Managed\System.dll (this message is harmless)
 desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.333638 ms
+UnloadTime: 68.993958 ms
 Spot [快去接电话] started
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+Spot for [David] complete naturely
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Spot [快去接电话] killed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Spot [贼枯燥的会议] started
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Spot for [David] complete naturely
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Spot [贼枯燥的会议] killed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 7bd4 -> priority: 1 
-  Thread -> id: 51e8 -> priority: 1 
-  Thread -> id: 57cc -> priority: 1 
-  Thread -> id: 6cb4 -> priority: 1 
+  Thread -> id: 5310 -> priority: 1 
+  Thread -> id: 8eb8 -> priority: 1 
+  Thread -> id: 675c -> priority: 1 
+  Thread -> id: 7ad0 -> priority: 1 

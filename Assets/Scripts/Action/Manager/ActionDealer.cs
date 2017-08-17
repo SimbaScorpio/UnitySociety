@@ -9,15 +9,15 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 	private string tryingToDoActionName;
 	private IActionCompleted monitor;
 
-	public string[] standActions = {
-		"站姿使用电话", "站姿拨打电话", "发言", "使用相机"
+	private string[] standActions = {
+		"站着不动", "站姿使用电话", "站姿拨打电话", "发言", "使用相机"
 	};
 
-	public string[] sitActions = {
-		"坐姿使用电话", "坐姿拨打电话", "敲击键盘", "点击鼠标", "挠头思考", "托腮思考"
+	private string[] sitActions = {
+		"坐着不动", "坐姿使用电话", "坐姿拨打电话", "敲击键盘", "点击鼠标", "挠头思考", "托腮思考"
 	};
 
-	public string[] telephoneActions = {
+	private string[] telephoneActions = {
 		"站姿使用电话", "站姿拨打电话", "坐姿使用电话", "坐姿拨打电话" 
 	};
 
@@ -103,21 +103,19 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 		if (string.IsNullOrEmpty (name))
 			return;
 		tryingToDoActionName = name;
-		monitor = callback; 
+		monitor = callback;
 		if (IsStandAction (name)) {
 			if (isStanding) {
 				if (IsTelephoneAction (name)) {
 					if (isUsingTelephone) {
 						tryingToDoActionName = null;
 						ApplyAction (name, monitor);
-						//ActionManager.GetInstance ().ApplyChatAction (gameObject, name, 1, null);
 					} else {
 						ApplyAction ("拿起电话", this);
 					}
 				} else {
 					tryingToDoActionName = null;
 					ApplyAction (name, monitor);
-					//ActionManager.GetInstance ().ApplyChatAction (gameObject, name, 1, null);
 				}
 			} else {
 				if (isUsingTelephone) {
@@ -132,14 +130,12 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 					if (isUsingTelephone) {
 						tryingToDoActionName = null;
 						ApplyAction (name, monitor);
-						//ActionManager.GetInstance ().ApplyChatAction (gameObject, name, 1, null);
 					} else {
 						ApplyAction ("放下电话", this);
 					}
 				} else {
 					tryingToDoActionName = null;
 					ApplyAction (name, monitor);
-					//ActionManager.GetInstance ().ApplyChatAction (gameObject, name, 1, null);
 				}
 			} else {
 				if (isUsingTelephone) {
@@ -222,6 +218,12 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 			break;
 		case "坐姿使用电话":
 			ActionManager.GetInstance ().ApplyUseTelephoneAction (gameObject, callback);
+			break;
+		case "坐着不动":
+			ActionManager.GetInstance ().ApplyIdleAction (gameObject, callback);
+			break;
+		case "站着不动":
+			ActionManager.GetInstance ().ApplyIdleAction (gameObject, callback);
 			break;
 		}
 	}

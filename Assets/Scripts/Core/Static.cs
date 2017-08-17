@@ -1,0 +1,21 @@
+﻿
+public enum SpotState
+{
+	READY,
+	STARTED,
+	ENDED,
+	KILLED
+}
+
+public enum ComState
+{
+	ARRIVING,
+	ARRIVINGSTOP,
+	PREPARING,
+	PREPARINGSTOP,
+	STARTING,
+	STARTINGSTOP,
+	ENDING,
+	ENDINGSTOP,
+	LEAVING
+}

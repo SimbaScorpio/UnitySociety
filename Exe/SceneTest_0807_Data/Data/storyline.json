@@ -15,7 +15,7 @@
 			"name": "Tom",
 			"initial_position": "location_2",
 			"body_type": "default",
-			"clothing": "player_1",
+			"clothing": "player_3",
 			"spare_time_main": "敲击键盘",
 			"spare_time_aid": [
 				"点击鼠标",

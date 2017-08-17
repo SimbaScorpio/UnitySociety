@@ -134,4 +134,11 @@ public class ActionManager : Object
 		ac.Setting (obj, callback);
 		return ac;
 	}
+
+	public Action ApplyIdleAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionIdle ac = obj.AddComponent<ActionIdle> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
 }

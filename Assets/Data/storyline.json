@@ -46,29 +46,61 @@
 			"name": "发送邮件",
 			"mainrole_main": "敲击键盘",
 			"mainrole_aid": ["点击鼠标"],
+			"wait_mainrole_main": null,
+			"wait_mainrole_aid": [],
+			"start_mainrole_main": null,
+			"end_mainrole_main": null,
 			"otherroles_main": "敲击键盘",
-			"otherroles_aid": []
+			"otherroles_aid": [],
+			"wait_otherroles_main": null,
+			"wait_otherroles_aid": [],
+			"start_otherroles_main": null,
+			"end_otherroles_main": null
 		},
 		{
 			"name": "听电话",
 			"mainrole_main": "站姿使用电话",
 			"mainrole_aid": [],
+			"wait_mainrole_main": null,
+			"wait_mainrole_aid": [],
+			"start_mainrole_main": null,
+			"end_mainrole_main": null,
 			"otherroles_main": null,
-			"otherroles_aid": []
+			"otherroles_aid": [],
+			"wait_otherroles_main": null,
+			"wait_otherroles_aid": [],
+			"start_otherroles_main": null,
+			"end_otherroles_main": null
 		},
 		{
 			"name": "开会",
 			"mainrole_main": "发言",
 			"mainrole_aid": [],
-			"otherroles_main": null,
-			"otherroles_aid": ["托腮思考", "挠头思考"]
+			"wait_mainrole_main": "站着不动",
+			"wait_mainrole_aid": [],
+			"start_mainrole_main": null,
+			"end_mainrole_main": null,
+			"otherroles_main": "坐着不动",
+			"otherroles_aid": ["托腮思考", "挠头思考"],
+			"wait_otherroles_main": "坐着不动",
+			"wait_otherroles_aid": [],
+			"start_otherroles_main": null,
+			"end_otherroles_main": null
 		},
 		{
 			"name": "拍照",
 			"mainrole_main": "使用相机",
 			"mainrole_aid": [],
+			"wait_mainrole_main": null,
+			"wait_mainrole_aid": [],
+			"start_mainrole_main": null,
+			"end_mainrole_main": null,
 			"otherroles_main": null,
-			"otherroles_aid": []
+			"otherroles_aid": [],
+			"wait_otherroles_main": null,
+			"wait_otherroles_aid": [],
+			"start_otherroles_main": null,
+			"end_otherroles_main": null
 		}
 	],
 

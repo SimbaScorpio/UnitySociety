@@ -10,14 +10,15 @@ public class StorylineManager : MonoBehaviour
 	public Dictionary<string, CompositeMovement> nameToCompositeMovement;
 	public Dictionary<string, Job> nameToJob;
 	public Dictionary<string, string> nameToJobCandidate;
+	public Dictionary<string, StorylineSpot> nameToSpot;
+	public Dictionary<string, SpotState> nameToSpotState;
+	public Dictionary<string, HashSet<string>> nameToSpotCandidates;
+
 
 	public GameObject PlayerPrefab;
 
-	private float time;
-	private bool isTicking;
-
-	private bool[] spotHasStarted;
-	private bool[] spotHasEnded;
+	private float time = 0.0f;
+	private bool isTicking = false;
 
 	private static StorylineManager instance;
 
@@ -34,15 +35,24 @@ public class StorylineManager : MonoBehaviour
 		nameToCompositeMovement = new Dictionary<string, CompositeMovement> ();
 		nameToJob = new Dictionary<string, Job> ();
 		nameToJobCandidate = new Dictionary<string, string> ();
+		nameToSpot = new Dictionary<string, StorylineSpot> ();
+		nameToSpotState = new Dictionary<string, SpotState> ();
+		nameToSpotCandidates = new Dictionary<string, HashSet<string>> ();
 	}
 
 	public void Initialize ()
 	{
+		Log.info ("初始化角色...");
 		InitializeCharacters ();
+		Log.info ("初始化组合动作...");
 		InitializeCompositeMovements ();
+		Log.info ("初始化岗位...");
 		InitializeJobs ();
+		Log.info ("进行岗位分配...");
 		RandomlyArrangeJobCandidates ();
-		InitializeSelfParameters ();
+		Log.info ("初始化故事节点...");
+		InitializeSpots ();
+		Log.info ("开始！");
 		Tick ();
 	}
 
@@ -152,32 +162,76 @@ public class StorylineManager : MonoBehaviour
 		return true;
 	}
 
-	void InitializeSelfParameters ()
+	void InitializeSpots ()
 	{
-		time = 0.0f;
-		isTicking = false;
-		spotHasStarted = new bool[storyline.storyline_spots.Length];
-		spotHasEnded = new bool[storyline.storyline_spots.Length];
-		for (int i = 0; i < storyline.storyline_spots.Length; ++i) {
-			spotHasStarted [i] = false;
-			spotHasEnded [i] = false;
-		}	
+		int spotNum = storyline.storyline_spots.Length;
+		for (int i = 0; i < spotNum; ++i) {
+			StorylineSpot spot = storyline.storyline_spots [i];
+			if (string.IsNullOrEmpty (spot.spot_name)) {
+				Log.error ("Initialize spot [" + i + "] failed: empty name");
+				continue;
+			}
+			if (string.IsNullOrEmpty (spot.principal)) {
+				Log.error ("Spot [" + spot.spot_name + "] misses principal: skipped");
+				continue;
+			}
+			if (!nameToJob.ContainsKey (spot.principal)) {
+				Log.error ("Spot [" + spot.spot_name + "] has undefined principal [" + spot.principal + "] : skipped");
+				continue;
+			}
+			if (nameToSpot.ContainsKey (spot.spot_name)) {
+				Log.warn ("Initialize spot [" + i + "] warning: overlapped name");
+			}
+			nameToSpot [spot.spot_name] = spot;
+			nameToSpotState [spot.spot_name] = SpotState.READY;
+			nameToSpotCandidates [spot.spot_name] = new HashSet<string> ();
+		}
 	}
 
-	bool StartStorylineSpot (StorylineSpot spot)
+	void StartStorylineSpot (string spotName)
 	{
+		StorylineSpot spot = nameToSpot [spotName];
 		string name = nameToJobCandidate [spot.principal];
 		GameObject obj = nameToCharacterObj [name];
 		Person person = obj.GetComponent<Person> ();
-		return person.AddPrincipalActivities (spot.principal_activities);
+		bool success = person.AddPrincipalActivities (spot.principal_activities, spotName);
+		if (success) {
+			nameToSpotState [spotName] = SpotState.STARTED;
+			Log.info ("Spot [" + spotName + "] started");
+			JoinStorylineSpot (name, spotName);
+		}
 	}
 
-	void EndStorylineSpot (StorylineSpot spot)
+	public void JoinStorylineSpot (string candidate, string spotName)
 	{
-		string name = nameToJobCandidate [spot.principal];
-		GameObject obj = nameToCharacterObj [name];
-		Person person = obj.GetComponent<Person> ();
-		person.Stop ();
+		nameToSpotCandidates [spotName].Add (candidate);
+		Log.info ("[" + candidate + "] joined spot [" + spotName + "]");
+	}
+
+	public void QuitStorylineSpot (string candidate, string spotName)
+	{
+		HashSet<string> set = nameToSpotCandidates [spotName];
+		if (set.Remove (candidate)) {
+			Log.info ("[" + candidate + "] quited spot [" + spotName + "]");
+			if (set.Count == 0) {
+				nameToSpotState [spotName] = SpotState.ENDED;
+				Log.info ("Spot [" + spotName + "] ended");
+			}
+		}
+	}
+
+	void KillStorylineSpot (string spotName)
+	{
+		HashSet<string> set = nameToSpotCandidates [spotName];
+		foreach (string name in set) {
+			GameObject obj = nameToCharacterObj [name];
+			Person person = obj.GetComponent<Person> ();
+			person.spotName = null;
+			person.Stop ();
+		}
+		set.Clear ();
+		nameToSpotState [spotName] = SpotState.KILLED;
+		Log.info ("Spot [" + spotName + "] killed");
 	}
 
 
@@ -192,33 +246,15 @@ public class StorylineManager : MonoBehaviour
 		if (!isTicking)
 			return;
 		time += Time.deltaTime;
-		for (int i = 0; i < storyline.storyline_spots.Length; ++i) {
-			StorylineSpot spot = storyline.storyline_spots [i];
-			if (string.IsNullOrEmpty (spot.principal)) {
-				spotHasStarted [i] = true;
-				Log.warn ("Spot [" + spot.spot_name + "] misses principal: skipped");
-			} else if (!nameToJob.ContainsKey (spot.principal)) {
-				spotHasStarted [i] = true;
-				Log.warn ("Spot [" + spot.spot_name + "] has undefined principal [" + spot.principal + "] : skipped");
-			} else if (spot.principal_activities.Length == 0) {
-				spotHasStarted [i] = true;
-				Log.warn ("Spot [" + spot.spot_name + "] misses principal activities: skipped");
-			} else {
-				if (time >= spot.start_time && time < spot.end_time) {
-					if (!spotHasStarted [i]) {
-						if (StartStorylineSpot (spot)) {
-							spotHasStarted [i] = true;
-							Log.info ("Spot [" + spot.spot_name + "] started");
-						} else {
-							Log.warn ("Try to start spot [" + spot.spot_name + "] failed: principal busy");
-						}
-					}
-				} else if (time >= spot.end_time) {
-					if (!spotHasEnded [i]) {
-						spotHasEnded [i] = true;
-						EndStorylineSpot (spot);
-						Log.info ("Spot [" + spot.spot_name + "] killed");
-					}
+		foreach (string spotName in nameToSpot.Keys) {
+			StorylineSpot spot = nameToSpot [spotName];
+			if (time >= spot.start_time && time < spot.end_time) {
+				if (nameToSpotState [spotName] == SpotState.READY) {
+					StartStorylineSpot (spotName);
+				}
+			} else if (time >= spot.end_time) {
+				if (nameToSpotState [spotName] == SpotState.STARTED) {
+					KillStorylineSpot (spotName);
 				}
 			}
 		}

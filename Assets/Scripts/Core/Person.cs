@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Person : MonoBehaviour, IActionCompleted
+public class Person : MonoBehaviour
 {
 	public Person parent;
 	public bool isPrincipal;
 	public bool isBeingControlled;
+	public string spotName;
 
 	private CompositeMovement compositeMovement;
 	private float compositeTiming;
-	private int state;
+	private ComState state;
 
 	private List<PrincipalActivity> principalActivities;
 	private List<FollowingActivity> followingActivities;
@@ -22,7 +23,6 @@ public class Person : MonoBehaviour, IActionCompleted
 	private List<Person> children;
 
 	private StorylineManager storylineManager;
-	private Character character;
 	private ActionDealer actionDealer;
 
 	private float staticAidPossibility = 0.1f;
@@ -39,15 +39,15 @@ public class Person : MonoBehaviour, IActionCompleted
 		followingActivities = new List<FollowingActivity> ();
 		storylineManager = StorylineManager.GetInstance ();
 		actionDealer = GetComponent<ActionDealer> ();
-		character = storylineManager.nameToCharacter [this.name];
 	}
 
-	public bool AddPrincipalActivities (PrincipalActivity[] activities)
+	public bool AddPrincipalActivities (PrincipalActivity[] activities, string name)
 	{
 		if (parent != null || isPrincipal || isBeingControlled)
 			return false;
 		Stop ();
 		isPrincipal = true;
+		spotName = name;
 		foreach (PrincipalActivity activity in activities)
 			principalActivities.Add (activity);
 		return true;
@@ -67,6 +67,7 @@ public class Person : MonoBehaviour, IActionCompleted
 		followingActivities.Clear ();
 		currentPrincipalActivity = null;
 		currentFollowingActivity = null;
+
 		foreach (SecondPerson person in secondChildren) {
 			string candidate = storylineManager.nameToJobCandidate [person.name];
 			GameObject obj = storylineManager.nameToCharacterObj [candidate];
@@ -85,10 +86,15 @@ public class Person : MonoBehaviour, IActionCompleted
 		thirdChildren.Clear ();
 		waitToBeChildren.Clear ();
 		children.Clear ();
+
 		parent = null;
 		isPrincipal = false;
 		isBeingControlled = false;
-		state = 0;
+		if (!string.IsNullOrEmpty (spotName)) {
+			storylineManager.QuitStorylineSpot (name, spotName);
+			spotName = null;
+		}
+		state = ComState.LEAVING;
 
 		ActionWalkTo walk = GetComponent<ActionWalkTo> ();
 		if (walk != null) {
@@ -117,7 +123,6 @@ public class Person : MonoBehaviour, IActionCompleted
 				AssignNewPrincipalActivity ();
 			} else {
 				Stop ();
-				Log.info ("Spot for [" + this.name + "] complete naturely");
 			}
 		} else if (isBeingControlled) {
 			return;
@@ -136,6 +141,7 @@ public class Person : MonoBehaviour, IActionCompleted
 
 	void DealSpareActivity ()
 	{
+		Character character = storylineManager.nameToCharacter [this.name];
 		Transform initialTranform = LocationCollection.Get (character.initial_position);
 		if (Vector3.Distance (transform.position, initialTranform.position) > distanceError) {
 			if (actionDealer.TryNotSitting (null)) {
@@ -169,25 +175,25 @@ public class Person : MonoBehaviour, IActionCompleted
 							break;
 					}
 					if (index < secondChildren.Count) {
-						Log.warn ("Principal activity [" + activity.description + "] job [" + other.name + "] overlapped: skipped");
+						Log.warn ("Spot [" + spotName + "]'s principal activity [" + activity.description + "] job [" + other.name + "] overlapped: skipped");
 					} else {
-						secondChildren.Add (other);
 						string realName = storylineManager.nameToJobCandidate [other.name];
 						GameObject realObj = storylineManager.nameToCharacterObj [realName];
 						Person realScript = realObj.GetComponent<Person> ();
+						secondChildren.Add (other);
 						waitToBeChildren.Add (realScript);
 						children.Add (realScript);
 					}
 				} else {
-					Log.warn ("Principal activity [" + activity.description + "] has undefined job [" + other.name + "]: skipped");
+					Log.warn ("Spot [" + spotName + "]'s principal activity [" + activity.description + "] has undefined job [" + other.name + "]: skipped");
 				}
 			}
 			currentPrincipalActivity = activity;
 			compositeMovement = storylineManager.nameToCompositeMovement [activity.composite_movement_name];
-			state = 0;
+			state = ComState.ARRIVING;
 			StartCoroutine (WaitToBeMySecondChild ());
 		} else {
-			Log.warn ("Principal activity [" + activity.description + "] has undefined composite movement [" + activity.composite_movement_name + "]: skipped");
+			Log.warn ("Spot [" + spotName + "]'s principal activity [" + activity.description + "] has undefined composite movement [" + activity.composite_movement_name + "]: skipped");
 		}
 		principalActivities.RemoveAt (0);
 	}
@@ -202,6 +208,8 @@ public class Person : MonoBehaviour, IActionCompleted
 					person.Stop ();
 					person.parent = this;
 					person.isBeingControlled = true;
+					person.spotName = spotName;
+					storylineManager.JoinStorylineSpot (person.name, spotName);
 					waitToBeChildren.RemoveAt (i--);
 				}
 			}
@@ -222,25 +230,25 @@ public class Person : MonoBehaviour, IActionCompleted
 							break;
 					}
 					if (index < thirdChildren.Count) {
-						Log.warn ("Following activity [" + activity.description + "] job [" + other.name + "] overlapped: skipped");
+						Log.warn ("Spot [" + spotName + "]'s following activity [" + activity.description + "] job [" + other.name + "] overlapped: skipped");
 					} else {
-						thirdChildren.Add (other);
 						string realName = storylineManager.nameToJobCandidate [other.name];
 						GameObject realObj = storylineManager.nameToCharacterObj [realName];
 						Person realScript = realObj.GetComponent<Person> ();
+						thirdChildren.Add (other);
 						waitToBeChildren.Add (realScript);
 						children.Add (realScript);
 					}
 				} else {
-					Log.warn ("Following activity [" + activity.description + "] has undefined job [" + other.name + "]: skipped");
+					Log.warn ("Spot [" + spotName + "]'s following activity [" + activity.description + "] has undefined job [" + other.name + "]: skipped");
 				}
 			}
 			currentFollowingActivity = followingActivities [0];
 			compositeMovement = storylineManager.nameToCompositeMovement [activity.composite_movement_name];
-			state = 0;
+			state = ComState.ARRIVING;
 			StartCoroutine (WaitToBeMyThirdChild ());
 		} else {
-			Log.warn ("Following activity [" + activity.description + "] has undefined composite movement [" + activity.composite_movement_name + "]: skipped");
+			Log.warn ("Spot [" + spotName + "]'s following activity [" + activity.description + "] has undefined composite movement [" + activity.composite_movement_name + "]: skipped");
 		}
 		followingActivities.RemoveAt (0);
 	}
@@ -255,6 +263,8 @@ public class Person : MonoBehaviour, IActionCompleted
 					person.Stop ();
 					person.parent = this;
 					person.isBeingControlled = true;
+					person.spotName = spotName;
+					storylineManager.JoinStorylineSpot (person.name, spotName);
 					waitToBeChildren.RemoveAt (i--);
 				}
 			}
@@ -268,13 +278,43 @@ public class Person : MonoBehaviour, IActionCompleted
 	{
 		Self self = isPrincipal ? currentPrincipalActivity.self : currentFollowingActivity.self;
 		switch (state) {
-		case 0:
+		case ComState.ARRIVING:
 			if (IsAtProperLocation (self, gameObject, true)) {
-				// do nothing and wait children
-				CheckEveryOneInPosition ();
+				if (CheckEveryOneInPosition ())
+					state = ComState.ARRIVINGSTOP;
+				else {
+					// do wait actions
+					if (compositeMovement.wait_mainrole_aid.Length == 0) {
+						actionDealer.ApproachAction (compositeMovement.wait_mainrole_main, null);
+					} else {
+						int aidPossibility = Random.Range (0, (int)(1 / staticAidPossibility));
+						if (aidPossibility == 0) {
+							int index = Random.Range (0, compositeMovement.wait_mainrole_aid.Length);
+							actionDealer.ApproachAction (compositeMovement.wait_mainrole_aid [index], null);
+						} else {
+							actionDealer.ApproachAction (compositeMovement.wait_mainrole_main, null);
+						}
+					}
+				}
 			}
 			break;
-		case 1:
+		case ComState.ARRIVINGSTOP:
+			if (CheckEveryOneEndAction ())
+				state = ComState.PREPARING;
+			break;
+		case ComState.PREPARING:
+			// do perpare action once
+			actionDealer.ApproachAction (compositeMovement.start_mainrole_main, null);
+			foreach (Person person in children) {
+				person.actionDealer.ApproachAction (compositeMovement.start_otherroles_main, null);
+			}
+			state = ComState.PREPARINGSTOP;
+			break;
+		case ComState.PREPARINGSTOP:
+			if (CheckEveryOneEndAction ())
+				state = ComState.STARTING;
+			break;
+		case ComState.STARTING:
 			if (compositeMovement.mainrole_aid.Length == 0) {
 				actionDealer.ApproachAction (compositeMovement.mainrole_main, null);
 			} else {
@@ -287,7 +327,21 @@ public class Person : MonoBehaviour, IActionCompleted
 				}
 			}
 			break;
-		case 2:
+		case ComState.STARTINGSTOP:
+			if (CheckEveryOneEndAction ())
+				state = ComState.ENDING;
+			break;
+		case ComState.ENDING:
+			actionDealer.ApproachAction (compositeMovement.end_mainrole_main, null);
+			foreach (Person person in children)
+				person.actionDealer.ApproachAction (compositeMovement.end_otherroles_main, null);
+			state = ComState.ENDINGSTOP;
+			break;
+		case ComState.ENDINGSTOP:
+			if (CheckEveryOneEndAction ())
+				state = ComState.LEAVING;
+			break;
+		case ComState.LEAVING:
 			if (isPrincipal) {
 				currentPrincipalActivity = null;
 				for (int i = 0; i < secondChildren.Count; ++i) {
@@ -318,6 +372,7 @@ public class Person : MonoBehaviour, IActionCompleted
 			foreach (ThirdPerson tp in thirdChildren)
 				others.Add (tp as Self);
 		}
+
 		for (int i = 0; i < others.Count; ++i) {
 			Person person = children [i];
 			if (person.parent != this)
@@ -325,13 +380,29 @@ public class Person : MonoBehaviour, IActionCompleted
 			if (person.GetComponent<Action> () != null)
 				continue;
 			switch (state) {
-			case 0:
+			case ComState.ARRIVING:
 				if (IsAtProperLocation (others [i], person.gameObject, true)) {
-					// do nothing and wait other children
-					CheckEveryOneInPosition ();
+					// do wait actions
+					if (compositeMovement.wait_otherroles_aid.Length == 0) {
+						person.actionDealer.ApproachAction (compositeMovement.wait_otherroles_main, null);
+					} else {
+						int aidPossibility = Random.Range (0, (int)(1 / staticAidPossibility));
+						if (aidPossibility == 0) {
+							int index = Random.Range (0, compositeMovement.wait_otherroles_aid.Length);
+							person.actionDealer.ApproachAction (compositeMovement.wait_otherroles_aid [index], null);
+						} else {
+							person.actionDealer.ApproachAction (compositeMovement.wait_otherroles_main, null);
+						}
+					}
 				}
 				break;
-			case 1:
+			case ComState.ARRIVINGSTOP:
+				break;
+			case ComState.PREPARING:
+				break;
+			case ComState.PREPARINGSTOP:
+				break;
+			case ComState.STARTING:
 				if (compositeMovement.otherroles_aid.Length == 0) {
 					person.actionDealer.ApproachAction (compositeMovement.otherroles_main, null);
 				} else {
@@ -344,7 +415,11 @@ public class Person : MonoBehaviour, IActionCompleted
 					}
 				}
 				break;
-			case 2:
+			case ComState.ENDING:
+				break;
+			case ComState.ENDINGSTOP:
+				break;
+			case ComState.LEAVING:
 				break;
 			}
 		}
@@ -359,15 +434,16 @@ public class Person : MonoBehaviour, IActionCompleted
 			return true;
 		case 1:	// labeled location
 			if (self.location_to == null) {
-				Log.warn ("Empty labeled location when needed");
-				return true;
+				Character cha = storylineManager.nameToCharacter [gameObject.name];
+				destination = LocationCollection.Get (cha.initial_position);
+			} else {
+				destination = LocationCollection.Get (self.location_to);
 			}
-			destination = LocationCollection.Get (self.location_to);
 			if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
 				return true;
-			if (doAction) {
+			else if (doAction) {
 				if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
-					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, this);
+					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, null);
 			}
 			return false;
 		case 2:	// closest location
@@ -375,12 +451,12 @@ public class Person : MonoBehaviour, IActionCompleted
 				Log.warn ("Empty object location when needed");
 				return true;
 			}
-			destination = LocationCollection.GetNearestObject (transform.position, self.location_to);
+			destination = LocationCollection.GetNearestObject (gameObject.transform.position, self.location_to);
 			if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
 				return true;
-			if (doAction) {
+			else if (doAction) {
 				if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
-					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, this);
+					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, null);
 			}
 			return false;
 		default:
@@ -390,47 +466,55 @@ public class Person : MonoBehaviour, IActionCompleted
 	}
 
 
-	void CheckEveryOneInPosition ()
+	bool CheckEveryOneInPosition ()
 	{
 		if (isPrincipal) {
 			if (!IsAtProperLocation (currentPrincipalActivity.self, gameObject, false))
-				return;
+				return false;
 			for (int i = 0; i < secondChildren.Count; ++i)
 				if (children [i].parent != this || !IsAtProperLocation (secondChildren [i], children [i].gameObject, false))
-					return;
-			state = 1;
+					return false;
+			return true;
 		} else {
 			if (!IsAtProperLocation (currentFollowingActivity.self, gameObject, false))
-				return;
+				return false;
 			for (int i = 0; i < thirdChildren.Count; ++i)
 				if (children [i].parent != this || !IsAtProperLocation (thirdChildren [i], children [i].gameObject, false))
-					return;
-			state = 1;
+					return false;
+			return true;
 		}
 	}
 
 
-	public void OnActionCompleted (Action ac)
+	bool CheckEveryOneEndAction ()
 	{
-		CheckEveryOneInPosition ();
+		if (GetComponent<Action> () != null)
+			return false;
+		for (int i = 0; i < children.Count; ++i)
+			if (children [i].parent != this || children [i].GetComponent<Action> () != null)
+				return false;
+		return true;
 	}
 
 
 	void Update ()
 	{
 		WhatNext ();
+
 		if (currentPrincipalActivity != null || currentFollowingActivity != null)
 			DealChildActivity ();
 
-		if (state == 1) {
+		if (state == ComState.STARTING) {
 			compositeTiming += Time.deltaTime;
 			if (currentPrincipalActivity != null) {
 				if (compositeTiming >= currentPrincipalActivity.duration)
-					state = 2;
+					state = ComState.STARTINGSTOP;
 			} else if (currentFollowingActivity != null) {
 				if (compositeTiming >= currentFollowingActivity.duration)
-					state = 2;
+					state = ComState.STARTINGSTOP;
 			}
+		} else {
+			compositeTiming = 0.0f;
 		}
 	}
 }

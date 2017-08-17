@@ -33,6 +33,7 @@ public class ActionThread : Action
 
 public enum ActionID
 {
+	IDLE,
 	WALKTO,
 	CHATBUBBLE,
 	SITDOWN,
