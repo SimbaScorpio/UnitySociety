@@ -1,7 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
 using UnityEngine.UI;
 
 public class FileManager : MonoBehaviour
@@ -28,8 +29,15 @@ public class FileManager : MonoBehaviour
 			Debug.Log (www.error);
 		else {
 			string json = www.text;
-			StorylineManager.GetInstance ().storyline = JsonUtility.FromJson<Storyline> (json);
-			StorylineManager.GetInstance ().Initialize ();
+			try {
+				Log.info (Log.green ("正在解析数据集..."));
+				StorylineManager.GetInstance ().storyline = JsonUtility.FromJson<Storyline> (json);
+				Log.info (Log.green ("数据集解析完成！"));
+				StorylineManager.GetInstance ().Initialize ();
+			} catch (Exception e) {
+				Log.error ("解析数据集出现错误");
+				Log.error (e.ToString ());
+			}
 		}
 	}
 }

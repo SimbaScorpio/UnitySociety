@@ -42,17 +42,17 @@ public class StorylineManager : MonoBehaviour
 
 	public void Initialize ()
 	{
-		Log.info ("初始化角色...");
+		Log.info (Log.blue ("初始化角色..."));
 		InitializeCharacters ();
-		Log.info ("初始化组合动作...");
+		Log.info (Log.blue ("初始化组合动作..."));
 		InitializeCompositeMovements ();
-		Log.info ("初始化岗位...");
+		Log.info (Log.blue ("初始化岗位..."));
 		InitializeJobs ();
-		Log.info ("进行岗位分配...");
+		Log.info (Log.blue ("进行岗位分配..."));
 		RandomlyArrangeJobCandidates ();
-		Log.info ("初始化故事节点...");
+		Log.info (Log.blue ("初始化故事节点..."));
 		InitializeSpots ();
-		Log.info ("开始！");
+		Log.info (Log.blue ("开始！"));
 		Tick ();
 	}
 
@@ -197,7 +197,7 @@ public class StorylineManager : MonoBehaviour
 		bool success = person.AddPrincipalActivities (spot.principal_activities, spotName);
 		if (success) {
 			nameToSpotState [spotName] = SpotState.STARTED;
-			Log.info ("Spot [" + spotName + "] started");
+			Log.info ("开始故事节点 【" + spotName + "】");
 			JoinStorylineSpot (name, spotName);
 		}
 	}
@@ -205,17 +205,17 @@ public class StorylineManager : MonoBehaviour
 	public void JoinStorylineSpot (string candidate, string spotName)
 	{
 		nameToSpotCandidates [spotName].Add (candidate);
-		Log.info ("[" + candidate + "] joined spot [" + spotName + "]");
+		Log.info (Log.yellow ("【" + candidate + "】") + " 加入故事节点 【" + spotName + "】");
 	}
 
 	public void QuitStorylineSpot (string candidate, string spotName)
 	{
 		HashSet<string> set = nameToSpotCandidates [spotName];
 		if (set.Remove (candidate)) {
-			Log.info ("[" + candidate + "] quited spot [" + spotName + "]");
+			Log.info (Log.yellow ("【" + candidate + "】") + " 退出故事节点 【" + spotName + "】");
 			if (set.Count == 0) {
 				nameToSpotState [spotName] = SpotState.ENDED;
-				Log.info ("Spot [" + spotName + "] ended");
+				Log.info ("结束故事节点【" + spotName + "】");
 			}
 		}
 	}
@@ -231,7 +231,7 @@ public class StorylineManager : MonoBehaviour
 		}
 		set.Clear ();
 		nameToSpotState [spotName] = SpotState.KILLED;
-		Log.info ("Spot [" + spotName + "] killed");
+		Log.info ("杀死故事节点 【" + spotName + "】");
 	}
 
 
