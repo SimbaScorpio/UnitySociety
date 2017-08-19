@@ -3,13 +3,9 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FileManager : MonoBehaviour
 {
-	public const string characterFileName = "storyline.json";
-	private string url;
-
 	void Start ()
 	{
 		LoadGameData ();
@@ -17,16 +13,15 @@ public class FileManager : MonoBehaviour
 
 	void LoadGameData ()
 	{
-		url = "file://" + Application.dataPath + "/Data/" + characterFileName;
-		StartCoroutine (LoadData ());
+		StartCoroutine (LoadData (Global.JsonURL));
 	}
 
-	IEnumerator LoadData ()
+	IEnumerator LoadData (string url)
 	{
 		WWW www = new WWW (url);
 		yield return www;
 		if (!string.IsNullOrEmpty (www.error))
-			Debug.Log (www.error);
+			Log.error (www.error);
 		else {
 			string json = www.text;
 			try {

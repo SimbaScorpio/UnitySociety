@@ -1,39 +1,63 @@
-﻿using System.Collections;
+﻿using System;
+using System.IO;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaterialCollection : ScriptableObject
+public class MaterialCollection : MonoBehaviour
 {
-	private static Dictionary<string, Material> materials;
-	private static string defaultName = "player_1";
+	private Dictionary<string, Material> materials;
 
-	public static Material Get (string name)
+	private static MaterialCollection instance;
+
+	public static MaterialCollection GetInstance ()
 	{
-		if (materials == null) {
-			materials = new Dictionary<string, Material> ();
-			Material mat = Resources.Load ("Materials/" + defaultName) as Material;
-			if (mat == null) {
-				Log.error ("Load default material [" + defaultName + "] failed: cannot find");
-			} else {
-				materials.Add (defaultName, mat);
-			}
-		}
+		return instance;
+	}
 
+	void Awake ()
+	{
+		instance = this;
+		materials = new Dictionary<string, Material> ();
+	}
+
+	public Material Get (string name)
+	{
 		if (string.IsNullOrEmpty (name)) {
-			return materials [defaultName];
+			return null;
 		}
-
 		if (materials.ContainsKey (name)) {
 			return materials [name];
 		} else {
-			Material mat = Resources.Load ("Materials/" + name) as Material;
-			if (mat == null) {
-				Log.error ("Load material [" + name + "] failed: cannot find");
-				return materials [defaultName];
-			} else {
-				materials.Add (name, mat);
-				return mat;
-			}
+			return LoadData (name);
 		}
+	}
+
+	Material LoadData (string name)
+	{
+		string url = Global.TexturePath + name;
+		WWW www = new WWW (url);
+		while (!www.isDone) {
+			// blocked
+		}
+		if (!string.IsNullOrEmpty (www.error)) {
+			Log.error (www.error);
+			return null;
+		} else {
+			Texture2D texture = new Texture2D (2, 2);
+			www.LoadImageIntoTexture (texture);
+			Material mat = CreateMaterialWithTexture (texture);
+			materials.Add (name, mat);
+			return mat;
+		}
+	}
+
+	Material CreateMaterialWithTexture (Texture2D texture)
+	{
+		Material mat = new Material (Shader.Find ("Standard"));
+		mat.SetTexture ("_EmissionMap", texture);
+		mat.SetColor ("_EmissionColor", Color.white);
+		mat.EnableKeyword ("_EMISSION");
+		return mat;
 	}
 }
