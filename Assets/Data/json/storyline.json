@@ -84,7 +84,7 @@
 			"otherroles_aid": ["托腮思考", "挠头思考"],
 			"wait_otherroles_main": "坐着不动",
 			"wait_otherroles_aid": [],
-			"start_otherroles_main": null,
+			"start_otherroles_main": "坐着不动",
 			"end_otherroles_main": null
 		},
 		{
@@ -119,7 +119,7 @@
 						"location_to_type": 0,
 						"location_to": null,
 						"bubble_type": 1,
-						"bubble_content": "发送邮件……",
+						"bubble_content": "发送邮件...",
 						"screen": null
 					},
 					"other_people": [
@@ -128,7 +128,7 @@
 							"location_to_type": 0,
 							"location_to": null,
 							"bubble_type": 1,
-							"bubble_content": "接受邮件……",
+							"bubble_content": "接受邮件...",
 							"screen": null,
 							"following_activities": [
 								{
@@ -162,7 +162,7 @@
 					"composite_movement_name": "开会",
 					"self": {
 						"location_to_type": 1,
-						"location_to": "location_4",
+						"location_to": "location_9",
 						"bubble_type": 1,
 						"bubble_content": "发言……",
 						"screen": null
@@ -171,7 +171,7 @@
 						{
 							"name": "程序员甲",
 							"location_to_type": 1,
-							"location_to": "location_6",
+							"location_to": "location_10",
 							"bubble_type": 1,
 							"bubble_content": "啊啊啊啊听不懂啊……",
 							"screen": null,
@@ -182,7 +182,7 @@
 									"composite_movement_name": "拍照",
 									"self": {
 										"location_to_type": 1,
-										"location_to": "location_8",
+										"location_to": "location_14",
 										"bubble_type": 1,
 										"bubble_content": "正在拍摄……",
 										"screen": null

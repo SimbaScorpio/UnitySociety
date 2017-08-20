@@ -5,19 +5,18 @@ using UnityEngine;
 public class MailTest : MonoBehaviour
 {
 	public List<GameObject> receivers = new List<GameObject> ();
+	string i = "好";
 
-	// Use this for initialization
 	void Start ()
 	{
 		
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
 	{
 		if (Input.GetKeyDown (KeyCode.M)) {
-			print (1);
-			MailManager.GetInstance ().SendMail (this.gameObject, receivers, 2.0f);
+			ActionManager.GetInstance ().ApplyChatAction (gameObject, "你好" + i, 5, null);
+			i += "好";
 		}
 	}
 }

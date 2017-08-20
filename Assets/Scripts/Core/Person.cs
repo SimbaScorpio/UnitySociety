@@ -311,8 +311,16 @@ public class Person : MonoBehaviour
 			state = ComState.PREPARINGSTOP;
 			break;
 		case ComState.PREPARINGSTOP:
-			if (CheckEveryOneEndAction ())
+			if (CheckEveryOneEndAction ()) {
 				state = ComState.STARTING;
+				DisplayBubble (gameObject, self);
+				for (int i = 0; i < children.Count; ++i) {
+					if (isPrincipal)
+						DisplayBubble (children [i].gameObject, secondChildren [i]);
+					else
+						DisplayBubble (children [i].gameObject, thirdChildren [i]);
+				}
+			}
 			break;
 		case ComState.STARTING:
 			if (compositeMovement.mainrole_aid.Length == 0) {
@@ -494,6 +502,18 @@ public class Person : MonoBehaviour
 			if (children [i].parent != this || children [i].GetComponent<Action> () != null)
 				return false;
 		return true;
+	}
+
+
+	void DisplayBubble (GameObject obj, Self self)
+	{
+		switch (self.bubble_type) {
+		case 1:
+			ActionManager.GetInstance ().ApplyChatAction (obj, self.bubble_content, 2, null);
+			break;
+		case 2:
+			break;
+		}
 	}
 
 

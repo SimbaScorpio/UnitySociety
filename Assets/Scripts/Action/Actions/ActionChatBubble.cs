@@ -17,6 +17,8 @@ public class ActionChatBubble : ActionThread
 
 	private Animator animator;
 	private bool startCounting = false;
+	private float deltaHeight = 0.0f;
+	private Transform hip;
 
 	public void Setting (GameObject obj, GameObject bubble, string content, float duration, IActionCompleted callback)
 	{
@@ -28,6 +30,7 @@ public class ActionChatBubble : ActionThread
 			this.duration = duration;
 			this.monitor = callback;
 			animator = bubble.GetComponent<Animator> ();
+			hip = obj.transform.Find ("hip_ctrl");
 			Begin ();
 		} else {
 			contents.Enqueue (content);
@@ -37,24 +40,31 @@ public class ActionChatBubble : ActionThread
 		}
 	}
 
-
 	void Begin ()
 	{
+		Text text = bubble.GetComponentInChildren<Text> ();
+		text.text = content;
+		ContentSizeFitter fitter = text.GetComponent<ContentSizeFitter> ();
+		fitter.CallBack (delegate(Vector2 size) {
+			Image image = bubble.GetComponentInChildren<Image> ();
+			float height = size.y + 10;
+			height = height > 25 ? height : 25;
+			image.rectTransform.sizeDelta = new Vector2 (size.x * 1.3f, height);
+			float worldHeight = height * image.rectTransform.localScale.y;
+			deltaHeight = worldHeight / 2 + 1.0f;
+		});
 		bubble.SetActive (true);
-		bubble.GetComponentInChildren<Text> ().text = content;
 		animator.SetTrigger ("Pop");
-		startCounting = false;
 	}
-
 
 	public void OnChatStarted ()
 	{
 		startCounting = true;
 	}
 
-
 	public void OnChatFinished ()
 	{
+		startCounting = false;
 		StartCoroutine (wait ());
 	}
 
@@ -83,6 +93,7 @@ public class ActionChatBubble : ActionThread
 			duration -= Time.deltaTime;
 		//bubble.transform.LookAt(Camera.main.transform.position);
 		//bubble.transform.Rotate(new Vector3(0, 180, 0));
+		bubble.transform.localPosition = new Vector3 (0, hip.localPosition.y + deltaHeight, 0);
 		bubble.transform.rotation = Quaternion.Euler (new Vector3 (0, 180, 0));
 	}
 }

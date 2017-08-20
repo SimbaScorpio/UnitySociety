@@ -12,6 +12,11 @@ public class UICameraSelectButtonSet : MonoBehaviour
 	public void OnButtonClicked (int id)
 	{
 		controller.projection = projection [id];
-		controller.Init ();
+		controller.SetProjectionScript ();
+	}
+
+	public void OnResetClicked ()
+	{
+		controller.ResetTransform ();
 	}
 }

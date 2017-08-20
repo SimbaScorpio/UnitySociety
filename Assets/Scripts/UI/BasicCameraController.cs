@@ -22,28 +22,49 @@ public class BasicCameraController : MonoBehaviour
 
 	private float xDeg = 0.0f;
 	private float yDeg = 0.0f;
+
 	private float desiredX;
 	private float desiredY;
 	private float currentX;
 	private float currentY;
+	public bool isDesired;
+	public Vector3 desiredPosition;
+
 	private float currentDistance;
 	private float desiredDistance;
+
 	private Quaternion currentRotation;
 	private Quaternion desiredRotation;
-	private Quaternion rotation;
+
 	private Camera cameraScript;
 	private CameraPerspectiveEditor cameraEditor;
 
+	private float _xDeg = 0.0f;
+	private float _yDeg = 0.0f;
+	private Vector3 _position;
+	private float _size;
+
 	void Start ()
 	{
-		xDeg = Vector3.Angle (Vector3.right, transform.right);
-		yDeg = Vector3.Angle (Vector3.up, transform.up);
 		cameraScript = GetComponent <Camera> ();
 		cameraEditor = GetComponent<CameraPerspectiveEditor> ();
-		Init ();
+		_xDeg = xDeg = Vector3.Angle (Vector3.right, transform.right);
+		_yDeg = yDeg = Vector3.Angle (Vector3.up, transform.up);
+		_position = transform.position;
+		_size = cameraScript.orthographicSize;
+		SetProjectionScript ();
 	}
 
-	public void Init ()
+	public void ResetTransform ()
+	{
+		xDeg = _xDeg;
+		yDeg = _yDeg;
+		isDesired = true;
+		desiredPosition = _position;
+		cameraScript.orthographicSize = _size;
+	}
+
+	public void SetProjectionScript ()
 	{
 		switch (projection) {
 		case CameraProjection.perspective:
@@ -81,20 +102,28 @@ public class BasicCameraController : MonoBehaviour
 			// set camera rotation 
 			desiredRotation = Quaternion.Euler (yDeg, xDeg, 0);
 			currentRotation = transform.rotation;
-			rotation = Quaternion.Lerp (currentRotation, desiredRotation, Time.deltaTime * zoomDampening);
-			transform.rotation = rotation;
+			transform.rotation = Quaternion.Lerp (currentRotation, desiredRotation, Time.deltaTime * zoomDampening);
 
 			// set camera translation
-			currentX = Mathf.Lerp (currentX, desiredX, Time.deltaTime * zoomDampening);
-			currentY = Mathf.Lerp (currentY, desiredY, Time.deltaTime * zoomDampening);
-			transform.position += transform.TransformDirection (Vector3.right) * currentX;
-			transform.position += transform.TransformDirection (Vector3.up) * currentY;
+			if (isDesired) {
+				currentX = currentY = desiredX = desiredY = 0;
+				float distance = Vector3.Distance (transform.position, desiredPosition);
+				transform.position = Vector3.MoveTowards (transform.position, desiredPosition, Time.deltaTime * distance / 0.5f);
+				if (distance < 1f)
+					isDesired = false;
+			} else {
+				currentX = Mathf.Lerp (currentX, desiredX, Time.deltaTime * zoomDampening);
+				currentY = Mathf.Lerp (currentY, desiredY, Time.deltaTime * zoomDampening);
+				transform.position += transform.TransformDirection (Vector3.right) * currentX;
+				transform.position += transform.TransformDirection (Vector3.up) * currentY;
+				desiredPosition = transform.position;
+			}
 
 			// set camera zooming
 			if (projection == CameraProjection.perspective) {
 				desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * Time.deltaTime * 10;
 				currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
-				transform.position += rotation * Vector3.forward * currentDistance;
+				transform.position += transform.rotation * Vector3.forward * currentDistance;
 			} else {
 				desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * Time.deltaTime * 2;
 				currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * zoomDampening);

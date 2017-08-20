@@ -37,7 +37,7 @@ public class ActionManager : Object
 	// ChatBubble
 	public Action ApplyChatAction (GameObject obj, string content, float duration, IActionCompleted callback)
 	{
-		GameObject bubble = obj.transform.Find ("hip_ctrl/Bubble").gameObject;
+		GameObject bubble = obj.transform.Find ("Bubble").gameObject;
 		if (bubble == null)
 			return null;
 		ActionChatBubble ac = bubble.GetComponent<ActionChatBubble> ();

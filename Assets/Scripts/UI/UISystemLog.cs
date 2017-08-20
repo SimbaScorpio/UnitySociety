@@ -9,7 +9,7 @@ public class UISystemLog : MonoBehaviour
 	public RectTransform content;
 	public Text textPref;
 
-	private List<string> messages;
+	private List<Text> messages;
 	private float maxWidth = 0;
 
 	private static UISystemLog instance;
@@ -22,7 +22,7 @@ public class UISystemLog : MonoBehaviour
 	void Awake ()
 	{
 		instance = this;
-		messages = new List<string> ();
+		messages = new List<Text> ();
 	}
 
 	public void AddMessage (string message)
@@ -35,7 +35,7 @@ public class UISystemLog : MonoBehaviour
 		text.rectTransform.localScale = Vector3.one;
 		text.rectTransform.localPosition = new Vector3 (2, -messages.Count * text.rectTransform.sizeDelta.y, 0);
 		text.text = message;
-		messages.Add (message);
+		messages.Add (text);
 
 		ContentSizeFitter fitter = text.GetComponent<ContentSizeFitter> ();
 		fitter.CallBack (delegate(Vector2 size) {
