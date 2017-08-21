@@ -88,13 +88,15 @@ public class BasicCameraController : MonoBehaviour
 	void Update ()
 	{
 		if (Time.timeScale > 0) {
-			if (Input.GetMouseButton (1)) {
+			if (Input.GetMouseButton (1) || Input.GetKey (KeyCode.LeftAlt)) {
 				xDeg += Input.GetAxis ("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
 				yDeg = ClampAngle (yDeg, yMinLimit, yMaxLimit);
-			} else if (Input.GetMouseButton (2)) {
+				isDesired = false;
+			} else if (Input.GetMouseButton (2) || Input.GetKey (KeyCode.Space)) {
 				desiredX = -Input.GetAxis ("Mouse X") * panRate * Time.deltaTime;
 				desiredY = -Input.GetAxis ("Mouse Y") * panRate * Time.deltaTime;
+				isDesired = false;
 			} else {
 				desiredX = desiredY = 0;
 			}
@@ -108,8 +110,8 @@ public class BasicCameraController : MonoBehaviour
 			if (isDesired) {
 				currentX = currentY = desiredX = desiredY = 0;
 				float distance = Vector3.Distance (transform.position, desiredPosition);
-				transform.position = Vector3.MoveTowards (transform.position, desiredPosition, Time.deltaTime * distance / 0.5f);
-				if (distance < 1f)
+				transform.position = Vector3.MoveTowards (transform.position, desiredPosition, Time.deltaTime * distance / 0.3f);
+				if (distance < 0.1f)
 					isDesired = false;
 			} else {
 				currentX = Mathf.Lerp (currentX, desiredX, Time.deltaTime * zoomDampening);
@@ -131,6 +133,8 @@ public class BasicCameraController : MonoBehaviour
 				if (cameraScript.orthographicSize <= 0.1f)
 					cameraScript.orthographicSize = 0.1f;
 			}
+			if (Mathf.Abs (desiredDistance) != 0)
+				isDesired = false;
 		}
 	}
 

@@ -49,7 +49,7 @@ public class ActionChatBubble : ActionThread
 			Image image = bubble.GetComponentInChildren<Image> ();
 			float height = size.y + 10;
 			height = height > 25 ? height : 25;
-			image.rectTransform.sizeDelta = new Vector2 (size.x * 1.3f, height);
+			image.rectTransform.sizeDelta = new Vector2 (size.x * 1.3f, size.y + 10);
 			float worldHeight = height * image.rectTransform.localScale.y;
 			deltaHeight = worldHeight / 2 + 1.0f;
 		});

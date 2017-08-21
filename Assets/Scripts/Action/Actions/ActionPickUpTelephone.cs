@@ -18,6 +18,11 @@ public class ActionPickUpTelephone : ActionSingle
 		animator.SetTrigger ("拿起电话");
 	}
 
+	public void OnPhoneAppear ()
+	{
+		obj.transform.Find ("hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/mic_2").gameObject.SetActive (true);
+	}
+
 	void Update ()
 	{
 		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("拿起电话")) {

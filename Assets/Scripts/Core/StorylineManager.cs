@@ -30,6 +30,11 @@ public class StorylineManager : MonoBehaviour
 	void Awake ()
 	{
 		instance = this;
+		InitializeVariables ();
+	}
+
+	void InitializeVariables ()
+	{
 		nameToCharacterObj = new Dictionary<string, GameObject> ();
 		nameToCharacter = new Dictionary<string, Character> ();
 		nameToCompositeMovement = new Dictionary<string, CompositeMovement> ();
@@ -54,6 +59,17 @@ public class StorylineManager : MonoBehaviour
 		InitializeSpots ();
 		Log.info (Log.blue ("开始！"));
 		Tick ();
+	}
+
+	public void Restart ()
+	{
+		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Player");
+		print (objs.Length);
+		for (int i = 0; i < objs.Length; ++i) {
+			Destroy (objs [i]);
+		}
+		InitializeVariables ();
+		Initialize ();
 	}
 
 	void InitializeCharacters ()
@@ -197,7 +213,7 @@ public class StorylineManager : MonoBehaviour
 		bool success = person.AddPrincipalActivities (spot.principal_activities, spotName);
 		if (success) {
 			nameToSpotState [spotName] = SpotState.STARTED;
-			Log.info ("开始故事节点 【" + spotName + "】");
+			Log.info ("开始故事节点 " + Log.pink ("【" + spotName + "】"));
 			JoinStorylineSpot (name, spotName);
 		}
 	}
@@ -205,17 +221,17 @@ public class StorylineManager : MonoBehaviour
 	public void JoinStorylineSpot (string candidate, string spotName)
 	{
 		nameToSpotCandidates [spotName].Add (candidate);
-		Log.info (Log.yellow ("【" + candidate + "】") + " 加入故事节点 【" + spotName + "】");
+		Log.info (Log.yellow ("【" + candidate + "】") + " 加入故事节点 " + Log.pink ("【" + spotName + "】"));
 	}
 
 	public void QuitStorylineSpot (string candidate, string spotName)
 	{
 		HashSet<string> set = nameToSpotCandidates [spotName];
 		if (set.Remove (candidate)) {
-			Log.info (Log.yellow ("【" + candidate + "】") + " 退出故事节点 【" + spotName + "】");
+			Log.info (Log.yellow ("【" + candidate + "】") + " 退出故事节点 " + Log.pink ("【" + spotName + "】"));
 			if (set.Count == 0) {
 				nameToSpotState [spotName] = SpotState.ENDED;
-				Log.info ("结束故事节点【" + spotName + "】");
+				Log.info ("结束故事节点 " + Log.pink ("【" + spotName + "】"));
 			}
 		}
 	}
@@ -231,7 +247,7 @@ public class StorylineManager : MonoBehaviour
 		}
 		set.Clear ();
 		nameToSpotState [spotName] = SpotState.KILLED;
-		Log.info ("杀死故事节点 【" + spotName + "】");
+		Log.info ("杀死故事节点 " + Log.pink ("【" + spotName + "】"));
 	}
 
 

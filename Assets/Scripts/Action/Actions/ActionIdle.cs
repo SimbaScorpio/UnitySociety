@@ -6,7 +6,7 @@ public class ActionIdle : ActionSingle
 {
 	public GameObject obj;
 	private IActionCompleted monitor;
-	private float count = 0.1f;
+	private float count = 0.5f;
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{

@@ -52,4 +52,9 @@ public class Log : MonoBehaviour
 	{
 		return "<color=yellow>" + content + "</color>";
 	}
+
+	public static string pink (string content)
+	{
+		return "<color=#FFA07A>" + content + "</color>";
+	}
 }
