@@ -13,6 +13,7 @@ public class ActionWalkTo : ActionSingle
 
 	private Animator animator;
 	private NavMeshAgent agent;
+	//private NavMeshObstacle obstacle;
 
 	private const float NAVMESHSAMPLEDISTANCE = 4f;
 	private const float STOPDISTANCEPROPOTION = 0.05f;
@@ -20,7 +21,7 @@ public class ActionWalkTo : ActionSingle
 	private const float SPEEDDAMPTIME = 0.5f;
 	private const float SLOWINGSPEED = 0.05f;
 	private const float TURNSMOOTHING = 15f;
-	private const float ANIMATORSPEEDPROPOTION = 1.5f;
+	private const float ANIMATORSPEEDPROPOTION = 1.4f;
 
 	private float speed;
 
@@ -35,8 +36,9 @@ public class ActionWalkTo : ActionSingle
 			this.destinationPosition = destinationPosition;
 			this.destinationRotation = destinationRotation;
 			this.monitor = monitor;
-			this.animator = obj.GetComponent<Animator> ();
-			this.agent = obj.GetComponent<NavMeshAgent> ();
+			animator = obj.GetComponent<Animator> ();
+			agent = obj.GetComponent<NavMeshAgent> ();
+			//obstacle = obj.GetComponent<NavMeshObstacle> ();
 			Begin ();
 		} else {
 			this.finalRotate = finalRotate;
@@ -49,6 +51,8 @@ public class ActionWalkTo : ActionSingle
 
 	void Begin ()
 	{
+		//obstacle.enabled = false;
+		//agent.enabled = true;
 		NavMeshHit hit;
 		if (NavMesh.SamplePosition (destinationPosition, out hit, NAVMESHSAMPLEDISTANCE, NavMesh.AllAreas)) {
 			destinationPosition = hit.position;
@@ -61,7 +65,7 @@ public class ActionWalkTo : ActionSingle
 
 	void Update ()
 	{
-		if (agent.pathPending)
+		if (!agent.enabled || agent.pathPending)
 			return;
 		speed = agent.desiredVelocity.magnitude;
 
@@ -76,7 +80,9 @@ public class ActionWalkTo : ActionSingle
 			animator.SetFloat (hashSpeedPara, speed, SPEEDDAMPTIME, Time.deltaTime);
 		else
 			animator.SetFloat (hashSpeedPara, speed);
-		animator.speed = speed * ANIMATORSPEEDPROPOTION;
+		float ySpeed = Mathf.Abs (agent.velocity.y);
+		ySpeed = ySpeed > 0 ? 1 + ySpeed : 1;
+		animator.speed = speed * ANIMATORSPEEDPROPOTION * ySpeed;
 
 		if (transform.position == destinationPosition) {
 			Finish ();
@@ -109,7 +115,10 @@ public class ActionWalkTo : ActionSingle
 	public void Finish ()
 	{
 		animator.speed = 1;
+		animator.SetFloat (hashSpeedPara, 0);
 		agent.ResetPath ();
+		//agent.enabled = false;
+		//obstacle.enabled = true;
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}

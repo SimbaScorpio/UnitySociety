@@ -41,7 +41,8 @@ public class BasicCameraController : MonoBehaviour
 
 	private float _xDeg = 0.0f;
 	private float _yDeg = 0.0f;
-	private Vector3 _position;
+	private Vector3 _positionG;
+	private Vector3 _positionP;
 	private float _size;
 
 	void Start ()
@@ -50,7 +51,8 @@ public class BasicCameraController : MonoBehaviour
 		cameraEditor = GetComponent<CameraPerspectiveEditor> ();
 		_xDeg = xDeg = Vector3.Angle (Vector3.right, transform.right);
 		_yDeg = yDeg = Vector3.Angle (Vector3.up, transform.up);
-		_position = transform.position;
+		_positionG = transform.position;
+		_positionP = AdjustGentleman (2);
 		_size = cameraScript.orthographicSize;
 		SetProjectionScript ();
 	}
@@ -60,12 +62,17 @@ public class BasicCameraController : MonoBehaviour
 		xDeg = _xDeg;
 		yDeg = _yDeg;
 		isDesired = true;
-		desiredPosition = _position;
+		desiredPosition = (projection == CameraProjection.gentleman) ? _positionG : _positionP;
 		cameraScript.orthographicSize = _size;
 	}
 
 	public void SetProjectionScript ()
 	{
+		if (projection == CameraProjection.gentleman && !cameraEditor.isActiveAndEnabled) {
+			transform.position = AdjustGentleman (1);
+		} else if (projection != CameraProjection.gentleman && cameraEditor.isActiveAndEnabled) {
+			transform.position = AdjustGentleman (2);
+		}
 		switch (projection) {
 		case CameraProjection.perspective:
 			cameraScript.orthographic = false;
@@ -83,6 +90,20 @@ public class BasicCameraController : MonoBehaviour
 				cameraEditor.enabled = true;
 			break;
 		}
+	}
+
+	Vector3 AdjustGentleman (int flag)
+	{
+		float deltaX = 20;
+		float deltaY = 13;
+		Vector3 wx = transform.TransformDirection (Vector3.right) * deltaX;
+		Vector3 wy = transform.TransformDirection (Vector3.up) * deltaY;
+		if (flag == 1) {
+			return transform.position + wx + wy;
+		} else if (flag == 2) {
+			return transform.position - wx - wy;
+		} else
+			return transform.position;
 	}
 
 	void Update ()

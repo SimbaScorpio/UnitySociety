@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.AI;
 
 public class UILocation : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class UILocation : MonoBehaviour
 	{
 		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Location").OrderBy (g => g.transform.GetSiblingIndex ()).ToArray ();
 		foreach (GameObject obj in objs) {
+			NavMeshHit hit;
+			if (NavMesh.SamplePosition (obj.transform.position, out hit, 1f, NavMesh.AllAreas)) {
+				obj.transform.position = hit.position;
+			}
+
 			Button btn = Instantiate (buttonPref) as Button;
 			btn.transform.SetParent (content);
 			btn.transform.localScale = Vector3.one;

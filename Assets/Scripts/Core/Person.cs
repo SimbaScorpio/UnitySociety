@@ -72,6 +72,7 @@ public class Person : MonoBehaviour
 			string candidate = storylineManager.nameToJobCandidate [person.name];
 			GameObject obj = storylineManager.nameToCharacterObj [candidate];
 			Person script = obj.GetComponent<Person> ();
+			script.spotName = spotName;
 			if (script.parent == this)
 				script.Stop ();
 		}
@@ -80,6 +81,7 @@ public class Person : MonoBehaviour
 			string candidate = storylineManager.nameToJobCandidate [person.name];
 			GameObject obj = storylineManager.nameToCharacterObj [candidate];
 			Person script = obj.GetComponent<Person> ();
+			script.spotName = spotName;
 			if (script.parent == this)
 				script.Stop ();
 		}
@@ -474,7 +476,7 @@ public class Person : MonoBehaviour
 		case 0:	// stand by
 			return true;
 		case 1:	// labeled location
-			if (self.location_to == null) {
+			if (string.IsNullOrEmpty (self.location_to)) {
 				Character cha = storylineManager.nameToCharacter [gameObject.name];
 				destination = LocationCollection.Get (cha.initial_position);
 			} else {
