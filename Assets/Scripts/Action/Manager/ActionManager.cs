@@ -24,12 +24,12 @@ public class ActionManager : Object
 
 
 	// Movement
-	public Action ApplyWalkToAction (GameObject obj, Vector3 destinationPosition, bool finalRotate, Quaternion destinationRotation, IActionCompleted callback)
+	public Action ApplyWalkToAction (GameObject obj, Landmark destinationPosition, IActionCompleted callback)
 	{
 		ActionWalkTo ac = obj.GetComponent<ActionWalkTo> ();
 		if (ac == null)
 			ac = obj.AddComponent<ActionWalkTo> ();
-		ac.Setting (obj, destinationPosition, finalRotate, destinationRotation, callback);
+		ac.Setting (obj, destinationPosition, callback);
 		return ac;
 	}
 
@@ -138,6 +138,83 @@ public class ActionManager : Object
 	public Action ApplyIdleAction (GameObject obj, IActionCompleted callback)
 	{
 		ActionIdle ac = obj.AddComponent<ActionIdle> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyStandListenAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionStandListen ac = obj.AddComponent<ActionStandListen> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyStandClapAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionStandClap ac = obj.AddComponent<ActionStandClap> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyStandSpeakAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionStandSpeak ac = obj.AddComponent<ActionStandSpeak> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplySpeakAndPointFarAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionSpeakAndPointFar ac = obj.AddComponent<ActionSpeakAndPointFar> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplySpeakAndPointNearDeskAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionSpeakAndPointNearDesk ac = obj.AddComponent<ActionSpeakAndPointNearDesk> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplySpeakAndPointDeskAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionSpeakAndPointDesk ac = obj.AddComponent<ActionSpeakAndPointDesk> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyStandPointPPTAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionStandPointPPT ac = obj.AddComponent<ActionStandPointPPT> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyGivePaperAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionGivePaper ac = obj.AddComponent<ActionGivePaper> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplyGetPaperAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionGetPaper ac = obj.AddComponent<ActionGetPaper> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplySitBackAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionSitBack ac = obj.AddComponent<ActionSitBack> ();
+		ac.Setting (obj, callback);
+		return ac;
+	}
+
+	public Action ApplySitBackWithHandAction (GameObject obj, IActionCompleted callback)
+	{
+		ActionSitBackWithHand ac = obj.AddComponent<ActionSitBackWithHand> ();
 		ac.Setting (obj, callback);
 		return ac;
 	}

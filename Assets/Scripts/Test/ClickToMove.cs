@@ -5,37 +5,20 @@ using UnityEngine.AI;
 
 public class ClickToMove : MonoBehaviour
 {
-	NavMeshAgent agent;
-	NavMeshObstacle obstacle;
-	bool flag = false;
-
-	void Start ()
-	{
-		agent = GetComponent<NavMeshAgent> ();
-		obstacle = GetComponent<NavMeshObstacle> ();
-	}
+	public Transform target;
 
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.A)) {
-			if (!flag)
-				ImObstacle ();
-			else
-				ImAgent ();
+		if (Input.GetMouseButtonDown (0)) {
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit, 1000)) {
+				if (!GetComponent<ActionSingle> ()) {
+					target.position = hit.point;
+					//AIMove ac = gameObject.AddComponent<AIMove> ();
+					//ac.Setting (gameObject, target, null);
+				}
+			}
 		}
-	}
-
-	void ImAgent ()
-	{
-		obstacle.enabled = false;
-		agent.enabled = true;
-		flag = false;
-	}
-
-	void ImObstacle ()
-	{
-		agent.enabled = false;
-		obstacle.enabled = true;
-		flag = true;
 	}
 }

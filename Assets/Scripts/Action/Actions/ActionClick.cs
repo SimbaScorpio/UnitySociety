@@ -12,7 +12,7 @@ public class ActionClick : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.CLICK;
+		//this.id = ActionID.CLICK;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

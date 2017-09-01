@@ -23,7 +23,7 @@ public class ActionChatBubble : ActionThread
 	public void Setting (GameObject obj, GameObject bubble, string content, float duration, IActionCompleted callback)
 	{
 		if (this.obj == null) {
-			this.id = ActionID.CHATBUBBLE;
+			//this.id = ActionID.CHATBUBBLE;
 			this.obj = obj;
 			this.bubble = bubble;
 			this.content = content;

@@ -10,7 +10,7 @@ public interface IActionCompleted
 
 public class Action : MonoBehaviour
 {
-	public ActionID id;
+	//public ActionID id;
 
 	public void Free ()
 	{
@@ -31,21 +31,21 @@ public class ActionThread : Action
 }
 
 
-public enum ActionID
-{
-	IDLE,
-	WALKTO,
-	CHATBUBBLE,
-	SITDOWN,
-	STANDUP,
-	CLICK,
-	TYPE,
-	SCRATCHHEAD,
-	HANDONCHIN,
-	USECAMERA,
-	PICKUPTELEPHONE,
-	PUTDOWNTELEPHONE,
-	DIALTELEPHONE,
-	USETELEPHONE,
-	SPEECH
-}
+//public enum ActionID
+//{
+//	IDLE,
+//	WALKTO,
+//	CHATBUBBLE,
+//	SITDOWN,
+//	STANDUP,
+//	CLICK,
+//	TYPE,
+//	SCRATCHHEAD,
+//	HANDONCHIN,
+//	USECAMERA,
+//	PICKUPTELEPHONE,
+//	PUTDOWNTELEPHONE,
+//	DIALTELEPHONE,
+//	USETELEPHONE,
+//	SPEECH
+//}

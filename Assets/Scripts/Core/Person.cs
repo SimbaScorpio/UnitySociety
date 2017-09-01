@@ -25,7 +25,7 @@ public class Person : MonoBehaviour
 	private StorylineManager storylineManager;
 	private ActionDealer actionDealer;
 
-	private float staticAidPossibility = 0.1f;
+	private float staticAidPossibility = 0.2f;
 	private float distanceError = 0.5f;
 
 
@@ -106,7 +106,7 @@ public class Person : MonoBehaviour
 
 	void WhatNext ()
 	{
-		Action ac = GetComponent<Action> ();
+		ActionSingle ac = GetComponent<ActionSingle> ();
 		if (ac != null) {
 			return;
 		} else if (isPrincipal && isBeingControlled) {
@@ -144,10 +144,10 @@ public class Person : MonoBehaviour
 	void DealSpareActivity ()
 	{
 		Character character = storylineManager.nameToCharacter [this.name];
-		Transform initialTranform = LocationCollection.Get (character.initial_position);
-		if (Vector3.Distance (transform.position, initialTranform.position) > distanceError) {
+		Landmark initialLandmark = LandmarkCollection.GetInstance ().Get (character.initial_position);
+		if (Vector3.Distance (transform.position, initialLandmark.position) > distanceError) {
 			if (actionDealer.TryNotSitting (null)) {
-				ActionManager.GetInstance ().ApplyWalkToAction (gameObject, initialTranform.position, true, initialTranform.rotation, null);
+				ActionManager.GetInstance ().ApplyWalkToAction (gameObject, initialLandmark, null);
 			}
 		} else {
 			if (character.spare_time_aid.Length == 0) {
@@ -408,7 +408,7 @@ public class Person : MonoBehaviour
 			Person person = children [i];
 			if (person.parent != this)
 				continue;
-			if (person.GetComponent<Action> () != null)
+			if (person.GetComponent<ActionSingle> () != null)
 				continue;
 			switch (state) {
 			case ComState.ARRIVING:
@@ -471,22 +471,22 @@ public class Person : MonoBehaviour
 
 	bool IsAtProperLocation (Self self, GameObject gameObject, bool doAction)
 	{
-		Transform destination;
+		Landmark destination;
 		switch (self.location_to_type) {
 		case 0:	// stand by
 			return true;
 		case 1:	// labeled location
 			if (string.IsNullOrEmpty (self.location_to)) {
 				Character cha = storylineManager.nameToCharacter [gameObject.name];
-				destination = LocationCollection.Get (cha.initial_position);
+				destination = LandmarkCollection.GetInstance ().Get (cha.initial_position);
 			} else {
-				destination = LocationCollection.Get (self.location_to);
+				destination = LandmarkCollection.GetInstance ().Get (self.location_to);
 			}
 			if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
 				return true;
 			else if (doAction) {
 				if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
-					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, null);
+					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination, null);
 			}
 			return false;
 		case 2:	// closest location
@@ -494,12 +494,12 @@ public class Person : MonoBehaviour
 				Log.warn ("Empty object location when needed");
 				return true;
 			}
-			destination = LocationCollection.GetNearestObject (gameObject.transform.position, self.location_to);
+			destination = LandmarkCollection.GetInstance ().GetNearestObject (gameObject.transform.position, self.location_to);
 			if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
 				return true;
 			else if (doAction) {
 				if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
-					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination.position, true, destination.rotation, null);
+					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination, null);
 			}
 			return false;
 		default:
@@ -531,10 +531,10 @@ public class Person : MonoBehaviour
 
 	bool CheckEveryOneEndAction ()
 	{
-		if (GetComponent<Action> () != null)
+		if (GetComponent<ActionSingle> () != null)
 			return false;
 		for (int i = 0; i < children.Count; ++i)
-			if (children [i].parent != this || children [i].GetComponent<Action> () != null)
+			if (children [i].parent != this || children [i].GetComponent<ActionSingle> () != null)
 				return false;
 		return true;
 	}

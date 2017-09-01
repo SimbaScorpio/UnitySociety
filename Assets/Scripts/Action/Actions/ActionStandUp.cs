@@ -11,7 +11,7 @@ public class ActionStandUp : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.STANDUP;
+		//this.id = ActionID.STANDUP;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

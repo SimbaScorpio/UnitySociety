@@ -11,7 +11,7 @@ public class ActionType : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.TYPE;
+		//this.id = ActionID.TYPE;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

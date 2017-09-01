@@ -11,7 +11,7 @@ public class ActionHandOnChin : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.HANDONCHIN;
+		//this.id = ActionID.HANDONCHIN;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

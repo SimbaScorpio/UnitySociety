@@ -81,7 +81,7 @@ public class StorylineManager : MonoBehaviour
 				Log.error ("Initialize character [" + i + "] failed: empty name");
 				continue;
 			}
-			Transform initialLocation = LocationCollection.Get (cha.initial_position);
+			Landmark initialLocation = LandmarkCollection.GetInstance ().Get (cha.initial_position);
 			GameObject player = Instantiate (PlayerPrefab, initialLocation.position, initialLocation.rotation) as GameObject;
 			Material clothing = MaterialCollection.GetInstance ().Get (cha.clothing);
 			player.transform.Find ("mesh").GetComponent<Renderer> ().material = clothing;

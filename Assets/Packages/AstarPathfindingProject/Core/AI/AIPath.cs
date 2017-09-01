@@ -32,10 +32,11 @@ using Pathfinding.RVO;
  * If it finds a NavmeshController, it will use that, otherwise it will look for a character controller, then for a rigidbody and if it hasn't been able to find any
  * it will use Transform.Translate which is guaranteed to always work.
  */
-[RequireComponent(typeof(Seeker))]
-[AddComponentMenu("Pathfinding/AI/AIPath (3D)")]
-[HelpURL("http://arongranberg.com/astar/docs/class_a_i_path.php")]
-public class AIPath : MonoBehaviour {
+[RequireComponent (typeof(Seeker))]
+[AddComponentMenu ("Pathfinding/AI/AIPath (3D)")]
+[HelpURL ("http://arongranberg.com/astar/docs/class_a_i_path.php")]
+public class AIPath : ActionSingle
+{
 	/** Determines how often it will search for new paths.
 	 * If you have fast moving targets or AIs, you might want to set it to a lower value.
 	 * The value is in seconds between path requests.
@@ -147,17 +148,19 @@ public class AIPath : MonoBehaviour {
 	/** Initializes reference variables.
 	 * If you override this function you should in most cases call base.Awake () at the start of it.
 	 * */
-	protected virtual void Awake () {
-		seeker = GetComponent<Seeker>();
+	protected virtual void Awake ()
+	{
+		seeker = GetComponent<Seeker> ();
 
 		//This is a simple optimization, cache the transform component lookup
 		tr = transform;
 
 		//Cache some other components (not all are necessarily there)
-		controller = GetComponent<CharacterController>();
-		rvoController = GetComponent<RVOController>();
-		if (rvoController != null) rvoController.enableRotation = false;
-		rigid = GetComponent<Rigidbody>();
+		controller = GetComponent<CharacterController> ();
+		rvoController = GetComponent<RVOController> ();
+		if (rvoController != null)
+			rvoController.enableRotation = false;
+		rigid = GetComponent<Rigidbody> ();
 	}
 
 	/** Starts searching for paths.
@@ -165,9 +168,10 @@ public class AIPath : MonoBehaviour {
 	 * \see OnEnable
 	 * \see RepeatTrySearchPath
 	 */
-	protected virtual void Start () {
+	protected virtual void Start ()
+	{
 		startHasRun = true;
-		OnEnable();
+		OnEnable ();
 	}
 
 	/** Run at start and when reenabled.
@@ -175,26 +179,30 @@ public class AIPath : MonoBehaviour {
 	 *
 	 * \see Start
 	 */
-	protected virtual void OnEnable () {
+	protected virtual void OnEnable ()
+	{
 		lastRepath = -9999;
 		canSearchAgain = true;
 
-		lastFoundWaypointPosition = GetFeetPosition();
+		lastFoundWaypointPosition = GetFeetPosition ();
 
 		if (startHasRun) {
 			//Make sure we receive callbacks when paths complete
 			seeker.pathCallback += OnPathComplete;
 
-			StartCoroutine(RepeatTrySearchPath());
+			StartCoroutine (RepeatTrySearchPath ());
 		}
 	}
 
-	public void OnDisable () {
+	public void OnDisable ()
+	{
 		// Abort calculation of path
-		if (seeker != null && !seeker.IsDone()) seeker.GetCurrentPath().Error();
+		if (seeker != null && !seeker.IsDone ())
+			seeker.GetCurrentPath ().Error ();
 
 		// Release current path
-		if (path != null) path.Release(this);
+		if (path != null)
+			path.Release (this);
 		path = null;
 
 		//Make sure we receive callbacks when paths complete
@@ -204,10 +212,11 @@ public class AIPath : MonoBehaviour {
 	/** Tries to search for a path every #repathRate seconds.
 	 * \see TrySearchPath
 	 */
-	protected IEnumerator RepeatTrySearchPath () {
+	protected IEnumerator RepeatTrySearchPath ()
+	{
 		while (true) {
-			float v = TrySearchPath();
-			yield return new WaitForSeconds(v);
+			float v = TrySearchPath ();
+			yield return new WaitForSeconds (v);
 		}
 	}
 
@@ -217,20 +226,23 @@ public class AIPath : MonoBehaviour {
 	 *
 	 * \returns The time to wait until calling this function again (based on #repathRate)
 	 */
-	public float TrySearchPath () {
+	public float TrySearchPath ()
+	{
 		if (Time.time - lastRepath >= repathRate && canSearchAgain && canSearch && target != null) {
-			SearchPath();
+			SearchPath ();
 			return repathRate;
 		} else {
 			//StartCoroutine (WaitForRepath ());
-			float v = repathRate - (Time.time-lastRepath);
+			float v = repathRate - (Time.time - lastRepath);
 			return v < 0 ? 0 : v;
 		}
 	}
 
 	/** Requests a path to the target */
-	public virtual void SearchPath () {
-		if (target == null) throw new System.InvalidOperationException("Target is null");
+	public virtual void SearchPath ()
+	{
+		if (target == null)
+			throw new System.InvalidOperationException ("Target is null");
 
 		lastRepath = Time.time;
 		//This is where we should search to
@@ -243,10 +255,11 @@ public class AIPath : MonoBehaviour {
 		//seeker.StartPath (p);
 
 		//We should search from the current position
-		seeker.StartPath(GetFeetPosition(), targetPosition);
+		seeker.StartPath (GetFeetPosition (), targetPosition);
 	}
 
-	public virtual void OnTargetReached () {
+	public virtual void OnTargetReached ()
+	{
 		//End of path has been reached
 		//If you want custom logic for when the AI has reached it's destination
 		//add it here
@@ -258,25 +271,28 @@ public class AIPath : MonoBehaviour {
 	 * A path is first requested by #SearchPath, it is then calculated, probably in the same or the next frame.
 	 * Finally it is returned to the seeker which forwards it to this function.\n
 	 */
-	public virtual void OnPathComplete (Path _p) {
+	public virtual void OnPathComplete (Path _p)
+	{
 		ABPath p = _p as ABPath;
 
-		if (p == null) throw new System.Exception("This function only handles ABPaths, do not use special path types");
+		if (p == null)
+			throw new System.Exception ("This function only handles ABPaths, do not use special path types");
 
 		canSearchAgain = true;
 
 		//Claim the new path
-		p.Claim(this);
+		p.Claim (this);
 
 		// Path couldn't be calculated of some reason.
 		// More info in p.errorLog (debug string)
 		if (p.error) {
-			p.Release(this);
+			p.Release (this);
 			return;
 		}
 
 		//Release the previous path
-		if (path != null) path.Release(this);
+		if (path != null)
+			path.Release (this);
 
 		//Replace the old path
 		path = p;
@@ -297,51 +313,53 @@ public class AIPath : MonoBehaviour {
 			// from the current position (possibly behind it which could cause
 			// the agent to turn around, and that looks pretty bad).
 			Vector3 p1 = Time.time - lastFoundWaypointTime < 0.3f ? lastFoundWaypointPosition : p.originalStartPoint;
-			Vector3 p2 = GetFeetPosition();
-			Vector3 dir = p2-p1;
+			Vector3 p2 = GetFeetPosition ();
+			Vector3 dir = p2 - p1;
 			float magn = dir.magnitude;
 			dir /= magn;
-			int steps = (int)(magn/pickNextWaypointDist);
+			int steps = (int)(magn / pickNextWaypointDist);
 
 #if ASTARDEBUG
 			Debug.DrawLine(p1, p2, Color.red, 1);
 #endif
 
 			for (int i = 0; i <= steps; i++) {
-				CalculateVelocity(p1);
+				CalculateVelocity (p1);
 				p1 += dir;
 			}
 		}
 	}
 
-	public virtual Vector3 GetFeetPosition () {
+	public virtual Vector3 GetFeetPosition ()
+	{
 		if (rvoController != null) {
-			return tr.position - Vector3.up*rvoController.height*0.5f;
-		} else
-		if (controller != null) {
-			return tr.position - Vector3.up*controller.height*0.5F;
+			return tr.position - Vector3.up * rvoController.height * 0.5f;
+		} else if (controller != null) {
+			return tr.position - Vector3.up * controller.height * 0.5F;
 		}
 
 		return tr.position;
 	}
 
-	public virtual void Update () {
-		if (!canMove) { return; }
+	public virtual void Update ()
+	{
+		if (!canMove) {
+			return;
+		}
 
-		Vector3 dir = CalculateVelocity(GetFeetPosition());
+		Vector3 dir = CalculateVelocity (GetFeetPosition ());
 
 		//Rotate towards targetDirection (filled in by CalculateVelocity)
-		RotateTowards(targetDirection);
+		RotateTowards (targetDirection);
 
 		if (rvoController != null) {
-			rvoController.Move(dir);
-		} else
-		if (controller != null) {
-			controller.SimpleMove(dir);
+			rvoController.Move (dir);
+		} else if (controller != null) {
+			controller.SimpleMove (dir);
 		} else if (rigid != null) {
-			rigid.AddForce(dir);
+			rigid.AddForce (dir);
 		} else {
-			tr.Translate(dir*Time.deltaTime, Space.World);
+			tr.Translate (dir * Time.deltaTime, Space.World);
 		}
 	}
 
@@ -352,11 +370,12 @@ public class AIPath : MonoBehaviour {
 	 * Filled in by #CalculateVelocity */
 	protected Vector3 targetDirection;
 
-	protected float XZSqrMagnitude (Vector3 a, Vector3 b) {
-		float dx = b.x-a.x;
-		float dz = b.z-a.z;
+	protected float XZSqrMagnitude (Vector3 a, Vector3 b)
+	{
+		float dx = b.x - a.x;
+		float dz = b.z - a.z;
 
-		return dx*dx + dz*dz;
+		return dx * dx + dz * dz;
 	}
 
 	/** Calculates desired velocity.
@@ -371,25 +390,30 @@ public class AIPath : MonoBehaviour {
 	 * /see targetDirection
 	 * /see currentWaypointIndex
 	 */
-	protected Vector3 CalculateVelocity (Vector3 currentPosition) {
-		if (path == null || path.vectorPath == null || path.vectorPath.Count == 0) return Vector3.zero;
+	protected Vector3 CalculateVelocity (Vector3 currentPosition)
+	{
+		if (path == null || path.vectorPath == null || path.vectorPath.Count == 0)
+			return Vector3.zero;
 
 		List<Vector3> vPath = path.vectorPath;
 
 		if (vPath.Count == 1) {
-			vPath.Insert(0, currentPosition);
+			vPath.Insert (0, currentPosition);
 		}
 
-		if (currentWaypointIndex >= vPath.Count) { currentWaypointIndex = vPath.Count-1; }
+		if (currentWaypointIndex >= vPath.Count) {
+			currentWaypointIndex = vPath.Count - 1;
+		}
 
-		if (currentWaypointIndex <= 1) currentWaypointIndex = 1;
+		if (currentWaypointIndex <= 1)
+			currentWaypointIndex = 1;
 
 		while (true) {
-			if (currentWaypointIndex < vPath.Count-1) {
+			if (currentWaypointIndex < vPath.Count - 1) {
 				//There is a "next path segment"
-				float dist = XZSqrMagnitude(vPath[currentWaypointIndex], currentPosition);
+				float dist = XZSqrMagnitude (vPath [currentWaypointIndex], currentPosition);
 				//Mathfx.DistancePointSegmentStrict (vPath[currentWaypointIndex+1],vPath[currentWaypointIndex+2],currentPosition);
-				if (dist < pickNextWaypointDist*pickNextWaypointDist) {
+				if (dist < pickNextWaypointDist * pickNextWaypointDist) {
 					lastFoundWaypointPosition = currentPosition;
 					lastFoundWaypointTime = Time.time;
 					currentWaypointIndex++;
@@ -401,29 +425,32 @@ public class AIPath : MonoBehaviour {
 			}
 		}
 
-		Vector3 dir = vPath[currentWaypointIndex] - vPath[currentWaypointIndex-1];
-		Vector3 targetPosition = CalculateTargetPoint(currentPosition, vPath[currentWaypointIndex-1], vPath[currentWaypointIndex]);
+		Vector3 dir = vPath [currentWaypointIndex] - vPath [currentWaypointIndex - 1];
+		Vector3 targetPosition = CalculateTargetPoint (currentPosition, vPath [currentWaypointIndex - 1], vPath [currentWaypointIndex]);
 
 
-		dir = targetPosition-currentPosition;
+		dir = targetPosition - currentPosition;
 		dir.y = 0;
 		float targetDist = dir.magnitude;
 
-		float slowdown = Mathf.Clamp01(targetDist / slowdownDistance);
+		float slowdown = Mathf.Clamp01 (targetDist / slowdownDistance);
 
 		this.targetDirection = dir;
 		this.targetPoint = targetPosition;
 
-		if (currentWaypointIndex == vPath.Count-1 && targetDist <= endReachedDistance) {
-			if (!targetReached) { targetReached = true; OnTargetReached(); }
+		if (currentWaypointIndex == vPath.Count - 1 && targetDist <= endReachedDistance) {
+			if (!targetReached) {
+				targetReached = true;
+				OnTargetReached ();
+			}
 
 			//Send a move request, this ensures gravity is applied
 			return Vector3.zero;
 		}
 
 		Vector3 forward = tr.forward;
-		float dot = Vector3.Dot(dir.normalized, forward);
-		float sp = speed * Mathf.Max(dot, minMoveScale) * slowdown;
+		float dot = Vector3.Dot (dir.normalized, forward);
+		float sp = speed * Mathf.Max (dot, minMoveScale) * slowdown;
 
 #if ASTARDEBUG
 		Debug.DrawLine(vPath[currentWaypointIndex-1], vPath[currentWaypointIndex], Color.black);
@@ -434,26 +461,28 @@ public class AIPath : MonoBehaviour {
 #endif
 
 		if (Time.deltaTime > 0) {
-			sp = Mathf.Clamp(sp, 0, targetDist/(Time.deltaTime*2));
+			sp = Mathf.Clamp (sp, 0, targetDist / (Time.deltaTime * 2));
 		}
-		return forward*sp;
+		return forward * sp;
 	}
 
 	/** Rotates in the specified direction.
 	 * Rotates around the Y-axis.
 	 * \see turningSpeed
 	 */
-	protected virtual void RotateTowards (Vector3 dir) {
-		if (dir == Vector3.zero) return;
+	protected virtual void RotateTowards (Vector3 dir)
+	{
+		if (dir == Vector3.zero)
+			return;
 
 		Quaternion rot = tr.rotation;
-		Quaternion toTarget = Quaternion.LookRotation(dir);
+		Quaternion toTarget = Quaternion.LookRotation (dir);
 
-		rot = Quaternion.Slerp(rot, toTarget, turningSpeed*Time.deltaTime);
+		rot = Quaternion.Slerp (rot, toTarget, turningSpeed * Time.deltaTime);
 		Vector3 euler = rot.eulerAngles;
 		euler.z = 0;
 		euler.x = 0;
-		rot = Quaternion.Euler(euler);
+		rot = Quaternion.Euler (euler);
 
 		tr.rotation = rot;
 	}
@@ -466,21 +495,23 @@ public class AIPath : MonoBehaviour {
 	 * \see #forwardLook
 	 * \todo This function uses .magnitude quite a lot, can it be optimized?
 	 */
-	protected Vector3 CalculateTargetPoint (Vector3 p, Vector3 a, Vector3 b) {
+	protected Vector3 CalculateTargetPoint (Vector3 p, Vector3 a, Vector3 b)
+	{
 		a.y = p.y;
 		b.y = p.y;
 
-		float magn = (a-b).magnitude;
-		if (magn == 0) return a;
+		float magn = (a - b).magnitude;
+		if (magn == 0)
+			return a;
 
-		float closest = Mathf.Clamp01(VectorMath.ClosestPointOnLineFactor(a, b, p));
-		Vector3 point = (b-a)*closest + a;
-		float distance = (point-p).magnitude;
+		float closest = Mathf.Clamp01 (VectorMath.ClosestPointOnLineFactor (a, b, p));
+		Vector3 point = (b - a) * closest + a;
+		float distance = (point - p).magnitude;
 
-		float lookAhead = Mathf.Clamp(forwardLook - distance, 0.0F, forwardLook);
+		float lookAhead = Mathf.Clamp (forwardLook - distance, 0.0F, forwardLook);
 
 		float offset = lookAhead / magn;
-		offset = Mathf.Clamp(offset+closest, 0.0F, 1.0F);
-		return (b-a)*offset + a;
+		offset = Mathf.Clamp (offset + closest, 0.0F, 1.0F);
+		return (b - a) * offset + a;
 	}
 }

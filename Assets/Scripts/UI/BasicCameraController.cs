@@ -22,6 +22,7 @@ public class BasicCameraController : MonoBehaviour
 
 	private float xDeg = 0.0f;
 	private float yDeg = 0.0f;
+	private bool canRotate = false;
 
 	private float desiredX;
 	private float desiredY;
@@ -78,16 +79,19 @@ public class BasicCameraController : MonoBehaviour
 			cameraScript.orthographic = false;
 			if (cameraEditor)
 				cameraEditor.enabled = false;
+			canRotate = true;
 			break;
 		case CameraProjection.orthographic:
 			cameraScript.orthographic = true;
 			if (cameraEditor)
 				cameraEditor.enabled = false;
+			canRotate = false;
 			break;
 		case CameraProjection.gentleman:
 			cameraScript.orthographic = true;
 			if (cameraEditor)
 				cameraEditor.enabled = true;
+			canRotate = false;
 			break;
 		}
 	}
@@ -109,7 +113,7 @@ public class BasicCameraController : MonoBehaviour
 	void Update ()
 	{
 		if (Time.timeScale > 0) {
-			if (Input.GetMouseButton (1) || Input.GetKey (KeyCode.LeftAlt)) {
+			if (canRotate && Input.GetMouseButton (1) || Input.GetKey (KeyCode.LeftAlt)) {
 				xDeg += Input.GetAxis ("Mouse X") * xSpeed * 0.02f;
 				yDeg -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
 				yDeg = ClampAngle (yDeg, yMinLimit, yMaxLimit);

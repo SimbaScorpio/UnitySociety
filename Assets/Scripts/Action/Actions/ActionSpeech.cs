@@ -12,7 +12,7 @@ public class ActionSpeech : ActionSingle
 
 	public void Setting (GameObject obj, GameObject paper, IActionCompleted monitor)
 	{
-		this.id = ActionID.SPEECH;
+		//this.id = ActionID.SPEECH;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

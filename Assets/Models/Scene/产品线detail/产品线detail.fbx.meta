@@ -512,6 +512,105 @@ ModelImporter:
     4300192: building_2
     4300194: sacond_glass
     4300196: firsrt_galss
+    6400000: 3d_printer
+    6400002: bar
+    6400004: blackboard
+    6400006: bookcase
+    6400008: box
+    6400010: building_2
+    6400012: carpet
+    6400014: chair_10
+    6400016: chair_10_1
+    6400018: chair_13
+    6400020: chair_14
+    6400022: chair_14_1
+    6400024: chair_2
+    6400026: chair_4
+    6400028: chair_6
+    6400030: chair_7
+    6400032: chair_7_1
+    6400034: chair_9
+    6400036: chair_9_1
+    6400038: chair_9_1_2
+    6400040: chair_9_2
+    6400042: chair_9_2_2
+    6400044: chair_9_3
+    6400046: chair_9_3_2
+    6400048: computer
+    6400050: computer_1
+    6400052: computer_1_2
+    6400054: computer_2
+    6400056: computer_2_2
+    6400058: computer_3
+    6400060: computer_4
+    6400062: computer_5
+    6400064: computer_6
+    6400066: desk
+    6400068: desk1
+    6400070: desk2
+    6400072: desk_1
+    6400074: desk_2
+    6400076: drawing
+    6400078: drawing_1
+    6400080: drawing_2
+    6400082: drawing_2_2
+    6400084: firsrt_galss
+    6400086: floor
+    6400088: flower_10
+    6400090: flower_11
+    6400092: flower_2
+    6400094: flower_3
+    6400096: flower_4
+    6400098: flower_5
+    6400100: flower_6
+    6400102: flower_7
+    6400104: flower_8
+    6400106: flower_9
+    6400108: glass
+    6400110: keyboard
+    6400112: keyboard_2
+    6400114: keyboard_3
+    6400116: keyboard_4
+    6400118: keyboard_5
+    6400120: keyboard_6
+    6400122: keyboard_7
+    6400124: keyboard_8
+    6400126: keyboard_9
+    6400128: light
+    6400130: light_1
+    6400132: light_2
+    6400134: machine1
+    6400136: machine2
+    6400138: machine3
+    6400140: meeting_table
+    6400142: paper
+    6400144: paper_1
+    6400146: paper_2
+    6400148: paper_2_2
+    6400150: paper_3
+    6400152: paper_3_2
+    6400154: Plane
+    6400156: sacond_glass
+    6400158: screen
+    6400160: stairs1
+    6400162: stairs2
+    6400164: table
+    6400166: table_15
+    6400168: table_17
+    6400170: table_2
+    6400172: table_2_
+    6400174: table_2_1
+    6400176: table_2_1_2
+    6400178: table_3
+    6400180: table_7
+    6400182: table_9
+    6400184: table_9_1
+    6400186: wall
+    6400188: wall1
+    6400190: wall2
+    6400192: wall3
+    6400194: wall_2
+    6400196: wall_3
   materials:
     importMaterials: 1
     materialName: 1
@@ -540,7 +639,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

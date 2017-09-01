@@ -12,7 +12,7 @@ public class ActionUseCamera : ActionSingle
 
 	public void Setting (GameObject obj, GameObject cameraObj, IActionCompleted monitor)
 	{
-		this.id = ActionID.USECAMERA;
+		//this.id = ActionID.USECAMERA;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

@@ -10,7 +10,7 @@ public class ActionIdle : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.IDLE;
+		//this.id = ActionID.IDLE;
 		this.obj = obj;
 		this.monitor = monitor;
 	}

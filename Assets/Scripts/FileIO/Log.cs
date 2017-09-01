@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Log : MonoBehaviour
+public class Log
 {
 	public static bool display = true;
 	public static bool displayError = true;
@@ -13,7 +13,8 @@ public class Log : MonoBehaviour
 	{
 		if (display && displayError) {
 			Debug.LogError (content);
-			UISystemLog.GetInstance ().AddMessage (red (content));
+			if (UISystemLog.GetInstance ())
+				UISystemLog.GetInstance ().AddMessage (red (content));
 		}
 	}
 
@@ -21,7 +22,8 @@ public class Log : MonoBehaviour
 	{
 		if (display && displayWarn) {
 			Debug.LogWarning (content);
-			UISystemLog.GetInstance ().AddMessage (yellow (content));
+			if (UISystemLog.GetInstance ())
+				UISystemLog.GetInstance ().AddMessage (yellow (content));
 		}
 	}
 
@@ -29,7 +31,8 @@ public class Log : MonoBehaviour
 	{
 		if (display && displayInfo) {
 			Debug.Log (content);
-			UISystemLog.GetInstance ().AddMessage (content);
+			if (UISystemLog.GetInstance ())
+				UISystemLog.GetInstance ().AddMessage (content);
 		}
 	}
 

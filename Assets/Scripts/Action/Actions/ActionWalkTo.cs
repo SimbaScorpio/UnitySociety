@@ -2,123 +2,77 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Pathfinding;
+using Pathfinding.RVO;
 
-public class ActionWalkTo : ActionSingle
+/* 使用A*PathFinding扩展插件的寻路行走动作
+ * */
+public class ActionWalk : AIPath
 {
 	public GameObject obj;
-	public Vector3 destinationPosition;
-	public bool finalRotate = false;
-	public Quaternion destinationRotation;
-	private IActionCompleted monitor;
+	public IActionCompleted monitor;
 
+	private bool finalRotate = false;
+	private float animationSpeed = 0.7f;
 	private Animator animator;
-	private NavMeshAgent agent;
-	//private NavMeshObstacle obstacle;
-
-	private const float NAVMESHSAMPLEDISTANCE = 4f;
-	private const float STOPDISTANCEPROPOTION = 0.05f;
-	private const float TURNSPEEDTHRESHOLD = 0.1f;
-	private const float SPEEDDAMPTIME = 0.5f;
-	private const float SLOWINGSPEED = 0.05f;
-	private const float TURNSMOOTHING = 15f;
-	private const float ANIMATORSPEEDPROPOTION = 1.4f;
-
-	private float speed;
+	private NavmeshCut navCut;
 
 	private readonly int hashSpeedPara = Animator.StringToHash ("Speed");
 
-	public void Setting (GameObject obj, Vector3 destinationPosition, bool finalRotate, Quaternion destinationRotation, IActionCompleted monitor)
-	{
-		if (this.obj == null) {
-			this.id = ActionID.WALKTO;
-			this.obj = obj;
-			this.finalRotate = finalRotate;
-			this.destinationPosition = destinationPosition;
-			this.destinationRotation = destinationRotation;
-			this.monitor = monitor;
-			animator = obj.GetComponent<Animator> ();
-			agent = obj.GetComponent<NavMeshAgent> ();
-			//obstacle = obj.GetComponent<NavMeshObstacle> ();
-			Begin ();
-		} else {
-			this.finalRotate = finalRotate;
-			this.destinationPosition = destinationPosition;
-			this.destinationRotation = destinationRotation;
-			this.monitor = monitor;
-			Begin ();
-		}
-	}
+	private Vector3 velocity;
+	private Vector3 direction;
+	private float speed;
+	private float angle;
 
-	void Begin ()
+
+	public void Setting (GameObject obj, Transform target, IActionCompleted monitor)
 	{
-		//obstacle.enabled = false;
-		//agent.enabled = true;
-		NavMeshHit hit;
-		if (NavMesh.SamplePosition (destinationPosition, out hit, NAVMESHSAMPLEDISTANCE, NavMesh.AllAreas)) {
-			destinationPosition = hit.position;
-		}
-		agent.updateRotation = false;
-		agent.ResetPath ();
-		agent.SetDestination (destinationPosition);
-		agent.isStopped = false;
+		this.obj = obj;
+		this.target = target;
+		this.monitor = monitor;
+		animator = GetComponent<Animator> ();
+		navCut = GetComponent<NavmeshCut> ();
+		navCut.enabled = false;
 	}
 
 	void Update ()
 	{
-		if (!agent.enabled || agent.pathPending)
-			return;
-		speed = agent.desiredVelocity.magnitude;
-
-		if (agent.remainingDistance <= agent.stoppingDistance * STOPDISTANCEPROPOTION)
-			Stopping (out speed);
-		else if (agent.remainingDistance <= agent.stoppingDistance)
-			Slowing (out speed, agent.remainingDistance);
-		else if (agent.remainingDistance > TURNSPEEDTHRESHOLD)
-			Moving ();
-
-		if (speed > 0.1f)
-			animator.SetFloat (hashSpeedPara, speed, SPEEDDAMPTIME, Time.deltaTime);
-		else
+		velocity = Vector3.zero;
+		if (finalRotate) {
+			transform.rotation = Quaternion.Lerp (transform.rotation, target.rotation, Time.deltaTime * 20);
+			angle = Quaternion.Angle (target.rotation, tr.rotation);
+			speed = angle / 180.0f;
 			animator.SetFloat (hashSpeedPara, speed);
-		float ySpeed = Mathf.Abs (agent.velocity.y);
-		ySpeed = ySpeed > 0 ? 1 + ySpeed : 1;
-		animator.speed = speed * ANIMATORSPEEDPROPOTION * ySpeed;
-
-		if (transform.position == destinationPosition) {
-			Finish ();
+			animator.speed = speed * animationSpeed;
+			if (angle < 0.1f)
+				Finish ();
+		} else {
+			if (canMove) {  // begins
+				direction = CalculateVelocity (transform.position);
+				RotateTowards (targetDirection);
+				if (rvoController != null) {
+					rvoController.Move (direction);
+					velocity = rvoController.velocity;
+				}
+			}
+			speed = velocity.magnitude;
+			animator.SetFloat (hashSpeedPara, speed);
+			//Modify animation speed to match velocity
+			animator.speed = speed * animationSpeed;
 		}
 	}
 
-	void Stopping (out float speed)
+	public override void OnTargetReached ()
 	{
-		agent.isStopped = true;
-		transform.position = destinationPosition;
-		speed = 0f;
-	}
-
-	void Slowing (out float speed, float distanceToDestination)
-	{
-		agent.isStopped = true;
-		float propotionDistance = 1f - distanceToDestination / agent.stoppingDistance;
-		Quaternion targetRotation = finalRotate ? destinationRotation : transform.rotation;
-		transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, propotionDistance);
-		transform.position = Vector3.MoveTowards (transform.position, destinationPosition, SLOWINGSPEED * Time.deltaTime);
-		speed = Mathf.Lerp (SLOWINGSPEED, 0f, propotionDistance);
-	}
-
-	void Moving ()
-	{
-		Quaternion targetRotation = Quaternion.LookRotation (agent.desiredVelocity);
-		transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, TURNSMOOTHING * Time.deltaTime);
+		// Rotate to the target direction before finish
+		finalRotate = true;
 	}
 
 	public void Finish ()
 	{
+		navCut.enabled = true;
 		animator.speed = 1;
 		animator.SetFloat (hashSpeedPara, 0);
-		agent.ResetPath ();
-		//agent.enabled = false;
-		//obstacle.enabled = true;
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}

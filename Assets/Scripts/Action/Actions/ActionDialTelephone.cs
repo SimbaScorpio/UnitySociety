@@ -11,7 +11,7 @@ public class ActionDialTelephone : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.DIALTELEPHONE;
+		//this.id = ActionID.DIALTELEPHONE;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

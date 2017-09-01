@@ -11,7 +11,7 @@ public class ActionScratchHead : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.SCRATCHHEAD;
+		//this.id = ActionID.SCRATCHHEAD;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

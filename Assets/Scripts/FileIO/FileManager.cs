@@ -6,17 +6,26 @@ using UnityEngine;
 
 public class FileManager : MonoBehaviour
 {
-	void Start ()
+	private static FileManager instance;
+
+	public static FileManager GetInstance ()
 	{
-		LoadGameData ();
+		return instance;
 	}
 
-	void LoadGameData ()
+	void Awake ()
 	{
-		StartCoroutine (LoadData (Global.JsonURL));
+		instance = this;
+		//LoadGameData ();
+		LoadLandmarkData ();
 	}
 
-	IEnumerator LoadData (string url)
+	public void LoadGameData ()
+	{
+		StartCoroutine (LoadGameDataCoroutine (Global.StorylineJsonURL));
+	}
+
+	IEnumerator LoadGameDataCoroutine (string url)
 	{
 		WWW www = new WWW (url);
 		yield return www;
@@ -31,6 +40,31 @@ public class FileManager : MonoBehaviour
 				StorylineManager.GetInstance ().Initialize ();
 			} catch (Exception e) {
 				Log.error ("解析数据集出现错误");
+				Log.error (e.ToString ());
+			}
+		}
+	}
+
+	public void LoadLandmarkData ()
+	{
+		StartCoroutine (LoadLandmarkDataCoroutine (Global.LandmarkJsonURL));
+	}
+
+	IEnumerator LoadLandmarkDataCoroutine (string url)
+	{
+		WWW www = new WWW (url);
+		yield return www;
+		if (!string.IsNullOrEmpty (www.error))
+			Log.error (www.error);
+		else {
+			string json = www.text;
+			try {
+				Log.info (Log.green ("正在解析坐标集..."));
+				LandmarkCollection.GetInstance ().list = JsonUtility.FromJson<LandmarkList> (json);
+				Log.info (Log.green ("坐标集解析完成！"));
+				LandmarkCollection.GetInstance ().Initialize ();
+			} catch (Exception e) {
+				Log.error ("解析坐标集出现错误");
 				Log.error (e.ToString ());
 			}
 		}

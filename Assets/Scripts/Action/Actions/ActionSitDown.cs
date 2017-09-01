@@ -11,7 +11,7 @@ public class ActionSitDown : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.SITDOWN;
+		//this.id = ActionID.SITDOWN;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

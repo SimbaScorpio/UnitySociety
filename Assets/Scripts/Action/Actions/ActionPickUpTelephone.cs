@@ -11,7 +11,7 @@ public class ActionPickUpTelephone : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.PICKUPTELEPHONE;
+		//this.id = ActionID.PICKUPTELEPHONE;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();

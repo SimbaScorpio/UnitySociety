@@ -11,7 +11,7 @@ public class ActionPutDownTelephone : ActionSingle
 
 	public void Setting (GameObject obj, IActionCompleted monitor)
 	{
-		this.id = ActionID.PUTDOWNTELEPHONE;
+		//this.id = ActionID.PUTDOWNTELEPHONE;
 		this.obj = obj;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
