@@ -7,7 +7,8 @@ using UnityEngine;
 public static class Global
 {
 	public static string StorylineJsonURL = "file://" + Application.dataPath + "/Data/json/storyline.json";
-	public static string LandmarkJsonURL = "file://" + Application.dataPath + "/Data/json/landmark.json";
+	public static string LandmarkJsonRURL = "file://" + Application.dataPath + "/Data/json/landmark.json";
+	public static string LandmarkJsonWURL = Application.dataPath + "/Data/json/landmark.json";
 	public static string TexturePath = "file://" + Application.dataPath + "/Data/texture/";
 }
 

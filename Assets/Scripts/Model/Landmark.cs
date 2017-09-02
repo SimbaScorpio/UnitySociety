@@ -7,29 +7,35 @@ public class Landmark
 {
 	public string name;
 	public string label;
-	public float px, py, pz, ry;
+	public float[] data;
 
 	public Vector3 position { 
 		get {
-			return new Vector3 (px, py, pz);
+			return new Vector3 (data [0], data [1], data [2]);
 		}
 	}
 
 	public Quaternion rotation {
 		get {
-			return Quaternion.Euler (new Vector3 (0, ry, 0));
+			return Quaternion.Euler (new Vector3 (0, data [3], 0));
 		}
 	}
 
 	public Landmark Copy ()
 	{
 		Landmark temp = new Landmark ();
-		temp.label = this.label;
-		temp.name = this.name;
-		temp.px = this.px;
-		temp.py = this.py;
-		temp.pz = this.pz;
-		temp.ry = this.ry;
+		temp.label = label;
+		temp.name = name;
+		temp.data = new float[data.Length];
+		for (int i = 0; i < data.Length; ++i) {
+			temp.data [i] = data [i];
+		}
 		return temp;
+	}
+
+	public Landmark ()
+	{
+		name = label = "";
+		data = new float[4]{ 0, 0, 0, 0 };
 	}
 }

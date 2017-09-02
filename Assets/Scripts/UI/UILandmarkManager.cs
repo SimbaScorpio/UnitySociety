@@ -5,14 +5,28 @@ using UnityEngine.UI;
 
 public class UILandmarkManager : MonoBehaviour
 {
+	// list item used to instantiate
 	public GameObject itemPref;
+	// item content (dynamically scale with list size)
 	public RectTransform content;
-	[HideInInspector]
-	public UILandmarkItem selectedItem;
+	// raycast button (need to change color)
+	public Button raycastButton;
+	// input field of position and rotation
+	public InputField[] inputFields;
+	// mark
+	public GameObject markObj;
+
+	// select item zone
+	private UILandmarkItem selectedItem;
 	private float clickGap = 0.0f;
 	private float doubleClickThreshold = 0.4f;
 	private bool waitClick = false;
+	// raycast zone
+	private ColorBlock raycastBtnColors;
+	private bool isRaycasting = false;
+	private float rayDistance = 1000;
 
+	// local data zone
 	private List<UILandmarkItem> lmlist;
 	private const string defaultName = "新建坐标";
 
@@ -26,7 +40,14 @@ public class UILandmarkManager : MonoBehaviour
 	void Awake ()
 	{
 		instance = this;
+		raycastBtnColors = raycastButton.colors;
 		lmlist = new List<UILandmarkItem> ();
+		foreach (InputField inputField in inputFields) {
+			inputField.onEndEdit.AddListener (delegate {
+				OnInputFieldEndEdit ();
+			});
+		}
+		markObj.SetActive (false);
 	}
 
 	public void Initialize (Landmark[] list)
@@ -75,7 +96,30 @@ public class UILandmarkManager : MonoBehaviour
 	// 保存
 	public void Save ()
 	{
-		
+		LandmarkList list = new LandmarkList ();
+		list.landmarkList = new Landmark[lmlist.Count];
+		for (int i = 0; i < lmlist.Count; ++i) {
+			list.landmarkList [i] = lmlist [i].landmark.Copy ();
+		}
+		if (FileManager.GetInstance ().SaveLandmarkData (list)) {
+			Log.info (Log.green ("坐标保存成功 0v0"));
+		} else {
+			Log.error ("坐标保存失败 T^T");
+		}
+	}
+
+	// 射线
+	public void SwitchRaycastMode ()
+	{
+		if (isRaycasting) {
+			isRaycasting = false;
+			raycastButton.colors = raycastBtnColors;
+		} else {
+			if (selectedItem == null)
+				return;
+			isRaycasting = true;
+			raycastButton.colors = ColorBlock (raycastBtnColors.pressedColor);
+		}
 	}
 
 	// 添加
@@ -135,12 +179,17 @@ public class UILandmarkManager : MonoBehaviour
 		lmlist.Remove (selectedItem);
 		Destroy (selectedItem.gameObject);
 		selectedItem = null;
+
 		for (int i = 0; i < lmlist.Count; ++i) {
 			GameObject obj = lmlist [i].gameObject;
 			float height = (obj.transform as RectTransform).sizeDelta.y;
 			obj.transform.localPosition = new Vector3 (0, -i * height, 0);
 		}
 		FitContentSize ();
+
+		if (isRaycasting)
+			SwitchRaycastMode ();
+		markObj.SetActive (false);
 	}
 
 
@@ -171,11 +220,13 @@ public class UILandmarkManager : MonoBehaviour
 			selectedItem.button.colors = ColorBlock (selectedItem.btnColors.pressedColor);
 			waitClick = false;
 			clickGap = 0.0f;
+			if (isRaycasting)
+				SwitchRaycastMode ();
+			DisplayItemData (selectedItem);
 		} else {
 			if (clickGap < doubleClickThreshold) {
 				waitClick = false;
 				selectedItem.OnButtonDoubleClicked ();
-				print ("!");
 			} else if (!waitClick) {
 				waitClick = true;
 				clickGap = 0.0f;
@@ -193,13 +244,69 @@ public class UILandmarkManager : MonoBehaviour
 		return block;
 	}
 
+	void DisplayItemData (UILandmarkItem item)
+	{
+		for (int i = 0; i < inputFields.Length; ++i) {
+			float num = item.landmark.data [i];
+			inputFields [i].text = num.ToString ("f2");
+			if (item == selectedItem) {
+				inputFields [i].enabled = true;
+			} else {
+				inputFields [i].enabled = false;
+			}
+		}
+		SetLandmarkModel (selectedItem.landmark);
+	}
+
+	public void OnInputFieldEndEdit ()
+	{
+		float num = 0.0f;
+		for (int i = 0; i < inputFields.Length; ++i) {
+			string str = inputFields [i].text;
+			if (float.TryParse (str, out num)) {
+				inputFields [i].text = num.ToString ("f2");
+				selectedItem.landmark.data [i] = num;
+			}
+		}
+		SetLandmarkModel (selectedItem.landmark);
+	}
+
+
+	void SetLandmarkModel (Landmark mark)
+	{
+		markObj.SetActive (true);
+		markObj.transform.position = new Vector3 (mark.data [0], mark.data [1], mark.data [2]);
+		Vector3 direction = new Vector3 (0, mark.data [3], 0);
+		markObj.transform.rotation = Quaternion.Euler (direction);
+	}
+
+
 	void Update ()
 	{
+		// detect lag click
 		clickGap += Time.deltaTime;
 		if (waitClick) {
 			if (clickGap > doubleClickThreshold) {
 				selectedItem.OnButtonLagClicked ();
 				waitClick = false;
+			}
+		}
+
+		// raycast mode
+		if (isRaycasting) {
+			if (Input.GetMouseButtonDown (0)) {
+				if (selectedItem == null) {
+					SwitchRaycastMode ();
+					return;
+				}
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				if (Physics.Raycast (ray, out hit, rayDistance)) {
+					selectedItem.landmark.data [0] = hit.point.x;
+					selectedItem.landmark.data [1] = hit.point.y;
+					selectedItem.landmark.data [2] = hit.point.z;
+					DisplayItemData (selectedItem);
+				}
 			}
 		}
 	}

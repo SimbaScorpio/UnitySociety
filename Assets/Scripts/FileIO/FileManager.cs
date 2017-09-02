@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,7 +48,7 @@ public class FileManager : MonoBehaviour
 
 	public void LoadLandmarkData ()
 	{
-		StartCoroutine (LoadLandmarkDataCoroutine (Global.LandmarkJsonURL));
+		StartCoroutine (LoadLandmarkDataCoroutine (Global.LandmarkJsonRURL));
 	}
 
 	IEnumerator LoadLandmarkDataCoroutine (string url)
@@ -67,6 +68,22 @@ public class FileManager : MonoBehaviour
 				Log.error ("解析坐标集出现错误");
 				Log.error (e.ToString ());
 			}
+		}
+	}
+
+	public bool SaveLandmarkData (LandmarkList lmlist)
+	{
+		try {
+			string json = JsonUtility.ToJson (lmlist, true);
+			FileStream fs = new FileStream (Global.LandmarkJsonWURL, FileMode.Create);
+			byte[] bytes = Encoding.UTF8.GetBytes (json);
+			fs.Write (bytes, 0, bytes.Length);
+			fs.Flush ();
+			fs.Close ();
+			fs.Dispose ();
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
 	}
 }
