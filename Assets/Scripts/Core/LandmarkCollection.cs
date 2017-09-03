@@ -28,6 +28,7 @@ public class LandmarkCollection : MonoBehaviour
 
 	public void Initialize ()
 	{
+		landmarks.Clear ();
 		foreach (Landmark lm in list.landmarkList) {
 			if (landmarks.ContainsKey (lm.name)) {
 				Log.warn ("Initialize landmark [" + lm.name + "] warning: overlapped name");

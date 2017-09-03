@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class UILandmarkManager : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class UILandmarkManager : MonoBehaviour
 	private ColorBlock raycastBtnColors;
 	private bool isRaycasting = false;
 	private float rayDistance = 1000;
+	// camera zone
+	private BasicCameraController basicCameraScript;
+	private const float distanceFromMark = 12;
 
 	// local data zone
 	private List<UILandmarkItem> lmlist;
@@ -40,6 +44,7 @@ public class UILandmarkManager : MonoBehaviour
 	void Awake ()
 	{
 		instance = this;
+		basicCameraScript = Camera.main.GetComponent<BasicCameraController> ();
 		raycastBtnColors = raycastButton.colors;
 		lmlist = new List<UILandmarkItem> ();
 		foreach (InputField inputField in inputFields) {
@@ -52,6 +57,16 @@ public class UILandmarkManager : MonoBehaviour
 
 	public void Initialize (Landmark[] list)
 	{
+		// clear
+		for (int i = 0; i < lmlist.Count; ++i) {
+			Destroy (lmlist [i].gameObject);
+		}
+		lmlist.Clear ();
+		markObj.SetActive (false);
+		if (isRaycasting)
+			SwitchRaycastMode ();
+		DisplayItemData (null);
+		// load
 		foreach (Landmark landmark in list) {
 			GameObject obj = Instantiate (itemPref) as GameObject;
 			UILandmarkItem script = obj.GetComponent<UILandmarkItem> ();
@@ -75,20 +90,32 @@ public class UILandmarkManager : MonoBehaviour
 		content.sizeDelta = new Vector2 (rectTransform.sizeDelta.x, lmlist.Count * rectTransform.sizeDelta.y);
 	}
 
-	public bool IsNameExist (string name)
+	public bool IsNameExist (string name, bool skip)
 	{
 		foreach (UILandmarkItem item in lmlist) {
+			if (skip && item == selectedItem)
+				continue;
 			if (item.landmark.name == name)
 				return true;
 		}
 		return false;
 	}
 
-	public string TryToGetValidName (string name)
+	public string TryToGetValidName (string name, bool skip)
 	{
+		if (name [name.Length - 1] == ')') {
+			int i = name.LastIndexOf ("(");
+			if (i >= 0) {
+				string str = name.Substring (i + 1, name.Length - i - 2);
+				int num;
+				if (int.TryParse (str, out num)) {
+					name = name.Substring (0, i);
+				}
+			}
+		}
 		int index = 1;
 		string temp = name;
-		while (IsNameExist (temp))
+		while (IsNameExist (temp, skip))
 			temp = name + "(" + (index++).ToString () + ")";
 		return temp;
 	}
@@ -128,14 +155,14 @@ public class UILandmarkManager : MonoBehaviour
 		GameObject obj = Instantiate (itemPref) as GameObject;
 		UILandmarkItem script = obj.GetComponent<UILandmarkItem> ();
 
-		int index = 0;
+		int index = lmlist.Count;
 		if (selectedItem == null) {
 			script.landmark = new Landmark ();
-			script.landmark.name = TryToGetValidName (defaultName);
+			script.landmark.name = TryToGetValidName (defaultName, false);
 		} else {
 			index = lmlist.IndexOf (selectedItem) + 1;
 			script.landmark = selectedItem.landmark.Copy ();
-			script.landmark.name = TryToGetValidName (script.landmark.name);
+			script.landmark.name = TryToGetValidName (script.landmark.name, false);
 		}
 		script.SetName (script.landmark.name);
 		script.SetTag (script.landmark.label);
@@ -150,6 +177,7 @@ public class UILandmarkManager : MonoBehaviour
 		}
 	
 		lmlist.Insert (index, script);
+		SelectItem (script);
 		FitContentSize ();
 	}
 
@@ -246,13 +274,20 @@ public class UILandmarkManager : MonoBehaviour
 
 	void DisplayItemData (UILandmarkItem item)
 	{
+		if (item == null) {
+			for (int i = 0; i < inputFields.Length; ++i) {
+				inputFields [i].text = "";
+				inputFields [i].interactable = false;
+			}
+			return;
+		} 
 		for (int i = 0; i < inputFields.Length; ++i) {
 			float num = item.landmark.data [i];
 			inputFields [i].text = num.ToString ("f2");
 			if (item == selectedItem) {
-				inputFields [i].enabled = true;
+				inputFields [i].interactable = true;
 			} else {
-				inputFields [i].enabled = false;
+				inputFields [i].interactable = false;
 			}
 		}
 		SetLandmarkModel (selectedItem.landmark);
@@ -281,6 +316,17 @@ public class UILandmarkManager : MonoBehaviour
 	}
 
 
+	public void ShiftCameraToMark ()
+	{
+		if (basicCameraScript != null) {
+			basicCameraScript.projection = BasicCameraController.CameraProjection.perspective;
+			basicCameraScript.SetProjectionScript ();
+			basicCameraScript.isDesired = true;
+			basicCameraScript.desiredPosition = markObj.transform.position - basicCameraScript.transform.forward * distanceFromMark;
+		}
+	}
+
+
 	void Update ()
 	{
 		// detect lag click
@@ -294,13 +340,23 @@ public class UILandmarkManager : MonoBehaviour
 
 		// raycast mode
 		if (isRaycasting) {
+			// ui block raycast
+			if (EventSystem.current.IsPointerOverGameObject ())
+				return;
 			if (Input.GetMouseButtonDown (0)) {
+				// check validation
 				if (selectedItem == null) {
 					SwitchRaycastMode ();
 					return;
 				}
+				// ray could shoot from different types of camera
+				Ray ray;
 				RaycastHit hit;
-				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				CameraPerspectiveEditor cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
+				if (cameraEditor != null && cameraEditor.isActiveAndEnabled)
+					ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
+				else
+					ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				if (Physics.Raycast (ray, out hit, rayDistance)) {
 					selectedItem.landmark.data [0] = hit.point.x;
 					selectedItem.landmark.data [1] = hit.point.y;

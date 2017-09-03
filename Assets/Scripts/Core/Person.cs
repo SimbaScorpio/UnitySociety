@@ -25,7 +25,7 @@ public class Person : MonoBehaviour
 	private StorylineManager storylineManager;
 	private ActionDealer actionDealer;
 
-	private float staticAidPossibility = 0.2f;
+	private float staticAidPossibility;
 	private float distanceError = 0.5f;
 
 
@@ -39,6 +39,7 @@ public class Person : MonoBehaviour
 		followingActivities = new List<FollowingActivity> ();
 		storylineManager = StorylineManager.GetInstance ();
 		actionDealer = GetComponent<ActionDealer> ();
+		staticAidPossibility = storylineManager.storyline.aid_possibility;
 	}
 
 	public bool AddPrincipalActivities (PrincipalActivity[] activities, string name)

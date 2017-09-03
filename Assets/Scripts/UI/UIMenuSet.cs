@@ -17,7 +17,7 @@ public class UIMenuSet : MonoBehaviour
 
 	public void OnButtonReplayClicked ()
 	{
-		StorylineManager.GetInstance ().Restart ();
+		FileManager.GetInstance ().StartLoading ();
 	}
 
 	public void OnButtonCloseClicked ()

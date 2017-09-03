@@ -13,8 +13,11 @@ public class UILandmarkItem : MonoBehaviour
 	[HideInInspector]
 	public Landmark landmark;
 
-	void Start ()
+	private BasicCameraController cameraCtrl;
+
+	void Awake ()
 	{
+		cameraCtrl = Camera.main.GetComponent<BasicCameraController> ();
 		button.onClick.AddListener (delegate {
 			OnButtonClicked ();
 		});
@@ -49,7 +52,7 @@ public class UILandmarkItem : MonoBehaviour
 
 	public void OnButtonDoubleClicked ()
 	{
-		// shift camera to mark
+		UILandmarkManager.GetInstance ().ShiftCameraToMark ();
 	}
 
 	public void OnDropDownValueChanged ()
@@ -64,7 +67,7 @@ public class UILandmarkItem : MonoBehaviour
 		if (name.Length == 0 || name == landmark.name)
 			return;
 		// check existance
-		landmark.name = UILandmarkManager.GetInstance ().TryToGetValidName (name);
+		landmark.name = UILandmarkManager.GetInstance ().TryToGetValidName (name, true);
 		SetName (landmark.name);
 	}
 

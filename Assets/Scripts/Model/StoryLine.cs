@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Storyline
 {
+	public float aid_possibility;
 	public Character[] characters;
 	public Job[] jobs;
 	public CompositeMovement[] composite_movements;

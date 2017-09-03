@@ -30,7 +30,6 @@ public class StorylineManager : MonoBehaviour
 	void Awake ()
 	{
 		instance = this;
-		InitializeVariables ();
 	}
 
 	void InitializeVariables ()
@@ -64,7 +63,6 @@ public class StorylineManager : MonoBehaviour
 	public void Restart ()
 	{
 		GameObject[] objs = GameObject.FindGameObjectsWithTag ("Player");
-		print (objs.Length);
 		for (int i = 0; i < objs.Length; ++i) {
 			Destroy (objs [i]);
 		}

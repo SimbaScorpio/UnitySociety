@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BasicCameraController : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class BasicCameraController : MonoBehaviour
 	public int zoomRate = 60;
 	public float panRate = 20f;
 	public float zoomDampening = 20.0f;
+
+	public float deltaX = 20;
+	public float deltaY = 13;
 
 	private float xDeg = 0.0f;
 	private float yDeg = 0.0f;
@@ -98,8 +102,6 @@ public class BasicCameraController : MonoBehaviour
 
 	Vector3 AdjustGentleman (int flag)
 	{
-		float deltaX = 20;
-		float deltaY = 13;
 		Vector3 wx = transform.TransformDirection (Vector3.right) * deltaX;
 		Vector3 wy = transform.TransformDirection (Vector3.up) * deltaY;
 		if (flag == 1) {
@@ -135,7 +137,8 @@ public class BasicCameraController : MonoBehaviour
 			if (isDesired) {
 				currentX = currentY = desiredX = desiredY = 0;
 				float distance = Vector3.Distance (transform.position, desiredPosition);
-				transform.position = Vector3.MoveTowards (transform.position, desiredPosition, Time.deltaTime * distance / 0.3f);
+				//transform.position = Vector3.MoveTowards (transform.position, desiredPosition, Time.deltaTime * distance / 0.3f);
+				transform.position = desiredPosition;
 				if (distance < 0.1f)
 					isDesired = false;
 			} else {
@@ -147,16 +150,18 @@ public class BasicCameraController : MonoBehaviour
 			}
 
 			// set camera zooming
-			if (projection == CameraProjection.perspective) {
-				desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * Time.deltaTime * 10;
-				currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
-				transform.position += transform.rotation * Vector3.forward * currentDistance;
-			} else {
-				desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * Time.deltaTime * 2;
-				currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
-				cameraScript.orthographicSize -= currentDistance;
-				if (cameraScript.orthographicSize <= 0.1f)
-					cameraScript.orthographicSize = 0.1f;
+			if (!EventSystem.current.IsPointerOverGameObject ()) {	// mouse on ui dont zoom
+				if (projection == CameraProjection.perspective) {
+					desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * Time.deltaTime * 10;
+					currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
+					transform.position += transform.rotation * Vector3.forward * currentDistance;
+				} else {
+					desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * Time.deltaTime * 2;
+					currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
+					cameraScript.orthographicSize -= currentDistance;
+					if (cameraScript.orthographicSize <= 0.1f)
+						cameraScript.orthographicSize = 0.1f;
+				}
 			}
 			if (Mathf.Abs (desiredDistance) != 0)
 				isDesired = false;

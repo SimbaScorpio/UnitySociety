@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class FileManager : MonoBehaviour
 {
+	public bool loadStoryline;
+	public bool loadLandmark;
+	private int loadCount = 0;
+
 	private static FileManager instance;
 
 	public static FileManager GetInstance ()
@@ -17,8 +21,17 @@ public class FileManager : MonoBehaviour
 	void Awake ()
 	{
 		instance = this;
-		//LoadGameData ();
-		LoadLandmarkData ();
+		StartLoading ();
+	}
+
+	public void StartLoading ()
+	{
+		if (loadCount++ > 0)
+			Log.info ("----------------------------------------------------------------------------------------------------------------------");
+		if (loadLandmark)
+			LoadLandmarkData ();
+		if (loadStoryline)
+			LoadGameData ();
 	}
 
 	public void LoadGameData ()
@@ -38,7 +51,7 @@ public class FileManager : MonoBehaviour
 				Log.info (Log.green ("正在解析数据集..."));
 				StorylineManager.GetInstance ().storyline = JsonUtility.FromJson<Storyline> (json);
 				Log.info (Log.green ("数据集解析完成！"));
-				StorylineManager.GetInstance ().Initialize ();
+				StorylineManager.GetInstance ().Restart ();
 			} catch (Exception e) {
 				Log.error ("解析数据集出现错误");
 				Log.error (e.ToString ());
