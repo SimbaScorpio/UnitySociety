@@ -2,40 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionSpeech : ActionSingle
+public class ActionSpeech : ActionTrigger
 {
-	public GameObject obj;
-	private Animator animator;
-	private IActionCompleted monitor;
-	private bool inMyState = false;
 	private GameObject paper;
 
-	public void Setting (GameObject obj, GameObject paper, IActionCompleted monitor)
+	public override void Setting (GameObject obj, string stateName, IActionCompleted monitor)
 	{
-		//this.id = ActionID.SPEECH;
-		this.obj = obj;
-		this.monitor = monitor;
-		this.animator = obj.GetComponent<Animator> ();
-		animator.SetTrigger ("发言");
-		this.paper = paper;
-		this.paper.SetActive (true);
+		base.Setting (obj, stateName, monitor);
+		paper = obj.transform.Find ("Polygon").gameObject;
+		paper.SetActive (true);
 	}
 
-	void Update ()
-	{
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("发言")) {
-			inMyState = true;
-		} else if (inMyState) {
-			Finish ();
-		}
-	}
-
-	public void Finish ()
+	public override void Finish ()
 	{
 		paper.SetActive (false);
-		if (monitor != null) {
-			monitor.OnActionCompleted (this);
-		}
-		Free ();
+		base.Finish ();
 	}
 }

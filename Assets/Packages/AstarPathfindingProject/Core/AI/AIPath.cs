@@ -47,7 +47,7 @@ public class AIPath : ActionSingle
 	 * The AI will try to follow/move towards this target.
 	 * It can be a point on the ground where the player has clicked in an RTS for example, or it can be the player object in a zombie game.
 	 */
-	public Transform target;
+	public Vector3 target;
 
 	/** Enables or disables searching for paths.
 	 * Setting this to false does not stop any active path requests from being calculated or stop it from continuing to follow the current path.
@@ -67,7 +67,7 @@ public class AIPath : ActionSingle
 	/** Rotation speed.
 	 * Rotation is calculated using Quaternion.SLerp. This variable represents the damping, the higher, the faster it will be able to rotate.
 	 */
-	public float turningSpeed = 5;
+	public float turningSpeed = 20;
 
 	/** Distance from the target point where the AI will start to slow down.
 	 * Note that this doesn't only affect the end point of the path
@@ -76,11 +76,11 @@ public class AIPath : ActionSingle
 	public float slowdownDistance = 0.6F;
 
 	/** Determines within what range it will switch to target the next waypoint in the path */
-	public float pickNextWaypointDist = 2;
+	public float pickNextWaypointDist = 0.2f;
 
 	/** Target point is Interpolated on the current segment in the path so that it has a distance of #forwardLook from the AI.
 	 * See the detailed description of AIPath for an illustrative image */
-	public float forwardLook = 1;
+	public float forwardLook = 1f;
 
 	/** Distance to the end point to consider the end of path to be reached.
 	 * When this has been reached, the AI will not move anymore until the target changes and OnTargetReached will be called.
@@ -246,7 +246,7 @@ public class AIPath : ActionSingle
 
 		lastRepath = Time.time;
 		//This is where we should search to
-		Vector3 targetPosition = target.position;
+		Vector3 targetPosition = target;
 
 		canSearchAgain = false;
 

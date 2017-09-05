@@ -5,13 +5,14 @@ using UnityEngine;
 public class ActionIdle : ActionSingle
 {
 	public GameObject obj;
+	public string stateName;
 	private IActionCompleted monitor;
 	private float count = 0.5f;
 
-	public void Setting (GameObject obj, IActionCompleted monitor)
+	public void Setting (GameObject obj, string stateName, IActionCompleted monitor)
 	{
-		//this.id = ActionID.IDLE;
 		this.obj = obj;
+		this.stateName = stateName;
 		this.monitor = monitor;
 	}
 

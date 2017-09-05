@@ -6,7 +6,7 @@
 			"initial_position": "办公点一",
 			"body_type": "default",
 			"clothing": "RGBdefaultMat_clorid.png",
-			"spare_time_main": "敲击键盘",
+			"spare_time_main": "点击鼠标",
 			"spare_time_aid": ["挠头思考", "坐抱头后仰"]
 		},
 		{
@@ -14,7 +14,7 @@
 			"initial_position": "办公点二",
 			"body_type": "default",
 			"clothing": "RGBdefaultMat_clorid_1.png",
-			"spare_time_main": "敲击键盘",
+			"spare_time_main": "点击鼠标",
 			"spare_time_aid": ["挠头思考", "坐抱头后仰"]
 		},
 		{

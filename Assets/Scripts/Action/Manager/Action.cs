@@ -31,21 +31,30 @@ public class ActionThread : Action
 }
 
 
-//public enum ActionID
-//{
-//	IDLE,
-//	WALKTO,
-//	CHATBUBBLE,
-//	SITDOWN,
-//	STANDUP,
-//	CLICK,
-//	TYPE,
-//	SCRATCHHEAD,
-//	HANDONCHIN,
-//	USECAMERA,
-//	PICKUPTELEPHONE,
-//	PUTDOWNTELEPHONE,
-//	DIALTELEPHONE,
-//	USETELEPHONE,
-//	SPEECH
-//}
+public class ActionName
+{
+	public static string[] validName = {
+		"1"
+	};
+
+	public static bool IsValidAction (string name)
+	{
+		return true;
+	}
+
+	public static bool IsStandAction (string name)
+	{
+		return true;
+	}
+
+	public static bool IsSitAction (string name)
+	{
+		return true;
+	}
+
+	public static bool IsTelephoneAction (string name)
+	{
+		return true;
+	}
+}
+

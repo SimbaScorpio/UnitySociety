@@ -7,13 +7,14 @@ using Pathfinding.RVO;
 
 /* 使用A*PathFinding扩展插件的寻路行走动作
  * */
-public class ActionWalk : AIPath
+public class ActionWalkTo : AIPath
 {
 	public GameObject obj;
+	public Landmark landmark;
 	public IActionCompleted monitor;
 
 	private bool finalRotate = false;
-	private float animationSpeed = 0.7f;
+	private float animationSpeed = 1f;
 	private Animator animator;
 	private NavmeshCut navCut;
 
@@ -25,10 +26,11 @@ public class ActionWalk : AIPath
 	private float angle;
 
 
-	public void Setting (GameObject obj, Transform target, IActionCompleted monitor)
+	public void Setting (GameObject obj, Landmark target, IActionCompleted monitor)
 	{
 		this.obj = obj;
-		this.target = target;
+		this.landmark = target.Copy ();
+		this.target = target.position;
 		this.monitor = monitor;
 		animator = GetComponent<Animator> ();
 		navCut = GetComponent<NavmeshCut> ();
@@ -39,21 +41,13 @@ public class ActionWalk : AIPath
 	{
 		velocity = Vector3.zero;
 		if (finalRotate) {
-			transform.rotation = Quaternion.Lerp (transform.rotation, target.rotation, Time.deltaTime * 20);
-			angle = Quaternion.Angle (target.rotation, tr.rotation);
-			speed = angle / 180.0f;
-			animator.SetFloat (hashSpeedPara, speed);
-			animator.speed = speed * animationSpeed;
-			if (angle < 0.1f)
-				Finish ();
+			FinalRotate ();
 		} else {
-			if (canMove) {  // begins
-				direction = CalculateVelocity (transform.position);
-				RotateTowards (targetDirection);
-				if (rvoController != null) {
-					rvoController.Move (direction);
-					velocity = rvoController.velocity;
-				}
+			direction = CalculateVelocity (transform.position);
+			RotateTowards (targetDirection);
+			if (rvoController != null) {
+				rvoController.Move (direction);
+				velocity = rvoController.velocity;
 			}
 			speed = velocity.magnitude;
 			animator.SetFloat (hashSpeedPara, speed);
@@ -62,17 +56,33 @@ public class ActionWalk : AIPath
 		}
 	}
 
+	void FinalRotate ()
+	{
+		transform.rotation = Quaternion.Lerp (transform.rotation, landmark.rotation, Time.deltaTime * 20);
+		angle = Quaternion.Angle (landmark.rotation, tr.rotation);
+		speed = angle / 180.0f;
+		animator.SetFloat (hashSpeedPara, speed);
+		animator.speed = speed * animationSpeed;
+		if (angle < 0.1f)
+			Finish ();
+	}
+
 	public override void OnTargetReached ()
 	{
-		// Rotate to the target direction before finish
+		// rotate to the target direction before finish
 		finalRotate = true;
 	}
 
 	public void Finish ()
 	{
+		// make sure to stop
+		rvoController.Move (Vector3.zero);
+		// cut mesh when stopped
 		navCut.enabled = true;
+		// set default speed
 		animator.speed = 1;
 		animator.SetFloat (hashSpeedPara, 0);
+
 		if (monitor != null) {
 			monitor.OnActionCompleted (this);
 		}

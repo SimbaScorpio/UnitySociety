@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 /* 这是用于Unity自带AI系统的导航行走动作，可能因为新的AI系统被替代。
  * */
-public class ActionWalkTo : ActionSingle
+public class ActionWalkTo2 : ActionSingle
 {
 	public GameObject obj;
 	public Landmark destination;

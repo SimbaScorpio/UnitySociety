@@ -156,7 +156,7 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 		case "坐下":
 			if (isStanding) {
 				isStanding = false;
-				ActionManager.GetInstance ().ApplySitDownAction (gameObject, callback);
+				ActionManager.GetInstance ().ApplyTriggerAction (gameObject, name, callback);
 			} else {
 				if (callback != null)
 					callback.OnActionCompleted (null);
@@ -165,7 +165,7 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 		case "起立":
 			if (!isStanding) {
 				isStanding = true;
-				ActionManager.GetInstance ().ApplyStandUpAction (gameObject, callback);
+				ActionManager.GetInstance ().ApplyTriggerAction (gameObject, name, callback);
 			} else {
 				if (callback != null)
 					callback.OnActionCompleted (null);
@@ -174,7 +174,7 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 		case "放下电话":
 			if (isUsingTelephone) {
 				isUsingTelephone = false;
-				ActionManager.GetInstance ().ApplyPutDownTelephoneAction (gameObject, callback);
+				ActionManager.GetInstance ().ApplyPutDownTelephoneAction (gameObject, name, callback);
 			} else {
 				if (callback != null)
 					callback.OnActionCompleted (null);
@@ -183,80 +183,35 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 		case "拿起电话":
 			if (!isUsingTelephone) {
 				isUsingTelephone = true;
-				ActionManager.GetInstance ().ApplyPickUpTelephoneAction (gameObject, callback);
+				ActionManager.GetInstance ().ApplyPickUpTelephoneAction (gameObject, name, callback);
 			} else {
 				if (callback != null)
 					callback.OnActionCompleted (null);
 			}
 			break;
 		case "坐着不动":
-			ActionManager.GetInstance ().ApplyIdleAction (gameObject, callback);
+			ActionManager.GetInstance ().ApplyIdleAction (gameObject, name, callback);
 			break;
 		case "站着不动":
-			ActionManager.GetInstance ().ApplyIdleAction (gameObject, callback);
-			break;
-		case "敲击键盘":
-			ActionManager.GetInstance ().ApplyTypeAction (gameObject, callback);
+			ActionManager.GetInstance ().ApplyIdleAction (gameObject, name, callback);
 			break;
 		case "点击鼠标":
-			ActionManager.GetInstance ().ApplyClickAction (gameObject, callback);
-			break;
-		case "挠头思考":
-			ActionManager.GetInstance ().ApplyScratchHeadAction (gameObject, callback);
-			break;
-		case "托腮思考":
-			ActionManager.GetInstance ().ApplyHandOnChinAction (gameObject, callback);
+			ActionManager.GetInstance ().ApplyClickAction (gameObject, name, callback);
 			break;
 		case "发言":
-			ActionManager.GetInstance ().ApplySpeechAction (gameObject, callback);
+			ActionManager.GetInstance ().ApplySpeechAction (gameObject, name, callback);
 			break;
 		case "使用相机":
-			ActionManager.GetInstance ().ApplyUseCameraAction (gameObject, callback);
-			break;
-		case "站姿拨打电话":
-			ActionManager.GetInstance ().ApplyDialTelephoneAction (gameObject, callback);
-			break;
-		case "坐姿拨打电话":
-			ActionManager.GetInstance ().ApplyDialTelephoneAction (gameObject, callback);
-			break;
-		case "站姿使用电话":
-			ActionManager.GetInstance ().ApplyUseTelephoneAction (gameObject, callback);
-			break;
-		case "坐姿使用电话":
-			ActionManager.GetInstance ().ApplyUseTelephoneAction (gameObject, callback);
-			break;
-		case "站立听":
-			ActionManager.GetInstance ().ApplyStandListenAction (gameObject, callback);
-			break;
-		case "站立鼓掌":
-			ActionManager.GetInstance ().ApplyStandClapAction (gameObject, callback);
-			break;
-		case "站立说话":
-			ActionManager.GetInstance ().ApplyStandSpeakAction (gameObject, callback);
-			break;
-		case "边说边指远方":
-			ActionManager.GetInstance ().ApplySpeakAndPointFarAction (gameObject, callback);
-			break;
-		case "边说边指近桌":
-			ActionManager.GetInstance ().ApplySpeakAndPointNearDeskAction (gameObject, callback);
-			break;
-		case "边说边对桌子指指点点":
-			ActionManager.GetInstance ().ApplySpeakAndPointDeskAction (gameObject, callback);
-			break;
-		case "站立指ppt":
-			ActionManager.GetInstance ().ApplyStandPointPPTAction (gameObject, callback);
+			ActionManager.GetInstance ().ApplyUseCameraAction (gameObject, name, callback);
 			break;
 		case "传纸":
-			ActionManager.GetInstance ().ApplyGivePaperAction (gameObject, callback);
+			ActionManager.GetInstance ().ApplyGivePaperAction (gameObject, name, callback);
 			break;
 		case "接纸":
-			ActionManager.GetInstance ().ApplyGetPaperAction (gameObject, callback);
+			ActionManager.GetInstance ().ApplyGetPaperAction (gameObject, name, callback);
 			break;
-		case "坐向后仰":
-			ActionManager.GetInstance ().ApplySitBackAction (gameObject, callback);
-			break;
-		case "坐抱头后仰":
-			ActionManager.GetInstance ().ApplySitBackWithHandAction (gameObject, callback);
+		default:
+			ActionManager.GetInstance ().ApplyTriggerAction (gameObject, name, callback);
 			break;
 		}
 	}
