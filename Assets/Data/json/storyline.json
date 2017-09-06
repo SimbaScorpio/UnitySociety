@@ -1,12 +1,12 @@
 {
-	"aid_possibility": 0.1,
+	"aid_possibility": 0.05,
 	"characters": [
 		{
 			"name": "David",
 			"initial_position": "办公点一",
 			"body_type": "default",
 			"clothing": "RGBdefaultMat_clorid.png",
-			"spare_time_main": "点击鼠标",
+			"spare_time_main": "敲击键盘",
 			"spare_time_aid": ["挠头思考", "坐抱头后仰"]
 		},
 		{
@@ -14,7 +14,7 @@
 			"initial_position": "办公点二",
 			"body_type": "default",
 			"clothing": "RGBdefaultMat_clorid_1.png",
-			"spare_time_main": "点击鼠标",
+			"spare_time_main": "敲击键盘",
 			"spare_time_aid": ["挠头思考", "坐抱头后仰"]
 		},
 		{
@@ -23,7 +23,7 @@
 			"body_type": "default",
 			"clothing": "RGBdefaultMat_clorid_2.png",
 			"spare_time_main": "敲击键盘",
-			"spare_time_aid": ["挠头思考", "坐抱头向后仰"]
+			"spare_time_aid": ["挠头思考", "坐抱头后仰"]
 		}
 	],
 
@@ -49,14 +49,15 @@
 			"mainrole_aid": ["边说边指近桌", "边说边指远方", "边说边对桌子指指点点", "站立指ppt"],
 			"wait_mainrole_main": null,
 			"wait_mainrole_aid": [],
-			"start_mainrole_main": null,
-			"end_mainrole_main": null,
+			"start_mainrole_main": [],
+			"end_mainrole_main": [],
+
 			"otherroles_main": "坐着不动",
 			"otherroles_aid": ["托腮思考", "挠头思考", "坐向后仰", "坐抱头后仰"],
 			"wait_otherroles_main": "坐着不动",
 			"wait_otherroles_aid": [],
-			"start_otherroles_main": "坐着不动",
-			"end_otherroles_main": "站立鼓掌"
+			"start_otherroles_main": ["坐着不动"],
+			"end_otherroles_main": ["站立鼓掌"]
 		},
 		{
 			"name": "采访",
@@ -64,14 +65,15 @@
 			"mainrole_aid": [],
 			"wait_mainrole_main": null,
 			"wait_mainrole_aid": [],
-			"start_mainrole_main": "站立说话",
-			"end_mainrole_main": "使用相机",
+			"start_mainrole_main": ["站立说话", "边说边指近桌"],
+			"end_mainrole_main": ["使用相机", "站立说话"],
+
 			"otherroles_main": "接纸",
 			"otherroles_aid": [],
 			"wait_otherroles_main": null,
 			"wait_otherroles_aid": [],
-			"start_otherroles_main": "站立听",
-			"end_otherroles_main": null
+			"start_otherroles_main": ["站立听", "边说边指远方"],
+			"end_otherroles_main": []
 		}
 	],
 

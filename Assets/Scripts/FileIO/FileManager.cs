@@ -96,6 +96,7 @@ public class FileManager : MonoBehaviour
 			fs.Dispose ();
 			return true;
 		} catch (Exception e) {
+			Log.error (e.ToString ());
 			return false;
 		}
 	}

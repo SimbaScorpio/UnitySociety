@@ -13,11 +13,8 @@ public class UILandmarkItem : MonoBehaviour
 	[HideInInspector]
 	public Landmark landmark;
 
-	private BasicCameraController cameraCtrl;
-
 	void Awake ()
 	{
-		cameraCtrl = Camera.main.GetComponent<BasicCameraController> ();
 		button.onClick.AddListener (delegate {
 			OnButtonClicked ();
 		});

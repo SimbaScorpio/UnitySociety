@@ -18,10 +18,7 @@ public class ActionTrigger : ActionSingle
 		this.stateName = stateName;
 		this.monitor = monitor;
 		this.animator = obj.GetComponent<Animator> ();
-		if (ActionName.IsValidAction (stateName))
-			animator.SetTrigger (stateName);
-		else
-			Finish ();
+		animator.SetTrigger (stateName);
 	}
 
 	void Update ()

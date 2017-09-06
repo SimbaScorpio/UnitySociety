@@ -7,12 +7,13 @@ public class ActionIdle : ActionSingle
 	public GameObject obj;
 	public string stateName;
 	private IActionCompleted monitor;
-	private float count = 0.5f;
+	private float count;
 
-	public void Setting (GameObject obj, string stateName, IActionCompleted monitor)
+	public void Setting (GameObject obj, string stateName, float count, IActionCompleted monitor)
 	{
 		this.obj = obj;
 		this.stateName = stateName;
+		this.count = count;
 		this.monitor = monitor;
 	}
 

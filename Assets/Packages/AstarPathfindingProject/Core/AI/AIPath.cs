@@ -228,7 +228,7 @@ public class AIPath : ActionSingle
 	 */
 	public float TrySearchPath ()
 	{
-		if (Time.time - lastRepath >= repathRate && canSearchAgain && canSearch && target != null) {
+		if (Time.time - lastRepath >= repathRate && canSearchAgain && canSearch) {
 			SearchPath ();
 			return repathRate;
 		} else {
@@ -241,9 +241,6 @@ public class AIPath : ActionSingle
 	/** Requests a path to the target */
 	public virtual void SearchPath ()
 	{
-		if (target == null)
-			throw new System.InvalidOperationException ("Target is null");
-
 		lastRepath = Time.time;
 		//This is where we should search to
 		Vector3 targetPosition = target;

@@ -27,6 +27,9 @@ public class Person : MonoBehaviour
 
 	private float staticAidPossibility;
 	private float distanceError = 0.5f;
+	private float randomDiff = 1.0f;
+	[HideInInspector]
+	public int actionListIndex;
 
 
 	void Start ()
@@ -151,17 +154,7 @@ public class Person : MonoBehaviour
 				ActionManager.GetInstance ().ApplyWalkToAction (gameObject, initialLandmark, null);
 			}
 		} else {
-			if (character.spare_time_aid.Length == 0) {
-				actionDealer.ApproachAction (character.spare_time_main, null);
-			} else {
-				int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
-				if (aidPossiblity == 0) {
-					int index = Random.Range (0, character.spare_time_aid.Length);
-					actionDealer.ApproachAction (character.spare_time_aid [index], null);
-				} else {
-					actionDealer.ApproachAction (character.spare_time_main, null);
-				}
-			}
+			DealMainActionWithAid (actionDealer, character.spare_time_main, character.spare_time_aid, false, "?", "?", "?");
 		}
 	}
 
@@ -280,49 +273,48 @@ public class Person : MonoBehaviour
 	void DealOwnActivity ()
 	{
 		Self self = isPrincipal ? currentPrincipalActivity.self : currentFollowingActivity.self;
+
+		bool hasAction;
 		switch (state) {
+
 		case ComState.ARRIVING:
 			if (IsAtProperLocation (self, gameObject, true)) {
 				if (CheckEveryOneInPosition ())
 					state = ComState.ARRIVINGSTOP;
 				else {
-					// do wait actions
-					if (compositeMovement.wait_mainrole_aid.Length == 0) {
-						actionDealer.ApproachAction (compositeMovement.wait_mainrole_main, null);
-						if (!string.IsNullOrEmpty (compositeMovement.wait_mainrole_main))
-							Log.info (Log.yellow ("【" + name + "】") + " 执行空闲动作 " + Log.blue ("【" + compositeMovement.wait_mainrole_main + "】"));
-					} else {
-						int aidPossibility = Random.Range (0, (int)(1 / staticAidPossibility));
-						if (aidPossibility == 0) {
-							int index = Random.Range (0, compositeMovement.wait_mainrole_aid.Length);
-							actionDealer.ApproachAction (compositeMovement.wait_mainrole_aid [index], null);
-							if (!string.IsNullOrEmpty (compositeMovement.wait_mainrole_aid [index]))
-								Log.info (Log.yellow ("【" + name + "】") + " 执行空闲动作(辅助) " + Log.blue ("【" + compositeMovement.wait_mainrole_aid [index] + "】"));
-						} else {
-							actionDealer.ApproachAction (compositeMovement.wait_mainrole_main, null);
-							if (!string.IsNullOrEmpty (compositeMovement.wait_mainrole_main))
-								Log.info (Log.yellow ("【" + name + "】") + " 执行空闲动作 " + Log.blue ("【" + compositeMovement.wait_mainrole_main + "】"));
-						}
-					}
+					DealMainActionWithAid (actionDealer, compositeMovement.wait_mainrole_main, compositeMovement.wait_mainrole_aid, true, name, "执行等待动作", "执行等待动作(辅助)");
 				}
 			}
 			break;
+
 		case ComState.ARRIVINGSTOP:
-			if (CheckEveryOneEndAction ())
+			if (CheckEveryOneEndAction ()) {
 				state = ComState.PREPARING;
-			break;
-		case ComState.PREPARING:
-			// do perpare action once
-			actionDealer.ApproachAction (compositeMovement.start_mainrole_main, null);
-			if (!string.IsNullOrEmpty (compositeMovement.start_mainrole_main))
-				Log.info (Log.yellow ("【" + name + "】") + " 执行开始动作 " + Log.blue ("【" + compositeMovement.start_mainrole_main + "】"));
-			foreach (Person person in children) {
-				person.actionDealer.ApproachAction (compositeMovement.start_otherroles_main, null);
-				if (!string.IsNullOrEmpty (compositeMovement.start_otherroles_main))
-					Log.info (Log.yellow ("【" + person.name + "】") + " 执行开始动作 " + Log.blue ("【" + compositeMovement.start_otherroles_main + "】"));
+				actionListIndex = -1;
+				foreach (Person person in children) {
+					person.actionListIndex = -1;
+					ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
+				}
 			}
-			state = ComState.PREPARINGSTOP;
 			break;
+
+		case ComState.PREPARING:
+			// 如果有开始动作，并且开始动作未执行完，继续执行
+			hasAction = DealListAction (actionDealer, compositeMovement.start_mainrole_main, ref actionListIndex, true, name, "执行开始动作");
+			// 如果没有开始动作，或已经执行完，判断他人是否完成，否则继续
+			if (!hasAction && compositeMovement.start_otherroles_main != null) {
+				foreach (Person person in children) {
+					if (person.actionListIndex < compositeMovement.start_otherroles_main.Length) {
+						hasAction = true;
+						break;
+					}
+				}
+			}
+			// 全部完成，进入下一状态
+			if (!hasAction)
+				state = ComState.PREPARINGSTOP;
+			break;
+
 		case ComState.PREPARINGSTOP:
 			if (CheckEveryOneEndAction ()) {
 				state = ComState.STARTING;
@@ -335,44 +327,44 @@ public class Person : MonoBehaviour
 				}
 			}
 			break;
+
 		case ComState.STARTING:
-			if (compositeMovement.mainrole_aid.Length == 0) {
-				actionDealer.ApproachAction (compositeMovement.mainrole_main, null);
-				if (!string.IsNullOrEmpty (compositeMovement.mainrole_main))
-					Log.info (Log.yellow ("【" + name + "】") + " 执行主要动作 " + Log.blue ("【" + compositeMovement.mainrole_main + "】"));
-			} else {
-				int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
-				if (aidPossiblity == 0) {
-					int index = Random.Range (0, compositeMovement.mainrole_aid.Length);
-					actionDealer.ApproachAction (compositeMovement.mainrole_aid [index], null);
-					if (!string.IsNullOrEmpty (compositeMovement.mainrole_aid [index]))
-						Log.info (Log.yellow ("【" + name + "】") + " 执行主要动作(辅助) " + Log.blue ("【" + compositeMovement.mainrole_aid [index] + "】"));
-				} else {
-					actionDealer.ApproachAction (compositeMovement.mainrole_main, null);
-					if (!string.IsNullOrEmpty (compositeMovement.mainrole_main))
-						Log.info (Log.yellow ("【" + name + "】") + " 执行主要动作 " + Log.blue ("【" + compositeMovement.mainrole_main + "】"));
+			DealMainActionWithAid (actionDealer, compositeMovement.mainrole_main, compositeMovement.mainrole_aid, true, name, "执行主要动作", "执行主要动作(辅助)");
+			break;
+
+		case ComState.STARTINGSTOP:
+			if (CheckEveryOneEndAction ()) {
+				state = ComState.ENDING;
+				actionListIndex = -1;
+				foreach (Person person in children) {
+					person.actionListIndex = -1;
+					ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
 				}
 			}
 			break;
-		case ComState.STARTINGSTOP:
-			if (CheckEveryOneEndAction ())
-				state = ComState.ENDING;
-			break;
+
 		case ComState.ENDING:
-			actionDealer.ApproachAction (compositeMovement.end_mainrole_main, null);
-			if (!string.IsNullOrEmpty (compositeMovement.end_mainrole_main))
-				Log.info (Log.yellow ("【" + name + "】") + " 执行结束动作 " + Log.blue ("【" + compositeMovement.end_mainrole_main + "】"));
-			foreach (Person person in children) {
-				person.actionDealer.ApproachAction (compositeMovement.end_otherroles_main, null);
-				if (!string.IsNullOrEmpty (compositeMovement.end_otherroles_main))
-					Log.info (Log.yellow ("【" + person.name + "】") + " 执行结束动作 " + Log.blue ("【" + compositeMovement.end_otherroles_main + "】"));
+			// 如果有结束动作，并且结束动作未执行完，继续执行
+			hasAction = DealListAction (actionDealer, compositeMovement.end_mainrole_main, ref actionListIndex, true, name, "执行结束动作");
+			// 如果没有结束动作，或已经执行完，判断他人是否完成，否则继续
+			if (!hasAction && compositeMovement.end_otherroles_main != null) {
+				foreach (Person person in children) {
+					if (person.actionListIndex < compositeMovement.end_otherroles_main.Length) {
+						hasAction = true;
+						break;
+					}
+				}
 			}
-			state = ComState.ENDINGSTOP;
+			// 全部完成，进入下一状态
+			if (!hasAction)
+				state = ComState.ENDINGSTOP;
 			break;
+
 		case ComState.ENDINGSTOP:
 			if (CheckEveryOneEndAction ())
 				state = ComState.LEAVING;
 			break;
+
 		case ComState.LEAVING:
 			if (isPrincipal) {
 				currentPrincipalActivity = null;
@@ -411,55 +403,25 @@ public class Person : MonoBehaviour
 				continue;
 			if (person.GetComponent<ActionSingle> () != null)
 				continue;
+			
 			switch (state) {
 			case ComState.ARRIVING:
 				if (IsAtProperLocation (others [i], person.gameObject, true)) {
-					// do wait actions
-					if (compositeMovement.wait_otherroles_aid.Length == 0) {
-						person.actionDealer.ApproachAction (compositeMovement.wait_otherroles_main, null);
-						if (!string.IsNullOrEmpty (compositeMovement.wait_otherroles_main))
-							Log.info (Log.yellow ("【" + person.name + "】") + " 执行等待动作 " + Log.blue ("【" + compositeMovement.wait_otherroles_main + "】"));
-					} else {
-						int aidPossibility = Random.Range (0, (int)(1 / staticAidPossibility));
-						if (aidPossibility == 0) {
-							int index = Random.Range (0, compositeMovement.wait_otherroles_aid.Length);
-							person.actionDealer.ApproachAction (compositeMovement.wait_otherroles_aid [index], null);
-							if (!string.IsNullOrEmpty (compositeMovement.wait_otherroles_aid [index]))
-								Log.info (Log.yellow ("【" + person.name + "】") + " 执行等待动作(辅助) " + Log.blue ("【" + compositeMovement.wait_otherroles_aid [index] + "】"));
-						} else {
-							person.actionDealer.ApproachAction (compositeMovement.wait_otherroles_main, null);
-							if (!string.IsNullOrEmpty (compositeMovement.wait_otherroles_main))
-								Log.info (Log.yellow ("【" + person.name + "】") + " 执行等待动作 " + Log.blue ("【" + compositeMovement.wait_otherroles_main + "】"));
-						}
-					}
+					DealMainActionWithAid (person.actionDealer, compositeMovement.wait_otherroles_main, compositeMovement.wait_otherroles_aid, true, person.name, "执行等待动作", "执行等待动作(辅助)");
 				}
 				break;
 			case ComState.ARRIVINGSTOP:
 				break;
 			case ComState.PREPARING:
+				DealListAction (person.actionDealer, compositeMovement.start_otherroles_main, ref person.actionListIndex, true, person.name, "执行开始动作");
 				break;
 			case ComState.PREPARINGSTOP:
 				break;
 			case ComState.STARTING:
-				if (compositeMovement.otherroles_aid.Length == 0) {
-					person.actionDealer.ApproachAction (compositeMovement.otherroles_main, null);
-					if (!string.IsNullOrEmpty (compositeMovement.otherroles_main))
-						Log.info (Log.yellow ("【" + person.name + "】") + " 执行主要动作 " + Log.blue ("【" + compositeMovement.otherroles_main + "】"));
-				} else {
-					int aidPossiblity = Random.Range (0, (int)(1 / staticAidPossibility));
-					if (aidPossiblity == 0) {
-						int index = Random.Range (0, compositeMovement.otherroles_aid.Length);
-						person.actionDealer.ApproachAction (compositeMovement.otherroles_aid [index], null);
-						if (!string.IsNullOrEmpty (compositeMovement.otherroles_aid [index]))
-							Log.info (Log.yellow ("【" + person.name + "】") + " 执行主要动作(辅助) " + Log.blue ("【" + compositeMovement.otherroles_aid [index] + "】"));
-					} else {
-						person.actionDealer.ApproachAction (compositeMovement.otherroles_main, null);
-						if (!string.IsNullOrEmpty (compositeMovement.otherroles_main))
-							Log.info (Log.yellow ("【" + person.name + "】") + " 执行主要动作 " + Log.blue ("【" + compositeMovement.otherroles_main + "】"));
-					}
-				}
+				DealMainActionWithAid (person.actionDealer, compositeMovement.otherroles_main, compositeMovement.otherroles_aid, true, person.name, "执行主要动作", "执行主要动作(辅助)");
 				break;
 			case ComState.ENDING:
+				DealListAction (person.actionDealer, compositeMovement.end_otherroles_main, ref person.actionListIndex, true, person.name, "执行结束动作");
 				break;
 			case ComState.ENDINGSTOP:
 				break;
@@ -469,6 +431,46 @@ public class Person : MonoBehaviour
 		}
 	}
 
+
+	void DealMainActionWithAid (ActionDealer actionDealer, string main, string[] aid, bool showInfo, string personName, string mainInfo, string aidInfo)
+	{
+		if (aid == null || aid.Length == 0) {
+			actionDealer.ApproachAction (main, null);
+
+			if (showInfo && !string.IsNullOrEmpty (main))
+				Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
+		} else {
+			int aidPossibility = Random.Range (0, (int)(1 / staticAidPossibility));
+			if (aidPossibility == 0) {
+				int index = Random.Range (0, aid.Length);
+				actionDealer.ApproachAction (aid [index], null);
+
+				if (showInfo && !string.IsNullOrEmpty (aid [index]))
+					Log.info (Log.yellow ("【" + personName + "】 ") + aidInfo + Log.blue (" 【" + aid [index] + "】"));
+			} else {
+				actionDealer.ApproachAction (main, null);
+
+				if (showInfo && !string.IsNullOrEmpty (main)) {
+					Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
+				}
+			}
+		}
+	}
+
+	bool DealListAction (ActionDealer actionDealer, string[] list, ref int index, bool info, string personName, string mainInfo)
+	{
+		if (list != null) {
+			index++;
+			if (index < list.Length) {
+				string actionName = list [index];
+				actionDealer.ApproachAction (actionName, null);
+				if (info && !string.IsNullOrEmpty (actionName))
+					Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + actionName + "】"));
+				return true;
+			}
+		}
+		return false;
+	}
 
 	bool IsAtProperLocation (Self self, GameObject gameObject, bool doAction)
 	{

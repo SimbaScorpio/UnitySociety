@@ -49,6 +49,13 @@ public class ActionManager : Object
 
 
 	// Animation
+	public Action ApplyTriggerAction (GameObject obj, string stateName, IActionCompleted callback)
+	{
+		ActionTrigger ac = obj.AddComponent<ActionTrigger> ();
+		ac.Setting (obj, stateName, callback);
+		return ac;
+	}
+
 	public Action ApplyClickAction (GameObject obj, string stateName, IActionCompleted callback)
 	{
 		ActionClick ac = obj.AddComponent<ActionClick> ();
@@ -70,24 +77,10 @@ public class ActionManager : Object
 		return ac;
 	}
 
-	public Action ApplyPickUpTelephoneAction (GameObject obj, string stateName, IActionCompleted callback)
-	{
-		ActionPickUpTelephone ac = obj.AddComponent<ActionPickUpTelephone> ();
-		ac.Setting (obj, stateName, callback);
-		return ac;
-	}
-
-	public Action ApplyPutDownTelephoneAction (GameObject obj, string stateName, IActionCompleted callback)
-	{
-		ActionPutDownTelephone ac = obj.AddComponent<ActionPutDownTelephone> ();
-		ac.Setting (obj, stateName, callback);
-		return ac;
-	}
-
-	public Action ApplyIdleAction (GameObject obj, string stateName, IActionCompleted callback)
+	public Action ApplyIdleAction (GameObject obj, string stateName, float count, IActionCompleted callback)
 	{
 		ActionIdle ac = obj.AddComponent<ActionIdle> ();
-		ac.Setting (obj, stateName, callback);
+		ac.Setting (obj, stateName, count, callback);
 		return ac;
 	}
 
@@ -105,9 +98,23 @@ public class ActionManager : Object
 		return ac;
 	}
 
-	public Action ApplyTriggerAction (GameObject obj, string stateName, IActionCompleted callback)
+	public Action ApplyCellphoneScanAction (GameObject obj, string stateName, IActionCompleted callback)
 	{
-		ActionTrigger ac = obj.AddComponent<ActionTrigger> ();
+		ActionCellphoneScan ac = obj.AddComponent<ActionCellphoneScan> ();
+		ac.Setting (obj, stateName, callback);
+		return ac;
+	}
+
+	public Action ApplyTakeNoteAction (GameObject obj, string stateName, IActionCompleted callback)
+	{
+		ActionTakeNote ac = obj.AddComponent<ActionTakeNote> ();
+		ac.Setting (obj, stateName, callback);
+		return ac;
+	}
+
+	public Action ApplyVRGlassesAction (GameObject obj, string stateName, IActionCompleted callback)
+	{
+		ActionVRGlasses ac = obj.AddComponent<ActionVRGlasses> ();
 		ac.Setting (obj, stateName, callback);
 		return ac;
 	}

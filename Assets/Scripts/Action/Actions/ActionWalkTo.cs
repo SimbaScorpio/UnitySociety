@@ -14,7 +14,7 @@ public class ActionWalkTo : AIPath
 	public IActionCompleted monitor;
 
 	private bool finalRotate = false;
-	private float animationSpeed = 1f;
+	private float animationSpeed = 1.1f;
 	private Animator animator;
 	private NavmeshCut navCut;
 
@@ -22,7 +22,7 @@ public class ActionWalkTo : AIPath
 
 	private Vector3 velocity;
 	private Vector3 direction;
-	private float speed;
+	private float animSpeed;
 	private float angle;
 
 
@@ -37,7 +37,7 @@ public class ActionWalkTo : AIPath
 		navCut.enabled = false;
 	}
 
-	void Update ()
+	public override void Update ()
 	{
 		velocity = Vector3.zero;
 		if (finalRotate) {
@@ -49,10 +49,10 @@ public class ActionWalkTo : AIPath
 				rvoController.Move (direction);
 				velocity = rvoController.velocity;
 			}
-			speed = velocity.magnitude;
-			animator.SetFloat (hashSpeedPara, speed);
+			animSpeed = velocity.magnitude;
+			animator.SetFloat (hashSpeedPara, animSpeed);
 			//Modify animation speed to match velocity
-			animator.speed = speed * animationSpeed;
+			animator.speed = animSpeed * animationSpeed;
 		}
 	}
 
@@ -60,9 +60,9 @@ public class ActionWalkTo : AIPath
 	{
 		transform.rotation = Quaternion.Lerp (transform.rotation, landmark.rotation, Time.deltaTime * 20);
 		angle = Quaternion.Angle (landmark.rotation, tr.rotation);
-		speed = angle / 180.0f;
-		animator.SetFloat (hashSpeedPara, speed);
-		animator.speed = speed * animationSpeed;
+		animSpeed = angle / 180.0f;
+		animator.SetFloat (hashSpeedPara, animSpeed);
+		animator.speed = animSpeed * animationSpeed;
 		if (angle < 0.1f)
 			Finish ();
 	}

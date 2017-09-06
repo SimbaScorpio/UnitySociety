@@ -5,90 +5,83 @@ using UnityEngine;
 public class ActionDealer : MonoBehaviour, IActionCompleted
 {
 	public bool isStanding;
-	public bool isUsingTelephone;
+	//public bool isUsingTelephone;
+
 	private string tryingToDoActionName;
 	private IActionCompleted monitor;
 
-	private string[] standActions = {
-		"站着不动", "站姿使用电话", "站姿拨打电话", "发言", "使用相机", "站立听", "站立鼓掌", "站立说话", "边说边指远方", "边说边指近桌", "边说边对桌子指指点点", "站立指ppt", "传纸", "接纸"
-	};
-
-	private string[] sitActions = {
-		"坐着不动", "坐姿使用电话", "坐姿拨打电话", "敲击键盘", "点击鼠标", "挠头思考", "托腮思考", "坐向后仰", "坐抱头后仰"
-	};
-
-	private string[] telephoneActions = {
-		"站姿使用电话", "站姿拨打电话", "坐姿使用电话", "坐姿拨打电话" 
-	};
+	//	private float aidThreshold = 1.0f;
+	//	private IEnumerator handler;
+	//	private bool aidActive;
 
 	void Start ()
 	{
 		isStanding = true;
-		isUsingTelephone = false; 
+		//isUsingTelephone = false; 
 	}
+
+
+	//	public void StartCountingAid ()
+	//	{
+	//		aidActive = false;
+	//		handler = StartCoroutine (HandleAidActivity ());
+	//	}
+	//
+	//	public void StopCountingAid ()
+	//	{
+	//		aidActive = false;
+	//		StopCoroutine (handler);
+	//	}
+	//
+	//	public bool IsAidActive ()
+	//	{
+	//		if (aidActive) {
+	//			aidActive = false;
+	//			return true;
+	//		}
+	//		return false;
+	//	}
+	//
+	//	IEnumerator HandleAidActivity ()
+	//	{
+	//		while (true) {
+	//			if (!aidActive) {
+	//				float p = StorylineManager.GetInstance ().storyline.aid_possibility;
+	//				int aidPossiblity = Random.Range (0, (int)(1 / p));
+	//				if (aidPossiblity == 0)
+	//					aidActive = true;
+	//			}
+	//			yield return new WaitForSeconds (aidThreshold);
+	//		}
+	//	}
+
 
 	public bool TryNotStanding (IActionCompleted callback)
 	{
-		if (TryNotUsingTelephone (callback)) {
-			if (isStanding) {
-				ApplyAction ("坐下", callback);
-				return false;
-			}
-			return true;
-		}
-		return false;
-	}
-
-	public bool TryNotSitting (IActionCompleted callback)
-	{
-		if (TryNotUsingTelephone (callback)) {
-			if (!isStanding) {
-				ApplyAction ("起立", callback);
-				return false;
-			}
-			return true;
-		}
-		return false;
-	}
-
-	public bool TryNotUsingTelephone (IActionCompleted callback)
-	{
-		if (isUsingTelephone) {
-			ApplyAction ("放下电话", callback);
+		if (isStanding) {
+			ApplyAction ("坐下", callback);
 			return false;
 		}
 		return true;
 	}
 
-
-	public bool IsStandAction (string name)
+	public bool TryNotSitting (IActionCompleted callback)
 	{
-		foreach (string ac in standActions) {
-			if (ac == name)
-				return true;
+		if (!isStanding) {
+			ApplyAction ("起立", callback);
+			return false;
 		}
-		return false;
+		return true;
 	}
 
-	public bool IsSitAction (string name)
-	{
-		foreach (string ac in sitActions) {
-			if (ac == name)
-				return true;
-		}
-		return false;
-	}
-
-	public bool IsTelephoneAction (string name)
-	{
-		foreach (string ac in telephoneActions) {
-			if (ac == name)
-				return true;
-		}
-		return false;
-	}
-
-
+	//	public bool TryNotUsingTelephone (IActionCompleted callback)
+	//	{
+	//		if (isUsingTelephone) {
+	//			ApplyAction ("放下电话", callback);
+	//			return false;
+	//		}
+	//		return true;
+	//	}
 
 
 	public void OnActionCompleted (Action ac)
@@ -104,50 +97,22 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 			return;
 		tryingToDoActionName = name;
 		monitor = callback;
-		if (IsStandAction (name)) {
+		if (ActionName.IsStandAction (name)) {
 			if (isStanding) {
-				if (IsTelephoneAction (name)) {
-					if (isUsingTelephone) {
-						tryingToDoActionName = null;
-						ApplyAction (name, monitor);
-					} else {
-						ApplyAction ("拿起电话", this);
-					}
-				} else {
-					tryingToDoActionName = null;
-					ApplyAction (name, monitor);
-				}
+				tryingToDoActionName = null;
+				ApplyAction (name, monitor);
 			} else {
-				if (isUsingTelephone) {
-					ApplyAction ("放下电话", this);
-				} else {
-					ApplyAction ("起立", this);
-				}
+				ApplyAction ("起立", this);
 			}
-		} else if (IsSitAction (name)) {
+		} else if (ActionName.IsSitAction (name)) {
 			if (!isStanding) {
-				if (IsTelephoneAction (name)) {
-					if (isUsingTelephone) {
-						tryingToDoActionName = null;
-						ApplyAction (name, monitor);
-					} else {
-						ApplyAction ("放下电话", this);
-					}
-				} else {
-					tryingToDoActionName = null;
-					ApplyAction (name, monitor);
-				}
+				tryingToDoActionName = null;
+				ApplyAction (name, monitor);
 			} else {
-				if (isUsingTelephone) {
-					ApplyAction ("放下电话", this);
-				} else {
-					ApplyAction ("坐下", this);
-				}
+				ApplyAction ("坐下", this);
 			}
 		}
 	}
-
-
 
 
 	void ApplyAction (string name, IActionCompleted callback)
@@ -171,29 +136,11 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 					callback.OnActionCompleted (null);
 			}
 			break;
-		case "放下电话":
-			if (isUsingTelephone) {
-				isUsingTelephone = false;
-				ActionManager.GetInstance ().ApplyPutDownTelephoneAction (gameObject, name, callback);
-			} else {
-				if (callback != null)
-					callback.OnActionCompleted (null);
-			}
-			break;
-		case "拿起电话":
-			if (!isUsingTelephone) {
-				isUsingTelephone = true;
-				ActionManager.GetInstance ().ApplyPickUpTelephoneAction (gameObject, name, callback);
-			} else {
-				if (callback != null)
-					callback.OnActionCompleted (null);
-			}
-			break;
 		case "坐着不动":
-			ActionManager.GetInstance ().ApplyIdleAction (gameObject, name, callback);
+			ActionManager.GetInstance ().ApplyIdleAction (gameObject, name, Random.Range (0.1f, 0.5f), callback);
 			break;
 		case "站着不动":
-			ActionManager.GetInstance ().ApplyIdleAction (gameObject, name, callback);
+			ActionManager.GetInstance ().ApplyIdleAction (gameObject, name, Random.Range (0.1f, 0.5f), callback);
 			break;
 		case "点击鼠标":
 			ActionManager.GetInstance ().ApplyClickAction (gameObject, name, callback);
@@ -209,6 +156,15 @@ public class ActionDealer : MonoBehaviour, IActionCompleted
 			break;
 		case "接纸":
 			ActionManager.GetInstance ().ApplyGetPaperAction (gameObject, name, callback);
+			break;
+		case "拿手机扫码":
+			ActionManager.GetInstance ().ApplyCellphoneScanAction (gameObject, name, callback);
+			break;
+		case "听写记录":
+			ActionManager.GetInstance ().ApplyTakeNoteAction (gameObject, name, callback);
+			break;
+		case "VR眼镜":
+			ActionManager.GetInstance ().ApplyVRGlassesAction (gameObject, name, callback);
 			break;
 		default:
 			ActionManager.GetInstance ().ApplyTriggerAction (gameObject, name, callback);
