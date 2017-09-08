@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class ClickToMove : MonoBehaviour
 {
-	public Transform target;
-
 	void Update ()
 	{
 		if (Input.GetMouseButtonDown (0)) {
@@ -18,12 +16,11 @@ public class ClickToMove : MonoBehaviour
 				ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit, 1000)) {
-				if (!GetComponent<ActionSingle> ()) {
+				if (!GetComponent<ActionWalkTo> ()) {
 					Landmark mark = new Landmark ();
 					mark.data [0] = hit.point.x;
 					mark.data [1] = hit.point.y;
 					mark.data [2] = hit.point.z;
-					target.position = hit.point;
 					ActionWalkTo ac = gameObject.AddComponent<ActionWalkTo> ();
 					ac.Setting (gameObject, mark, null);
 				}

@@ -84,6 +84,10 @@ public class StorylineManager : MonoBehaviour
 			Material clothing = MaterialCollection.GetInstance ().Get (cha.clothing);
 			player.transform.Find ("mesh").GetComponent<Renderer> ().material = clothing;
 			player.name = cha.name;
+			if (!player.GetComponent<Person> ())
+				player.AddComponent<Person> ();
+			if (!player.GetComponent<ActionDealer> ())
+				player.AddComponent<ActionDealer> ();
 
 			if (nameToCharacter.ContainsKey (cha.name)) {
 				Log.warn ("Initialize character [" + i + "] warning: overlapped name");

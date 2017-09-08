@@ -595,12 +595,12 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Collab: 1
+    Collab: 0
     UNet: 1
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
   cloudProjectId: edff4375-8e90-4cc1-863f-f878b1394f53
-  projectName: HolyCrap
+  projectName: UnitySociety
   organizationId: hu-jiangchuan
   cloudEnabled: 0
   enableNewInputSystem: 0

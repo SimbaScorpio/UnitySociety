@@ -47,7 +47,7 @@ public class AIPath : ActionSingle
 	 * The AI will try to follow/move towards this target.
 	 * It can be a point on the ground where the player has clicked in an RTS for example, or it can be the player object in a zombie game.
 	 */
-	public Vector3 target;
+	public Transform target;
 
 	/** Enables or disables searching for paths.
 	 * Setting this to false does not stop any active path requests from being calculated or stop it from continuing to follow the current path.
@@ -243,7 +243,7 @@ public class AIPath : ActionSingle
 	{
 		lastRepath = Time.time;
 		//This is where we should search to
-		Vector3 targetPosition = target;
+		Vector3 targetPosition = target.position;
 
 		canSearchAgain = false;
 
