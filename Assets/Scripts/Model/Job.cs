@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Job
+namespace DesignSociety
 {
-	public string name;
-	public string[] candidates;
+	[System.Serializable]
+	public class Job
+	{
+		public string name;
+		public string[] candidates;
+	}
 }

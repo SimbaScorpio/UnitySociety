@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionClick : ActionTrigger
+namespace DesignSociety
 {
-	private GameObject mouse;
-
-	public override void Setting (GameObject obj, string stateName, IActionCompleted monitor)
+	public class ActionClick : ActionTrigger
 	{
-		base.Setting (obj, stateName, monitor);
-		mouse = obj.transform.Find ("mouse").gameObject;
-		mouse.SetActive (true);
-	}
+		private GameObject mouse;
 
-	public override void Finish ()
-	{
-		mouse.SetActive (false);
-		base.Finish ();
+		public override void Setting (GameObject obj, string stateName, IActionCompleted monitor)
+		{
+			base.Setting (obj, stateName, monitor);
+			mouse = obj.transform.Find ("mouse").gameObject;
+			mouse.SetActive (true);
+		}
+
+		public override void Finish ()
+		{
+			mouse.SetActive (false);
+			base.Finish ();
+		}
 	}
 }

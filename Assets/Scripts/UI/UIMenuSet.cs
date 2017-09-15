@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIMenuSet : MonoBehaviour
+namespace DesignSociety
 {
-	public void OnButtonPlayClicked ()
+	public class UIMenuSet : MonoBehaviour
 	{
-		Time.timeScale = 1;
-	}
+		public void OnButtonPlayClicked ()
+		{
+			Time.timeScale = 1;
+		}
 
-	public void OnButtonStopClicked ()
-	{
-		Time.timeScale = 0;
-	}
+		public void OnButtonStopClicked ()
+		{
+			Time.timeScale = 0;
+		}
 
-	public void OnButtonReplayClicked ()
-	{
-		FileManager.GetInstance ().StartLoading ();
-	}
+		public void OnButtonReplayClicked ()
+		{
+			FileManager.GetInstance ().StartLoading ();
+		}
 
-	public void OnButtonCloseClicked ()
-	{
-		Application.Quit ();
+		public void OnButtonCloseClicked ()
+		{
+			Application.Quit ();
+		}
 	}
 }

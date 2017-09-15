@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class StorylineSpot
+namespace DesignSociety
 {
-	public float start_time;
-	public float end_time;
-	public string spot_name;
-	public string principal;
-	public PrincipalActivity[] principal_activities;
+	[System.Serializable]
+	public class StorylineSpot
+	{
+		public float start_time;
+		public float end_time;
+		public string spot_name;
+		public string principal;
+		public PrincipalActivity[] principal_activities;
+	}
 }

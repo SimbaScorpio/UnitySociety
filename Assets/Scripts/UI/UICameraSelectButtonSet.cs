@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UICameraSelectButtonSet : MonoBehaviour
+namespace DesignSociety
 {
-	public BasicCameraController controller;
-	public BasicCameraController.CameraProjection[] projection = 
-		new BasicCameraController.CameraProjection[3];
-
-	public void OnButtonClicked (int id)
+	public class UICameraSelectButtonSet : MonoBehaviour
 	{
-		controller.projection = projection [id];
-		controller.SetProjectionScript ();
-	}
+		public BasicCameraController controller;
+		public BasicCameraController.CameraProjection[] projection = 
+			new BasicCameraController.CameraProjection[3];
 
-	public void OnResetClicked ()
-	{
-		controller.ResetTransform ();
+		public void OnButtonClicked (int id)
+		{
+			controller.projection = projection [id];
+			controller.SetProjectionScript ();
+		}
+
+		public void OnResetClicked ()
+		{
+			controller.ResetTransform ();
+		}
 	}
 }

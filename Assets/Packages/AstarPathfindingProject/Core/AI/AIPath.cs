@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
 using Pathfinding.RVO;
+using DesignSociety;
 
 /** AI for following paths.
  * This AI is the default movement script which comes with the A* Pathfinding Project.

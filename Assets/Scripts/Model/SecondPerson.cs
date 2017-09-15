@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class SecondPerson : Self
+namespace DesignSociety
 {
-	public string name;
-	public FollowingActivity[] following_activities;
+	[System.Serializable]
+	public class SecondPerson : Self
+	{
+		public string name;
+		public FollowingActivity[] following_activities;
+	}
 }

@@ -4,81 +4,89 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class ActionWalkTo : ActionSingle
+namespace DesignSociety
 {
-	public GameObject obj;
-	public Landmark landmark;
-	public IActionCompleted monitor;
-
-	private bool finalRotate = false;
-	private float animationSpeed = 1f;
-
-	private NavmeshCut navCut;
-	private Animator anim;
-	private MyRichAI ai;
-
-	private readonly int hashSpeedPara = Animator.StringToHash ("Speed");
-
-	public void Setting (GameObject obj, Landmark landmark, IActionCompleted monitor)
+	public class ActionWalkTo : ActionSingle
 	{
-		this.obj = obj;
-		this.landmark = landmark;
-		this.monitor = monitor;
+		public GameObject obj;
+		public Landmark landmark;
+		public IActionCompleted monitor;
 
-		// animator
-		anim = obj.GetComponent<Animator> ();
+		private bool finalRotate = false;
+		private float animationSpeed = 1f;
 
-		// navcut (disable and force mesh update)
-		navCut = GetComponent<NavmeshCut> ();
-		navCut.enabled = false;
-		FindObjectOfType<TileHandlerHelper> ().ForceUpdate ();
+		private NavmeshCut navCut;
+		private Animator anim;
+		private MyRichAI ai;
 
-		// richAI (enable and add target reached listener)
-		ai = obj.GetComponent<MyRichAI> ();
-		ai.target = landmark;
-		ai.enabled = true;
-		ai.OnTargetReached += OnTargetReached;
-	}
+		private readonly int hashSpeedParaH = Animator.StringToHash ("SpeedH");
+		private readonly int hashSpeedParaV = Animator.StringToHash ("SpeedV");
 
-	void OnTargetReached (object sender, EventArgs e)
-	{
-		finalRotate = true;
-	}
+		public void Setting (GameObject obj, Landmark landmark, IActionCompleted monitor)
+		{
+			this.obj = obj;
+			this.landmark = landmark;
+			this.monitor = monitor;
 
-	void Update ()
-	{
-		float speed = ai.Velocity.magnitude;
-		anim.SetFloat (hashSpeedPara, speed);
-		anim.speed = speed * animationSpeed;
+			// animator
+			anim = obj.GetComponent<Animator> ();
 
-		if (finalRotate && FinalRotate ())
-			Finish ();
-	}
+			// navcut (disable and force mesh update)
+			navCut = GetComponent<NavmeshCut> ();
+			if (navCut != null) {
+				navCut.enabled = false;
+				FindObjectOfType<TileHandlerHelper> ().ForceUpdate ();
+			}
 
-	bool FinalRotate ()
-	{
-		//return true;
-		Vector3 tan = landmark.rotation.eulerAngles;
-		Vector3 ran = transform.rotation.eulerAngles;
-		float deltaTime = Mathf.Min (Time.smoothDeltaTime * 2, Time.deltaTime);
-		ran.y = Mathf.MoveTowardsAngle (ran.y, tan.y, ai.rotationSpeed * deltaTime);
-		obj.transform.rotation = Quaternion.Euler (ran);
-		return Mathf.Abs (ran.y - tan.y) < 1f;
-	}
+			// richAI (enable and add target reached listener)
+			ai = obj.GetComponent<MyRichAI> ();
+			ai.target = landmark;
+			ai.enabled = true;
+			ai.OnTargetReached += OnTargetReached;
+		}
 
-	public void Finish ()
-	{
-		ai.enabled = false;
-		ai.OnTargetReached -= OnTargetReached;
+		void OnTargetReached (object sender, EventArgs e)
+		{
+			finalRotate = true;
+		}
 
-		navCut.enabled = true;
-		FindObjectOfType<TileHandlerHelper> ().ForceUpdate ();
+		void Update ()
+		{
+			float speed = ai.Velocity.magnitude;
+			anim.SetFloat (hashSpeedParaH, speed);
+			anim.speed = speed * animationSpeed;
 
-		anim.speed = 1;
-		anim.SetFloat (hashSpeedPara, 0);
+			if (finalRotate && FinalRotate ())
+				Finish ();
+		}
 
-		if (monitor != null)
-			monitor.OnActionCompleted (this);
-		Free ();
+		bool FinalRotate ()
+		{
+			//return true;
+			Vector3 tan = landmark.rotation.eulerAngles;
+			Vector3 ran = transform.rotation.eulerAngles;
+			float deltaTime = Mathf.Min (Time.smoothDeltaTime * 2, Time.deltaTime);
+			ran.y = Mathf.MoveTowardsAngle (ran.y, tan.y, ai.rotationSpeed * deltaTime);
+			obj.transform.rotation = Quaternion.Euler (ran);
+			return Mathf.Abs (ran.y - tan.y) < 1f;
+		}
+
+		public void Finish ()
+		{
+			ai.enabled = false;
+			ai.OnTargetReached -= OnTargetReached;
+
+			if (navCut != null) {
+				navCut.enabled = true;
+				FindObjectOfType<TileHandlerHelper> ().ForceUpdate ();
+			}
+
+			anim.speed = 1;
+			anim.SetFloat (hashSpeedParaH, 0);
+
+			if (monitor != null)
+				monitor.OnActionCompleted (this);
+			Free ();
+		}
 	}
 }

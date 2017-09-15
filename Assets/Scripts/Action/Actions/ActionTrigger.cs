@@ -2,39 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionTrigger : ActionSingle
+namespace DesignSociety
 {
-	public GameObject obj;
-	public string stateName;
-
-	private Animator animator;
-	private IActionCompleted monitor;
-
-	private bool inMyState = false;
-
-	public virtual void Setting (GameObject obj, string stateName, IActionCompleted monitor)
+	public class ActionTrigger : ActionSingle
 	{
-		this.obj = obj;
-		this.stateName = stateName;
-		this.monitor = monitor;
-		this.animator = obj.GetComponent<Animator> ();
-		animator.SetTrigger (stateName);
-	}
+		public GameObject obj;
+		public string stateName;
 
-	void Update ()
-	{
-		if (animator.GetCurrentAnimatorStateInfo (0).IsName (stateName)) {
-			inMyState = true;
-		} else if (inMyState) {
-			Finish ();
+		protected Animator animator;
+		protected IActionCompleted monitor;
+
+		private bool inMyState = false;
+
+		public virtual void Setting (GameObject obj, string stateName, IActionCompleted monitor)
+		{
+			this.obj = obj;
+			this.stateName = stateName;
+			this.monitor = monitor;
+			this.animator = obj.GetComponent<Animator> ();
+			animator.SetTrigger (stateName);
 		}
-	}
 
-	public virtual void Finish ()
-	{
-		if (monitor != null) {
-			monitor.OnActionCompleted (this);
+		void Update ()
+		{
+			if (animator.GetCurrentAnimatorStateInfo (0).IsName (stateName)) {
+				inMyState = true;
+			} else if (inMyState) {
+				Finish ();
+			}
 		}
-		Free ();
+
+		public virtual void Finish ()
+		{
+			if (monitor != null) {
+				monitor.OnActionCompleted (this);
+			}
+			Free ();
+		}
 	}
 }

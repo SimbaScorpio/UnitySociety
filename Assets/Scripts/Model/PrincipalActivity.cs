@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class PrincipalActivity
+namespace DesignSociety
 {
-	public float duration;
-	public string description;
-	public string composite_movement_name;
-	public Self self;
-	public SecondPerson[] other_people;
+	[System.Serializable]
+	public class PrincipalActivity
+	{
+		public float duration;
+		public string description;
+		public string composite_movement_name;
+		public Self self;
+		public SecondPerson[] other_people;
+	}
 }

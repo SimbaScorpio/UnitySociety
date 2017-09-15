@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using DesignSociety;
 
 public class RandomWalk : MonoBehaviour
 {
 	public float size = 2;
 
-	RichAI ai;
 	AstarPath astar;
 	bool thread;
 
 	void Start ()
 	{
-		ai = GetComponent<RichAI> ();
 		astar = FindObjectOfType<AstarPath> ();
 	}
 

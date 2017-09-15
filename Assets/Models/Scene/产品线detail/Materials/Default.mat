@@ -102,7 +102,7 @@ Material:
     - _shad: 1
     - _thickness: 5.81
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _HiColor: {r: 1, g: 1, b: 1, a: 1}
     - _LoColor: {r: 0.06487889, g: 0.1025892, b: 0.1764706, a: 1}

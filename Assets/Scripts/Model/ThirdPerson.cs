@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class ThirdPerson : Self
+namespace DesignSociety
 {
-	public string name;
+	[System.Serializable]
+	public class ThirdPerson : Self
+	{
+		public string name;
+	}
 }

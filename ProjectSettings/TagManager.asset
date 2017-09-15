@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Location
+  - SmallStuff
+  - MiddleStuff
+  - BigStuff
+  - BookStuff
   layers:
   - Default
   - TransparentFX

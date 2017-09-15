@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActionCellphoneScan : ActionTrigger
+namespace DesignSociety
 {
-	private GameObject cellphone;
-
-	public override void Setting (GameObject obj, string stateName, IActionCompleted monitor)
+	public class ActionCellphoneScan : ActionTrigger
 	{
-		base.Setting (obj, stateName, monitor);
-		cellphone = obj.transform.Find ("hip_ctrl/root/spline/right_chest/left_hand_Goal/phone").gameObject;
-		cellphone.SetActive (true);
-	}
+		private GameObject cellphone;
 
-	public override void Finish ()
-	{
-		cellphone.SetActive (false);
-		base.Finish ();
+		public override void Setting (GameObject obj, string stateName, IActionCompleted monitor)
+		{
+			base.Setting (obj, stateName, monitor);
+			cellphone = obj.transform.Find ("hip_ctrl/root/spline/right_chest/left_hand_Goal/phone").gameObject;
+			cellphone.SetActive (true);
+		}
+
+		public override void Finish ()
+		{
+			cellphone.SetActive (false);
+			base.Finish ();
+		}
 	}
 }

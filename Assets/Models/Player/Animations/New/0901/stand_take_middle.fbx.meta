@@ -140,6 +140,7 @@ ModelImporter:
     7400008: "\u53CC\u624B\u628A\u4E2D\u578B\u4E1C\u897F\u4ECE\u53E6\u4E00\u4E2A\u4EBA\u624B\u4E2D\u63A5\u8FC7"
     7400010: "\u53CC\u624B\u62FF\u7740\u4E2D\u578B\u4E1C\u897F\u884C\u8D70"
     7400012: "\u53CC\u624B\u653E\u4E0B\u4E00\u4E2A\u4E2D\u578B\u4E1C\u897F"
+    7400014: "\u53CC\u624B\u62FF\u7740\u4E2D\u578B\u4E1C\u897F"
     9500000: //RootNode
     13700000: bag
     13700002: mesh
@@ -190,29 +191,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.109014675
-        functionName: OnStuffPicked
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.2096436
-        functionName: OnStuffDisappear
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.40251574
-        functionName: OnStuffAppear
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.4863732
-        functionName: OnStuffPut
+      - time: 0.7110923
+        functionName: OnStuffPickedUp
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -915,7 +895,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -1051,6 +1031,155 @@ ModelImporter:
       takeName: CINEMA_4D_Main
       firstFrame: 224
       lastFrame: 256
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.4
+        functionName: OnStuffPutDown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bag
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube_1
+        weight: 1
+      - path: ears
+        weight: 1
+      - path: hair
+        weight: 1
+      - path: hip_ctrl
+        weight: 1
+      - path: hip_ctrl/chest_ctrl
+        weight: 1
+      - path: hip_ctrl/root
+        weight: 1
+      - path: hip_ctrl/root/left_hip
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot/left_toe
+        weight: 1
+      - path: hip_ctrl/root/right_hip
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot/right_toe
+        weight: 1
+      - path: hip_ctrl/root/spline
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/left_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head/end
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2/right_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid/right_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
+        weight: 1
+      - path: left_foot_ctrl
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
+        weight: 1
+      - path: mesh
+        weight: 1
+      - path: right_foot_ctrl
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: "\u53CC\u624B\u62FF\u7740\u4E2D\u578B\u4E1C\u897F"
+      takeName: CINEMA_4D_Main
+      firstFrame: 40
+      lastFrame: 41
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
