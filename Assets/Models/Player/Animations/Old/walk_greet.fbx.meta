@@ -137,15 +137,15 @@ ModelImporter:
     - serializedVersion: 16
       name: "\u8D70\u8DEF\u6253\u62DB\u547C"
       takeName: CINEMA_4D_Main
-      firstFrame: 1
-      lastFrame: 96
+      firstFrame: 36
+      lastFrame: 84
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 0
+      cycleOffset: 50
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

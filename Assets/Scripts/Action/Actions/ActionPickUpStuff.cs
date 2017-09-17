@@ -7,8 +7,7 @@ namespace DesignSociety
 	public class ActionPickUpStuff : ActionTrigger
 	{
 		private StuffType stuffType;
-		private Stuff stuff;
-		private float reasonableDistance = 5f;
+		private float reasonableDistance = 2f;
 		private string boneRoot = "hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/";
 
 		public void SetStuffType (StuffType stuffType)
@@ -46,7 +45,7 @@ namespace DesignSociety
 
 		public void OnStuffPickedUp ()
 		{
-			stuff = SearchForStuffType (stuffType);
+			Stuff stuff = SearchForStuffType (stuffType);
 			if (stuff != null) {
 				obj.GetComponent<ActionDealer> ().holdingStuffs.Add (stuff);
 				stuff.SetParent (obj.transform.Find (boneRoot));

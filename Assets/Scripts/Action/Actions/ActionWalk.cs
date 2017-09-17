@@ -19,6 +19,8 @@ namespace DesignSociety
 		private Animator anim;
 		private MyRichAI ai;
 
+		private float lastH, speedV = 0f, speedH = 0f;
+
 		private readonly int hashSpeedParaH = Animator.StringToHash ("SpeedH");
 		private readonly int hashSpeedParaV = Animator.StringToHash ("SpeedV");
 
@@ -27,6 +29,7 @@ namespace DesignSociety
 			this.obj = obj;
 			this.landmark = landmark;
 			this.monitor = monitor;
+			lastH = obj.transform.position.y;
 
 			// animator
 			anim = obj.GetComponent<Animator> ();
@@ -52,9 +55,13 @@ namespace DesignSociety
 
 		void Update ()
 		{
-			float speed = ai.Velocity.magnitude;
-			anim.SetFloat (hashSpeedParaH, speed);
-			anim.speed = speed * animationSpeed;
+			speedH = ai.Velocity.magnitude;
+			speedV = Mathf.Lerp (speedV, (obj.transform.position.y - lastH) / Time.deltaTime, Time.deltaTime * 5);
+			anim.SetFloat (hashSpeedParaH, speedH);
+			anim.SetFloat (hashSpeedParaV, speedV);
+			anim.speed = speedH * animationSpeed;
+
+			lastH = obj.transform.position.y;
 
 			if (finalRotate && FinalRotate ())
 				Finish ();
@@ -83,6 +90,7 @@ namespace DesignSociety
 
 			anim.speed = 1;
 			anim.SetFloat (hashSpeedParaH, 0);
+			anim.SetFloat (hashSpeedParaV, 0);
 
 			if (monitor != null)
 				monitor.OnActionCompleted (this);
