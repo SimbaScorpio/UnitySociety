@@ -1,0 +1,203 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Vendor:   NVIDIA
+    VRAM:     8110 MB
+    Driver:   22.21.13.8233
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Pathfinding.ClipperLib.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Pathfinding.ClipperLib.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Pathfinding.Poly2Tri.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Pathfinding.Poly2Tri.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Ookii.Dialogs.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Ookii.Dialogs.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\System.Drawing.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\System.Drawing.dll into Unity Child Domain
+- Completed reload, in  0.299 seconds
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\System.dll (this message is harmless)
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 49.825455 ms
+Collecting Meshes
+Generating Tile #0 of 64
+Generating Tile #1 of 64
+Generating Tile #2 of 64
+Generating Tile #3 of 64
+Generating Tile #4 of 64
+Generating Tile #5 of 64
+Generating Tile #6 of 64
+Generating Tile #7 of 64
+Generating Tile #8 of 64
+Generating Tile #9 of 64
+Generating Tile #10 of 64
+Layer estimate too low, doubling size of buffer.
+This message is harmless.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Generating Tile #11 of 64
+Generating Tile #12 of 64
+Generating Tile #13 of 64
+Generating Tile #14 of 64
+Generating Tile #15 of 64
+Generating Tile #16 of 64
+Generating Tile #17 of 64
+Generating Tile #18 of 64
+Generating Tile #19 of 64
+Generating Tile #20 of 64
+Generating Tile #21 of 64
+Generating Tile #22 of 64
+Generating Tile #23 of 64
+Generating Tile #24 of 64
+Generating Tile #25 of 64
+Generating Tile #26 of 64
+Generating Tile #27 of 64
+Generating Tile #28 of 64
+Degenerate triangles might have been generated.
+Usually this is not a problem, but if you have a static level, try to modify the graph settings slightly to avoid this edge case.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Generating Tile #29 of 64
+Generating Tile #30 of 64
+Generating Tile #31 of 64
+Generating Tile #32 of 64
+Generating Tile #33 of 64
+Generating Tile #34 of 64
+Generating Tile #35 of 64
+Generating Tile #36 of 64
+Generating Tile #37 of 64
+Generating Tile #38 of 64
+Generating Tile #39 of 64
+Generating Tile #40 of 64
+Generating Tile #41 of 64
+Generating Tile #42 of 64
+Generating Tile #43 of 64
+Generating Tile #44 of 64
+Generating Tile #45 of 64
+Generating Tile #46 of 64
+Generating Tile #47 of 64
+Generating Tile #48 of 64
+Generating Tile #49 of 64
+Generating Tile #50 of 64
+Generating Tile #51 of 64
+Generating Tile #52 of 64
+Generating Tile #53 of 64
+Generating Tile #54 of 64
+Generating Tile #55 of 64
+Generating Tile #56 of 64
+Generating Tile #57 of 64
+Generating Tile #58 of 64
+Generating Tile #59 of 64
+Generating Tile #60 of 64
+Generating Tile #61 of 64
+Generating Tile #62 of 64
+Generating Tile #63 of 64
+Assigning Graph Indices
+Connecing Tile #0 of 64
+Connecing Tile #1 of 64
+Connecing Tile #2 of 64
+Connecing Tile #3 of 64
+Connecing Tile #4 of 64
+Connecing Tile #5 of 64
+Connecing Tile #6 of 64
+Connecing Tile #7 of 64
+Connecing Tile #8 of 64
+Connecing Tile #9 of 64
+Connecing Tile #10 of 64
+Connecing Tile #11 of 64
+Connecing Tile #12 of 64
+Connecing Tile #13 of 64
+Connecing Tile #14 of 64
+Connecing Tile #15 of 64
+Connecing Tile #16 of 64
+Connecing Tile #17 of 64
+Connecing Tile #18 of 64
+Connecing Tile #19 of 64
+Connecing Tile #20 of 64
+Connecing Tile #21 of 64
+Connecing Tile #22 of 64
+Connecing Tile #23 of 64
+Connecing Tile #24 of 64
+Connecing Tile #25 of 64
+Connecing Tile #26 of 64
+Connecing Tile #27 of 64
+Connecing Tile #28 of 64
+Connecing Tile #29 of 64
+Connecing Tile #30 of 64
+Connecing Tile #31 of 64
+Connecing Tile #32 of 64
+Connecing Tile #33 of 64
+Connecing Tile #34 of 64
+Connecing Tile #35 of 64
+Connecing Tile #36 of 64
+Connecing Tile #37 of 64
+Connecing Tile #38 of 64
+Connecing Tile #39 of 64
+Connecing Tile #40 of 64
+Connecing Tile #41 of 64
+Connecing Tile #42 of 64
+Connecing Tile #43 of 64
+Connecing Tile #44 of 64
+Connecing Tile #45 of 64
+Connecing Tile #46 of 64
+Connecing Tile #47 of 64
+Connecing Tile #48 of 64
+Connecing Tile #49 of 64
+Connecing Tile #50 of 64
+Connecing Tile #51 of 64
+Connecing Tile #52 of 64
+Connecing Tile #53 of 64
+Connecing Tile #54 of 64
+Connecing Tile #55 of 64
+Connecing Tile #56 of 64
+Connecing Tile #57 of 64
+Connecing Tile #58 of 64
+Connecing Tile #59 of 64
+Connecing Tile #60 of 64
+Connecing Tile #61 of 64
+Connecing Tile #62 of 64
+Connecing Tile #63 of 64
+Scanning - Process took 557 ms to complete
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 6438 -> priority: 1 
+  Thread -> id: c60 -> priority: 1 
+  Thread -> id: 8890 -> priority: 1 
+  Thread -> id: 4c90 -> priority: 1 
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_Data\Managed\Accessibility.dll (this message is harmless)
+file:\\E:\hjc\Documents\GitHub\UnitySociety\Assets\Data\json\storyline.json
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+无法打开坐标集文件
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+无法打开故事线文件
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
