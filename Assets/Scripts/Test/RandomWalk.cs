@@ -9,7 +9,6 @@ public class RandomWalk : MonoBehaviour
 	public float size = 2;
 
 	AstarPath astar;
-	bool thread;
 
 	void Start ()
 	{
@@ -46,10 +45,6 @@ public class RandomWalk : MonoBehaviour
 	{
 		if (GetComponent<ActionWalkTo> () == null) {
 			Walk ();
-//			if (thread == false) {
-//				thread = true;
-//				StartCoroutine (Wait ());
-//			}
 		} 
 	}
 
@@ -57,6 +52,5 @@ public class RandomWalk : MonoBehaviour
 	{
 		yield return new WaitForSeconds (2);
 		Walk ();
-		thread = false;
 	}
 }

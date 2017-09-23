@@ -20,7 +20,8 @@ namespace DesignSociety
 		public GameObject markObj;
 
 		// select item zone
-		private UILandmarkItem selectedItem;
+		private UILandmarkItem hookItem;
+		private List<UILandmarkItem> selectedItems = new List<UILandmarkItem> ();
 		private float clickGap = 0.0f;
 		private float doubleClickThreshold = 0.4f;
 		private bool waitClick = false;
@@ -33,8 +34,9 @@ namespace DesignSociety
 		private const float distanceFromMark = 12;
 
 		// local data zone
-		private List<UILandmarkItem> lmlist;
+		private List<UILandmarkItem> lmlist = new List<UILandmarkItem> ();
 		private const string defaultName = "新建坐标";
+		private float itemHeight;
 
 		private static UILandmarkManager instance;
 
@@ -48,13 +50,13 @@ namespace DesignSociety
 			instance = this;
 			basicCameraScript = Camera.main.GetComponent<BasicCameraController> ();
 			raycastBtnColors = raycastButton.colors;
-			lmlist = new List<UILandmarkItem> ();
 			foreach (InputField inputField in inputFields) {
 				inputField.onEndEdit.AddListener (delegate {
 					OnInputFieldEndEdit ();
 				});
 			}
 			markObj.SetActive (false);
+			itemHeight = (itemPref.transform as RectTransform).sizeDelta.y;
 		}
 
 		public void Initialize (Landmark[] list)
@@ -63,25 +65,17 @@ namespace DesignSociety
 			for (int i = 0; i < lmlist.Count; ++i) {
 				Destroy (lmlist [i].gameObject);
 			}
+			hookItem = null;
 			lmlist.Clear ();
+			selectedItems.Clear ();
 			markObj.SetActive (false);
 			if (isRaycasting)
 				SwitchRaycastMode ();
 			DisplayItemData (null);
 			// load
-			foreach (Landmark landmark in list) {
-				GameObject obj = Instantiate (itemPref) as GameObject;
-				UILandmarkItem script = obj.GetComponent<UILandmarkItem> ();
-				script.landmark = landmark.Copy ();
-				script.SetName (landmark.name);
-				script.SetTag (landmark.label);
-
-				obj.transform.SetParent (content);
-				obj.transform.localScale = Vector3.one;
-				RectTransform rectTransform = obj.transform as RectTransform;
-				obj.transform.localPosition = new Vector3 (0, -lmlist.Count * rectTransform.sizeDelta.y, 0);
-
-				lmlist.Add (script);
+			for (int i = 0; i < list.Length; ++i) {
+				UILandmarkItem item = AddNewItem (list [i].name, list [i].label, lmlist.Count);
+				item.transform.localPosition = new Vector3 (0, -(lmlist.Count - 1) * itemHeight, 0);
 			}
 			FitContentSize ();
 		}
@@ -92,10 +86,11 @@ namespace DesignSociety
 			content.sizeDelta = new Vector2 (rectTransform.sizeDelta.x, lmlist.Count * rectTransform.sizeDelta.y);
 		}
 
+		// check name existence, if [skip] is true, won't check selected items
 		public bool IsNameExist (string name, bool skip)
 		{
 			foreach (UILandmarkItem item in lmlist) {
-				if (skip && item == selectedItem)
+				if (skip && selectedItems.Contains (item))
 					continue;
 				if (item.landmark.name == name)
 					return true;
@@ -103,6 +98,7 @@ namespace DesignSociety
 			return false;
 		}
 
+		// ensure nonredundant name by adding (num), if [skip] is true, won't check selected items
 		public string TryToGetValidName (string name, bool skip)
 		{
 			if (name [name.Length - 1] == ')') {
@@ -121,6 +117,177 @@ namespace DesignSociety
 				temp = name + "(" + (index++).ToString () + ")";
 			return temp;
 		}
+
+
+		public void SelectItem (UILandmarkItem item, bool shift, bool ctrl)
+		{
+			if (!shift && !ctrl) {
+				// 如果先前即为单选，且选项与当前相同，那么判断双击事件
+				if (selectedItems.Count == 1 && hookItem == item) {
+					if (clickGap < doubleClickThreshold) {
+						waitClick = false;
+						item.OnButtonDoubleClicked ();
+					} else if (!waitClick) {
+						waitClick = true;
+						clickGap = 0.0f;
+					}
+				} else {
+					for (int i = 0; i < selectedItems.Count; ++i) {
+						selectedItems [i].ColorNormal ();
+						selectedItems.RemoveAt (i--);
+					}
+					item.ColorPressed ();
+					selectedItems.Add (item);
+					hookItem = item;
+					waitClick = false;
+					if (isRaycasting)
+						SwitchRaycastMode ();
+					DisplayItemData (item);
+				}
+			} else if (shift && !ctrl) {
+				if (hookItem == null || hookItem == item) {
+					SelectItem (item, false, false);
+				} else {
+					for (int i = 0; i < selectedItems.Count; ++i) {
+						selectedItems [i].ColorNormal ();
+						selectedItems.RemoveAt (i--);
+					}
+					int index1 = lmlist.IndexOf (hookItem);
+					int index2 = lmlist.IndexOf (item);
+					int minI = index1 < index2 ? index1 : index2;
+					int maxI = index1 < index2 ? index2 : index1;
+					for (int i = minI; i <= maxI; ++i) {
+						UILandmarkItem temp = lmlist [i];
+						selectedItems.Add (temp);
+						temp.ColorPressed ();
+					}
+					waitClick = false;
+					if (isRaycasting)
+						SwitchRaycastMode ();
+					DisplayItemData (null);
+				}
+			} else if (!shift && ctrl) {
+				int index = selectedItems.IndexOf (item);
+				if (index >= 0) {
+					item.ColorNormal ();
+					selectedItems.RemoveAt (index);
+				} else {
+					item.ColorPressed ();
+					selectedItems.Add (item);
+				}
+				waitClick = false;
+				if (isRaycasting)
+					SwitchRaycastMode ();
+				DisplayItemData (null);
+			}
+		}
+
+		void DisplayItemData (UILandmarkItem item)
+		{
+			if (item == null) {
+				for (int i = 0; i < inputFields.Length; ++i) {
+					inputFields [i].text = "";
+					inputFields [i].interactable = false;
+				}
+				return;
+			} 
+			for (int i = 0; i < inputFields.Length; ++i) {
+				float num = item.landmark.data [i];
+				inputFields [i].text = num.ToString ("f2");
+				inputFields [i].interactable = true;
+			}
+			SetLandmarkModelTo (item.landmark);
+		}
+
+		public void OnInputFieldEndEdit ()
+		{
+			for (int i = 0; i < inputFields.Length; ++i) {
+				float num = hookItem.landmark.data [i];
+				string str = inputFields [i].text;
+				inputFields [i].text = num.ToString ("f2");
+				if (float.TryParse (str, out num)) {
+					hookItem.landmark.data [i] = num;
+					inputFields [i].text = num.ToString ("f2");
+				}
+			}
+			SetLandmarkModelTo (hookItem.landmark);
+		}
+
+		void SetLandmarkModelTo (Landmark mark)
+		{
+			markObj.SetActive (true);
+			markObj.transform.position = new Vector3 (mark.data [0], mark.data [1], mark.data [2]);
+			Vector3 direction = new Vector3 (0, mark.data [3], 0);
+			markObj.transform.rotation = Quaternion.Euler (direction);
+		}
+
+		public void ShiftCameraToMark ()
+		{
+			if (basicCameraScript != null) {
+				basicCameraScript.projection = BasicCameraController.CameraProjection.perspective;
+				basicCameraScript.SetProjectionScript ();
+				basicCameraScript.isDesired = true;
+				basicCameraScript.desiredPosition = markObj.transform.position - basicCameraScript.transform.forward * distanceFromMark;
+			}
+		}
+
+
+		void Update ()
+		{
+			DetectingLagClick ();
+			RaycastingLandmark ();
+		}
+
+		void DetectingLagClick ()
+		{
+			clickGap += Time.deltaTime;
+			if (waitClick) {
+				if (clickGap > doubleClickThreshold) {
+					hookItem.OnButtonLagClicked ();
+					waitClick = false;
+				}
+			}
+		}
+
+		void RaycastingLandmark ()
+		{
+			if (isRaycasting) {
+				// ui block raycast
+				if (EventSystem.current.IsPointerOverGameObject ())
+					return;
+				if (Input.GetMouseButtonDown (0)) {
+					// check validation
+					if (hookItem == null || selectedItems.Count != 1) {
+						SwitchRaycastMode ();
+						return;
+					}
+					// ray could shoot from different types of camera
+					Ray ray;
+					RaycastHit hit;
+					CameraPerspectiveEditor cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
+					if (cameraEditor != null && cameraEditor.isActiveAndEnabled)
+						ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
+					else
+						ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+					if (Physics.Raycast (ray, out hit, rayDistance)) {
+						hookItem.landmark.data [0] = hit.point.x;
+						hookItem.landmark.data [1] = hit.point.y;
+						hookItem.landmark.data [2] = hit.point.z;
+						DisplayItemData (hookItem);
+					}
+				}
+			}
+		}
+
+		void MoveItemsToPosition ()
+		{
+			for (int i = 0; i < lmlist.Count; ++i) {
+				lmlist [i].transform.localPosition = new Vector3 (0, -i * itemHeight, 0);
+			}
+		}
+
+
+		#region 功能按钮
 
 		// 保存
 		public void Save ()
@@ -144,241 +311,72 @@ namespace DesignSociety
 				isRaycasting = false;
 				raycastButton.colors = raycastBtnColors;
 			} else {
-				if (selectedItem == null)
+				if (hookItem == null || selectedItems.Count != 1)
 					return;
 				isRaycasting = true;
-				raycastButton.colors = ColorBlock (raycastBtnColors.pressedColor);
+				raycastButton.colors = hookItem.ColorBlock (raycastBtnColors.pressedColor);
 			}
 		}
 
 		// 添加
-		public void AddNewItem ()
+		public void AddNewItems ()
+		{
+			if (selectedItems.Count == 0) {
+				int index = lmlist.Count;
+				UILandmarkItem item = AddNewItem (defaultName, null, index);
+				SelectItem (item, false, false);
+			} else {
+				for (int i = 0; i < selectedItems.Count; ++i) {
+					int index = lmlist.IndexOf (selectedItems [i]) + 1;
+					UILandmarkItem item = AddNewItem (selectedItems [i].landmark.name, selectedItems [i].landmark.label, index);
+					if (selectedItems.Count == 1)
+						SelectItem (item, false, false);
+				}
+			}
+			MoveItemsToPosition ();
+			FitContentSize ();
+		}
+
+		UILandmarkItem AddNewItem (string name, string tag, int index)
 		{
 			GameObject obj = Instantiate (itemPref) as GameObject;
 			UILandmarkItem script = obj.GetComponent<UILandmarkItem> ();
-
-			int index = lmlist.Count;
-			if (selectedItem == null) {
-				script.landmark = new Landmark ();
-				script.landmark.name = TryToGetValidName (defaultName, false);
-			} else {
-				index = lmlist.IndexOf (selectedItem) + 1;
-				script.landmark = selectedItem.landmark.Copy ();
-				script.landmark.name = TryToGetValidName (script.landmark.name, false);
-			}
-			script.SetName (script.landmark.name);
-			script.SetTag (script.landmark.label);
-
+			script.landmark = new Landmark ();
+			script.UpdateName (name, false);
+			script.UpdateTag (tag);
 			obj.transform.SetParent (content);
 			obj.transform.localScale = Vector3.one;
-			float height = (obj.transform as RectTransform).sizeDelta.y;
-			obj.transform.localPosition = new Vector3 (0, -index * height, 0);
-
-			for (int i = index; i < lmlist.Count; ++i) {
-				lmlist [i].gameObject.transform.localPosition = new Vector3 (0, -(i + 1) * height, 0);
-			}
-	
 			lmlist.Insert (index, script);
-			SelectItem (script);
-			FitContentSize ();
+			return script;
 		}
 
 		// 上移
 		public void MoveUp ()
 		{
-			if (selectedItem == null)
-				return;
-			int index = lmlist.IndexOf (selectedItem);
-			Switch (index, index - 1);
+			
 		}
 
 		// 下移
 		public void MoveDown ()
 		{
-			if (selectedItem == null)
-				return;
-			int index = lmlist.IndexOf (selectedItem);
-			Switch (index, index + 1);
+			
 		}
 
 		// 删除
 		public void Remove ()
 		{
-			if (selectedItem == null)
-				return;
-			lmlist.Remove (selectedItem);
-			Destroy (selectedItem.gameObject);
-			selectedItem = null;
-
-			for (int i = 0; i < lmlist.Count; ++i) {
-				GameObject obj = lmlist [i].gameObject;
-				float height = (obj.transform as RectTransform).sizeDelta.y;
-				obj.transform.localPosition = new Vector3 (0, -i * height, 0);
+			for (int i = 0; i < selectedItems.Count; ++i) {
+				Destroy (selectedItems [i].gameObject);
+				lmlist.Remove (selectedItems [i]);
+				selectedItems.RemoveAt (i--);
 			}
+			MoveItemsToPosition ();
 			FitContentSize ();
-
 			if (isRaycasting)
 				SwitchRaycastMode ();
 			markObj.SetActive (false);
 		}
 
-
-		void Switch (int a, int b)
-		{
-			if (a != b && a >= 0 && a < lmlist.Count && b >= 0 && b < lmlist.Count) {
-				// switch ui position
-				GameObject obj1 = lmlist [a].gameObject;
-				GameObject obj2 = lmlist [b].gameObject;
-				float height = (obj1.transform as RectTransform).sizeDelta.y;
-				obj1.transform.localPosition = new Vector3 (0, -b * height, 0);
-				obj2.transform.localPosition = new Vector3 (0, -a * height, 0);
-
-				// switch list index
-				UILandmarkItem temp = lmlist [a];
-				lmlist [a] = lmlist [b];
-				lmlist [b] = temp;
-			}
-		}
-
-
-		public void SelectItem (UILandmarkItem item)
-		{
-			if (selectedItem != item) {
-				if (selectedItem != null)
-					selectedItem.button.colors = selectedItem.btnColors;
-				selectedItem = item;
-				selectedItem.button.colors = ColorBlock (selectedItem.btnColors.pressedColor);
-				waitClick = false;
-				clickGap = 0.0f;
-				if (isRaycasting)
-					SwitchRaycastMode ();
-				DisplayItemData (selectedItem);
-			} else {
-				if (clickGap < doubleClickThreshold) {
-					waitClick = false;
-					selectedItem.OnButtonDoubleClicked ();
-				} else if (!waitClick) {
-					waitClick = true;
-					clickGap = 0.0f;
-				} 
-			}
-		}
-
-		ColorBlock ColorBlock (Color color)
-		{
-			ColorBlock block = new ColorBlock ();
-			block.highlightedColor = color;
-			block.normalColor = color;
-			block.pressedColor = color;
-			block.colorMultiplier = 1;
-			return block;
-		}
-
-		void DisplayItemData (UILandmarkItem item)
-		{
-			if (item == null) {
-				for (int i = 0; i < inputFields.Length; ++i) {
-					inputFields [i].text = "";
-					inputFields [i].interactable = false;
-				}
-				return;
-			} 
-			for (int i = 0; i < inputFields.Length; ++i) {
-				float num = item.landmark.data [i];
-				inputFields [i].text = num.ToString ("f2");
-				if (item == selectedItem) {
-					inputFields [i].interactable = true;
-				} else {
-					inputFields [i].interactable = false;
-				}
-			}
-			SetLandmarkModel (selectedItem.landmark);
-		}
-
-		public void OnInputFieldEndEdit ()
-		{
-			float num = 0.0f;
-			for (int i = 0; i < inputFields.Length; ++i) {
-				string str = inputFields [i].text;
-				if (float.TryParse (str, out num)) {
-					inputFields [i].text = num.ToString ("f2");
-					selectedItem.landmark.data [i] = num;
-				}
-			}
-			SetLandmarkModel (selectedItem.landmark);
-		}
-
-
-		void SetLandmarkModel (Landmark mark)
-		{
-			markObj.SetActive (true);
-			markObj.transform.position = new Vector3 (mark.data [0], mark.data [1], mark.data [2]);
-			Vector3 direction = new Vector3 (0, mark.data [3], 0);
-			markObj.transform.rotation = Quaternion.Euler (direction);
-		}
-
-
-		public void ShiftCameraToMark ()
-		{
-			if (basicCameraScript != null) {
-				basicCameraScript.projection = BasicCameraController.CameraProjection.perspective;
-				basicCameraScript.SetProjectionScript ();
-				basicCameraScript.isDesired = true;
-				basicCameraScript.desiredPosition = markObj.transform.position - basicCameraScript.transform.forward * distanceFromMark;
-			}
-		}
-
-
-		void Update ()
-		{
-			// detect lag click
-			clickGap += Time.deltaTime;
-			if (waitClick) {
-				if (clickGap > doubleClickThreshold) {
-					selectedItem.OnButtonLagClicked ();
-					waitClick = false;
-				}
-			}
-
-			// raycast mode
-			if (isRaycasting) {
-				// ui block raycast
-				if (EventSystem.current.IsPointerOverGameObject ())
-					return;
-				if (Input.GetMouseButtonDown (0)) {
-					// check validation
-					if (selectedItem == null) {
-						SwitchRaycastMode ();
-						return;
-					}
-					// ray could shoot from different types of camera
-					Ray ray;
-					RaycastHit hit;
-					CameraPerspectiveEditor cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
-					if (cameraEditor != null && cameraEditor.isActiveAndEnabled)
-						ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
-					else
-						ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-					if (Physics.Raycast (ray, out hit, rayDistance)) {
-						selectedItem.landmark.data [0] = hit.point.x;
-						selectedItem.landmark.data [1] = hit.point.y;
-						selectedItem.landmark.data [2] = hit.point.z;
-						DisplayItemData (selectedItem);
-					}
-				}
-			}
-		}
-
-		/* 中文排序暂不考虑
-	public void Sort ()
-	{
-		lmlist.Sort ((p1, p2) => p1.landmark.name.CompareTo (p2.landmark.name));
-		for (int i = 0; i < lmlist.Count; ++i) {
-			GameObject obj = lmlist [i].gameObject;
-			RectTransform rectTransform = obj.transform as RectTransform;
-			obj.transform.localPosition = new Vector3 (0, -i * rectTransform.sizeDelta.y, 0);
-		}
-	}
-	*/
+		#endregion
 	}
 }

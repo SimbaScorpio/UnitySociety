@@ -31,14 +31,19 @@ namespace DesignSociety
 
 		public void OnInputFieldEndEdit ()
 		{
-			UpdateName (inputField.text);
+			UpdateName (inputField.text, true);
 			button.gameObject.SetActive (true);
 			inputField.gameObject.SetActive (false);
 		}
 
 		public void OnButtonClicked ()
 		{
-			UILandmarkManager.GetInstance ().SelectItem (this);
+			if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift))
+				UILandmarkManager.GetInstance ().SelectItem (this, true, false);
+			else if (Input.GetKey (KeyCode.LeftControl) || Input.GetKey (KeyCode.LeftControl))
+				UILandmarkManager.GetInstance ().SelectItem (this, false, true);
+			else
+				UILandmarkManager.GetInstance ().SelectItem (this, false, false);
 		}
 
 		public void OnButtonLagClicked ()
@@ -60,31 +65,43 @@ namespace DesignSociety
 		}
 
 
-		public void UpdateName (string name)
+		public void UpdateName (string name, bool skip)
 		{
-			// check validation
-			if (name.Length == 0 || name == landmark.name)
+			if (name.Length == 0)
 				return;
-			// check existance
-			landmark.name = UILandmarkManager.GetInstance ().TryToGetValidName (name, true);
-			SetName (landmark.name);
+			landmark.name = UILandmarkManager.GetInstance ().TryToGetValidName (name, skip);
+			button.GetComponentInChildren<Text> ().text = landmark.name;
 		}
 
-
-		public void SetName (string name)
-		{
-			button.GetComponentInChildren<Text> ().text = name;
-		}
-
-		public void SetTag (string tag)
+		public void UpdateTag (string tag)
 		{
 			for (int i = 0; i < dropdown.options.Count; ++i) {
-				string name = dropdown.options [i].text;
-				if (string.Equals (name, tag)) {
+				if (dropdown.options [i].text == tag) {
 					dropdown.value = i;
+					landmark.label = tag;
 					return;
 				}
 			}
+		}
+
+		public void ColorPressed ()
+		{
+			button.colors = ColorBlock (btnColors.pressedColor);
+		}
+
+		public void ColorNormal ()
+		{
+			button.colors = btnColors;
+		}
+
+		public ColorBlock ColorBlock (Color color)
+		{
+			ColorBlock block = new ColorBlock ();
+			block.highlightedColor = color;
+			block.normalColor = color;
+			block.pressedColor = color;
+			block.colorMultiplier = 1;
+			return block;
 		}
 	}
 }
