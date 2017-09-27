@@ -74,7 +74,7 @@ namespace DesignSociety
 			DisplayItemData (null);
 			// load
 			for (int i = 0; i < list.Length; ++i) {
-				UILandmarkItem item = AddNewItem (list [i].name, list [i].label, lmlist.Count);
+				UILandmarkItem item = AddNewItem (list [i].m_name, list [i].m_label, lmlist.Count);
 				item.transform.localPosition = new Vector3 (0, -(lmlist.Count - 1) * itemHeight, 0);
 			}
 			FitContentSize ();
@@ -92,7 +92,7 @@ namespace DesignSociety
 			foreach (UILandmarkItem item in lmlist) {
 				if (skip && selectedItems.Contains (item))
 					continue;
-				if (item.landmark.name == name)
+				if (item.landmark.m_name == name)
 					return true;
 			}
 			return false;
@@ -192,7 +192,7 @@ namespace DesignSociety
 				return;
 			} 
 			for (int i = 0; i < inputFields.Length; ++i) {
-				float num = item.landmark.data [i];
+				float num = item.landmark.m_data [i];
 				inputFields [i].text = num.ToString ("f2");
 				inputFields [i].interactable = true;
 			}
@@ -202,11 +202,11 @@ namespace DesignSociety
 		public void OnInputFieldEndEdit ()
 		{
 			for (int i = 0; i < inputFields.Length; ++i) {
-				float num = hookItem.landmark.data [i];
+				float num = hookItem.landmark.m_data [i];
 				string str = inputFields [i].text;
 				inputFields [i].text = num.ToString ("f2");
 				if (float.TryParse (str, out num)) {
-					hookItem.landmark.data [i] = num;
+					hookItem.landmark.m_data [i] = num;
 					inputFields [i].text = num.ToString ("f2");
 				}
 			}
@@ -216,8 +216,8 @@ namespace DesignSociety
 		void SetLandmarkModelTo (Landmark mark)
 		{
 			markObj.SetActive (true);
-			markObj.transform.position = new Vector3 (mark.data [0], mark.data [1], mark.data [2]);
-			Vector3 direction = new Vector3 (0, mark.data [3], 0);
+			markObj.transform.position = new Vector3 (mark.m_data [0], mark.m_data [1], mark.m_data [2]);
+			Vector3 direction = new Vector3 (0, mark.m_data [3], 0);
 			markObj.transform.rotation = Quaternion.Euler (direction);
 		}
 
@@ -270,9 +270,9 @@ namespace DesignSociety
 					else
 						ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 					if (Physics.Raycast (ray, out hit, rayDistance)) {
-						hookItem.landmark.data [0] = hit.point.x;
-						hookItem.landmark.data [1] = hit.point.y;
-						hookItem.landmark.data [2] = hit.point.z;
+						hookItem.landmark.m_data [0] = hit.point.x;
+						hookItem.landmark.m_data [1] = hit.point.y;
+						hookItem.landmark.m_data [2] = hit.point.z;
 						DisplayItemData (hookItem);
 					}
 				}
@@ -314,7 +314,7 @@ namespace DesignSociety
 				if (hookItem == null || selectedItems.Count != 1)
 					return;
 				isRaycasting = true;
-				raycastButton.colors = hookItem.ColorBlock (raycastBtnColors.pressedColor);
+				raycastButton.colors = UILandmarkItem.ColorBlock (raycastBtnColors.pressedColor);
 			}
 		}
 
@@ -328,7 +328,7 @@ namespace DesignSociety
 			} else {
 				for (int i = 0; i < selectedItems.Count; ++i) {
 					int index = lmlist.IndexOf (selectedItems [i]) + 1;
-					UILandmarkItem item = AddNewItem (selectedItems [i].landmark.name, selectedItems [i].landmark.label, index);
+					UILandmarkItem item = AddNewItem (selectedItems [i].landmark.m_name, selectedItems [i].landmark.m_label, index);
 					if (selectedItems.Count == 1)
 						SelectItem (item, false, false);
 				}

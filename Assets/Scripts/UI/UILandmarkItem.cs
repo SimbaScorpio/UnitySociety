@@ -32,18 +32,17 @@ namespace DesignSociety
 		public void OnInputFieldEndEdit ()
 		{
 			UpdateName (inputField.text, true);
-			button.gameObject.SetActive (true);
-			inputField.gameObject.SetActive (false);
+			CloseInputField ();
 		}
 
 		public void OnButtonClicked ()
 		{
 			if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift))
-				UILandmarkManager.GetInstance ().SelectItem (this, true, false);
+				UILandmarksManager.GetInstance ().SelectItem (landmark, true, false, false);
 			else if (Input.GetKey (KeyCode.LeftControl) || Input.GetKey (KeyCode.LeftControl))
-				UILandmarkManager.GetInstance ().SelectItem (this, false, true);
+				UILandmarksManager.GetInstance ().SelectItem (landmark, false, true, false);
 			else
-				UILandmarkManager.GetInstance ().SelectItem (this, false, false);
+				UILandmarksManager.GetInstance ().SelectItem (landmark, false, false, true);
 		}
 
 		public void OnButtonLagClicked ()
@@ -56,12 +55,12 @@ namespace DesignSociety
 
 		public void OnButtonDoubleClicked ()
 		{
-			UILandmarkManager.GetInstance ().ShiftCameraToMark ();
+			UILandmarksManager.GetInstance ().ShiftCameraToMark ();
 		}
 
 		public void OnDropDownValueChanged ()
 		{
-			landmark.label = dropdown.captionText.text;
+			landmark.m_label = dropdown.captionText.text;
 		}
 
 
@@ -69,8 +68,13 @@ namespace DesignSociety
 		{
 			if (name.Length == 0)
 				return;
-			landmark.name = UILandmarkManager.GetInstance ().TryToGetValidName (name, skip);
-			button.GetComponentInChildren<Text> ().text = landmark.name;
+			landmark.m_name = UILandmarksManager.GetInstance ().TryToGetValidName (name, skip);
+			SetName (name);
+		}
+
+		public void SetName (string name)
+		{
+			button.GetComponentInChildren<Text> ().text = landmark.m_name;
 		}
 
 		public void UpdateTag (string tag)
@@ -78,10 +82,16 @@ namespace DesignSociety
 			for (int i = 0; i < dropdown.options.Count; ++i) {
 				if (dropdown.options [i].text == tag) {
 					dropdown.value = i;
-					landmark.label = tag;
+					landmark.m_label = tag;
 					return;
 				}
 			}
+		}
+
+		public void CloseInputField ()
+		{
+			button.gameObject.SetActive (true);
+			inputField.gameObject.SetActive (false);
 		}
 
 		public void ColorPressed ()
@@ -94,7 +104,7 @@ namespace DesignSociety
 			button.colors = btnColors;
 		}
 
-		public ColorBlock ColorBlock (Color color)
+		public static ColorBlock ColorBlock (Color color)
 		{
 			ColorBlock block = new ColorBlock ();
 			block.highlightedColor = color;

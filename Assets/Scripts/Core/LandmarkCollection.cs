@@ -32,13 +32,13 @@ namespace DesignSociety
 		{
 			landmarks.Clear ();
 			foreach (Landmark lm in list.landmarkList) {
-				if (landmarks.ContainsKey (lm.name)) {
-					Log.warn ("Initialize landmark [" + lm.name + "] warning: overlapped name");
+				if (landmarks.ContainsKey (lm.m_name)) {
+					Log.warn ("Initialize landmark [" + lm.m_name + "] warning: overlapped name");
 				}
-				landmarks [lm.name] = lm;
+				landmarks [lm.m_name] = lm;
 			}
-			if (UILandmarkManager.GetInstance ())
-				UILandmarkManager.GetInstance ().Initialize (list.landmarkList);
+			if (UILandmarksManager.GetInstance ())
+				UILandmarksManager.GetInstance ().Initialize (list.landmarkList);
 		}
 
 
@@ -64,7 +64,7 @@ namespace DesignSociety
 			}
 			labeledLandmarks.Clear ();
 			foreach (string name in landmarks.Keys) {
-				if (landmarks [name].label == objectName)
+				if (landmarks [name].m_label == objectName)
 					labeledLandmarks.Add (landmarks [name]);
 			}
 			if (labeledLandmarks.Count == 0) {

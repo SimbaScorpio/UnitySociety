@@ -29,8 +29,8 @@ public class RandomWalk : MonoBehaviour
 		} while (Vector3.Distance (near, pos) > 0.1f);
 
 		Landmark mark = new Landmark ();
-		mark.data [0] = x;
-		mark.data [2] = z;
+		mark.m_data [0] = x;
+		mark.m_data [2] = z;
 		return mark;
 	}
 

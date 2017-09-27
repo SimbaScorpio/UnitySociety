@@ -19,9 +19,9 @@ public class ClickToMove : MonoBehaviour
 			if (Physics.Raycast (ray, out hit, 1000)) {
 				if (!GetComponent<ActionWalkTo> ()) {
 					Landmark mark = new Landmark ();
-					mark.data [0] = hit.point.x;
-					mark.data [1] = hit.point.y;
-					mark.data [2] = hit.point.z;
+					mark.m_data [0] = hit.point.x;
+					mark.m_data [1] = hit.point.y;
+					mark.m_data [2] = hit.point.z;
 					ActionWalkTo ac = gameObject.AddComponent<ActionWalkTo> ();
 					ac.Setting (gameObject, mark, null);
 				}

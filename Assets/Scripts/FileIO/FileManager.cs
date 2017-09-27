@@ -27,7 +27,7 @@ namespace DesignSociety
 		{
 			instance = this;
 			uiFileDialog = FindObjectOfType<UIFileDialog> ();
-			//StartLoading ();
+			StartLoading ();
 		}
 
 		public void StartLoading ()

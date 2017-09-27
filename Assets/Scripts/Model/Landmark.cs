@@ -7,38 +7,38 @@ namespace DesignSociety
 	[System.Serializable]
 	public class Landmark
 	{
-		public string name;
-		public string label;
-		public float[] data;
+		public string m_name;
+		public string m_label;
+		public float[] m_data;
 
 		public Vector3 position { 
 			get {
-				return new Vector3 (data [0], data [1], data [2]);
+				return new Vector3 (m_data [0], m_data [1], m_data [2]);
 			}
 		}
 
 		public Quaternion rotation {
 			get {
-				return Quaternion.Euler (new Vector3 (0, data [3], 0));
+				return Quaternion.Euler (new Vector3 (0, m_data [3], 0));
 			}
 		}
 
 		public Landmark Copy ()
 		{
 			Landmark temp = new Landmark ();
-			temp.label = label;
-			temp.name = name;
-			temp.data = new float[data.Length];
-			for (int i = 0; i < data.Length; ++i) {
-				temp.data [i] = data [i];
+			temp.m_label = m_label;
+			temp.m_name = m_name;
+			temp.m_data = new float[m_data.Length];
+			for (int i = 0; i < m_data.Length; ++i) {
+				temp.m_data [i] = m_data [i];
 			}
 			return temp;
 		}
 
 		public Landmark ()
 		{
-			name = label = "";
-			data = new float[4]{ 0, 0, 0, 0 };
+			m_name = m_label = "";
+			m_data = new float[4]{ 0, 0, 0, 0 };
 		}
 	}
 }
