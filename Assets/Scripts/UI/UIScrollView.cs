@@ -2,47 +2,55 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace DesignSociety
 {
-	public class UIScrollView : MonoBehaviour
+	[RequireComponent (typeof(UIScrollViewData))]
+	public class UIScrollView : ScrollRect, IBeginDragHandler, IDragHandler, IEndDragHandler
 	{
-		public GameObject itemPref;
-		public RectTransform content;
-		public ScrollRect scrollRect;
-		// 刚好能显示的单元数量（实际会多实例1个保证滑动无空白）
-		public int displayCount;
-		public bool debug;
+		UIScrollViewData sd;
 
-		[HideInInspector]
 		public delegate void UpdateListIndex (List<GameObject> items, int minIndex, int maxIndex);
 
+		public delegate void BeginDragHandler (int index);
+
+		public delegate void EndDragHandler (int index);
+
 		public event UpdateListIndex OnListIndexUpdated;
+		public event BeginDragHandler OnBeginDragHandler;
+		public event EndDragHandler OnEndDragHandler;
 
 		private List<GameObject> items = new List<GameObject> ();
 		private float itemWidth;
 		private float itemHeight;
+		private int displayCount;
 		private int totalCount;
 
 		private int minIndex;
 		private int maxIndex;
+
+		private int dragEndIndex;
+		private float rollingSpeed;
 	
 
 		// 初始化单元长宽，创建预设，绑定滑动条事件
 		public void Initialize ()
 		{
-			itemWidth = (itemPref.transform as RectTransform).sizeDelta.x;
-			itemHeight = (itemPref.transform as RectTransform).sizeDelta.y;
-			FitContentSize (0);
+			sd = GetComponent<UIScrollViewData> ();
+			itemWidth = (sd.itemPref.transform as RectTransform).sizeDelta.x;
+			itemHeight = (sd.itemPref.transform as RectTransform).sizeDelta.y;
+			displayCount = Mathf.CeilToInt (viewport.rect.height / itemHeight);
 			for (int i = 0; i < displayCount + 1; ++i) {
-				GameObject obj = i < items.Count ? items [i] : (GameObject)Instantiate (itemPref);
+				GameObject obj = i < items.Count ? items [i] : (GameObject)Instantiate (sd.itemPref);
 				obj.transform.SetParent (content);
 				obj.transform.localScale = Vector3.one;
 				obj.transform.localPosition = new Vector3 (0, -i * itemHeight, 0);
 				if (i >= items.Count)
 					items.Add (obj);
 			}
-			scrollRect.onValueChanged.AddListener (delegate {
+			FitContentSize (displayCount);
+			this.onValueChanged.AddListener (delegate {
 				OnScrollValueChanged ();
 			});
 		}
@@ -66,9 +74,9 @@ namespace DesignSociety
 		void FitContentSize (int num)
 		{
 			// 滑动条处于底端时，Content窗口缩小端默认是下端，会出现Content不覆盖Viewport的现象，导致导航错误，此时需要强制导航至底，可考虑更新元素坐标
-			if (Mathf.Abs (scrollRect.verticalNormalizedPosition) < 0.01f) {
+			if (Mathf.Abs (verticalNormalizedPosition) < 0.01f) {
 				content.sizeDelta = new Vector2 (itemWidth, num * itemHeight);
-				scrollRect.verticalNormalizedPosition = 0f;
+				verticalNormalizedPosition = 0f;
 				OnScrollValueChanged ();
 			} else {
 				content.sizeDelta = new Vector2 (itemWidth, num * itemHeight);
@@ -87,35 +95,86 @@ namespace DesignSociety
 		void UpdateInfo ()
 		{
 			minIndex = totalCount <= displayCount + 1 ? 0 :
-				Mathf.FloorToInt ((1 - scrollRect.verticalNormalizedPosition) * (content.sizeDelta.y - displayCount * itemHeight) / itemHeight);
+				Mathf.FloorToInt ((1 - verticalNormalizedPosition) * (content.sizeDelta.y - viewport.rect.height) / itemHeight);
 			minIndex = minIndex < 0 ? 0 : minIndex;
 			maxIndex = totalCount <= displayCount ? totalCount - 1 : 
 				minIndex + displayCount < totalCount - 1 ? minIndex + displayCount : totalCount - 1;
 			if (OnListIndexUpdated != null)
 				OnListIndexUpdated (items, minIndex, maxIndex);
-			if (debug)
+			if (sd.debug)
 				Debug.Log ("min:" + minIndex + " max:" + maxIndex);
 		}
 
 		// 滑动视图至特定元素序号（尽量置顶）
 		public void ScrollViewTo (int index)
 		{
-			float ratio = 1 - (float)(index) * itemHeight / (float)(content.sizeDelta.y - displayCount * itemHeight);
+			float ratio = 1 - (float)(index) * itemHeight / (float)(content.sizeDelta.y - viewport.rect.height);
 			ratio = ratio < 0 ? 0 : ratio;
 			ratio = ratio > 1 ? 1 : ratio;
-			scrollRect.verticalNormalizedPosition = ratio;
+			verticalNormalizedPosition = ratio;
 		}
 
-		// 逐步向上滑动窗口
-		void RollingUpwards ()
+		void AutoRolling (float speedUp)
 		{
-			
+			if (speedUp == 0)
+				return;
+			float delta = sd.autoRollingSpeed * Time.deltaTime / (content.sizeDelta.y - viewport.rect.height);
+			float value = verticalNormalizedPosition + delta * speedUp;
+			value = value < 0 ? 0 : value;
+			value = value > 1 ? 1 : value;
+			verticalNormalizedPosition = value;
 		}
 
-		// 逐步向下滑动窗口
-		void RollingDownwards ()
+
+		public override void OnBeginDrag (PointerEventData eventData)
 		{
-			
+			if (sd.dragable) {
+				dragEndIndex = GetIndexFromPosition (eventData.position);
+				if (OnBeginDragHandler != null) {
+					OnBeginDragHandler (dragEndIndex);
+				}
+			}
+		}
+
+		public override void OnDrag (PointerEventData eventData)
+		{
+			if (sd.dragable) {
+				dragEndIndex = GetIndexFromPosition (eventData.position);
+				if (dragEndIndex <= minIndex + 2) {
+					rollingSpeed = 1;
+				} else if (dragEndIndex >= maxIndex - 2) {
+					rollingSpeed = -1;
+				} else {
+					rollingSpeed = 0;
+				}
+			}
+		}
+
+		public override void OnEndDrag (PointerEventData eventData)
+		{
+			if (sd.dragable) {
+				if (OnEndDragHandler != null) {
+					OnEndDragHandler (dragEndIndex);
+				}
+			}
+			rollingSpeed = 0;
+		}
+
+		int GetIndexFromPosition (Vector2 screenPosition)
+		{
+			Vector3 position = new Vector3 (screenPosition.x, screenPosition.y, 0);
+			position = content.transform.InverseTransformPoint (position);
+			int index = Mathf.FloorToInt (-position.y / itemHeight);
+			index = index < 0 ? 0 : index;
+			index = index > totalCount - 1 ? totalCount - 1 : index;
+			return index;
+		}
+
+		void Update ()
+		{
+			if (sd.dragable) {
+				AutoRolling (rollingSpeed);
+			}
 		}
 	}
 }

@@ -54,6 +54,8 @@ namespace DesignSociety
 			instance = this;
 			scrollview = GetComponent<UIScrollView> ();
 			scrollview.OnListIndexUpdated += OnListIndexUpdated;
+			scrollview.OnBeginDragHandler += OnBeginDragHandler;
+			scrollview.OnEndDragHandler += OnEndDragHandler;
 			scrollview.Initialize ();
 
 			basicCameraScript = Camera.main.GetComponent<BasicCameraController> ();
@@ -84,33 +86,16 @@ namespace DesignSociety
 			scrollview.SetTotalCount (data.Count);
 		}
 
-		void OnListIndexUpdated (List<GameObject> items, int min, int max)
-		{
-			for (int i = min; i <= max; ++i) {
-				UILandmarkItem item = items [i - min].GetComponent<UILandmarkItem> ();
-				item.CloseInputField ();
-				item.landmark = data [i];
-				item.SetName (item.landmark.m_name);
-				item.UpdateTag (item.landmark.m_label);
-				if (selectedLandmarks.Contains (item.landmark)) {
-					item.ColorPressed ();
-				} else {
-					item.ColorNormal ();
-				}
-			}
-			objItems = items;
-		}
 
-		// check name existence, if [skip] is true, won't check selected items
-		bool IsNameExist (string name, bool skip)
+		// ensure nonredundant name by adding (num), if [skip] is true, won't check selected items
+		public string TryToGetValidName (string name, bool skip)
 		{
-			for (int i = 0; i < data.Count; ++i) {
-				if (skip && selectedLandmarks.Contains (data [i]))
-					continue;
-				if (data [i].m_name == name)
-					return true;
-			}
-			return false;
+			name = ExtractSeriesString (name);
+			int index = 1;
+			string temp = name;
+			while (IsNameExist (temp, skip))
+				temp = name + "(" + (index++).ToString () + ")";
+			return temp;
 		}
 
 		// extract "(1)" formed string
@@ -129,20 +114,100 @@ namespace DesignSociety
 			return name;
 		}
 
-		// ensure nonredundant name by adding (num), if [skip] is true, won't check selected items
-		public string TryToGetValidName (string name, bool skip)
+		// check name existence, if [skip] is true, won't check selected items
+		bool IsNameExist (string name, bool skip)
 		{
-			name = ExtractSeriesString (name);
-			int index = 1;
-			string temp = name;
-			while (IsNameExist (temp, skip))
-				temp = name + "(" + (index++).ToString () + ")";
-			return temp;
+			for (int i = 0; i < data.Count; ++i) {
+				if (skip && selectedLandmarks.Contains (data [i]))
+					continue;
+				if (data [i].m_name == name)
+					return true;
+			}
+			return false;
 		}
 
 
+		void Update ()
+		{
+			DetectingLagClick ();
+			RaycastingLandmark ();
+		}
 
-		#region 坐标栏
+		void DetectingLagClick ()
+		{
+			clickGap += Time.deltaTime;
+			if (waitClick && clickGap > doubleClickThreshold) {
+				UILandmarkItem hookItem = FindLandmarkItem (hookLandmark);
+				if (hookItem != null)
+					hookItem.OnButtonLagClicked ();
+				waitClick = false;
+			}
+		}
+
+		void RaycastingLandmark ()
+		{
+			if (isRaycasting) {
+				// ui block raycast
+				if (EventSystem.current.IsPointerOverGameObject ())
+					return;
+				if (Input.GetMouseButtonDown (0)) {
+					// check validation
+					if (hookLandmark == null || selectedLandmarks.Count != 1) {
+						JumpOperation ();
+						return;
+					}
+					// ray could shoot from different types of camera
+					Ray ray;
+					RaycastHit hit;
+					CameraPerspectiveEditor cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
+					if (cameraEditor != null && cameraEditor.isActiveAndEnabled)
+						ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
+					else
+						ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+					if (Physics.Raycast (ray, out hit, rayDistance)) {
+						hookLandmark.m_data [0] = hit.point.x;
+						hookLandmark.m_data [1] = hit.point.y;
+						hookLandmark.m_data [2] = hit.point.z;
+						DisplayLandmarkData (hookLandmark);
+					}
+				}
+			}
+		}
+
+
+		#region 事件监听
+
+		void OnListIndexUpdated (List<GameObject> items, int min, int max)
+		{
+			for (int i = min; i <= max; ++i) {
+				UILandmarkItem item = items [i - min].GetComponent<UILandmarkItem> ();
+				item.CloseInputField ();
+				item.landmark = data [i];
+				item.SetName (item.landmark.m_name);
+				item.UpdateTag (item.landmark.m_label);
+				if (selectedLandmarks.Contains (item.landmark)) {
+					item.ColorPressed ();
+				} else {
+					item.ColorNormal ();
+				}
+			}
+			objItems = items;
+		}
+
+		void OnBeginDragHandler (int index)
+		{
+			print ("receive begin:" + index);
+		}
+
+		void OnEndDragHandler (int index)
+		{
+			print ("receive end:" + index);
+		}
+
+		#endregion
+
+
+		#region 坐标显示栏
 
 		void OnInputFieldEndEdit ()
 		{
@@ -272,7 +337,7 @@ namespace DesignSociety
 		#endregion
 
 
-		#region 视窗栏
+		#region 主视窗栏
 
 		public void SelectItem (Landmark landmark, bool shift, bool ctrl, bool enableEvent)
 		{
@@ -361,56 +426,6 @@ namespace DesignSociety
 		}
 
 		#endregion
-
-
-
-		void Update ()
-		{
-			DetectingLagClick ();
-			RaycastingLandmark ();
-		}
-
-		void DetectingLagClick ()
-		{
-			clickGap += Time.deltaTime;
-			if (waitClick && clickGap > doubleClickThreshold) {
-				UILandmarkItem hookItem = FindLandmarkItem (hookLandmark);
-				if (hookItem != null)
-					hookItem.OnButtonLagClicked ();
-				waitClick = false;
-			}
-		}
-
-		void RaycastingLandmark ()
-		{
-			if (isRaycasting) {
-				// ui block raycast
-				if (EventSystem.current.IsPointerOverGameObject ())
-					return;
-				if (Input.GetMouseButtonDown (0)) {
-					// check validation
-					if (hookLandmark == null || selectedLandmarks.Count != 1) {
-						JumpOperation ();
-						return;
-					}
-					// ray could shoot from different types of camera
-					Ray ray;
-					RaycastHit hit;
-					CameraPerspectiveEditor cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
-					if (cameraEditor != null && cameraEditor.isActiveAndEnabled)
-						ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
-					else
-						ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-					if (Physics.Raycast (ray, out hit, rayDistance)) {
-						hookLandmark.m_data [0] = hit.point.x;
-						hookLandmark.m_data [1] = hit.point.y;
-						hookLandmark.m_data [2] = hit.point.z;
-						DisplayLandmarkData (hookLandmark);
-					}
-				}
-			}
-		}
-
 
 
 		#region 菜单按钮
