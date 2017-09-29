@@ -15,6 +15,7 @@ namespace DesignSociety
 		// search
 		public InputField searchField;
 		public Text searchInfo;
+		public GameObject deletePanel;
 		// input field of position and rotation
 		public InputField[] inputFields;
 
@@ -194,14 +195,55 @@ namespace DesignSociety
 			objItems = items;
 		}
 
+		private List<int> dragIndexes = new List<int> ();
+		List<Landmark> dragLandmarks = new List<Landmark> ();
+
 		void OnBeginDragHandler (int index)
 		{
-			print ("receive begin:" + index);
+			dragIndexes.Clear ();
+			dragLandmarks.Clear ();
+			// prevent drag event until condition match
+			scrollview.SetDragable (false);
+			// record indexes of selected items
+			for (int i = 0; i < selectedLandmarks.Count; ++i) {
+				int j = data.IndexOf (selectedLandmarks [i]);
+				dragIndexes.Add (j);
+				// if pointer is above one of the selected items, enable drag event
+				if (index == j)
+					scrollview.SetDragable (true);
+			}
+			// sort indexes from smaller to larger
+			dragIndexes.Sort ();
 		}
 
 		void OnEndDragHandler (int index)
 		{
-			print ("receive end:" + index);
+			if (dragIndexes [0] == index)
+				return;
+			// use to record how many selected item indexes are above the target index
+			int lose = 0;
+			// since drag indexes are locally recorded, items should be stored before removing any one of them
+			for (int i = 0; i < dragIndexes.Count; ++i) {
+				dragLandmarks.Add (data [dragIndexes [i]]);
+				if (index > dragIndexes [i])
+					lose += 1;
+			}
+			// now we can remove the selected items, and store every item's delta index towards first element
+			for (int i = 0; i < dragIndexes.Count; ++i) {
+				data.RemoveAt (dragIndexes [i] - i);
+				if (i != 0)
+					dragIndexes [i] = dragIndexes [i] - dragIndexes [0];
+			}
+			// since all selected items have been removed, first index changes according to lose value
+			int startIndex = index - lose;
+			data.Insert (startIndex, dragLandmarks [0]);
+			// after inserting the first item, the rest of them could be inserted according to delta index
+			for (int i = 1; i < dragIndexes.Count; ++i) {
+				int j = startIndex + dragIndexes [i];
+				j = j > data.Count ? data.Count : j;
+				data.Insert (j, dragLandmarks [i]);
+			}
+			scrollview.SetTotalCount (data.Count);
 		}
 
 		#endregion
@@ -499,6 +541,21 @@ namespace DesignSociety
 			hookLandmark = null;
 			scrollview.SetTotalCount (data.Count);
 			JumpOperation ();
+			HideDeletePanel ();
+		}
+
+		public void ShowDeletePanel ()
+		{
+			if (selectedLandmarks.Count != 0) {
+				Text text = deletePanel.transform.GetComponentInChildren<Text> ();
+				text.text = "确定删除 " + selectedLandmarks.Count + " 项？";
+				deletePanel.SetActive (true);
+			}
+		}
+
+		public void HideDeletePanel ()
+		{
+			deletePanel.SetActive (false);
 		}
 
 		#endregion

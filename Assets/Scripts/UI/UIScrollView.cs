@@ -30,9 +30,14 @@ namespace DesignSociety
 		private int minIndex;
 		private int maxIndex;
 
-		private int dragEndIndex;
+		private bool dragable;
+		private int dragBeginIndex = -1;
+		private int dragEndIndex = -1;
+		private bool truelyDragging;
 		private float rollingSpeed;
-	
+
+		private GameObject indicator;
+
 
 		// 初始化单元长宽，创建预设，绑定滑动条事件
 		public void Initialize ()
@@ -41,6 +46,16 @@ namespace DesignSociety
 			itemWidth = (sd.itemPref.transform as RectTransform).sizeDelta.x;
 			itemHeight = (sd.itemPref.transform as RectTransform).sizeDelta.y;
 			displayCount = Mathf.CeilToInt (viewport.rect.height / itemHeight);
+			Instantiate ();
+			FitContentSize (displayCount);
+			this.onValueChanged.AddListener (delegate {
+				OnScrollValueChanged ();
+			});
+			dragable = sd.dragable;
+		}
+
+		void Instantiate ()
+		{
 			for (int i = 0; i < displayCount + 1; ++i) {
 				GameObject obj = i < items.Count ? items [i] : (GameObject)Instantiate (sd.itemPref);
 				obj.transform.SetParent (content);
@@ -49,10 +64,12 @@ namespace DesignSociety
 				if (i >= items.Count)
 					items.Add (obj);
 			}
-			FitContentSize (displayCount);
-			this.onValueChanged.AddListener (delegate {
-				OnScrollValueChanged ();
-			});
+			if (indicator == null) {
+				indicator = (GameObject)Instantiate (sd.splitIndicatorPref);
+				indicator.transform.SetParent (content);
+				indicator.transform.localScale = Vector3.one;
+				indicator.SetActive (false);
+			}
 		}
 
 		// 设置数据总数量，可能会改变Content大小，以及部分单元的显示与否
@@ -102,7 +119,7 @@ namespace DesignSociety
 			if (OnListIndexUpdated != null)
 				OnListIndexUpdated (items, minIndex, maxIndex);
 			if (sd.debug)
-				Debug.Log ("min:" + minIndex + " max:" + maxIndex);
+				Debug.Log ("min: " + minIndex + " max: " + maxIndex);
 		}
 
 		// 滑动视图至特定元素序号（尽量置顶）
@@ -125,21 +142,26 @@ namespace DesignSociety
 			verticalNormalizedPosition = value;
 		}
 
-
 		public override void OnBeginDrag (PointerEventData eventData)
 		{
-			if (sd.dragable) {
-				dragEndIndex = GetIndexFromPosition (eventData.position);
+			if (dragable) {
+				dragBeginIndex = GetIndexFromPosition (eventData.position);
 				if (OnBeginDragHandler != null) {
-					OnBeginDragHandler (dragEndIndex);
+					OnBeginDragHandler (dragBeginIndex);
+				}
+				if (sd.debug) {
+					print ("OnBeginDrag: " + dragBeginIndex);
 				}
 			}
 		}
 
 		public override void OnDrag (PointerEventData eventData)
 		{
-			if (sd.dragable) {
+			if (dragable) {
 				dragEndIndex = GetIndexFromPosition (eventData.position);
+				if (!truelyDragging && dragEndIndex != dragBeginIndex)
+					truelyDragging = true;
+				
 				if (dragEndIndex <= minIndex + 2) {
 					rollingSpeed = 1;
 				} else if (dragEndIndex >= maxIndex - 2) {
@@ -147,17 +169,45 @@ namespace DesignSociety
 				} else {
 					rollingSpeed = 0;
 				}
+
+				if (truelyDragging) {
+					RectTransform tr = (RectTransform)indicator.transform;
+					tr.localPosition = new Vector3 (0, -dragEndIndex * itemHeight, 0);
+					indicator.SetActive (true);
+				}
+			} else {
+				StopDragging ();
 			}
 		}
 
 		public override void OnEndDrag (PointerEventData eventData)
 		{
-			if (sd.dragable) {
+			if (dragable) {
+				if (!truelyDragging)
+					return;
+				dragEndIndex = GetIndexFromPosition (eventData.position);
 				if (OnEndDragHandler != null) {
 					OnEndDragHandler (dragEndIndex);
 				}
+				if (sd.debug) {
+					print ("OnEndDrag: " + dragEndIndex);
+				}
 			}
+			StopDragging ();
+			this.dragable = sd.dragable;
+		}
+
+		public void SetDragable (bool dragable)
+		{
+			if (sd.dragable)
+				this.dragable = dragable;
+		}
+
+		void StopDragging ()
+		{
+			truelyDragging = false;
 			rollingSpeed = 0;
+			indicator.SetActive (false);
 		}
 
 		int GetIndexFromPosition (Vector2 screenPosition)
@@ -172,7 +222,7 @@ namespace DesignSociety
 
 		void Update ()
 		{
-			if (sd.dragable) {
+			if (sd != null && sd.dragable) {
 				AutoRolling (rollingSpeed);
 			}
 		}

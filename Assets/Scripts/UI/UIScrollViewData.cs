@@ -8,6 +8,7 @@ namespace DesignSociety
 	{
 		public GameObject itemPref;
 		public bool dragable;
+		public GameObject splitIndicatorPref;
 		public float autoRollingSpeed;
 		public bool debug;
 	}
