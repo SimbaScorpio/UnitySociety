@@ -52,11 +52,11 @@
 			"start_mainrole_main": [],
 			"end_mainrole_main": [],
 
-			"otherroles_main": "坐着不动",
+			"otherroles_main": "",
 			"otherroles_aid": ["托腮思考", "挠头思考", "坐向后仰", "坐抱头后仰"],
 			"wait_otherroles_main": "坐着不动",
 			"wait_otherroles_aid": [],
-			"start_otherroles_main": ["坐着不动"],
+			"start_otherroles_main": [],
 			"end_otherroles_main": ["站立鼓掌"]
 		},
 		{
@@ -65,22 +65,22 @@
 			"mainrole_aid": [],
 			"wait_mainrole_main": null,
 			"wait_mainrole_aid": [],
-			"start_mainrole_main": ["站立说话", "边说边指近桌"],
-			"end_mainrole_main": ["使用相机", "站立说话"],
+			"start_mainrole_main": [],
+			"end_mainrole_main": [],
 
 			"otherroles_main": "接纸",
 			"otherroles_aid": [],
 			"wait_otherroles_main": null,
 			"wait_otherroles_aid": [],
-			"start_otherroles_main": ["站立听", "边说边指远方"],
+			"start_otherroles_main": [],
 			"end_otherroles_main": []
 		}
 	],
 
 	"storyline_spots": [
 		{
-			"start_time": 2,
-			"end_time": 400,
+			"start_time": 2000,
+			"end_time": 4000,
 			"spot_name": "采访",
 			"principal": "设计师甲",
 			"principal_activities": [
@@ -110,8 +110,8 @@
 			]
 		},
 		{
-			"start_time": 35,
-			"end_time": 120,
+			"start_time": 0,
+			"end_time": 1200,
 			"spot_name": "开会",
 			"principal": "设计师甲",
 			"principal_activities": [

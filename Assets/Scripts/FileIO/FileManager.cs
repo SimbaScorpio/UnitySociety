@@ -27,6 +27,7 @@ namespace DesignSociety
 		{
 			instance = this;
 			uiFileDialog = FindObjectOfType<UIFileDialog> ();
+			Log.info (Log.green ("服务器已启动！"));
 			StartLoading ();
 		}
 
@@ -42,11 +43,10 @@ namespace DesignSociety
 
 		public void LoadGameData ()
 		{
-			if (uiFileDialog == null) {
-				StartCoroutine (LoadGameDataCoroutine (Global.StorylineJsonURL));
+			if (uiFileDialog == null || uiFileDialog.storylinePath == "") {
+				//StartCoroutine (LoadGameDataCoroutine (Global.StorylineJsonURL));
 			} else {
 				StartCoroutine (LoadGameDataCoroutine (GetFileURL (uiFileDialog.storylinePath)));
-				print (GetFileURL (uiFileDialog.storylinePath));
 			}
 		}
 
@@ -72,8 +72,8 @@ namespace DesignSociety
 
 		public void LoadLandmarkData ()
 		{
-			if (uiFileDialog == null) {
-				StartCoroutine (LoadLandmarkDataCoroutine (Global.LandmarkJsonRURL));
+			if (uiFileDialog == null || uiFileDialog.landmarkPath == "") {
+				//StartCoroutine (LoadLandmarkDataCoroutine (Global.LandmarkJsonRURL));
 			} else {
 				StartCoroutine (LoadLandmarkDataCoroutine (GetFileURL (uiFileDialog.landmarkPath)));
 			}

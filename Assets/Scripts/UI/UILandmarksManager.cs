@@ -68,10 +68,6 @@ namespace DesignSociety
 				});
 			}
 			JumpOperation ();
-
-			for (int i = 0; i < 33; ++i) {
-				AddNewItems ();
-			}
 		}
 
 		public void Initialize (Landmark[] list)

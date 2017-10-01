@@ -47,7 +47,6 @@ namespace DesignSociety
 			itemHeight = (sd.itemPref.transform as RectTransform).sizeDelta.y;
 			displayCount = Mathf.CeilToInt (viewport.rect.height / itemHeight);
 			Instantiate ();
-			FitContentSize (displayCount);
 			this.onValueChanged.AddListener (delegate {
 				OnScrollValueChanged ();
 			});
@@ -60,11 +59,12 @@ namespace DesignSociety
 				GameObject obj = i < items.Count ? items [i] : (GameObject)Instantiate (sd.itemPref);
 				obj.transform.SetParent (content);
 				obj.transform.localScale = Vector3.one;
-				obj.transform.localPosition = new Vector3 (0, -i * itemHeight, 0);
+				obj.transform.localPosition = new Vector3 (obj.transform.localPosition.x, -i * itemHeight, 0);
+				obj.SetActive (false);
 				if (i >= items.Count)
 					items.Add (obj);
 			}
-			if (indicator == null) {
+			if (indicator == null && sd.splitIndicatorPref != null) {
 				indicator = (GameObject)Instantiate (sd.splitIndicatorPref);
 				indicator.transform.SetParent (content);
 				indicator.transform.localScale = Vector3.one;
@@ -105,7 +105,7 @@ namespace DesignSociety
 		{
 			UpdateInfo ();
 			for (int i = 0; i < items.Count; ++i) {
-				items [i].transform.localPosition = new Vector3 (0, -(minIndex + i) * itemHeight, 0);
+				items [i].transform.localPosition = new Vector3 (items [i].transform.localPosition.x, -(minIndex + i) * itemHeight, 0);
 			}
 		}
 
@@ -207,7 +207,8 @@ namespace DesignSociety
 		{
 			truelyDragging = false;
 			rollingSpeed = 0;
-			indicator.SetActive (false);
+			if (indicator != null)
+				indicator.SetActive (false);
 		}
 
 		int GetIndexFromPosition (Vector2 screenPosition)

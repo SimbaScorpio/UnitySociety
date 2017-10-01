@@ -13,9 +13,9 @@ namespace DesignSociety
 		private string tryingToDoActionName;
 		private IActionCompleted monitor;
 
-		//	private float aidThreshold = 1.0f;
-		//	private IEnumerator handler;
-		//	private bool aidActive;
+		private float nextTimeToConsider = 1.0f;
+		private Coroutine handler;
+		private bool aidActive;
 
 		void Start ()
 		{
@@ -24,39 +24,44 @@ namespace DesignSociety
 		}
 
 
-		//	public void StartCountingAid ()
-		//	{
-		//		aidActive = false;
-		//		handler = StartCoroutine (HandleAidActivity ());
-		//	}
-		//
-		//	public void StopCountingAid ()
-		//	{
-		//		aidActive = false;
-		//		StopCoroutine (handler);
-		//	}
-		//
-		//	public bool IsAidActive ()
-		//	{
-		//		if (aidActive) {
-		//			aidActive = false;
-		//			return true;
-		//		}
-		//		return false;
-		//	}
-		//
-		//	IEnumerator HandleAidActivity ()
-		//	{
-		//		while (true) {
-		//			if (!aidActive) {
-		//				float p = StorylineManager.GetInstance ().storyline.aid_possibility;
-		//				int aidPossiblity = Random.Range (0, (int)(1 / p));
-		//				if (aidPossiblity == 0)
-		//					aidActive = true;
-		//			}
-		//			yield return new WaitForSeconds (aidThreshold);
-		//		}
-		//	}
+		#region 随机动作判断
+
+		public void StartCountingAid ()
+		{
+			if (handler != null)
+				return;
+			aidActive = false;
+			handler = StartCoroutine (HandleAidActivity ());
+		}
+
+		public void StopCountingAid ()
+		{
+			if (handler != null) {
+				StopCoroutine (handler);
+				handler = null;
+			}
+			aidActive = false;
+		}
+
+		public bool IsAidActive ()
+		{
+			return aidActive;
+		}
+
+		IEnumerator HandleAidActivity ()
+		{
+			while (!aidActive) {
+				float p = StorylineManager.GetInstance ().storyline.aid_possibility;
+				int aidPossiblity = Random.Range (0, (int)(1 / p));
+				if (aidPossiblity == 0) {
+					aidActive = true;
+					handler = null;
+				} else
+					yield return new WaitForSeconds (nextTimeToConsider);
+			}
+		}
+
+		#endregion
 
 
 		public bool TryNotStanding (IActionCompleted callback)

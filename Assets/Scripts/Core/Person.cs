@@ -202,7 +202,7 @@ namespace DesignSociety
 				for (int i = 0; i < waitToBeChildren.Count; ++i) {
 					Person person = waitToBeChildren [i];
 					if (!person.isPrincipal && !person.isBeingControlled &&
-					   (person.parent == null || person.parent == this)) {
+					    (person.parent == null || person.parent == this)) {
 						person.Stop ();
 						person.parent = this;
 						person.isBeingControlled = true;
@@ -257,7 +257,7 @@ namespace DesignSociety
 				for (int i = 0; i < waitToBeChildren.Count; ++i) {
 					Person person = waitToBeChildren [i];
 					if (!person.isPrincipal && !person.isBeingControlled &&
-					   (person.parent == null || person.parent == this)) {
+					    (person.parent == null || person.parent == this)) {
 						person.Stop ();
 						person.parent = this;
 						person.isBeingControlled = true;
@@ -281,19 +281,23 @@ namespace DesignSociety
 
 			case ComState.ARRIVING:
 				if (IsAtProperLocation (self, gameObject, true)) {
-					if (CheckEveryOneInPosition ())
+					if (CheckEveryOneInPosition ()) {
 						state = ComState.ARRIVINGSTOP;
-					else {
+					} else {
 						DealMainActionWithAid (actionDealer, compositeMovement.wait_mainrole_main, compositeMovement.wait_mainrole_aid, true, name, "执行等待动作", "执行等待动作(辅助)");
 					}
+				} else {
+					actionDealer.StopCountingAid ();
 				}
 				break;
 
 			case ComState.ARRIVINGSTOP:
+				actionDealer.StopCountingAid ();
 				if (CheckEveryOneEndAction ()) {
 					state = ComState.PREPARING;
 					actionListIndex = -1;
 					foreach (Person person in children) {
+						person.actionDealer.StopCountingAid ();
 						person.actionListIndex = -1;
 						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
 					}
@@ -335,10 +339,12 @@ namespace DesignSociety
 				break;
 
 			case ComState.STARTINGSTOP:
+				actionDealer.StopCountingAid ();
 				if (CheckEveryOneEndAction ()) {
 					state = ComState.ENDING;
 					actionListIndex = -1;
 					foreach (Person person in children) {
+						person.actionDealer.StopCountingAid ();
 						person.actionListIndex = -1;
 						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
 					}
@@ -410,6 +416,8 @@ namespace DesignSociety
 				case ComState.ARRIVING:
 					if (IsAtProperLocation (others [i], person.gameObject, true)) {
 						DealMainActionWithAid (person.actionDealer, compositeMovement.wait_otherroles_main, compositeMovement.wait_otherroles_aid, true, person.name, "执行等待动作", "执行等待动作(辅助)");
+					} else {
+						person.actionDealer.StopCountingAid ();
 					}
 					break;
 				case ComState.ARRIVINGSTOP:
@@ -421,6 +429,8 @@ namespace DesignSociety
 					break;
 				case ComState.STARTING:
 					DealMainActionWithAid (person.actionDealer, compositeMovement.otherroles_main, compositeMovement.otherroles_aid, true, person.name, "执行主要动作", "执行主要动作(辅助)");
+					break;
+				case ComState.STARTINGSTOP:
 					break;
 				case ComState.ENDING:
 					DealListAction (person.actionDealer, compositeMovement.end_otherroles_main, ref person.actionListIndex, true, person.name, "执行结束动作");
@@ -434,6 +444,34 @@ namespace DesignSociety
 		}
 
 
+		//		void DealMainActionWithAid (ActionDealer actionDealer, string main, string[] aid, bool showInfo, string personName, string mainInfo, string aidInfo)
+		//		{
+		//			if (aid == null || aid.Length == 0) {
+		//				actionDealer.ApproachAction (main, null);
+		//
+		//				if (showInfo && !string.IsNullOrEmpty (main))
+		//					Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
+		//
+		//			} else {
+		//				int aidPossibility = Random.Range (0, (int)(1 / staticAidPossibility));
+		//				if (aidPossibility == 0) {
+		//					int index = Random.Range (0, aid.Length);
+		//					actionDealer.ApproachAction (aid [index], null);
+		//
+		//					if (showInfo && !string.IsNullOrEmpty (aid [index]))
+		//						Log.info (Log.yellow ("【" + personName + "】 ") + aidInfo + Log.blue (" 【" + aid [index] + "】"));
+		//
+		//				} else {
+		//					actionDealer.ApproachAction (main, null);
+		//
+		//					if (showInfo && !string.IsNullOrEmpty (main)) {
+		//						Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
+		//
+		//					}
+		//				}
+		//			}
+		//		}
+
 		void DealMainActionWithAid (ActionDealer actionDealer, string main, string[] aid, bool showInfo, string personName, string mainInfo, string aidInfo)
 		{
 			if (aid == null || aid.Length == 0) {
@@ -441,21 +479,24 @@ namespace DesignSociety
 
 				if (showInfo && !string.IsNullOrEmpty (main))
 					Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
+
 			} else {
-				int aidPossibility = Random.Range (0, (int)(1 / staticAidPossibility));
-				if (aidPossibility == 0) {
+				if (actionDealer.IsAidActive ()) {
 					int index = Random.Range (0, aid.Length);
 					actionDealer.ApproachAction (aid [index], null);
 
 					if (showInfo && !string.IsNullOrEmpty (aid [index]))
 						Log.info (Log.yellow ("【" + personName + "】 ") + aidInfo + Log.blue (" 【" + aid [index] + "】"));
+
 				} else {
 					actionDealer.ApproachAction (main, null);
 
 					if (showInfo && !string.IsNullOrEmpty (main)) {
 						Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
+
 					}
 				}
+				actionDealer.StartCountingAid ();
 			}
 		}
 

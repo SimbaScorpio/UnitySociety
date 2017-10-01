@@ -1,0 +1,81 @@
+{
+	"aid_possibility": 0.1,
+	"characters": [
+		{
+			"name": "David",
+			"initial_position": "办公点一",
+			"body_type": "default",
+			"clothing": "RGBdefaultMat_clorid.png",
+			"spare_time_main": "敲击键盘",
+			"spare_time_aid": ["挠头思考", "坐抱头后仰"]
+		}
+	],
+
+	"jobs": [
+		{
+			"name": "设计师甲",
+			"candidates": ["David"]
+		}
+	],
+
+	"composite_movements": [
+		{
+			"name": "开会",
+			"mainrole_main": "发言",
+			"mainrole_aid": ["边说边指近桌", "边说边指远方", "边说边对桌子指指点点", "站立指ppt"]
+		},
+		{
+			"name": "拿东西",
+			"start_mainrole_main": "单手拿起一个小东西",
+			"end_mainrole_main": ""
+		},
+		{
+			"name":"放东西",
+			"start_mainrole_main": "单手放下一个小东西",
+			"end_mainrole_main": ""
+		}
+	],
+
+	"storyline_spots": [
+		{
+			"start_time": 2,
+			"end_time": 10,
+			"spot_name": "拿东西",
+			"principal": "设计师甲",
+			"principal_activities": [
+				{
+					"duration": 0,
+					"composite_movement_name": "拿东西",
+					"self": {
+						"location_to_type": 1,
+						"location_to": "办公点二",
+						"bubble_type": 1,
+						"bubble_content": "拿东西...",
+						"screen": null
+					},
+					"other_people": []
+				}
+			]
+		},
+		{
+			"start_time": 10,
+			"end_time": 400,
+			"spot_name": "放东西",
+			"principal": "设计师甲",
+			"principal_activities": [
+				{
+					"duration": 0,
+					"composite_movement_name": "放东西",
+					"self": {
+						"location_to_type": 1,
+						"location_to": "办公点三",
+						"bubble_type": 1,
+						"bubble_content": "放东西...",
+						"screen": null
+					},
+					"other_people": []
+				}
+			]
+		}
+	]
+}

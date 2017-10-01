@@ -395,6 +395,82 @@ ModelImporter:
     4300146: step
     4300148: plant_2
     4300150: step_glass
+    6400000: bookshelf
+    6400002: building_2
+    6400004: carpet
+    6400006: chair_10
+    6400008: chair_10_1
+    6400010: chair_10_1_2
+    6400012: chair_10_2
+    6400014: chair_10_2_2
+    6400016: chair_10_3
+    6400018: chair_3
+    6400020: chair_7
+    6400022: chair_7_1
+    6400024: chair_7_2
+    6400026: chair_7_3
+    6400028: chair_7_4
+    6400030: chair_7_5
+    6400032: chair_9
+    6400034: chair_9_1
+    6400036: chair_9_2
+    6400038: computer
+    6400040: computer_1
+    6400042: computer_1_2
+    6400044: computer_2
+    6400046: computer_2_2
+    6400048: computer_2_3
+    6400050: computer_2_4
+    6400052: computer_3
+    6400054: computer_3_2
+    6400056: computer_4
+    6400058: computer_5
+    6400060: computer_5_2
+    6400062: Cube_3
+    6400064: door
+    6400066: doubletable1
+    6400068: doubletable2
+    6400070: flower
+    6400072: flower_2
+    6400074: flower_3
+    6400076: flower_4
+    6400078: flower_5
+    6400080: flower_6
+    6400082: flower_7
+    6400084: galss
+    6400086: keyboard
+    6400088: keyboard_1
+    6400090: keyboard_1_2
+    6400092: keyboard_2
+    6400094: keyboard_2_2
+    6400096: keyboard_2_3
+    6400098: keyboard_3
+    6400100: light
+    6400102: light_1
+    6400104: light_2
+    6400106: light_2_2
+    6400108: light_3
+    6400110: light_3_2
+    6400112: light_4
+    6400114: long_table
+    6400116: painting
+    6400118: painting_2
+    6400120: painting_3
+    6400122: plant
+    6400124: plant_2
+    6400126: shelf
+    6400128: shelf_2
+    6400130: step
+    6400132: step_glass
+    6400134: table
+    6400136: table_0
+    6400138: table_10
+    6400140: table_2
+    6400142: table_3
+    6400144: wall
+    6400146: wall_2
+    6400148: wall_3
+    6400150: wall_4
   materials:
     importMaterials: 1
     materialName: 1
@@ -423,7 +499,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
