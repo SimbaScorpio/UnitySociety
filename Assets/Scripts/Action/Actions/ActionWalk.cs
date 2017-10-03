@@ -13,7 +13,7 @@ namespace DesignSociety
 		public IActionCompleted monitor;
 
 		private bool finalRotate = false;
-		private float animationSpeed = 1f;
+		private float animationSpeed = 1.05f;
 
 		private NavmeshCut navCut;
 		private Animator anim;

@@ -10,9 +10,6 @@ namespace DesignSociety
 {
 	public class FileManager : MonoBehaviour
 	{
-		public bool loadStoryline;
-		public bool loadLandmark;
-
 		private UIFileDialog uiFileDialog;
 		private int loadCount = 0;
 
@@ -27,18 +24,14 @@ namespace DesignSociety
 		{
 			instance = this;
 			uiFileDialog = FindObjectOfType<UIFileDialog> ();
-			Log.info (Log.green ("服务器已启动！"));
-			StartLoading ();
 		}
 
 		public void StartLoading ()
 		{
-			if (loadCount++ > 0)
-				Log.info ("----------------------------------------------------------------------------------------------------------------------");
-			if (loadLandmark)
-				LoadLandmarkData ();
-			if (loadStoryline)
-				LoadGameData ();
+			if (++loadCount > 0)
+				Log.info ("----第【" + loadCount + "】次更新数据----");
+			LoadLandmarkData ();
+			LoadGameData ();
 		}
 
 		public void LoadGameData ()

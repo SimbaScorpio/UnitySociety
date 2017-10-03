@@ -57,9 +57,10 @@ namespace DesignSociety
 		{
 			for (int i = 0; i < displayCount + 1; ++i) {
 				GameObject obj = i < items.Count ? items [i] : (GameObject)Instantiate (sd.itemPref);
+				Vector3 localPosition = obj.transform.localPosition;
 				obj.transform.SetParent (content);
 				obj.transform.localScale = Vector3.one;
-				obj.transform.localPosition = new Vector3 (obj.transform.localPosition.x, -i * itemHeight, 0);
+				obj.transform.localPosition = new Vector3 (localPosition.x, -i * itemHeight, 0);
 				obj.SetActive (false);
 				if (i >= items.Count)
 					items.Add (obj);

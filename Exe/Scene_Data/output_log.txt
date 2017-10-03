@@ -1,0 +1,385 @@
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Vendor:   NVIDIA
+    VRAM:     8110 MB
+    Driver:   22.21.13.8233
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.ClipperLib.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.ClipperLib.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Poly2Tri.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Poly2Tri.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Ookii.Dialogs.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Ookii.Dialogs.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Drawing.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Drawing.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+- Completed reload, in  0.034 seconds
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.dll (this message is harmless)
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+UnloadTime: 0.819198 ms
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Vendor:   NVIDIA
+    VRAM:     8110 MB
+    Driver:   22.21.13.8233
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.ClipperLib.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.ClipperLib.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Poly2Tri.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Poly2Tri.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Ookii.Dialogs.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Ookii.Dialogs.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Drawing.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Drawing.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+- Completed reload, in  0.020 seconds
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.dll (this message is harmless)
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 1524 -> priority: 1 
+  Thread -> id: 6040 -> priority: 1 
+  Thread -> id: 6020 -> priority: 1 
+  Thread -> id: a4c -> priority: 1 
+<RI> Initialized touch support.
+UnloadTime: 1.122984 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 3c9c -> priority: 1 
+  Thread -> id: 4230 -> priority: 1 
+  Thread -> id: 17c8 -> priority: 1 
+  Thread -> id: 5ea0 -> priority: 1 
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Accessibility.dll (this message is harmless)
+----第【1】次更新数据----
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#CAFF70>正在解析坐标集...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#CAFF70>坐标集解析完成！</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#CAFF70>正在解析故事线...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#CAFF70>故事线解析完成！</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>初始化角色...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>初始化组合动作...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>初始化岗位...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>进行岗位分配...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>初始化故事节点...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>开始！</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+开始故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【David】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【John】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【Tom】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【David】 </color>执行主要动作<color=#BFEFFF> 【发言】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【Tom】 </color>执行主要动作(辅助)<color=#BFEFFF> 【坐向后仰】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【Tom】 </color>执行主要动作(辅助)<color=#BFEFFF> 【坐向后仰】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【Tom】 </color>执行主要动作(辅助)<color=#BFEFFF> 【托腮思考】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【David】 </color>执行主要动作(辅助)<color=#BFEFFF> 【边说边指近桌】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:61537}
+ServerDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Initialize engine version: 5.6.1f1 (2860b30f0b54)
+GfxDevice: creating device client; threaded=1
+<color=yellow>【John】 </color>执行结束动作<color=#BFEFFF> 【站立鼓掌】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
+    Vendor:   NVIDIA
+    VRAM:     8110 MB
+    Driver:   22.21.13.8233
+<color=yellow>【Tom】 </color>执行结束动作<color=#BFEFFF> 【站立鼓掌】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.ClipperLib.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.ClipperLib.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Ionic.Zip.Reduced.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Poly2Tri.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Pathfinding.Poly2Tri.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Ookii.Dialogs.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\Ookii.Dialogs.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Drawing.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Drawing.dll into Unity Child Domain
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+- Completed reload, in  0.018 seconds
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.dll (this message is harmless)
+desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+<color=yellow>【Tom】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【John】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【David】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+结束故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+UnloadTime: 1.384347 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 6138 -> priority: 1 
+  Thread -> id: 39fc -> priority: 1 
+  Thread -> id: 2e00 -> priority: 1 
+  Thread -> id: 3c68 -> priority: 1 
+----第【2】次更新数据----
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#CAFF70>正在解析坐标集...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#CAFF70>坐标集解析完成！</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#CAFF70>正在解析故事线...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#CAFF70>故事线解析完成！</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>初始化角色...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>初始化组合动作...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>初始化岗位...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>进行岗位分配...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>初始化故事节点...</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=#BFEFFF>开始！</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+开始故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【David】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【John】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【Tom】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【David】 </color>执行主要动作<color=#BFEFFF> 【发言】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【John】 </color>执行主要动作(辅助)<color=#BFEFFF> 【坐抱头后仰】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【David】 </color>执行主要动作(辅助)<color=#BFEFFF> 【边说边指近桌】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【Tom】 </color>执行结束动作<color=#BFEFFF> 【站立鼓掌】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【John】 </color>执行结束动作<color=#BFEFFF> 【站立鼓掌】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【Tom】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【John】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+<color=yellow>【David】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+结束故事节点 <color=#FFA07A>【开会】</color>
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+client walk!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}

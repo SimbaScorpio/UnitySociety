@@ -27,7 +27,7 @@ namespace DesignSociety
 		private StorylineManager storylineManager;
 		private ActionDealer actionDealer;
 
-		private float staticAidPossibility;
+		//private float staticAidPossibility;
 		private float distanceError = 0.5f;
 		private float randomDiff = 1.0f;
 		[HideInInspector]
@@ -44,7 +44,7 @@ namespace DesignSociety
 			followingActivities = new List<FollowingActivity> ();
 			storylineManager = StorylineManager.GetInstance ();
 			actionDealer = GetComponent<ActionDealer> ();
-			staticAidPossibility = storylineManager.storyline.aid_possibility;
+			//staticAidPossibility = storylineManager.storyline.aid_possibility;
 		}
 
 		public bool AddPrincipalActivities (PrincipalActivity[] activities, string name)
@@ -153,7 +153,7 @@ namespace DesignSociety
 			Landmark initialLandmark = LandmarkCollection.GetInstance ().Get (character.initial_position);
 			if (Vector3.Distance (transform.position, initialLandmark.position) > distanceError) {
 				if (actionDealer.TryNotSitting (null)) {
-					ActionManager.GetInstance ().ApplyWalkToAction (gameObject, initialLandmark, null);
+					GetComponent<ActionRPCManager> ().ApplyWalkToAction (initialLandmark, null);
 				}
 			} else {
 				DealMainActionWithAid (actionDealer, character.spare_time_main, character.spare_time_aid, false, "?", "?", "?");
@@ -532,7 +532,7 @@ namespace DesignSociety
 					return true;
 				else if (doAction) {
 					if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
-						ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination, null);
+						gameObject.GetComponent<ActionRPCManager> ().ApplyWalkToAction (destination, null);
 				}
 				return false;
 			case 2:	// closest location
@@ -545,7 +545,7 @@ namespace DesignSociety
 					return true;
 				else if (doAction) {
 					if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
-						ActionManager.GetInstance ().ApplyWalkToAction (gameObject, destination, null);
+						gameObject.GetComponent<ActionRPCManager> ().ApplyWalkToAction (destination, null);
 				}
 				return false;
 			default:

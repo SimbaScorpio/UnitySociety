@@ -1,0 +1,153 @@
+{
+	"aid_possibility": 0.01,
+	"characters": [
+		{
+			"name": "David",
+			"initial_position": "办公点一",
+			"body_type": "default",
+			"clothing": "RGBdefaultMat_clorid.png",
+			"spare_time_main": "敲击键盘",
+			"spare_time_aid": ["挠头思考", "托腮思考"]
+		},
+		{
+			"name": "Tom",
+			"initial_position": "办公点二",
+			"body_type": "default",
+			"clothing": "RGBdefaultMat_clorid_1.png",
+			"spare_time_main": "敲击键盘",
+			"spare_time_aid": ["挠头思考", "托腮思考"]
+		},
+		{
+			"name": "John",
+			"initial_position": "办公点三",
+			"body_type": "default",
+			"clothing": "RGBdefaultMat_clorid_2.png",
+			"spare_time_main": "敲击键盘",
+			"spare_time_aid": ["挠头思考", "托腮思考"]
+		}
+	],
+
+	"jobs": [
+		{
+			"name": "设计师甲",
+			"candidates": ["David"]
+		},
+		{
+			"name": "程序员甲",
+			"candidates": ["John", "Tom"]
+		},
+		{
+			"name": "程序员乙",
+			"candidates": ["John", "Tom"]
+		}
+	],
+
+	"composite_movements": [
+		{
+			"name": "开会",
+			"mainrole_main": "发言",
+			"mainrole_aid": ["边说边指近桌", "边说边指远方", "边说边对桌子指指点点", "站立指ppt"],
+			"wait_mainrole_main": null,
+			"wait_mainrole_aid": [],
+			"start_mainrole_main": [],
+			"end_mainrole_main": [],
+
+			"otherroles_main": "坐着不动",
+			"otherroles_aid": ["托腮思考", "挠头思考"],
+			"wait_otherroles_main": "坐着不动",
+			"wait_otherroles_aid": [],
+			"start_otherroles_main": ["坐着不动"],
+			"end_otherroles_main": ["站立鼓掌"]
+		},
+		{
+			"name": "采访",
+			"mainrole_main": "传纸",
+			"mainrole_aid": [],
+			"wait_mainrole_main": null,
+			"wait_mainrole_aid": [],
+			"start_mainrole_main": ["站立说话", "边说边指近桌"],
+			"end_mainrole_main": ["使用相机", "站立说话"],
+
+			"otherroles_main": "接纸",
+			"otherroles_aid": [],
+			"wait_otherroles_main": null,
+			"wait_otherroles_aid": [],
+			"start_otherroles_main": ["站立听", "边说边指远方"],
+			"end_otherroles_main": []
+		}
+	],
+
+	"storyline_spots": [
+		{
+			"start_time": 2,
+			"end_time": 400,
+			"spot_name": "采访",
+			"principal": "设计师甲",
+			"principal_activities": [
+				{
+					"duration": 2,
+					"description": "设计师采访程序员甲",
+					"composite_movement_name": "采访",
+					"self": {
+						"location_to_type": 1,
+						"location_to": "采访点",
+						"bubble_type": 1,
+						"bubble_content": "采访中...",
+						"screen": null
+					},
+					"other_people": [
+						{
+							"name": "程序员甲",
+							"location_to_type": 1,
+							"location_to": "受访点",
+							"bubble_type": 1,
+							"bubble_content": "接受采访中...",
+							"screen": null,
+							"following_activities": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"start_time": 40,
+			"end_time": 130,
+			"spot_name": "开会",
+			"principal": "设计师甲",
+			"principal_activities": [
+				{
+					"duration": 10,
+					"description": "和程序员开会",
+					"composite_movement_name": "开会",
+					"self": {
+						"location_to_type": 1,
+						"location_to": "开会点一",
+						"bubble_type": 1,
+						"bubble_content": "发言中...",
+						"screen": null
+					},
+					"other_people": [
+						{
+							"name": "程序员甲",
+							"location_to_type": 1,
+							"location_to": "开会点二",
+							"bubble_type": 1,
+							"bubble_content": "开会中...",
+							"screen": null,
+							"following_activities": []
+						},
+						{
+							"name": "程序员乙",
+							"location_to_type": 1,
+							"location_to": "开会点三",
+							"bubble_type": 1,
+							"bubble_content": "开会中...",
+							"screen": null,
+							"following_activities": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

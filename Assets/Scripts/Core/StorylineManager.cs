@@ -17,7 +17,7 @@ namespace DesignSociety
 		public Dictionary<string, HashSet<string>> nameToSpotCandidates;
 
 
-		public GameObject PlayerPrefab;
+		//public GameObject PlayerPrefab;
 
 		private float time = 0.0f;
 		private bool isTicking = false;
@@ -82,14 +82,11 @@ namespace DesignSociety
 					continue;
 				}
 				Landmark initialLocation = LandmarkCollection.GetInstance ().Get (cha.initial_position);
-				GameObject player = Instantiate (PlayerPrefab, initialLocation.position, initialLocation.rotation) as GameObject;
-				Material clothing = MaterialCollection.GetInstance ().Get (cha.clothing);
-				player.transform.Find ("mesh").GetComponent<Renderer> ().material = clothing;
-				player.name = cha.name;
-				if (!player.GetComponent<Person> ())
-					player.AddComponent<Person> ();
-				if (!player.GetComponent<ActionDealer> ())
-					player.AddComponent<ActionDealer> ();
+				//GameObject player = Instantiate (PlayerPrefab, initialLocation.position, initialLocation.rotation) as GameObject;
+				//Material clothing = MaterialCollection.GetInstance ().Get (cha.clothing);
+				//player.transform.Find ("mesh").GetComponent<Renderer> ().material = clothing;
+				//player.name = cha.name;
+				GameObject player = NetworkPlayerSpawner.GetInstance ().Spawn (cha, initialLocation.position, initialLocation.rotation);
 
 				if (nameToCharacter.ContainsKey (cha.name)) {
 					Log.warn ("Initialize character [" + i + "] warning: overlapped name");

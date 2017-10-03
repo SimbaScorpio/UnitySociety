@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 3883987d20b62454dbf6cce8d222349d
+timeCreated: 1506911931
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 1C
+    100002: 1C_2
+    100004: 1C_D
+    100006: 2C
+    100008: 2C_1
+    100010: 2C_D_1
+    100012: 3C
+    100014: 3C_1
+    100016: 3C_D_1
+    100018: "Cinema4D_\u7F16\u8F91\u5668"
+    100020: "\u4E3B\u4F53"
+    100022: "\u5706\u67F1D"
+    100024: "\u5706\u67F1D_1"
+    100026: "\u5706\u67F1D_2"
+    100028: "\u5706\u67F1D_2_2"
+    100030: "\u5706\u67F1D_3"
+    100032: "\u5706\u67F1D_3_2"
+    100034: "\u5706\u67F1D_4"
+    100036: "\u5706\u67F1D_4_2"
+    100038: "\u5C01\u9876_1"
+    100040: "\u5C01\u9876_1_2"
+    100042: "\u5C01\u9876_1_3"
+    100044: "\u5C01\u9876_2"
+    100046: "\u5C01\u9876_2_2"
+    100048: "\u5C01\u9876_2_3"
+    100050: "\u5C01\u9876_2_4"
+    100052: "\u5C01\u9876_2_5"
+    100054: "\u5C01\u9876_2_6"
+    100056: "\u5E03\u5C14"
+    100058: "\u5E03\u5C14\u5706\u67F1"
+    100060: "\u7ACB\u65B9\u4F53"
+    100062: "\u7ACB\u65B9\u4F53_2"
+    100064: "\u7ACB\u65B9\u4F53_2_2"
+    100066: "\u7ACB\u65B9\u4F53_3"
+    100068: "\u7ED3\u6784\u7EBF"
+    100070: //RootNode
+    100072: "\u9152\u5E97_1"
+    400000: 1C
+    400002: 1C_2
+    400004: 1C_D
+    400006: 2C
+    400008: 2C_1
+    400010: 2C_D_1
+    400012: 3C
+    400014: 3C_1
+    400016: 3C_D_1
+    400018: "Cinema4D_\u7F16\u8F91\u5668"
+    400020: "\u4E3B\u4F53"
+    400022: "\u5706\u67F1D"
+    400024: "\u5706\u67F1D_1"
+    400026: "\u5706\u67F1D_2"
+    400028: "\u5706\u67F1D_2_2"
+    400030: "\u5706\u67F1D_3"
+    400032: "\u5706\u67F1D_3_2"
+    400034: "\u5706\u67F1D_4"
+    400036: "\u5706\u67F1D_4_2"
+    400038: "\u5C01\u9876_1"
+    400040: "\u5C01\u9876_1_2"
+    400042: "\u5C01\u9876_1_3"
+    400044: "\u5C01\u9876_2"
+    400046: "\u5C01\u9876_2_2"
+    400048: "\u5C01\u9876_2_3"
+    400050: "\u5C01\u9876_2_4"
+    400052: "\u5C01\u9876_2_5"
+    400054: "\u5C01\u9876_2_6"
+    400056: "\u5E03\u5C14"
+    400058: "\u5E03\u5C14\u5706\u67F1"
+    400060: "\u7ACB\u65B9\u4F53"
+    400062: "\u7ACB\u65B9\u4F53_2"
+    400064: "\u7ACB\u65B9\u4F53_2_2"
+    400066: "\u7ACB\u65B9\u4F53_3"
+    400068: "\u7ED3\u6784\u7EBF"
+    400070: //RootNode
+    400072: "\u9152\u5E97_1"
+    2300000: 1C_2
+    2300002: 1C_D
+    2300004: 2C_1
+    2300006: 2C_D_1
+    2300008: 3C_1
+    2300010: 3C_D_1
+    2300012: "\u5706\u67F1D_1"
+    2300014: "\u5706\u67F1D_2_2"
+    2300016: "\u5706\u67F1D_3_2"
+    2300018: "\u5706\u67F1D_4"
+    2300020: "\u5706\u67F1D_4_2"
+    2300022: "\u5C01\u9876_1"
+    2300024: "\u5C01\u9876_1_2"
+    2300026: "\u5C01\u9876_1_3"
+    2300028: "\u5C01\u9876_2"
+    2300030: "\u5C01\u9876_2_2"
+    2300032: "\u5C01\u9876_2_3"
+    2300034: "\u5C01\u9876_2_4"
+    2300036: "\u5C01\u9876_2_5"
+    2300038: "\u5C01\u9876_2_6"
+    2300040: "\u5E03\u5C14\u5706\u67F1"
+    2300042: "\u7ACB\u65B9\u4F53"
+    2300044: "\u7ACB\u65B9\u4F53_2"
+    2300046: "\u7ACB\u65B9\u4F53_2_2"
+    2300048: "\u7ACB\u65B9\u4F53_3"
+    3300000: 1C_2
+    3300002: 1C_D
+    3300004: 2C_1
+    3300006: 2C_D_1
+    3300008: 3C_1
+    3300010: 3C_D_1
+    3300012: "\u5706\u67F1D_1"
+    3300014: "\u5706\u67F1D_2_2"
+    3300016: "\u5706\u67F1D_3_2"
+    3300018: "\u5706\u67F1D_4"
+    3300020: "\u5706\u67F1D_4_2"
+    3300022: "\u5C01\u9876_1"
+    3300024: "\u5C01\u9876_1_2"
+    3300026: "\u5C01\u9876_1_3"
+    3300028: "\u5C01\u9876_2"
+    3300030: "\u5C01\u9876_2_2"
+    3300032: "\u5C01\u9876_2_3"
+    3300034: "\u5C01\u9876_2_4"
+    3300036: "\u5C01\u9876_2_5"
+    3300038: "\u5C01\u9876_2_6"
+    3300040: "\u5E03\u5C14\u5706\u67F1"
+    3300042: "\u7ACB\u65B9\u4F53"
+    3300044: "\u7ACB\u65B9\u4F53_2"
+    3300046: "\u7ACB\u65B9\u4F53_2_2"
+    3300048: "\u7ACB\u65B9\u4F53_3"
+    4300000: "\u5706\u67F1D_4"
+    4300002: "\u7ACB\u65B9\u4F53_3"
+    4300004: "\u7ACB\u65B9\u4F53_2"
+    4300006: "\u7ACB\u65B9\u4F53"
+    4300008: 3C_D_1
+    4300010: "\u5C01\u9876_1"
+    4300012: "\u5C01\u9876_2"
+    4300014: 3C_1
+    4300016: "\u5C01\u9876_2_2"
+    4300018: 2C_D_1
+    4300020: "\u5C01\u9876_1_2"
+    4300022: "\u5C01\u9876_2_3"
+    4300024: 2C_1
+    4300026: "\u5C01\u9876_2_4"
+    4300028: 1C_D
+    4300030: "\u5C01\u9876_1_3"
+    4300032: "\u5C01\u9876_2_5"
+    4300034: 1C_2
+    4300036: "\u5C01\u9876_2_6"
+    4300038: "\u5E03\u5C14\u5706\u67F1"
+    4300040: "\u5706\u67F1D_4_2"
+    4300042: "\u5706\u67F1D_3_2"
+    4300044: "\u5706\u67F1D_2_2"
+    4300046: "\u5706\u67F1D_1"
+    4300048: "\u7ACB\u65B9\u4F53_2_2"
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

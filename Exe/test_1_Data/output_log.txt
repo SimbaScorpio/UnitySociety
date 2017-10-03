@@ -21,20 +21,60 @@ Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_1_Data\Managed\
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_1_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_1_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\test_1_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.063 seconds
+- Completed reload, in  0.427 seconds
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_1_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\test_1_Data\Managed\System.dll (this message is harmless)
 desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.680471 ms
+UnloadTime: 38.303360 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 5aa0 -> priority: 1 
-  Thread -> id: 3f30 -> priority: 1 
-  Thread -> id: 5274 -> priority: 1 
-  Thread -> id: 2684 -> priority: 1 
-[player6] added to cross list.
+  Thread -> id: 3478 -> priority: 1 
+  Thread -> id: 39b0 -> priority: 1 
+  Thread -> id: 5fb0 -> priority: 1 
+  Thread -> id: 33a0 -> priority: 1 
+[player9] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player2] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player8] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player7] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player5] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player0] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player3] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player1] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player9] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player8] added to cross list.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -43,6 +83,22 @@ Setting up 4 worker threads for Enlighten.
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 [player0] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player1] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player3] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player8] added to cross list.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[player5] added to cross list.
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
