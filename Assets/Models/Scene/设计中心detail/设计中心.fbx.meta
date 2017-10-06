@@ -483,6 +483,98 @@ ModelImporter:
     4300178: glass_3
     4300180: stairs4
     4300182: stairs3
+    6400000: ball
+    6400002: board
+    6400004: board_2
+    6400006: board_3
+    6400008: board_4
+    6400010: building_2
+    6400012: carpet
+    6400014: carpet_2
+    6400016: chair
+    6400018: chair_10
+    6400020: chair_10_1
+    6400022: chair_10_2
+    6400024: chair_10_3
+    6400026: chair_10_4
+    6400028: chair_10_5
+    6400030: chair_10_6
+    6400032: chair_10_7
+    6400034: chair_14
+    6400036: chair_2
+    6400038: chair_3
+    6400040: chair_7
+    6400042: chair_9
+    6400044: chair_9_1
+    6400046: computer
+    6400048: computer_1
+    6400050: control
+    6400052: Cube_6
+    6400054: door
+    6400056: door_2
+    6400058: flower
+    6400060: flower_10
+    6400062: flower_11
+    6400064: flower_12
+    6400066: flower_2
+    6400068: flower_3
+    6400070: flower_4
+    6400072: flower_5
+    6400074: flower_6
+    6400076: flower_7
+    6400078: flower_8
+    6400080: flower_9
+    6400082: glass
+    6400084: glass_2
+    6400086: glass_3
+    6400088: keyboard
+    6400090: keyboard_1
+    6400092: laptop
+    6400094: light
+    6400096: light1
+    6400098: light2
+    6400100: light3
+    6400102: light_2
+    6400104: light_3
+    6400106: light_4
+    6400108: light_5
+    6400110: light_6
+    6400112: light_ray
+    6400114: light_ray_2
+    6400116: light_ray_3
+    6400118: painting
+    6400120: painting_2
+    6400122: painting_3
+    6400124: pillar
+    6400126: Plane
+    6400128: plant
+    6400130: projector
+    6400132: red_ball
+    6400134: screen
+    6400136: screen_2
+    6400138: screen_3
+    6400140: shelter
+    6400142: stage
+    6400144: stairs1
+    6400146: stairs2
+    6400148: stairs3
+    6400150: stairs4
+    6400152: table
+    6400154: table_12
+    6400156: table_13
+    6400158: table_6
+    6400160: tree
+    6400162: tree_10
+    6400164: tree_2
+    6400166: tree_3
+    6400168: tree_4
+    6400170: tree_5
+    6400172: tree_6
+    6400174: tree_7
+    6400176: tree_8
+    6400178: tree_9
+    6400180: wall
+    6400182: white_board
   materials:
     importMaterials: 1
     materialName: 0
@@ -511,7 +603,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0

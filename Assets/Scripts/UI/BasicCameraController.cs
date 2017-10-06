@@ -15,30 +15,31 @@ namespace DesignSociety
 		}
 
 		public CameraProjection projection;
-		public float xSpeed = 50.0f;
-		public float ySpeed = 50.0f;
-		public int yMinLimit = -80;
-		public int yMaxLimit = 80;
-		public int zoomRate = 60;
-		public float panRate = 20f;
-		public float zoomDampening = 20.0f;
+		public Vector2 rotateSpeed = new Vector2 (50f, 50f);
+		public Vector2 rotateYLimit = new Vector2 (-80, 80);
 
-		public float deltaX = 20;
-		public float deltaY = 13;
+		public Vector2 rayDistanceLimit = new Vector2 (10f, 200f);
+		public float rayOrthographicScale = 50f;
+		public float zoomRate = 10f;
+		public float panRate = 1f;
+		public float dampening = 20.0f;
 
-		private float xDeg = 0.0f;
-		private float yDeg = 0.0f;
+		public Vector2 deltaFromGentlemanToNormal = new Vector2 (20, 13);
+
+		private Vector2 degree;
 		private bool canRotate = false;
 
-		private float desiredX;
-		private float desiredY;
-		private float currentX;
-		private float currentY;
+		private Vector2 desiredPos;
+		private Vector2 currentPos;
+
+		[HideInInspector]
 		public bool isDesired;
+		[HideInInspector]
 		public Vector3 desiredPosition;
 
 		private float currentDistance;
 		private float desiredDistance;
+		private float rayDistance;
 
 		private Quaternion currentRotation;
 		private Quaternion desiredRotation;
@@ -46,8 +47,7 @@ namespace DesignSociety
 		private Camera cameraScript;
 		private CameraPerspectiveEditor cameraEditor;
 
-		private float _xDeg = 0.0f;
-		private float _yDeg = 0.0f;
+		private Vector2 _degree;
 		private Vector3 _positionG;
 		private Vector3 _positionP;
 		private float _size;
@@ -56,8 +56,8 @@ namespace DesignSociety
 		{
 			cameraScript = GetComponent <Camera> ();
 			cameraEditor = GetComponent<CameraPerspectiveEditor> ();
-			_xDeg = xDeg = Vector3.Angle (Vector3.right, transform.right);
-			_yDeg = yDeg = Vector3.Angle (Vector3.up, transform.up);
+			_degree.x = degree.x = Vector3.Angle (Vector3.right, transform.right);
+			_degree.y = degree.y = Vector3.Angle (Vector3.up, transform.up);
 			_positionG = transform.position;
 			_positionP = AdjustGentleman (2);
 			_size = cameraScript.orthographicSize;
@@ -66,8 +66,8 @@ namespace DesignSociety
 
 		public void ResetTransform ()
 		{
-			xDeg = _xDeg;
-			yDeg = _yDeg;
+			degree.x = _degree.x;
+			degree.y = _degree.y;
 			isDesired = true;
 			desiredPosition = (projection == CameraProjection.gentleman) ? _positionG : _positionP;
 			cameraScript.orthographicSize = _size;
@@ -106,8 +106,10 @@ namespace DesignSociety
 
 		Vector3 AdjustGentleman (int flag)
 		{
-			Vector3 wx = transform.TransformDirection (Vector3.right) * deltaX;
-			Vector3 wy = transform.TransformDirection (Vector3.up) * deltaY;
+//			Vector3 wx = transform.TransformDirection (Vector3.right) * deltaX;
+//			Vector3 wy = transform.TransformDirection (Vector3.up) * deltaY;
+			Vector3 wx = transform.TransformDirection (Vector3.right) * deltaFromGentlemanToNormal.x;
+			Vector3 wy = transform.TransformDirection (Vector3.up) * deltaFromGentlemanToNormal.y;
 			if (flag == 1) {
 				return transform.position + wx + wy;
 			} else if (flag == 2) {
@@ -119,49 +121,51 @@ namespace DesignSociety
 		void Update ()
 		{
 			if (Time.timeScale > 0) {
+				UpdateRaycast ();
 				if (canRotate && Input.GetMouseButton (1) || Input.GetKey (KeyCode.LeftAlt)) {
-					xDeg += Input.GetAxis ("Mouse X") * xSpeed * 0.02f;
-					yDeg -= Input.GetAxis ("Mouse Y") * ySpeed * 0.02f;
-					yDeg = ClampAngle (yDeg, yMinLimit, yMaxLimit);
+					degree.x += Input.GetAxis ("Mouse X") * rotateSpeed.x * 0.02f;
+					degree.y -= Input.GetAxis ("Mouse Y") * rotateSpeed.y * 0.02f;
+					degree.y = ClampAngle (degree.y, rotateYLimit.x, rotateYLimit.y);
 					isDesired = false;
 				} else if (Input.GetMouseButton (2) || Input.GetKey (KeyCode.Space)) {
-					desiredX = -Input.GetAxis ("Mouse X") * panRate * Time.deltaTime;
-					desiredY = -Input.GetAxis ("Mouse Y") * panRate * Time.deltaTime;
+					desiredPos.x = -Input.GetAxis ("Mouse X") * panRate * rayDistance * Time.deltaTime;
+					desiredPos.y = -Input.GetAxis ("Mouse Y") * panRate * rayDistance * Time.deltaTime;
 					isDesired = false;
 				} else {
-					desiredX = desiredY = 0;
+					desiredPos.x = desiredPos.y = 0;
 				}
 
 				// set camera rotation 
-				desiredRotation = Quaternion.Euler (yDeg, xDeg, 0);
+				desiredRotation = Quaternion.Euler (degree.y, degree.x, 0);
 				currentRotation = transform.rotation;
-				transform.rotation = Quaternion.Lerp (currentRotation, desiredRotation, Time.deltaTime * zoomDampening);
+				transform.rotation = Quaternion.Lerp (currentRotation, desiredRotation, Time.deltaTime * dampening);
 
 				// set camera translation
 				if (isDesired) {
-					currentX = currentY = desiredX = desiredY = 0;
+					currentPos.x = currentPos.y = desiredPos.x = desiredPos.y = 0;
 					float distance = Vector3.Distance (transform.position, desiredPosition);
 					//transform.position = Vector3.MoveTowards (transform.position, desiredPosition, Time.deltaTime * distance / 0.3f);
 					transform.position = desiredPosition;
 					if (distance < 0.1f)
 						isDesired = false;
 				} else {
-					currentX = Mathf.Lerp (currentX, desiredX, Time.deltaTime * zoomDampening);
-					currentY = Mathf.Lerp (currentY, desiredY, Time.deltaTime * zoomDampening);
-					transform.position += transform.TransformDirection (Vector3.right) * currentX;
-					transform.position += transform.TransformDirection (Vector3.up) * currentY;
+					currentPos.x = Mathf.Lerp (currentPos.x, desiredPos.x, Time.deltaTime * dampening);
+					currentPos.y = Mathf.Lerp (currentPos.y, desiredPos.y, Time.deltaTime * dampening);
+					transform.position += transform.TransformDirection (Vector3.right) * currentPos.x;
+					transform.position += transform.TransformDirection (Vector3.up) * currentPos.y;
 					desiredPosition = transform.position;
 				}
+
 
 				// set camera zooming
 				if (!EventSystem.current || !EventSystem.current.IsPointerOverGameObject ()) {	// mouse on ui dont zoom
 					if (projection == CameraProjection.perspective) {
-						desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * Time.deltaTime * 10;
-						currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
+						desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * rayDistance * Time.deltaTime * 10;
+						currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * dampening);
 						transform.position += transform.rotation * Vector3.forward * currentDistance;
 					} else {
-						desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * Time.deltaTime * 2;
-						currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * zoomDampening);
+						desiredDistance = Input.GetAxis ("Mouse ScrollWheel") * zoomRate * rayDistance * Time.deltaTime * 2;
+						currentDistance = Mathf.Lerp (currentDistance, desiredDistance, Time.deltaTime * dampening);
 						cameraScript.orthographicSize -= currentDistance;
 						if (cameraScript.orthographicSize <= 0.1f)
 							cameraScript.orthographicSize = 0.1f;
@@ -179,6 +183,29 @@ namespace DesignSociety
 			if (angle > 360)
 				angle -= 360;
 			return Mathf.Clamp (angle, min, max);
+		}
+
+
+
+		void UpdateRaycast ()
+		{
+			Ray ray;
+			if (cameraEditor == null || !cameraEditor.enabled) {
+				ray = cameraScript.ViewportPointToRay (new Vector3 (0.5f, 0.5f, 0));
+			} else {
+				ray = cameraEditor.ViewportPointToRay (new Vector3 (0.5f, 0.5f, 0));
+			}
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit, rayDistanceLimit.y)) {
+				rayDistance = hit.distance;
+			} else {
+				rayDistance = rayDistanceLimit.y;
+			}
+
+			if (projection == CameraProjection.gentleman || projection == CameraProjection.orthographic) {
+				rayDistance = rayDistance * cameraScript.orthographicSize / rayOrthographicScale;
+			}
+			rayDistance = Mathf.Clamp (rayDistance, rayDistanceLimit.x, rayDistanceLimit.y);
 		}
 	}
 }

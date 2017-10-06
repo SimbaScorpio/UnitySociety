@@ -86,7 +86,7 @@ namespace DesignSociety
 				//Material clothing = MaterialCollection.GetInstance ().Get (cha.clothing);
 				//player.transform.Find ("mesh").GetComponent<Renderer> ().material = clothing;
 				//player.name = cha.name;
-				GameObject player = NetworkPlayerSpawner.GetInstance ().Spawn (cha, initialLocation.position, initialLocation.rotation);
+				GameObject player = NetworkServerAISpawner.GetInstance ().Spawn (cha, initialLocation.position, initialLocation.rotation);
 
 				if (nameToCharacter.ContainsKey (cha.name)) {
 					Log.warn ("Initialize character [" + i + "] warning: overlapped name");

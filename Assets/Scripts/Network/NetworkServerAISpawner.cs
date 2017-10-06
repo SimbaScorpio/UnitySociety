@@ -5,13 +5,13 @@ using UnityEngine.Networking;
 
 namespace DesignSociety
 {
-	public class NetworkPlayerSpawner : NetworkBehaviour
+	public class NetworkServerAISpawner : NetworkBehaviour
 	{
 		public GameObject AIPrefab;
 
-		public static NetworkPlayerSpawner instance;
+		public static NetworkServerAISpawner instance;
 
-		public static NetworkPlayerSpawner GetInstance ()
+		public static NetworkServerAISpawner GetInstance ()
 		{
 			return instance;
 		}
@@ -27,11 +27,6 @@ namespace DesignSociety
 			ai.GetComponent<NetworkServerAI> ().character = cha;
 			NetworkServer.Spawn (ai);
 			return ai;
-		}
-
-		public void DestroyAllAIs ()
-		{
-			
 		}
 	}
 }
