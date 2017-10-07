@@ -11,13 +11,14 @@ namespace DesignSociety
 		public float showSpeed = 5f;
 		public float fadeSpeed = 2f;
 		public float panSpeed = 200f;
+		public float panGap = 2f;
+		public float elementEmptyHeight = 20f;
 		public List<GameObject> bubblePrefabs;
 
 		private List<GameObject> displayList = new List<GameObject> ();
 
 		private List<Info> waitingList = new List<Info> ();
 		private bool canPop = true;
-		private bool popTrigger;
 
 		private class Info
 		{
@@ -61,23 +62,19 @@ namespace DesignSociety
 
 		void PopMessage (Info info)
 		{
-			popTrigger = true;
 			GameObject obj = CreateBubbleOfType (info.type);
-			Text[] texts = SetText (obj, info.title, info.content);
+			Text[] texts = obj.transform.GetComponentsInChildren<Text> ();
 
-			// 有坑啊！！！！全局callback不是对象的！！
 			ContentSizeFitter fitter = texts [1].GetComponent<ContentSizeFitter> ();
 			fitter.CallBack (delegate(Vector2 size) {
-				print (size);
-				float elementHeight = 20 + size.y;
+				fitter.CallBack (null);
+				float elementHeight = elementEmptyHeight + size.y;
 				RectTransform tr = obj.transform as RectTransform;
 				tr.sizeDelta = new Vector2 (tr.sizeDelta.x, elementHeight);
-				if (popTrigger) {
-					popTrigger = false;
-					StartCoroutine (StartPopping (elementHeight + 2, obj));
-				}
+				StartCoroutine (StartPopping (elementHeight + panGap, obj));
 			});
-			obj.transform.localPosition = Vector3.zero;
+			texts [0].text = info.title;
+			texts [1].text = info.content;
 		}
 
 
@@ -172,19 +169,12 @@ namespace DesignSociety
 			GameObject newOne = Instantiate (bubblePrefabs [type]) as GameObject;
 			newOne.transform.SetParent (this.gameObject.transform);
 			newOne.transform.localScale = Vector3.one;
-			newOne.transform.localPosition = Vector3.one;
+			newOne.transform.localPosition = Vector3.zero;
 			SetAlpha (newOne, 0, true);
 			newOne.SetActive (true);
 			return newOne;
 		}
 
-		Text[] SetText (GameObject obj, string title, string content)
-		{
-			Text[] texts = obj.transform.GetComponentsInChildren<Text> ();
-			texts [0].text = title;
-			texts [1].text = content;
-			return texts;
-		}
 
 		void SetAlpha (GameObject obj, float num, bool isSet)
 		{
