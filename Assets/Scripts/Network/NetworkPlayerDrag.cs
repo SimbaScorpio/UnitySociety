@@ -15,14 +15,9 @@ namespace DesignSociety
 		private Vector3 lastPressPos;
 		private float rayDistance = 300f;
 		private bool isCheckBegin;
-		[SyncVar]
 		private bool isDragBegin;
 
 		private CameraPerspectiveEditor cameraEditor;
-
-		[SyncVar]
-		private Vector3 dragPosition;
-		public float lerpRate = 10f;
 
 		void Start ()
 		{
@@ -34,23 +29,17 @@ namespace DesignSociety
 
 		void Update ()
 		{
-			LerpPosition ();
 			CheckDrag ();
-		}
-
-		void LerpPosition ()
-		{
-			if (!isLocalPlayer && isDragBegin) {
-				transform.position = Vector3.Lerp (transform.position, dragPosition, lerpRate * Time.deltaTime);
-			}
 		}
 
 		void CheckDrag ()
 		{
 			if (!isLocalPlayer)
 				return;
+			
 			if (EventSystem.current.IsPointerOverGameObject ())
 				return;
+			
 			if (Input.GetMouseButtonDown (0)) {
 				lastPressPos = Input.mousePosition;
 				if (IsPressingPlayer ()) {
@@ -59,16 +48,18 @@ namespace DesignSociety
 			} else if (Input.GetMouseButtonUp (0)) {
 				isCheckBegin = false;
 				if (isDragBegin) {
+					isDragBegin = false;
 					OnDragEnd ();
-					CmdOnDragEnd ();
+					//CmdOnDragEnd ();
 				}
 			} else if (Input.GetMouseButton (0)) {
 				if (isCheckBegin) {
 					float distance = Vector3.Distance (Input.mousePosition, lastPressPos);
 					if (distance > dragThreshold) {
-						OnDragBegin ();
-						CmdOnDragBegin ();
+						isDragBegin = true;
 						isCheckBegin = false;
+						OnDragBegin ();
+						//CmdOnDragBegin ();
 					}
 				} else if (isDragBegin) {
 					OnDragging ();
@@ -90,12 +81,12 @@ namespace DesignSociety
 
 		void OnDragBegin ()
 		{
-			isDragBegin = true;
+			
 		}
 
 		void OnDragEnd ()
 		{
-			isDragBegin = false;
+			
 		}
 
 
@@ -114,7 +105,6 @@ namespace DesignSociety
 					GameObject.Find ("Fuck").transform.position = hit.point;
 					Vector3 targetPos = new Vector3 (hit.point.x, hit.point.y + dropHeight - playerHeight / 2, hit.point.z);
 					transform.position = targetPos;
-					CmdSyncDragPosition (transform.position);
 				}
 			}
 		}
@@ -122,44 +112,37 @@ namespace DesignSociety
 
 		#region Network
 
-		// 客户端通知服务器对象，服务器修改变量，通过Sync同步于其他客户端
-		[Command]
-		void CmdSyncDragPosition (Vector3 position)
-		{
-			dragPosition = position;
-		}
-
-		// 客户端通知服务器对象，服务器通知其他客户端，注意ServerOnly的服务器本身不接受Rpc指令
-		[Command]
-		void CmdOnDragBegin ()
-		{
-			RpcOnDragBegin ();
-			OnDragBegin ();
-		}
-
-		// 客户端通知服务器对象，服务器通知其他客户端，注意ServerOnly的服务器本身不接受Rpc指令
-		[Command]
-		void CmdOnDragEnd ()
-		{
-			RpcOnDragEnd ();
-			OnDragEnd ();
-		}
-
-		[ClientRpc]
-		void RpcOnDragBegin ()
-		{
-			if (!isLocalPlayer) {
-				OnDragBegin ();
-			}
-		}
-
-		[ClientRpc]
-		void RpcOnDragEnd ()
-		{
-			if (!isLocalPlayer) {
-				OnDragEnd ();
-			}
-		}
+		//		// 客户端通知服务器对象，服务器通知其他客户端，注意ServerOnly的服务器本身不接受Rpc指令
+		//		[Command]
+		//		void CmdOnDragBegin ()
+		//		{
+		//			RpcOnDragBegin ();
+		//			OnDragBegin ();
+		//		}
+		//
+		//		// 客户端通知服务器对象，服务器通知其他客户端，注意ServerOnly的服务器本身不接受Rpc指令
+		//		[Command]
+		//		void CmdOnDragEnd ()
+		//		{
+		//			RpcOnDragEnd ();
+		//			OnDragEnd ();
+		//		}
+		//
+		//		[ClientRpc]
+		//		void RpcOnDragBegin ()
+		//		{
+		//			if (!isLocalPlayer) {
+		//				OnDragBegin ();
+		//			}
+		//		}
+		//
+		//		[ClientRpc]
+		//		void RpcOnDragEnd ()
+		//		{
+		//			if (!isLocalPlayer) {
+		//				OnDragEnd ();
+		//			}
+		//		}
 
 		#endregion
 	}

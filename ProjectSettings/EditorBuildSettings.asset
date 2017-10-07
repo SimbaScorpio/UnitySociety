@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DataTest.unity
     guid: 8ed8239b86c2f4c47ba18d6f7477d817
+  - enabled: 0
+    path: Assets/Scenes/ActionTest.unity
+    guid: 73a3e913c3f264a47a22a768e931f2bb

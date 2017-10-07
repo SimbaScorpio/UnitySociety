@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 114320076438890814}
   - component: {fileID: 114120151521282530}
   - component: {fileID: 114809817125081898}
+  - component: {fileID: 114351848034979248}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2615,7 +2616,6 @@ MonoBehaviour:
   dragThreshold: 10
   dropHeight: 1
   playerHeight: 1.75
-  lerpRate: 20
 --- !u!114 &114129616283144254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2721,6 +2721,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ed75656a7464f44ba603b3a85d945f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114351848034979248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816499057430528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d203c64436516b945aedbf84fbf4c31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sendPosition: 1
+  sendRotation: 1
+  lerpPosRate: 20
+  lerpRotRate: 10
 --- !u!114 &114458983623366244
 MonoBehaviour:
   m_ObjectHideFlags: 1
