@@ -11,7 +11,7 @@ namespace DesignSociety
 		public bool isBeingControlled;
 		public string spotName;
 
-		private CompositeMovement compositeMovement;
+		private CompositeMovementData compositeMovement;
 		private float compositeTiming;
 		private ComState state;
 
@@ -25,7 +25,8 @@ namespace DesignSociety
 		private List<Person> children;
 
 		private StorylineManager storylineManager;
-		private ActionDealer actionDealer;
+		private NetworkActionDealer actionDealer;
+		//private ActionDealer actionDealer;
 
 		//private float staticAidPossibility;
 		private float distanceError = 0.5f;
@@ -43,7 +44,8 @@ namespace DesignSociety
 			principalActivities = new List<PrincipalActivity> ();
 			followingActivities = new List<FollowingActivity> ();
 			storylineManager = StorylineManager.GetInstance ();
-			actionDealer = GetComponent<ActionDealer> ();
+			actionDealer = GetComponent<NetworkActionDealer> ();
+			//actionDealer = GetComponent<ActionDealer> ();
 			//staticAidPossibility = storylineManager.storyline.aid_possibility;
 		}
 
@@ -75,7 +77,7 @@ namespace DesignSociety
 			currentFollowingActivity = null;
 
 			foreach (SecondPerson person in secondChildren) {
-				string candidate = storylineManager.nameToJobCandidate [person.name];
+				string candidate = storylineManager.nameToJobCandidateName [person.name];
 				GameObject obj = storylineManager.nameToCharacterObj [candidate];
 				Person script = obj.GetComponent<Person> ();
 				script.spotName = spotName;
@@ -84,7 +86,7 @@ namespace DesignSociety
 			}
 			secondChildren.Clear ();
 			foreach (ThirdPerson person in thirdChildren) {
-				string candidate = storylineManager.nameToJobCandidate [person.name];
+				string candidate = storylineManager.nameToJobCandidateName [person.name];
 				GameObject obj = storylineManager.nameToCharacterObj [candidate];
 				Person script = obj.GetComponent<Person> ();
 				script.spotName = spotName;
@@ -104,9 +106,9 @@ namespace DesignSociety
 			}
 			state = ComState.LEAVING;
 
-			ActionWalkTo walk = GetComponent<ActionWalkTo> ();
-			if (walk != null) {
-				walk.Finish ();
+			ActionSingle ac = GetComponent<ActionSingle> ();
+			if (ac != null) {
+				ac.Free ();
 			}
 		}
 
@@ -149,14 +151,24 @@ namespace DesignSociety
 
 		void DealSpareActivity ()
 		{
-			Character character = storylineManager.nameToCharacter [this.name];
+			CharacterData character = storylineManager.nameToCharacter [this.name];
 			Landmark initialLandmark = LandmarkCollection.GetInstance ().Get (character.initial_position);
 			if (Vector3.Distance (transform.position, initialLandmark.position) > distanceError) {
-				if (actionDealer.TryNotSitting (null)) {
-					GetComponent<ActionRPCManager> ().ApplyWalkToAction (initialLandmark, null);
-				}
+//				if (actionDealer.TryNotSitting (null)) {
+//					GetComponent<ActionRPCManager> ().ApplyWalkToAction (initialLandmark, null);
+//				}
+				actionDealer.ApplyWalkAction (initialLandmark, null);
 			} else {
-				DealMainActionWithAid (actionDealer, character.spare_time_main, character.spare_time_aid, false, "?", "?", "?");
+				string[] aid;
+				int num = Random.Range (0, 3);
+				if (num == 0)
+					aid = character.spare_time_aid_sit;
+				else if (num == 1)
+					aid = character.spare_time_aid_stand;
+				else
+					aid = character.spare_time_aid_other;
+				
+				DealMainActionWithAid (actionDealer, character.spare_time_main_action, aid, false, "?", "?", "?");
 			}
 		}
 
@@ -164,7 +176,7 @@ namespace DesignSociety
 		void AssignNewPrincipalActivity ()
 		{
 			PrincipalActivity activity = principalActivities [0];
-			if (storylineManager.nameToCompositeMovement.ContainsKey (activity.composite_movement_name)) {
+			if (isValidCompositeAction (activity.position, activity.action)) {
 				foreach (SecondPerson other in activity.other_people) {
 					if (storylineManager.nameToJob.ContainsKey (other.name)) {
 						int index = 0;
@@ -175,7 +187,7 @@ namespace DesignSociety
 						if (index < secondChildren.Count) {
 							Log.warn ("Spot [" + spotName + "]'s principal activity [" + activity.description + "] job [" + other.name + "] overlapped: skipped");
 						} else {
-							string realName = storylineManager.nameToJobCandidate [other.name];
+							string realName = storylineManager.nameToJobCandidateName [other.name];
 							GameObject realObj = storylineManager.nameToCharacterObj [realName];
 							Person realScript = realObj.GetComponent<Person> ();
 							secondChildren.Add (other);
@@ -187,11 +199,12 @@ namespace DesignSociety
 					}
 				}
 				currentPrincipalActivity = activity;
-				compositeMovement = storylineManager.nameToCompositeMovement [activity.composite_movement_name];
+				//compositeMovement = storylineManager.nameToCompositeMovement [activity.action];
+				compositeMovement = GetCompositeMovementData (activity.position, activity.action);
 				state = ComState.ARRIVING;
 				StartCoroutine (WaitToBeMySecondChild ());
 			} else {
-				Log.warn ("Spot [" + spotName + "]'s principal activity [" + activity.description + "] has undefined composite movement [" + activity.composite_movement_name + "]: skipped");
+				Log.warn ("Spot [" + spotName + "]'s principal activity [" + activity.description + "] has undefined composite movement [" + activity.action + "]: skipped");
 			}
 			principalActivities.RemoveAt (0);
 		}
@@ -219,7 +232,7 @@ namespace DesignSociety
 		void AssignNewFollowingActivity ()
 		{
 			FollowingActivity activity = followingActivities [0];
-			if (storylineManager.nameToCompositeMovement.ContainsKey (activity.composite_movement_name)) {
+			if (isValidCompositeAction (activity.position, activity.action)) {
 				foreach (ThirdPerson other in activity.other_people) {
 					if (storylineManager.nameToJob.ContainsKey (other.name)) {
 						int index = 0;
@@ -230,7 +243,7 @@ namespace DesignSociety
 						if (index < thirdChildren.Count) {
 							Log.warn ("Spot [" + spotName + "]'s following activity [" + activity.description + "] job [" + other.name + "] overlapped: skipped");
 						} else {
-							string realName = storylineManager.nameToJobCandidate [other.name];
+							string realName = storylineManager.nameToJobCandidateName [other.name];
 							GameObject realObj = storylineManager.nameToCharacterObj [realName];
 							Person realScript = realObj.GetComponent<Person> ();
 							thirdChildren.Add (other);
@@ -242,11 +255,12 @@ namespace DesignSociety
 					}
 				}
 				currentFollowingActivity = followingActivities [0];
-				compositeMovement = storylineManager.nameToCompositeMovement [activity.composite_movement_name];
+				//compositeMovement = storylineManager.nameToCompositeMovement [activity.action];
+				compositeMovement = GetCompositeMovementData (activity.position, activity.action);
 				state = ComState.ARRIVING;
 				StartCoroutine (WaitToBeMyThirdChild ());
 			} else {
-				Log.warn ("Spot [" + spotName + "]'s following activity [" + activity.description + "] has undefined composite movement [" + activity.composite_movement_name + "]: skipped");
+				Log.warn ("Spot [" + spotName + "]'s following activity [" + activity.description + "] has undefined composite movement [" + activity.action + "]: skipped");
 			}
 			followingActivities.RemoveAt (0);
 		}
@@ -267,6 +281,32 @@ namespace DesignSociety
 					}
 				}
 				yield return new WaitForEndOfFrame ();
+			}
+		}
+
+		bool isValidCompositeAction (string position, string action)
+		{
+			if (position == "composite") {
+				return storylineManager.nameToCompositeMovement.ContainsKey (action);
+			} else if (action == "sit" || action == "stand") {
+				return true;
+			} else if (position == "sit" || position == "stand" || position == "other") {
+				return true;
+			}
+			return false;
+		}
+
+		CompositeMovementData GetCompositeMovementData (string position, string action)
+		{
+			if (position == "composite") {
+				return storylineManager.nameToCompositeMovement [action];
+			} else {
+				CompositeMovementData temp = new CompositeMovementData ();
+				if (action == "sit" || action == "stand")
+					temp.mainrole_main = action;
+				else
+					temp.mainrole_main = position + "_" + action;
+				return temp;
 			}
 		}
 
@@ -377,7 +417,7 @@ namespace DesignSociety
 				if (isPrincipal) {
 					currentPrincipalActivity = null;
 					for (int i = 0; i < secondChildren.Count; ++i) {
-						children [i].AddFollowingActivities (secondChildren [i].following_activities);
+						children [i].AddFollowingActivities (secondChildren [i].following_actions);
 						children [i].isBeingControlled = false;
 					}
 					secondChildren.Clear ();
@@ -444,38 +484,11 @@ namespace DesignSociety
 		}
 
 
-		//		void DealMainActionWithAid (ActionDealer actionDealer, string main, string[] aid, bool showInfo, string personName, string mainInfo, string aidInfo)
-		//		{
-		//			if (aid == null || aid.Length == 0) {
-		//				actionDealer.ApproachAction (main, null);
-		//
-		//				if (showInfo && !string.IsNullOrEmpty (main))
-		//					Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
-		//
-		//			} else {
-		//				int aidPossibility = Random.Range (0, (int)(1 / staticAidPossibility));
-		//				if (aidPossibility == 0) {
-		//					int index = Random.Range (0, aid.Length);
-		//					actionDealer.ApproachAction (aid [index], null);
-		//
-		//					if (showInfo && !string.IsNullOrEmpty (aid [index]))
-		//						Log.info (Log.yellow ("【" + personName + "】 ") + aidInfo + Log.blue (" 【" + aid [index] + "】"));
-		//
-		//				} else {
-		//					actionDealer.ApproachAction (main, null);
-		//
-		//					if (showInfo && !string.IsNullOrEmpty (main)) {
-		//						Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
-		//
-		//					}
-		//				}
-		//			}
-		//		}
 
-		void DealMainActionWithAid (ActionDealer actionDealer, string main, string[] aid, bool showInfo, string personName, string mainInfo, string aidInfo)
+		void DealMainActionWithAid (NetworkActionDealer actionDealer, string main, string[] aid, bool showInfo, string personName, string mainInfo, string aidInfo)
 		{
 			if (aid == null || aid.Length == 0) {
-				actionDealer.ApproachAction (main, null);
+				actionDealer.ApplyAction (main, null);
 
 				if (showInfo && !string.IsNullOrEmpty (main))
 					Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
@@ -483,13 +496,13 @@ namespace DesignSociety
 			} else {
 				if (actionDealer.IsAidActive ()) {
 					int index = Random.Range (0, aid.Length);
-					actionDealer.ApproachAction (aid [index], null);
+					actionDealer.ApplyAction (aid [index], null);
 
 					if (showInfo && !string.IsNullOrEmpty (aid [index]))
 						Log.info (Log.yellow ("【" + personName + "】 ") + aidInfo + Log.blue (" 【" + aid [index] + "】"));
 
 				} else {
-					actionDealer.ApproachAction (main, null);
+					actionDealer.ApplyAction (main, null);
 
 					if (showInfo && !string.IsNullOrEmpty (main)) {
 						Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
@@ -500,52 +513,47 @@ namespace DesignSociety
 			}
 		}
 
-		bool DealListAction (ActionDealer actionDealer, string[] list, ref int index, bool info, string personName, string mainInfo)
+		bool DealListAction (NetworkActionDealer actionDealer, string[] list, ref int index, bool info, string personName, string mainInfo)
 		{
 			if (list != null) {
 				index++;
 				if (index < list.Length) {
 					string actionName = list [index];
-					actionDealer.ApproachAction (actionName, null);
+					actionDealer.ApplyAction (actionName, null);
+
 					if (info && !string.IsNullOrEmpty (actionName))
 						Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + actionName + "】"));
+					
 					return true;
 				}
 			}
 			return false;
 		}
 
+
 		bool IsAtProperLocation (Self self, GameObject gameObject, bool doAction)
 		{
 			Landmark destination;
+			CharacterData cha = storylineManager.nameToCharacter [gameObject.name];
 			switch (self.location_to_type) {
 			case 0:	// stand by
 				return true;
 			case 1:	// labeled location
-				if (string.IsNullOrEmpty (self.location_to)) {
-					Character cha = storylineManager.nameToCharacter [gameObject.name];
-					destination = LandmarkCollection.GetInstance ().Get (cha.initial_position);
-				} else {
-					destination = LandmarkCollection.GetInstance ().Get (self.location_to);
-				}
+				if (string.IsNullOrEmpty (self.location_to))
+					return true;
+				destination = LandmarkCollection.GetInstance ().Get (self.location_to);
 				if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
 					return true;
 				else if (doAction) {
-					if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
-						gameObject.GetComponent<ActionRPCManager> ().ApplyWalkToAction (destination, null);
+					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, null);
 				}
 				return false;
-			case 2:	// closest location
-				if (self.location_to == null) {
-					Log.warn ("Empty object location when needed");
-					return true;
-				}
-				destination = LandmarkCollection.GetInstance ().GetNearestObject (gameObject.transform.position, self.location_to);
+			case 2:	// initial location
+				destination = LandmarkCollection.GetInstance ().Get (cha.initial_position);
 				if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
 					return true;
 				else if (doAction) {
-					if (gameObject.GetComponent<ActionDealer> ().TryNotSitting (null))
-						gameObject.GetComponent<ActionRPCManager> ().ApplyWalkToAction (destination, null);
+					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, null);
 				}
 				return false;
 			default:

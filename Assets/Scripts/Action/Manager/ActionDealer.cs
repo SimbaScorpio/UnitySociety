@@ -105,21 +105,21 @@ namespace DesignSociety
 				return;
 			tryingToDoActionName = name;
 			monitor = callback;
-			if (ActionName.IsStandAction (name)) {
-				if (isStanding) {
-					tryingToDoActionName = null;
-					ApplyAction (name, monitor);
-				} else {
-					ApplyAction ("起立", this);
-				}
-			} else if (ActionName.IsSitAction (name)) {
-				if (!isStanding) {
-					tryingToDoActionName = null;
-					ApplyAction (name, monitor);
-				} else {
-					ApplyAction ("坐下", this);
-				}
-			}
+//			if (ActionName.IsStandAction (name)) {
+//				if (isStanding) {
+//					tryingToDoActionName = null;
+//					ApplyAction (name, monitor);
+//				} else {
+//					ApplyAction ("起立", this);
+//				}
+//			} else if (ActionName.IsSitAction (name)) {
+//				if (!isStanding) {
+//					tryingToDoActionName = null;
+//					ApplyAction (name, monitor);
+//				} else {
+//					ApplyAction ("坐下", this);
+//				}
+//			}
 		}
 
 

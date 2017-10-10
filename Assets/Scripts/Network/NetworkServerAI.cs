@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using Pathfinding;
 
 namespace DesignSociety
 {
 	public class NetworkServerAI : NetworkBehaviour
 	{
 		[SyncVar]
-		public Character character;
+		public CharacterData character;
 
 		void Start ()
 		{
@@ -25,6 +26,12 @@ namespace DesignSociety
 				ActionDealer actionDealer = GetComponent<ActionDealer> ();
 				if (actionDealer != null)
 					actionDealer.enabled = false;
+				NavmeshCut navmeshcut = GetComponent<NavmeshCut> ();
+				if (navmeshcut != null)
+					navmeshcut.enabled = false;
+				MyRichAI myRichAI = GetComponent<MyRichAI> ();
+				if (myRichAI != null)
+					myRichAI.enabled = false;
 			}
 		}
 

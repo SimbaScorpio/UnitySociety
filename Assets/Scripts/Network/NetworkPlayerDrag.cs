@@ -102,7 +102,7 @@ namespace DesignSociety
 			RaycastHit hit;
 			if (Physics.Raycast (ray, out hit, rayDistance)) {
 				if (hit.collider.tag != "Player") {
-					GameObject.Find ("Fuck").transform.position = hit.point;
+					//GameObject.Find ("Fuck").transform.position = hit.point;
 					Vector3 targetPos = new Vector3 (hit.point.x, hit.point.y + dropHeight - playerHeight / 2, hit.point.z);
 					transform.position = targetPos;
 				}

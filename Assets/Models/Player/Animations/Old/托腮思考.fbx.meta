@@ -125,7 +125,7 @@ ModelImporter:
     4300002: mesh
     4300004: hair
     4300006: ears
-    7400000: "\u5750\u59FF\u6258\u816E\u601D\u8003"
+    7400000: sit_chin_in_hand
     7400002: "\u7AD9\u59FF\u4E0D\u52A8"
     7400004: "\u5750\u59FF\u4E0D\u52A8"
     9500000: //RootNode
@@ -154,7 +154,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: "\u5750\u59FF\u6258\u816E\u601D\u8003"
+      name: sit_chin_in_hand
       takeName: CINEMA_4D_Main
       firstFrame: 13
       lastFrame: 42

@@ -1,0 +1,367 @@
+fileFormatVersion: 2
+guid: c95dddb46c36ff244b840c675b2e388a
+timeCreated: 1507474778
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: controllers
+    100002: controllers_10
+    100004: controllers_11
+    100006: controllers_12
+    100008: controllers_13
+    100010: controllers_14
+    100012: controllers_15
+    100014: controllers_16
+    100016: controllers_2
+    100018: controllers_3
+    100020: controllers_5
+    100022: controllers_6
+    100024: controllers_7
+    100026: controllers_8
+    100028: controllers_9
+    100030: ears
+    100032: hair
+    100034: Joint_2_Goal_left
+    100036: Joint_2_Goal_right
+    100038: Joint_4_Goal_left
+    100040: Joint_4_Goal_right
+    100042: Joint_Pole_left
+    100044: Joint_Pole_right
+    100046: joints
+    100048: joints_10
+    100050: joints_11
+    100052: joints_12
+    100054: joints_13
+    100056: joints_14
+    100058: joints_15
+    100060: joints_16
+    100062: joints_17
+    100064: joints_18
+    100066: joints_19
+    100068: joints_2
+    100070: joints_20
+    100072: joints_21
+    100074: joints_22
+    100076: joints_23
+    100078: joints_24
+    100080: joints_25
+    100082: joints_26
+    100084: joints_27
+    100086: joints_28
+    100088: joints_29
+    100090: joints_3
+    100092: joints_30
+    100094: joints_31
+    100096: joints_32
+    100098: joints_33
+    100100: joints_34
+    100102: joints_35
+    100104: joints_36
+    100106: joints_4
+    100108: joints_5
+    100110: joints_6
+    100112: joints_7
+    100114: joints_8
+    100116: joints_9
+    100118: LEG_left
+    100120: LEG_RIGHT
+    100122: mesh
+    100124: //RootNode
+    400000: controllers
+    400002: controllers_10
+    400004: controllers_11
+    400006: controllers_12
+    400008: controllers_13
+    400010: controllers_14
+    400012: controllers_15
+    400014: controllers_16
+    400016: controllers_2
+    400018: controllers_3
+    400020: controllers_5
+    400022: controllers_6
+    400024: controllers_7
+    400026: controllers_8
+    400028: controllers_9
+    400030: ears
+    400032: hair
+    400034: Joint_2_Goal_left
+    400036: Joint_2_Goal_right
+    400038: Joint_4_Goal_left
+    400040: Joint_4_Goal_right
+    400042: Joint_Pole_left
+    400044: Joint_Pole_right
+    400046: joints
+    400048: joints_10
+    400050: joints_11
+    400052: joints_12
+    400054: joints_13
+    400056: joints_14
+    400058: joints_15
+    400060: joints_16
+    400062: joints_17
+    400064: joints_18
+    400066: joints_19
+    400068: joints_2
+    400070: joints_20
+    400072: joints_21
+    400074: joints_22
+    400076: joints_23
+    400078: joints_24
+    400080: joints_25
+    400082: joints_26
+    400084: joints_27
+    400086: joints_28
+    400088: joints_29
+    400090: joints_3
+    400092: joints_30
+    400094: joints_31
+    400096: joints_32
+    400098: joints_33
+    400100: joints_34
+    400102: joints_35
+    400104: joints_36
+    400106: joints_4
+    400108: joints_5
+    400110: joints_6
+    400112: joints_7
+    400114: joints_8
+    400116: joints_9
+    400118: LEG_left
+    400120: LEG_RIGHT
+    400122: mesh
+    400124: //RootNode
+    2300000: ears
+    2300002: hair
+    3300000: ears
+    3300002: hair
+    4300000: ears
+    4300002: hair
+    4300004: mesh
+    7400000: stand_hello
+    9500000: //RootNode
+    13700000: mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: stand_hello
+      takeName: CINEMA_4D_Main
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: controllers
+        weight: 1
+      - path: controllers/controllers_2
+        weight: 1
+      - path: controllers/controllers_2/controllers_3
+        weight: 1
+      - path: ears
+        weight: 1
+      - path: hair
+        weight: 1
+      - path: joints
+        weight: 1
+      - path: joints/joints_2
+        weight: 1
+      - path: joints/joints_2/joints_3
+        weight: 1
+      - path: joints/joints_2/joints_3/joints_4
+        weight: 1
+      - path: joints/joints_2/joints_3/joints_4/joints_5
+        weight: 1
+      - path: joints/joints_2/joints_3/joints_4/joints_5/joints_6
+        weight: 1
+      - path: joints/joints_2/joints_3/joints_4/joints_5/joints_6/joints_7
+        weight: 1
+      - path: joints/joints_8
+        weight: 1
+      - path: joints/joints_8/joints_9
+        weight: 1
+      - path: joints/joints_8/joints_9/joints_10
+        weight: 1
+      - path: joints/joints_8/joints_9/joints_10/joints_11
+        weight: 1
+      - path: joints/joints_8/joints_9/joints_10/joints_11/joints_12
+        weight: 1
+      - path: joints/joints_8/joints_9/joints_10/joints_11/joints_12/joints_13
+        weight: 1
+      - path: joints/joints_14
+        weight: 1
+      - path: joints/joints_14/joints_15
+        weight: 1
+      - path: joints/joints_14/joints_15/controllers_9
+        weight: 1
+      - path: joints/joints_14/joints_15/controllers_10
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_16
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_16/joints_17
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_16/joints_17/joints_18
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/controllers_5
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/controllers_6
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_22
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_22/joints_23
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_22/joints_23/joints_24
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_25
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_25/joints_26
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_19/joints_20/joints_21/joints_25/joints_26/joints_27
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/controllers_7
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/controllers_8
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_31
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_31/joints_32
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_31/joints_32/joints_33
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_34
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_34/joints_35
+        weight: 1
+      - path: joints/joints_14/joints_15/joints_28/joints_29/joints_30/joints_34/joints_35/joints_36
+        weight: 1
+      - path: LEG_left
+        weight: 1
+      - path: LEG_left/controllers_14
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_15
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_15/Joint_4_Goal_left
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_15/Joint_Pole_left
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_16
+        weight: 1
+      - path: LEG_left/controllers_14/controllers_16/Joint_2_Goal_left
+        weight: 1
+      - path: LEG_RIGHT
+        weight: 1
+      - path: LEG_RIGHT/controllers_11
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_12
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_12/Joint_4_Goal_right
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_12/Joint_Pole_right
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_13
+        weight: 1
+      - path: LEG_RIGHT/controllers_11/controllers_13/Joint_2_Goal_right
+        weight: 1
+      - path: mesh
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

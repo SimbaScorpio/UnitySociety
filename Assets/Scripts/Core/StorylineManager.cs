@@ -8,13 +8,13 @@ namespace DesignSociety
 	{
 		public Storyline storyline;
 		public Dictionary<string, GameObject> nameToCharacterObj;
-		public Dictionary<string, Character> nameToCharacter;
-		public Dictionary<string, CompositeMovement> nameToCompositeMovement;
-		public Dictionary<string, Job> nameToJob;
-		public Dictionary<string, string> nameToJobCandidate;
-		public Dictionary<string, StorylineSpot> nameToSpot;
-		public Dictionary<string, SpotState> nameToSpotState;
-		public Dictionary<string, HashSet<string>> nameToSpotCandidates;
+		public Dictionary<string, CharacterData> nameToCharacter;
+		public Dictionary<string, CompositeMovementData> nameToCompositeMovement;
+		public Dictionary<string, InitCharacterData> nameToJob;
+		public Dictionary<string, string> nameToJobCandidateName;
+		public Dictionary<string, SceneData> nameToScene;
+		public Dictionary<string, SceneState> nameToSceneState;
+		public Dictionary<string, HashSet<string>> nameToSceneCandidateNames;
 
 
 		//public GameObject PlayerPrefab;
@@ -37,13 +37,13 @@ namespace DesignSociety
 		void InitializeVariables ()
 		{
 			nameToCharacterObj = new Dictionary<string, GameObject> ();
-			nameToCharacter = new Dictionary<string, Character> ();
-			nameToCompositeMovement = new Dictionary<string, CompositeMovement> ();
-			nameToJob = new Dictionary<string, Job> ();
-			nameToJobCandidate = new Dictionary<string, string> ();
-			nameToSpot = new Dictionary<string, StorylineSpot> ();
-			nameToSpotState = new Dictionary<string, SpotState> ();
-			nameToSpotCandidates = new Dictionary<string, HashSet<string>> ();
+			nameToCharacter = new Dictionary<string, CharacterData> ();
+			nameToCompositeMovement = new Dictionary<string, CompositeMovementData> ();
+			nameToJob = new Dictionary<string, InitCharacterData> ();
+			nameToJobCandidateName = new Dictionary<string, string> ();
+			nameToScene = new Dictionary<string, SceneData> ();
+			nameToSceneState = new Dictionary<string, SceneState> ();
+			nameToSceneCandidateNames = new Dictionary<string, HashSet<string>> ();
 		}
 
 		public void Initialize ()
@@ -57,7 +57,7 @@ namespace DesignSociety
 			Log.info (Log.blue ("进行岗位分配..."));
 			RandomlyArrangeJobCandidates ();
 			Log.info (Log.blue ("初始化故事节点..."));
-			InitializeSpots ();
+			InitializeScenes ();
 			Log.info (Log.blue ("开始！"));
 			Tick ();
 		}
@@ -74,9 +74,9 @@ namespace DesignSociety
 
 		void InitializeCharacters ()
 		{
-			int chaNum = storyline.characters.Length;
+			int chaNum = storyline.characterdata.Length;
 			for (int i = 0; i < chaNum; ++i) {
-				Character cha = storyline.characters [i];
+				CharacterData cha = storyline.characterdata [i];
 				if (string.IsNullOrEmpty (cha.name)) {
 					Log.error ("Initialize character [" + i + "] failed: empty name");
 					continue;
@@ -93,14 +93,26 @@ namespace DesignSociety
 				}
 				nameToCharacter [cha.name] = cha;
 				nameToCharacterObj [cha.name] = player;
+
+				// init action string
+				ChangeHeader (cha.spare_time_main_position, ref cha.spare_time_main_action);
+				for (int j = 0; j < cha.spare_time_aid_sit.Length; ++j) {
+					ChangeHeader ("sit", ref cha.spare_time_aid_sit [j]);
+				}
+				for (int j = 0; j < cha.spare_time_aid_stand.Length; ++j) {
+					ChangeHeader ("stand", ref cha.spare_time_aid_stand [j]);
+				}
+				for (int j = 0; j < cha.spare_time_aid_other.Length; ++j) {
+					ChangeHeader ("else", ref cha.spare_time_aid_other [j]);
+				}
 			}
 		}
 
 		void InitializeCompositeMovements ()
 		{
-			int comNum = storyline.composite_movements.Length;
+			int comNum = storyline.compositemovementdata.Length;
 			for (int i = 0; i < comNum; ++i) {
-				CompositeMovement com = storyline.composite_movements [i];
+				CompositeMovementData com = storyline.compositemovementdata [i];
 				if (string.IsNullOrEmpty (com.name)) {
 					Log.error ("Initialize composite movement [" + i + "] failed: empty name");
 					continue;
@@ -109,14 +121,54 @@ namespace DesignSociety
 					Log.warn ("Initialize composite movement [" + i + "] warning: overlapped name");
 				}
 				nameToCompositeMovement [com.name] = com;
+
+				// init composite string
+				string main = com.mainrole_position;
+				ChangeHeader (main, ref com.mainrole_main);
+				ChangeHeader (main, ref com.wait_mainrole_main);
+				for (int j = 0; j < com.mainrole_aid.Length; ++j) {
+					ChangeHeader (main, ref com.mainrole_aid [j]);
+				}
+				for (int j = 0; j < com.wait_mainrole_aid.Length; ++j) {
+					ChangeHeader (main, ref com.wait_mainrole_aid [j]);
+				}
+				for (int j = 0; j < com.start_mainrole_main.Length; ++j) {
+					ChangeHeader (main, ref com.start_mainrole_main [j]);
+				}
+				for (int j = 0; j < com.end_mainrole_main.Length; ++j) {
+					ChangeHeader (main, ref com.end_mainrole_main [j]);
+				}
+
+				string other = com.otherrole_position;
+				ChangeHeader (other, ref com.otherroles_main);
+				ChangeHeader (other, ref com.wait_otherroles_main);
+				for (int j = 0; j < com.otherroles_aid.Length; ++j) {
+					ChangeHeader (other, ref com.otherroles_aid [j]);
+				}
+				for (int j = 0; j < com.wait_otherroles_aid.Length; ++j) {
+					ChangeHeader (other, ref com.wait_otherroles_aid [j]);
+				}
+				for (int j = 0; j < com.start_otherroles_main.Length; ++j) {
+					ChangeHeader (other, ref com.start_otherroles_main [j]);
+				}
+				for (int j = 0; j < com.end_otherroles_main.Length; ++j) {
+					ChangeHeader (other, ref com.end_otherroles_main [j]);
+				}
 			}
+		}
+
+		void ChangeHeader (string header, ref string main)
+		{
+			if (main == "sit" || main == "stand")
+				return;
+			main = header + "_" + main;
 		}
 
 		void InitializeJobs ()
 		{
-			int jobNum = storyline.jobs.Length;
+			int jobNum = storyline.initcharacterdata.Length;
 			for (int i = 0; i < jobNum; ++i) {
-				Job job = storyline.jobs [i];
+				InitCharacterData job = storyline.initcharacterdata [i];
 				if (string.IsNullOrEmpty (job.name)) {
 					Log.error ("Initialize job [" + i + "] failed: empty name");
 					continue;
@@ -134,7 +186,7 @@ namespace DesignSociety
 			foreach (string name in nameToJob.Keys) {
 				names.Add (name);
 			}
-			nameToJobCandidate.Clear ();
+			nameToJobCandidateName.Clear ();
 			if (!RecursivelyArrangeJobCandidate (names, 0)) {
 				Log.error ("Select job candidates failed: impossible combination");
 			}
@@ -145,7 +197,7 @@ namespace DesignSociety
 			if (i >= jobNames.Count)
 				return true;
 		
-			Job job = nameToJob [jobNames [i]];
+			InitCharacterData job = nameToJob [jobNames [i]];
 			if (job.candidates.Length == 0) {
 				Log.warn ("Select job candidate [" + jobNames [i] + "] warning: no candidates");
 				return RecursivelyArrangeJobCandidate (jobNames, i + 1);
@@ -157,33 +209,33 @@ namespace DesignSociety
 					Log.warn ("Character [" + chaName + "] in job [" + jobNames [i] + "] is illegal: cannot find");
 					continue;
 				}
-				if (!nameToJobCandidate.ContainsValue (chaName))
+				if (!nameToJobCandidateName.ContainsValue (chaName))
 					possibleChaNames.Add (chaName);
 			}
 			if (possibleChaNames.Count == 0) {
-				nameToJobCandidate.Remove (jobNames [i]);
+				nameToJobCandidateName.Remove (jobNames [i]);
 				return false;
 			}
 
 			int index = Random.Range (0, possibleChaNames.Count);
-			nameToJobCandidate [jobNames [i]] = possibleChaNames [index];
+			nameToJobCandidateName [jobNames [i]] = possibleChaNames [index];
 			while (!RecursivelyArrangeJobCandidate (jobNames, i + 1)) {
 				possibleChaNames.RemoveAt (index);
 				if (possibleChaNames.Count == 0) {
-					nameToJobCandidate.Remove (jobNames [i]);
+					nameToJobCandidateName.Remove (jobNames [i]);
 					return false;
 				}
 				index = Random.Range (0, possibleChaNames.Count);
-				nameToJobCandidate [jobNames [i]] = possibleChaNames [index];
+				nameToJobCandidateName [jobNames [i]] = possibleChaNames [index];
 			}
 			return true;
 		}
 
-		void InitializeSpots ()
+		void InitializeScenes ()
 		{
-			int spotNum = storyline.storyline_spots.Length;
+			int spotNum = storyline.scenedata.Length;
 			for (int i = 0; i < spotNum; ++i) {
-				StorylineSpot spot = storyline.storyline_spots [i];
+				SceneData spot = storyline.scenedata [i];
 				if (string.IsNullOrEmpty (spot.spot_name)) {
 					Log.error ("Initialize spot [" + i + "] failed: empty name");
 					continue;
@@ -196,24 +248,24 @@ namespace DesignSociety
 					Log.error ("Spot [" + spot.spot_name + "] has undefined principal [" + spot.principal + "] : skipped");
 					continue;
 				}
-				if (nameToSpot.ContainsKey (spot.spot_name)) {
+				if (nameToScene.ContainsKey (spot.spot_name)) {
 					Log.warn ("Initialize spot [" + i + "] warning: overlapped name");
 				}
-				nameToSpot [spot.spot_name] = spot;
-				nameToSpotState [spot.spot_name] = SpotState.READY;
-				nameToSpotCandidates [spot.spot_name] = new HashSet<string> ();
+				nameToScene [spot.spot_name] = spot;
+				nameToSceneState [spot.spot_name] = SceneState.READY;
+				nameToSceneCandidateNames [spot.spot_name] = new HashSet<string> ();
 			}
 		}
 
 		void StartStorylineSpot (string spotName)
 		{
-			StorylineSpot spot = nameToSpot [spotName];
-			string name = nameToJobCandidate [spot.principal];
+			SceneData spot = nameToScene [spotName];
+			string name = nameToJobCandidateName [spot.principal];
 			GameObject obj = nameToCharacterObj [name];
 			Person person = obj.GetComponent<Person> ();
-			bool success = person.AddPrincipalActivities (spot.principal_activities, spotName);
+			bool success = person.AddPrincipalActivities (spot.principal_activity, spotName);
 			if (success) {
-				nameToSpotState [spotName] = SpotState.STARTED;
+				nameToSceneState [spotName] = SceneState.STARTED;
 				Log.info ("开始故事节点 " + Log.pink ("【" + spotName + "】"));
 				JoinStorylineSpot (name, spotName);
 			}
@@ -221,17 +273,17 @@ namespace DesignSociety
 
 		public void JoinStorylineSpot (string candidate, string spotName)
 		{
-			nameToSpotCandidates [spotName].Add (candidate);
+			nameToSceneCandidateNames [spotName].Add (candidate);
 			Log.info (Log.yellow ("【" + candidate + "】") + " 加入故事节点 " + Log.pink ("【" + spotName + "】"));
 		}
 
 		public void QuitStorylineSpot (string candidate, string spotName)
 		{
-			HashSet<string> set = nameToSpotCandidates [spotName];
+			HashSet<string> set = nameToSceneCandidateNames [spotName];
 			if (set.Remove (candidate)) {
 				Log.info (Log.yellow ("【" + candidate + "】") + " 退出故事节点 " + Log.pink ("【" + spotName + "】"));
 				if (set.Count == 0) {
-					nameToSpotState [spotName] = SpotState.ENDED;
+					nameToSceneState [spotName] = SceneState.ENDED;
 					Log.info ("结束故事节点 " + Log.pink ("【" + spotName + "】"));
 				}
 			}
@@ -239,7 +291,7 @@ namespace DesignSociety
 
 		void KillStorylineSpot (string spotName)
 		{
-			HashSet<string> set = nameToSpotCandidates [spotName];
+			HashSet<string> set = nameToSceneCandidateNames [spotName];
 			foreach (string name in set) {
 				GameObject obj = nameToCharacterObj [name];
 				Person person = obj.GetComponent<Person> ();
@@ -247,7 +299,7 @@ namespace DesignSociety
 				person.Stop ();
 			}
 			set.Clear ();
-			nameToSpotState [spotName] = SpotState.KILLED;
+			nameToSceneState [spotName] = SceneState.KILLED;
 			Log.info ("杀死故事节点 " + Log.pink ("【" + spotName + "】"));
 		}
 
@@ -263,14 +315,14 @@ namespace DesignSociety
 			if (!isTicking)
 				return;
 			time += Time.deltaTime;
-			foreach (string spotName in nameToSpot.Keys) {
-				StorylineSpot spot = nameToSpot [spotName];
+			foreach (string spotName in nameToScene.Keys) {
+				SceneData spot = nameToScene [spotName];
 				if (time >= spot.start_time && time < spot.end_time) {
-					if (nameToSpotState [spotName] == SpotState.READY) {
+					if (nameToSceneState [spotName] == SceneState.READY) {
 						StartStorylineSpot (spotName);
 					}
 				} else if (time >= spot.end_time) {
-					if (nameToSpotState [spotName] == SpotState.STARTED) {
+					if (nameToSceneState [spotName] == SceneState.STARTED) {
 						KillStorylineSpot (spotName);
 					}
 				}

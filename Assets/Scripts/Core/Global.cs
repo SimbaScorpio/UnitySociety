@@ -14,7 +14,7 @@ namespace DesignSociety
 		public static string TexturePath = "file://" + Application.dataPath + "/Data/texture/";
 	}
 
-	public enum SpotState
+	public enum SceneState
 	{
 		READY,
 		STARTED,

@@ -21,7 +21,7 @@ namespace DesignSociety
 			instance = this;
 		}
 
-		public GameObject Spawn (Character cha, Vector3 position, Quaternion rotation)
+		public GameObject Spawn (CharacterData cha, Vector3 position, Quaternion rotation)
 		{
 			GameObject ai = Instantiate (AIPrefab, position, rotation) as GameObject;
 			ai.GetComponent<NetworkServerAI> ().character = cha;

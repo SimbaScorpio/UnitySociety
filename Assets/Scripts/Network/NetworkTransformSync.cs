@@ -7,9 +7,10 @@ namespace DesignSociety
 {
 	public class NetworkTransformSync : NetworkBehaviour
 	{
+		public bool isServerControl;
 		public bool sendPosition;
 		public bool sendRotation;
-		public float lerpPosRate = 10f;
+		public float lerpPosRate = 20f;
 		public float lerpRotRate = 10f;
 
 		[SyncVar]
@@ -25,7 +26,13 @@ namespace DesignSociety
 
 		void FixedUpdate ()
 		{
-			if (isLocalPlayer) {
+			if (isServerControl && isServer) {
+				if (sendPosition)
+					syncPosition = transform.position;
+				if (sendRotation)
+					syncRotation = transform.rotation;
+			} else if (isLocalPlayer) {
+				print ("localplayer");
 				if (sendPosition)
 					CmdSendPosition (transform.position);
 				if (sendRotation)

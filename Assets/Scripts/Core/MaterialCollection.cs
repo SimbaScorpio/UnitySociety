@@ -38,6 +38,8 @@ namespace DesignSociety
 		Material LoadData (string name)
 		{
 			string url = Global.TexturePath + name;
+			url = GetFileURL (url);
+			Log.info ("贴图路径：" + url);
 			WWW www = new WWW (url);
 			while (!www.isDone) {
 				// blocked
@@ -61,6 +63,11 @@ namespace DesignSociety
 			mat.SetColor ("_EmissionColor", Color.white);
 			mat.EnableKeyword ("_EMISSION");
 			return mat;
+		}
+
+		string GetFileURL (string path)
+		{
+			return (new System.Uri (path)).AbsoluteUri;
 		}
 	}
 }
