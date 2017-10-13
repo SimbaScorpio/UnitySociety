@@ -134,7 +134,7 @@ ModelImporter:
     4300004: mesh
     4300006: hair
     4300008: ears
-    7400000: else_exercise_3
+    7400000: other_exercise_3
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -161,7 +161,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: else_exercise_3
+      name: other_exercise_3
       takeName: CINEMA_4D_Main
       firstFrame: 40
       lastFrame: 88

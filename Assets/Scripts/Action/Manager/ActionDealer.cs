@@ -51,7 +51,7 @@ namespace DesignSociety
 		IEnumerator HandleAidActivity ()
 		{
 			while (!aidActive) {
-				float p = StorylineManager.GetInstance ().storyline.aid_possibility;
+				float p = 0.1f;
 				int aidPossiblity = Random.Range (0, (int)(1 / p));
 				if (aidPossiblity == 0) {
 					aidActive = true;

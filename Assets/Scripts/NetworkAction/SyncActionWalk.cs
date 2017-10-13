@@ -21,7 +21,7 @@ namespace DesignSociety
 		private readonly int hashSpeedParaH = Animator.StringToHash ("SpeedH");
 		private readonly int hashSpeedParaV = Animator.StringToHash ("SpeedV");
 
-		public void Setting (Landmark landmark, IActionCompleted monitor)
+		public void Setting (string stateName, Landmark landmark, IActionCompleted monitor)
 		{
 			this.landmark = landmark;
 			lastH = transform.position.y;
@@ -39,7 +39,8 @@ namespace DesignSociety
 			ai.enabled = true;
 			ai.OnTargetReached += OnTargetReached;
 
-			Setting ("walk_blend_tree", monitor);
+			ActionInfo info = new ActionInfo (stateName, null, null, null, StuffType.BigStuff);
+			Setting (info, monitor);
 		}
 
 		void OnTargetReached (object sender, EventArgs e)

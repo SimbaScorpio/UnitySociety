@@ -9,22 +9,34 @@ namespace DesignSociety
 	public class NetworkPlayerDrag : NetworkBehaviour
 	{
 		public float dragThreshold = 10f;
-		public float dropHeight = 1f;
+		public float dropHeight = 1.5f;
 		public float playerHeight = 1.75f;
+		public float gravity = -9.82f;
 
 		private Vector3 lastPressPos;
 		private float rayDistance = 300f;
 		private bool isCheckBegin;
 		private bool isDragBegin;
 
+		private float velocity;
+
 		private CameraPerspectiveEditor cameraEditor;
+
+		private Animator anim;
+		private NetworkAnimator netAnim;
 
 		void Start ()
 		{
-			if (!isLocalPlayer)
-				return;
-			Camera.main.GetComponent<CameraFollower> ().Character = this.gameObject;
-			cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
+			anim = GetComponent<Animator> ();
+			if (isLocalPlayer) {
+				Camera.main.GetComponent<CameraFollower> ().Character = this.gameObject;
+				cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
+				netAnim = GetComponent<NetworkAnimator> ();
+				if (isServer) {
+					for (int i = 0; i < anim.parameterCount; ++i)
+						netAnim.SetParameterAutoSend (i, true);
+				}
+			}
 		}
 
 		void Update ()
@@ -50,7 +62,8 @@ namespace DesignSociety
 				if (isDragBegin) {
 					isDragBegin = false;
 					OnDragEnd ();
-					//CmdOnDragEnd ();
+					CmdOnDragEnd ();
+
 				}
 			} else if (Input.GetMouseButton (0)) {
 				if (isCheckBegin) {
@@ -59,7 +72,8 @@ namespace DesignSociety
 						isDragBegin = true;
 						isCheckBegin = false;
 						OnDragBegin ();
-						//CmdOnDragBegin ();
+						CmdOnDragBegin ();
+
 					}
 				} else if (isDragBegin) {
 					OnDragging ();
@@ -79,16 +93,19 @@ namespace DesignSociety
 			return false;
 		}
 
+
+
 		void OnDragBegin ()
 		{
-			
+			velocity = 0;
+			anim.Play ("drag_float", 0, 0);
 		}
 
 		void OnDragEnd ()
 		{
-			
+			StartCoroutine (Falling ());
+			anim.Play ("drag_drop", 0, 0);
 		}
-
 
 		void OnDragging ()
 		{
@@ -110,39 +127,78 @@ namespace DesignSociety
 		}
 
 
+		IEnumerator Falling ()
+		{
+			float lasty;
+			Vector3 position;
+			do {
+				velocity += Time.deltaTime * gravity;
+				position = transform.position;
+				lasty = position.y;
+				position.y += velocity * Time.deltaTime;
+				transform.position = position;
+				yield return null;
+			} while(!RaycastPosition (ref position, lasty));
+		}
+
+		bool RaycastPosition (ref Vector3 position, float lasty)
+		{
+			RaycastHit hit;
+			float up = Mathf.Max (playerHeight / 2, lasty - position.y + playerHeight / 2);
+			// make sure ray shoot from above ground
+			if (Physics.Raycast (position + Vector3.up * up, Vector3.down, out hit, up, -1)) {
+				if (Mathf.Abs (hit.distance - up) < 0.1f || hit.distance < up) {
+					position = hit.point;
+					return true;
+				}
+			}
+			return false;
+		}
+
+
+		void OnNetDragBegin ()
+		{
+			anim.Play ("drag_float", 0, 0);
+		}
+
+		void OnNetDragEnd ()
+		{
+			anim.Play ("drag_drop", 0, 0);
+		}
+
 		#region Network
 
-		//		// 客户端通知服务器对象，服务器通知其他客户端，注意ServerOnly的服务器本身不接受Rpc指令
-		//		[Command]
-		//		void CmdOnDragBegin ()
-		//		{
-		//			RpcOnDragBegin ();
-		//			OnDragBegin ();
-		//		}
-		//
-		//		// 客户端通知服务器对象，服务器通知其他客户端，注意ServerOnly的服务器本身不接受Rpc指令
-		//		[Command]
-		//		void CmdOnDragEnd ()
-		//		{
-		//			RpcOnDragEnd ();
-		//			OnDragEnd ();
-		//		}
-		//
-		//		[ClientRpc]
-		//		void RpcOnDragBegin ()
-		//		{
-		//			if (!isLocalPlayer) {
-		//				OnDragBegin ();
-		//			}
-		//		}
-		//
-		//		[ClientRpc]
-		//		void RpcOnDragEnd ()
-		//		{
-		//			if (!isLocalPlayer) {
-		//				OnDragEnd ();
-		//			}
-		//		}
+		// 客户端通知服务器对象，服务器通知其他客户端，注意ServerOnly的服务器本身不接受Rpc指令
+		[Command]
+		void CmdOnDragBegin ()
+		{
+			RpcOnDragBegin ();
+			OnNetDragBegin ();
+		}
+		
+		// 客户端通知服务器对象，服务器通知其他客户端，注意ServerOnly的服务器本身不接受Rpc指令
+		[Command]
+		void CmdOnDragEnd ()
+		{
+			RpcOnDragEnd ();
+			OnNetDragEnd ();
+		}
+
+		[ClientRpc]
+		void RpcOnDragBegin ()
+		{
+			if (!isLocalPlayer) {
+				OnNetDragBegin ();
+			}
+		}
+
+		[ClientRpc]
+		void RpcOnDragEnd ()
+		{
+			if (!isLocalPlayer) {
+				OnNetDragEnd ();
+			}
+		}
 
 		#endregion
 	}

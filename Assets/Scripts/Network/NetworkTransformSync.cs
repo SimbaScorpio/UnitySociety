@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 
 namespace DesignSociety
 {
+	[NetworkSettings (channel = 1, sendInterval = 0.03f)]
 	public class NetworkTransformSync : NetworkBehaviour
 	{
 		public bool isServerControl;
@@ -32,7 +33,6 @@ namespace DesignSociety
 				if (sendRotation)
 					syncRotation = transform.rotation;
 			} else if (isLocalPlayer) {
-				print ("localplayer");
 				if (sendPosition)
 					CmdSendPosition (transform.position);
 				if (sendRotation)

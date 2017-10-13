@@ -26,9 +26,7 @@ namespace DesignSociety
 
 		private StorylineManager storylineManager;
 		private NetworkActionDealer actionDealer;
-		//private ActionDealer actionDealer;
 
-		//private float staticAidPossibility;
 		private float distanceError = 0.5f;
 		private float randomDiff = 1.0f;
 		[HideInInspector]
@@ -45,8 +43,6 @@ namespace DesignSociety
 			followingActivities = new List<FollowingActivity> ();
 			storylineManager = StorylineManager.GetInstance ();
 			actionDealer = GetComponent<NetworkActionDealer> ();
-			//actionDealer = GetComponent<ActionDealer> ();
-			//staticAidPossibility = storylineManager.storyline.aid_possibility;
 		}
 
 		public bool AddPrincipalActivities (PrincipalActivity[] activities, string name)
@@ -106,9 +102,9 @@ namespace DesignSociety
 			}
 			state = ComState.LEAVING;
 
-			ActionSingle ac = GetComponent<ActionSingle> ();
+			NetworkActionPlay ac = GetComponent<NetworkActionPlay> ();
 			if (ac != null) {
-				ac.Free ();
+				ac.SafeFinish ();
 			}
 		}
 
@@ -154,9 +150,6 @@ namespace DesignSociety
 			CharacterData character = storylineManager.nameToCharacter [this.name];
 			Landmark initialLandmark = LandmarkCollection.GetInstance ().Get (character.initial_position);
 			if (Vector3.Distance (transform.position, initialLandmark.position) > distanceError) {
-//				if (actionDealer.TryNotSitting (null)) {
-//					GetComponent<ActionRPCManager> ().ApplyWalkToAction (initialLandmark, null);
-//				}
 				actionDealer.ApplyWalkAction (initialLandmark, null);
 			} else {
 				string[] aid;
@@ -199,7 +192,6 @@ namespace DesignSociety
 					}
 				}
 				currentPrincipalActivity = activity;
-				//compositeMovement = storylineManager.nameToCompositeMovement [activity.action];
 				compositeMovement = GetCompositeMovementData (activity.position, activity.action);
 				state = ComState.ARRIVING;
 				StartCoroutine (WaitToBeMySecondChild ());
@@ -255,7 +247,6 @@ namespace DesignSociety
 					}
 				}
 				currentFollowingActivity = followingActivities [0];
-				//compositeMovement = storylineManager.nameToCompositeMovement [activity.action];
 				compositeMovement = GetCompositeMovementData (activity.position, activity.action);
 				state = ComState.ARRIVING;
 				StartCoroutine (WaitToBeMyThirdChild ());
@@ -392,9 +383,9 @@ namespace DesignSociety
 				break;
 
 			case ComState.ENDING:
-			// 如果有结束动作，并且结束动作未执行完，继续执行
+				// 如果有结束动作，并且结束动作未执行完，继续执行
 				hasAction = DealListAction (actionDealer, compositeMovement.end_mainrole_main, ref actionListIndex, true, name, "执行结束动作");
-			// 如果没有结束动作，或已经执行完，判断他人是否完成，否则继续
+				// 如果没有结束动作，或已经执行完，判断他人是否完成，否则继续
 				if (!hasAction && compositeMovement.end_otherroles_main != null) {
 					foreach (Person person in children) {
 						if (person.actionListIndex < compositeMovement.end_otherroles_main.Length) {
@@ -403,7 +394,7 @@ namespace DesignSociety
 						}
 					}
 				}
-			// 全部完成，进入下一状态
+				// 全部完成，进入下一状态
 				if (!hasAction)
 					state = ComState.ENDINGSTOP;
 				break;
