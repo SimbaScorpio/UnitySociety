@@ -19,6 +19,12 @@ namespace DesignSociety
 		private string newRoot = "";
 
 		private Landmark landmark;
+		[HideInInspector]
+		public GameObject createdItem;
+		[HideInInspector]
+		public List<GameObject> gainedItems = new List<GameObject> ();
+		[HideInInspector]
+		public List<Stuff> stuffs = new List<Stuff> ();
 
 		#region 随机动作判断
 
@@ -56,8 +62,9 @@ namespace DesignSociety
 				if (aidPossiblity == 0) {
 					aidActive = true;
 					handler = null;
-				} else
+				} else {
 					yield return new WaitForSeconds (nextTimeToConsider);
+				}
 			}
 		}
 
@@ -91,6 +98,8 @@ namespace DesignSociety
 
 		public void ApplyAction (string stateName, IActionCompleted callback)
 		{
+			if (string.IsNullOrEmpty (stateName))
+				return;
 			ActionType newType = ActionName.IsValid (stateName);
 			if (newType == ActionType.error) {
 				Log.error ("未知的动作【" + stateName + "】");
@@ -113,7 +122,7 @@ namespace DesignSociety
 			if (!string.IsNullOrEmpty (oldRoot)) {
 				// need to find items here
 				string[] paths = ActionName.FindItems (lastStateName);
-				ActionInfo info = new ActionInfo (oldRoot + "_end", paths, null, null, StuffType.BigStuff);
+				ActionInfo info = new ActionInfo (oldRoot + "_end", paths, null, StuffType.BigStuff);
 				SyncAction (info, this);
 			} else {
 				CheckSitStand ();
@@ -126,10 +135,10 @@ namespace DesignSociety
 			ActionType newType = ActionName.IsValid (newStateName);
 			ActionType oldType = ActionName.IsValid (lastStateName);
 			if (newType == ActionType.sit && oldType == ActionType.stand) {
-				ActionInfo info = new ActionInfo ("sit_down", null, null, null, StuffType.BigStuff);
+				ActionInfo info = new ActionInfo ("sit_down", null, null, StuffType.BigStuff);
 				SyncAction (info, this);
 			} else if (newType == ActionType.stand && oldType == ActionType.sit) {
-				ActionInfo info = new ActionInfo ("stand_up", null, null, null, StuffType.BigStuff);
+				ActionInfo info = new ActionInfo ("stand_up", null, null, StuffType.BigStuff);
 				SyncAction (info, this);
 			} else {
 				CheckNewBorder ();
@@ -142,7 +151,7 @@ namespace DesignSociety
 			if (!string.IsNullOrEmpty (newRoot)) {
 				// need to find items here
 				string[] paths = ActionName.FindItems (newStateName);
-				ActionInfo info = new ActionInfo (newRoot + "_begin", paths, null, null, StuffType.BigStuff);
+				ActionInfo info = new ActionInfo (newRoot + "_begin", paths, null, StuffType.BigStuff);
 				SyncAction (info, this);
 			} else {
 				ActualApply ();
@@ -158,7 +167,9 @@ namespace DesignSociety
 			} else {
 				// need to find items here
 				string[] paths = ActionName.FindItems (newStateName);
-				ActionInfo info = new ActionInfo (newStateName, paths, null, null, StuffType.BigStuff);
+				string prefabName = ActionName.FindPrefabs (newStateName);
+				StuffType stuffType = ActionName.FindStuffType (newStateName);
+				ActionInfo info = new ActionInfo (newStateName, paths, prefabName, stuffType);
 				SyncAction (info, newCallback);
 			}
 		}
@@ -215,10 +226,17 @@ namespace DesignSociety
 		}
 
 		[ClientRpc]
-		void RpcSyncAction (string name)
+		public void RpcSyncAction (string name)
 		{
 			if (!isLocalPlayer)
 				anim.Play (name, 0, 0f);
+		}
+
+		[ClientRpc]
+		public void RpcSetActionSpeed (float speed)
+		{
+			if (!isLocalPlayer)
+				anim.speed = speed;
 		}
 
 		[ClientRpc]

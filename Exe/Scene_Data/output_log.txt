@@ -29,16 +29,122 @@ Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\S
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Drawing.dll into Unity Child Domain
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll (this message is harmless)
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
-- Completed reload, in  0.192 seconds
+- Completed reload, in  0.030 seconds
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.dll (this message is harmless)
-desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.145661 ms
+UnloadTime: 0.935497 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 57f8 -> priority: 1 
-  Thread -> id: 25ac -> priority: 1 
-  Thread -> id: 4b00 -> priority: 1 
-  Thread -> id: 4634 -> priority: 1 
+  Thread -> id: 6464 -> priority: 1 
+  Thread -> id: 5260 -> priority: 1 
+  Thread -> id: 6e48 -> priority: 1 
+  Thread -> id: 3f78 -> priority: 1 
+<RI.Hid> Failed to create device file:
+ 20 另一个程序正在使用此文件，进程无法访问。
+
+ 
+(Filename:  Line: 54)
+
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+reactor filed to acomplish request with code {1234}, bytesReceived {0}
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777}
+Attempt to send to not connected connection {1}
+ 
+(Filename:  Line: 359)
+
+Failed to send internal buffer channel:0 bytesToSend:48
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Send Error: WrongConnection channel:0 bytesToSend:48
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ClientDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Releasing render texture that is set as Camera.targetTexture!
+ 
+(Filename:  Line: 3422)
+

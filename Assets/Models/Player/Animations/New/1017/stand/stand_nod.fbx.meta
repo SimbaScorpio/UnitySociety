@@ -1,42 +1,42 @@
 fileFormatVersion: 2
-guid: 1061c0d3b3a24d84f91b658d2d89d300
-timeCreated: 1507559418
+guid: fd083fbb9fada3943871a20386cfd4ea
+timeCreated: 1508248975
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: 1
-    100002: 2
-    100004: chest_ctrl
-    100006: ears
-    100008: //RootNode
-    100010: end
-    100012: hair
-    100014: head
-    100016: hip_ctrl
-    100018: left_ankle
-    100020: left_ankle_2
-    100022: left_ankle_Goal
-    100024: left_arm
-    100026: left_elbow
-    100028: left_fingertip
-    100030: left_fingertip_Goal
-    100032: left_foot
-    100034: left_foot_ctrl
-    100036: left_foot_lift
-    100038: left_hand
-    100040: left_hand_Goal
-    100042: left_hip
-    100044: left_knee
-    100046: left_mid
-    100048: left_mid2
-    100050: left_thumb
-    100052: left_thumbmid
-    100054: left_thumbtip
-    100056: left_thumbtip_Goal
-    100058: left_toe
-    100060: mesh
-    100062: neck
+    100000: chest_ctrl
+    100002: "Cinema4D_\u7F16\u8F91\u5668"
+    100004: ears
+    100006: end
+    100008: hair
+    100010: head
+    100012: hip_ctrl
+    100014: left_ankle
+    100016: left_ankle_2
+    100018: left_ankle_Goal
+    100020: left_arm
+    100022: left_elbow
+    100024: left_fingertip
+    100026: left_fingertip_Goal
+    100028: left_foot
+    100030: left_foot_ctrl
+    100032: left_foot_lift
+    100034: left_hand
+    100036: left_hand_Goal
+    100038: left_hip
+    100040: left_knee
+    100042: left_mid
+    100044: left_mid2
+    100046: left_thumb
+    100048: left_thumbmid
+    100050: left_thumbtip
+    100052: left_thumbtip_Goal
+    100054: left_toe
+    100056: left_toe_2
+    100058: mesh
+    100060: neck
+    100062: neck_ctrl
     100064: right_ankle
     100066: right_ankle_2
     100068: right_ankle_Goal
@@ -59,42 +59,42 @@ ModelImporter:
     100102: right_thumbtip
     100104: right_thumbtip_Goal
     100106: right_toe
-    100108: root
-    100110: spline
-    100112: tar1
-    100114: tar2
-    400000: 1
-    400002: 2
-    400004: chest_ctrl
-    400006: ears
-    400008: //RootNode
-    400010: end
-    400012: hair
-    400014: head
-    400016: hip_ctrl
-    400018: left_ankle
-    400020: left_ankle_2
-    400022: left_ankle_Goal
-    400024: left_arm
-    400026: left_elbow
-    400028: left_fingertip
-    400030: left_fingertip_Goal
-    400032: left_foot
-    400034: left_foot_ctrl
-    400036: left_foot_lift
-    400038: left_hand
-    400040: left_hand_Goal
-    400042: left_hip
-    400044: left_knee
-    400046: left_mid
-    400048: left_mid2
-    400050: left_thumb
-    400052: left_thumbmid
-    400054: left_thumbtip
-    400056: left_thumbtip_Goal
-    400058: left_toe
-    400060: mesh
-    400062: neck
+    100108: right_toe_2
+    100110: root
+    100112: spline
+    100114: //RootNode
+    400000: chest_ctrl
+    400002: "Cinema4D_\u7F16\u8F91\u5668"
+    400004: ears
+    400006: end
+    400008: hair
+    400010: head
+    400012: hip_ctrl
+    400014: left_ankle
+    400016: left_ankle_2
+    400018: left_ankle_Goal
+    400020: left_arm
+    400022: left_elbow
+    400024: left_fingertip
+    400026: left_fingertip_Goal
+    400028: left_foot
+    400030: left_foot_ctrl
+    400032: left_foot_lift
+    400034: left_hand
+    400036: left_hand_Goal
+    400038: left_hip
+    400040: left_knee
+    400042: left_mid
+    400044: left_mid2
+    400046: left_thumb
+    400048: left_thumbmid
+    400050: left_thumbtip
+    400052: left_thumbtip_Goal
+    400054: left_toe
+    400056: left_toe_2
+    400058: mesh
+    400060: neck
+    400062: neck_ctrl
     400064: right_ankle
     400066: right_ankle_2
     400068: right_ankle_Goal
@@ -117,24 +117,18 @@ ModelImporter:
     400102: right_thumbtip
     400104: right_thumbtip_Goal
     400106: right_toe
-    400108: root
-    400110: spline
-    400112: tar1
-    400114: tar2
-    2300000: 1
-    2300002: 2
-    2300004: ears
-    2300006: hair
-    3300000: 1
-    3300002: 2
-    3300004: ears
-    3300006: hair
-    4300000: 1
-    4300002: 2
-    4300004: mesh
-    4300006: hair
-    4300008: ears
-    7400000: other_exercise_3
+    400108: right_toe_2
+    400110: root
+    400112: spline
+    400114: //RootNode
+    2300000: ears
+    2300002: hair
+    3300000: ears
+    3300002: hair
+    4300000: mesh
+    4300002: hair
+    4300004: ears
+    7400000: stand_nod
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -161,10 +155,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: other_exercise_3
+      name: stand_nod
       takeName: CINEMA_4D_Main
-      firstFrame: 40
-      lastFrame: 88
+      firstFrame: 0
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -187,9 +181,7 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: 1
-        weight: 1
-      - path: 2
+      - path: "Cinema4D_\u7F16\u8F91\u5668"
         weight: 1
       - path: ears
         weight: 1
@@ -198,6 +190,8 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
+        weight: 1
+      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -287,6 +281,8 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
+      - path: left_foot_ctrl/left_toe_2
+        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -297,9 +293,7 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: tar1
-        weight: 1
-      - path: tar2
+      - path: right_foot_ctrl/right_toe_2
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

@@ -208,7 +208,6 @@ namespace DesignSociety
 					Person person = waitToBeChildren [i];
 					if (!person.isPrincipal && !person.isBeingControlled &&
 					    (person.parent == null || person.parent == this)) {
-						person.Stop ();
 						person.parent = this;
 						person.isBeingControlled = true;
 						person.spotName = spotName;
@@ -263,7 +262,6 @@ namespace DesignSociety
 					Person person = waitToBeChildren [i];
 					if (!person.isPrincipal && !person.isBeingControlled &&
 					    (person.parent == null || person.parent == this)) {
-						person.Stop ();
 						person.parent = this;
 						person.isBeingControlled = true;
 						person.spotName = spotName;

@@ -39,7 +39,7 @@ namespace DesignSociety
 			ai.enabled = true;
 			ai.OnTargetReached += OnTargetReached;
 
-			ActionInfo info = new ActionInfo (stateName, null, null, null, StuffType.BigStuff);
+			ActionInfo info = new ActionInfo (stateName, null, null, StuffType.BigStuff);
 			Setting (info, monitor);
 		}
 
@@ -55,6 +55,7 @@ namespace DesignSociety
 			anim.SetFloat (hashSpeedParaH, speedH);
 			anim.SetFloat (hashSpeedParaV, speedV);
 			anim.speed = speedH * animationSpeed;
+			GetComponent<NetworkActionDealer> ().RpcSetActionSpeed (anim.speed);
 
 			lastH = transform.position.y;
 
@@ -84,6 +85,7 @@ namespace DesignSociety
 			}
 
 			anim.speed = 1;
+			GetComponent<NetworkActionDealer> ().RpcSetActionSpeed (anim.speed);
 			anim.SetFloat (hashSpeedParaH, 0);
 			anim.SetFloat (hashSpeedParaV, 0);
 

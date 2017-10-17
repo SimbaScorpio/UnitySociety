@@ -87,6 +87,8 @@ namespace DesignSociety
 		{
 			if (actionName == StandActionWithBorder.stand_cross_arm_shake_head.ToString ())
 				return StandActionWithBorder.stand_cross_arm.ToString ();
+			if (actionName == StandActionWithBorder.other_exercise_3.ToString ())
+				return StandActionWithBorder.other_exercise_2.ToString ();
 			return actionName;
 		}
 
@@ -95,6 +97,7 @@ namespace DesignSociety
 		public static string[] FindItems (string stateName)
 		{
 			switch (stateName) {
+			// normal display (object under such path simply set shown or hidden when animation begin or end)
 			case "stand_talk_mic":
 				return new string[] {
 					"mic"
@@ -144,7 +147,6 @@ namespace DesignSociety
 				return new string[] {
 					"Null"
 				};
-
 			case "sit_play_cellphone_pickup":
 				return new string[] {
 					"hip_ctrl/root/spline/right_chest/left_hand_Goal/phone"
@@ -177,16 +179,87 @@ namespace DesignSociety
 			case "sit_draw_pen":
 				return new string[] {
 					"hip_ctrl/root/spline/right_chest/left_hand_Goal/pen",
+					"paper2_1"
 				};
 			case "sit_crumple_paper":
 				return new string[] {
 					"paper2_1"
+				};
+
+			// create in scene (object under such path should be hidden, but used as a target to be followed by object in scene)
+			case "stand_poster":
+				return new string[] {
+					"poster"
+				};
+			case "stand_stickynote_wall":
+				return new string[] {
+					"stickynote"
+				};
+			
+			// gain from scene (object under such path should be hidden, but used as a target to be followed by object in scene)
+			case "stand_fixphone_pickup":
+				return new string[] {
+					"stickynote"
+				};
+			case "stand_fixphone_putdown":
+				return new string[] {
+					"stickynote"
+				};
+			case "sit_fixphone_pickup":
+				return new string[] {
+					"stickynote"
+				};
+			case "sit_fixphone_putdown":
+				return new string[] {
+					"stickynote"
+				};
+			case "other_exercise_1":
+				return new string[] {
+					"barbell"
+				};
+			case "other_exercise_2":
+				return new string[] {
+					"dumbbell1",
+					"dumbbell2"
+				};
+			case "other_exercise_3":
+				return new string[] {
+					"dumbbell1",
+					"dumbbell2"
 				};
 			default:
 				return null;
 			}
 		}
 
+		// 返回动作需要创建的物品名称
+		public static string FindPrefabs (string stateName)
+		{
+			switch (stateName) {
+			case "stand_poster":
+				return "poster";
+			case "stand_stickynote_wall":
+				return "stickynote";
+			default:
+				return null;
+			}
+		}
+
+		public static StuffType FindStuffType (string stateName)
+		{
+			switch (stateName) {
+			case "stand_small_pickup_table":
+				return StuffType.SmallStuff;
+			case "stand_middle_pickup_table":
+				return StuffType.MiddleStuff;
+			case "stand_large_pickup_table":
+				return StuffType.BigStuff;
+			case "stand_book_pickup_table":
+				return StuffType.BookStuff;
+			default:
+				return StuffType.SmallStuff;
+			}
+		}
 	}
 
 	public enum ActionType
@@ -372,6 +445,8 @@ namespace DesignSociety
 		stand_chin_in_hand,
 		stand_raise_hand,
 		stand_applaud,
-		stand_write_pen
+		stand_write_pen,
+		other_exercise_2,
+		other_exercise_3
 	}
 }

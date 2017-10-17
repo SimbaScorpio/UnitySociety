@@ -14,9 +14,10 @@ namespace DesignSociety
 
 		private float LerpPositionRate = 20f;
 		private float LerpRotationRate = 5f;
-		private float LerpPositionError = 0.001f;
-		private float LerpRotationError = 0.01f;
 		private Rigidbody rbody;
+
+
+		private Transform parent;
 
 		void Start ()
 		{
@@ -26,29 +27,39 @@ namespace DesignSociety
 
 		public void SetParent (Transform root)
 		{
-			if (transform.parent == root)
+			if (parent == root)
 				return;
 			StopAllCoroutines ();
+			transform.SetParent (root);
+			parent = root;
 
 			if (root == null) {
 				isOwned = false;
-				transform.SetParent (null);
 				UnLockPhysics ();
 			} else {
 				isOwned = true;
-				transform.SetParent (root);
 				LockPhysics ();
-				//transform.localPosition = offsetPosition;
 				StartCoroutine (LerpToPosition ());
-				//transform.localRotation = offsetRotation;
 				StartCoroutine (LerpToRotation ());
 			}
 		}
 
+		//		void Update ()
+		//		{
+		//			if (parent != null) {
+		//				Vector3 targetPosition = parent.position + offsetPosition;
+		//				transform.position = Vector3.Lerp (transform.position, targetPosition, Time.deltaTime * LerpPositionRate);
+		//				Quaternion targetRotation = Quaternion.Euler (parent.rotation.eulerAngles + offsetRotation);
+		//				transform.rotation = Quaternion.Lerp (transform.rotation, targetRotation, Time.deltaTime * LerpRotationRate);
+		//			}
+		//		}
+
 		IEnumerator LerpToPosition ()
 		{
-			while (Vector3.Distance (transform.localPosition, offsetPosition) > LerpPositionError) {
-				transform.localPosition = Vector3.Lerp (transform.localPosition, offsetPosition, Time.deltaTime * LerpPositionRate);
+			Vector3 targetPosition = offsetPosition;
+			while (Vector3.Distance (transform.localPosition, targetPosition) > 0.01f) {
+				targetPosition = offsetPosition;
+				transform.localPosition = Vector3.Lerp (transform.localPosition, targetPosition, Time.deltaTime * LerpPositionRate);
 				yield return null;
 			}
 		}
@@ -56,7 +67,8 @@ namespace DesignSociety
 		IEnumerator LerpToRotation ()
 		{
 			Quaternion targetRotation = Quaternion.Euler (offsetRotation);
-			while (Vector3.Distance (transform.localRotation.eulerAngles, offsetRotation) > LerpRotationError) {
+			while (Vector3.Distance (transform.localRotation.eulerAngles, offsetRotation) > 0.01f) {
+				targetRotation = Quaternion.Euler (offsetRotation);
 				transform.localRotation = Quaternion.Lerp (transform.localRotation, targetRotation, Time.deltaTime * LerpRotationRate);
 				yield return null;
 			}

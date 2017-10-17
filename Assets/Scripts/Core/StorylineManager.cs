@@ -103,7 +103,7 @@ namespace DesignSociety
 					ChangeHeader ("stand", ref cha.spare_time_aid_stand [j]);
 				}
 				for (int j = 0; j < cha.spare_time_aid_other.Length; ++j) {
-					ChangeHeader ("else", ref cha.spare_time_aid_other [j]);
+					ChangeHeader ("other", ref cha.spare_time_aid_other [j]);
 				}
 			}
 		}
@@ -159,7 +159,7 @@ namespace DesignSociety
 
 		void ChangeHeader (string header, ref string main)
 		{
-			if (main == "sit" || main == "stand")
+			if (main == "sit" || main == "stand" || string.IsNullOrEmpty (main))
 				return;
 			main = header + "_" + main;
 		}

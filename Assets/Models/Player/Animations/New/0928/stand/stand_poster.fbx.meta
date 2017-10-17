@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: df4f8c7122509bb45a1579904043fda7
-timeCreated: 1507558605
+timeCreated: 1508138159
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -34,7 +34,7 @@ ModelImporter:
     100052: left_toe
     100054: mesh
     100056: neck
-    100058: paper
+    100058: poster
     100060: right_ankle
     100062: right_ankle_2
     100064: right_ankle_Goal
@@ -90,7 +90,7 @@ ModelImporter:
     400052: left_toe
     400054: mesh
     400056: neck
-    400058: paper
+    400058: poster
     400060: right_ankle
     400062: right_ankle_2
     400064: right_ankle_Goal
@@ -119,11 +119,11 @@ ModelImporter:
     400110: target
     2300000: ears
     2300002: hair
-    2300004: paper
+    2300004: poster
     3300000: ears
     3300002: hair
-    3300004: paper
-    4300000: paper
+    3300004: poster
+    4300000: poster
     4300002: mesh
     4300004: hair
     4300006: ears
@@ -157,7 +157,7 @@ ModelImporter:
       name: stand_poster
       takeName: CINEMA_4D_Main
       firstFrame: 0
-      lastFrame: 100
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -176,7 +176,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: OnItemReleased
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: OnItemCreated
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -278,7 +292,7 @@ ModelImporter:
         weight: 1
       - path: mesh
         weight: 1
-      - path: paper
+      - path: poster
         weight: 1
       - path: right_foot_ctrl
         weight: 1

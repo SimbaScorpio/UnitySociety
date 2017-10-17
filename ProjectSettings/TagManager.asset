@@ -8,6 +8,9 @@ TagManager:
   - MiddleStuff
   - BigStuff
   - BookStuff
+  - fixphone
+  - barbell
+  - dumbbell
   layers:
   - Default
   - TransparentFX

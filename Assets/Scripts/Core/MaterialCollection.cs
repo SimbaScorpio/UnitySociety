@@ -37,9 +37,10 @@ namespace DesignSociety
 
 		Material LoadData (string name)
 		{
-			string url = Global.TexturePath + name;
+			string url = Global.TexturePath + name + ".png";
 			url = GetFileURL (url);
 			Log.info ("贴图路径：" + url);
+
 			WWW www = new WWW (url);
 			while (!www.isDone) {
 				// blocked
