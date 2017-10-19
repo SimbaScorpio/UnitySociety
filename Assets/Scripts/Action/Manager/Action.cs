@@ -145,8 +145,67 @@ namespace DesignSociety
 				};
 			case "stand_tailor_tape_model":
 				return new string[] {
-					"Null"
+					"tailor"
 				};
+			case "stand_controller":
+				return new string[] {
+					"caculator"
+				};
+			case "stand_drink_water":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_hand_Goal/watercup"
+				};
+			case "stand_insert":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_hand_Goal/insertcube",
+					"hip_ctrl/root/spline/right_chest/right_hand_Goal/insertstick"
+				};
+			case "stand_light":
+				return new string[] {
+					"spotlight"
+				};
+			case "stand_mic_self":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/mic"
+				};
+			case "stand_photo_cellphone":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/phone"
+				};
+			case "stand_pour_wine":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/wine"
+				};
+			case "stand_record_rod":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2/mic"
+				};
+			case "stand_recorder_pickup":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/pen"
+				};
+			case "stand_recorder_putdown":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/pen"
+				};
+			case "stand_tailor_tape":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/right_hand_Goal/tailor"
+				};
+			case "stand_talk_cellphone_pickup":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/phone"
+				};
+			case "stand_talk_cellphone_putdown":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/phone"
+				};
+			case "stand_water_flower":
+				return new string[] {
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/waterpot"
+				};
+
+
 			case "sit_play_cellphone_pickup":
 				return new string[] {
 					"hip_ctrl/root/spline/right_chest/left_hand_Goal/phone"
@@ -199,19 +258,11 @@ namespace DesignSociety
 			// gain from scene (object under such path should be hidden, but used as a target to be followed by object in scene)
 			case "stand_fixphone_pickup":
 				return new string[] {
-					"stickynote"
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/mic_2"
 				};
 			case "stand_fixphone_putdown":
 				return new string[] {
-					"stickynote"
-				};
-			case "sit_fixphone_pickup":
-				return new string[] {
-					"stickynote"
-				};
-			case "sit_fixphone_putdown":
-				return new string[] {
-					"stickynote"
+					"hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/mic_2"
 				};
 			case "other_exercise_1":
 				return new string[] {
@@ -226,6 +277,14 @@ namespace DesignSociety
 				return new string[] {
 					"dumbbell1",
 					"dumbbell2"
+				};
+			case "stand_wine_pickup":
+				return new string[] {
+					"cup"
+				};
+			case "stand_wine_putdown":
+				return new string[] {
+					"cup"
 				};
 			default:
 				return null;
@@ -406,7 +465,36 @@ namespace DesignSociety
 		stand_write_wall,
 		other_exercise_1,
 		other_exercise_2,
-		other_exercise_3
+		other_exercise_3,
+		stand_breathe,
+		stand_controller,
+		stand_drink_water,
+		stand_insert,
+		stand_jump_cheer,
+		stand_knock_table,
+		stand_light,
+		stand_look_up,
+		stand_mic_self,
+		stand_mirror_clothes,
+		stand_nod,
+		stand_photo_cellphone,
+		stand_pour_wine,
+		stand_record_rod,
+		stand_recorder,
+		stand_recorder_pickup,
+		stand_recorder_putdown,
+		stand_tailor_tape,
+		stand_talk_cellphone,
+		stand_talk_cellphone_listen,
+		stand_talk_cellphone_pickup,
+		stand_talk_cellphone_putdown,
+		stand_talk_look_down,
+		stand_talk_point_far_times,
+		stand_water_flower,
+		stand_wine,
+		stand_wine_toast,
+		stand_wine_pickup,
+		stand_wine_putdown
 	}
 
 	public enum SitActionWithBorder
@@ -447,6 +535,14 @@ namespace DesignSociety
 		stand_applaud,
 		stand_write_pen,
 		other_exercise_2,
-		other_exercise_3
+		other_exercise_3,
+		stand_controller,
+		stand_knock_table,
+		stand_light,
+		stand_look_up,
+		stand_mic_self,
+		stand_mirror_clothes,
+		stand_record_rod,
+		stand_talk_look_down
 	}
 }

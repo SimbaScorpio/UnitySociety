@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 527d375db987b12419f94ca37b783f82
-timeCreated: 1507558498
+timeCreated: 1508301088
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -36,32 +36,32 @@ ModelImporter:
     100056: left_toe
     100058: mesh
     100060: neck
-    100062: Null
-    100064: right_ankle
-    100066: right_ankle_2
-    100068: right_ankle_Goal
-    100070: right_arm
-    100072: right_chest
-    100074: right_elbow
-    100076: right_fingertip
-    100078: right_fingertip_Goal
-    100080: right_foot
-    100082: right_foot_ctrl
-    100084: right_foot_lift
-    100086: right_hand
-    100088: right_hand_Goal
-    100090: right_hip
-    100092: right_knee
-    100094: right_mid
-    100096: right_mid2
-    100098: right_thumb
-    100100: right_thumbmid
-    100102: right_thumbtip
-    100104: right_thumbtip_Goal
-    100106: right_toe
-    100108: root
-    100110: spline
-    100112: //RootNode
+    100062: right_ankle
+    100064: right_ankle_2
+    100066: right_ankle_Goal
+    100068: right_arm
+    100070: right_chest
+    100072: right_elbow
+    100074: right_fingertip
+    100076: right_fingertip_Goal
+    100078: right_foot
+    100080: right_foot_ctrl
+    100082: right_foot_lift
+    100084: right_hand
+    100086: right_hand_Goal
+    100088: right_hip
+    100090: right_knee
+    100092: right_mid
+    100094: right_mid2
+    100096: right_thumb
+    100098: right_thumbmid
+    100100: right_thumbtip
+    100102: right_thumbtip_Goal
+    100104: right_toe
+    100106: root
+    100108: spline
+    100110: //RootNode
+    100112: tailor
     100114: target
     400000: chest_ctrl
     400002: Cube
@@ -94,32 +94,32 @@ ModelImporter:
     400056: left_toe
     400058: mesh
     400060: neck
-    400062: Null
-    400064: right_ankle
-    400066: right_ankle_2
-    400068: right_ankle_Goal
-    400070: right_arm
-    400072: right_chest
-    400074: right_elbow
-    400076: right_fingertip
-    400078: right_fingertip_Goal
-    400080: right_foot
-    400082: right_foot_ctrl
-    400084: right_foot_lift
-    400086: right_hand
-    400088: right_hand_Goal
-    400090: right_hip
-    400092: right_knee
-    400094: right_mid
-    400096: right_mid2
-    400098: right_thumb
-    400100: right_thumbmid
-    400102: right_thumbtip
-    400104: right_thumbtip_Goal
-    400106: right_toe
-    400108: root
-    400110: spline
-    400112: //RootNode
+    400062: right_ankle
+    400064: right_ankle_2
+    400066: right_ankle_Goal
+    400068: right_arm
+    400070: right_chest
+    400072: right_elbow
+    400074: right_fingertip
+    400076: right_fingertip_Goal
+    400078: right_foot
+    400080: right_foot_ctrl
+    400082: right_foot_lift
+    400084: right_hand
+    400086: right_hand_Goal
+    400088: right_hip
+    400090: right_knee
+    400092: right_mid
+    400094: right_mid2
+    400096: right_thumb
+    400098: right_thumbmid
+    400100: right_thumbtip
+    400102: right_thumbtip_Goal
+    400104: right_toe
+    400106: root
+    400108: spline
+    400110: //RootNode
+    400112: tailor
     400114: target
     2300000: Cube
     2300002: Cylinder
@@ -134,7 +134,7 @@ ModelImporter:
     4300004: mesh
     4300006: hair
     4300008: ears
-    7400000: stand_tailor_tape_model
+    7400000: stand_tailor_model
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -161,7 +161,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: stand_tailor_tape_model
+      name: stand_tailor_model
       takeName: CINEMA_4D_Main
       firstFrame: 0
       lastFrame: 100
@@ -299,12 +299,6 @@ ModelImporter:
         weight: 1
       - path: mesh
         weight: 1
-      - path: Null
-        weight: 1
-      - path: Null/Cube
-        weight: 1
-      - path: Null/Cylinder
-        weight: 1
       - path: right_foot_ctrl
         weight: 1
       - path: right_foot_ctrl/right_foot_lift
@@ -312,6 +306,12 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
+        weight: 1
+      - path: tailor
+        weight: 1
+      - path: tailor/Cube
+        weight: 1
+      - path: tailor/Cylinder
         weight: 1
       - path: target
         weight: 1

@@ -11,6 +11,7 @@ TagManager:
   - fixphone
   - barbell
   - dumbbell
+  - cup
   layers:
   - Default
   - TransparentFX

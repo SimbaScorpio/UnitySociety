@@ -34,6 +34,8 @@ namespace DesignSociety
 			}
 		}
 
+		#region instance
+
 		private static UIBubbleMessage instance;
 
 		public static UIBubbleMessage GetInstance ()
@@ -46,9 +48,11 @@ namespace DesignSociety
 			instance = this;
 		}
 
+		#endregion
+
 		void Update ()
 		{
-			if (canPop && waitingList.Count > 0) {
+			if (canPop && waitingList.Count > 0 && !UIInformationMenu.GetInstance ().isLerping) {
 				canPop = false;
 				PopMessage (waitingList [0]);
 			}
@@ -80,7 +84,6 @@ namespace DesignSociety
 
 		IEnumerator StartPopping (float distance, GameObject obj)
 		{
-			print ("StartPopping");
 			if (displayList.Count == 0) {
 				OnShowNewItem (obj);
 			} else {
@@ -178,11 +181,11 @@ namespace DesignSociety
 
 		void SetAlpha (GameObject obj, float num, bool isSet)
 		{
-			Image[] images = obj.GetComponentsInChildren<Image> ();
-			for (int i = 0; i < images.Length; ++i) {
-				Color c = images [i].color;
-				images [i].color = isSet ? new Color (c.r, c.g, c.b, num) : new Color (c.r, c.g, c.b, c.a + num);
-			}
+//			Image[] images = obj.GetComponentsInChildren<Image> ();
+//			for (int i = 0; i < images.Length; ++i) {
+//				Color c = images [i].color;
+//				images [i].color = isSet ? new Color (c.r, c.g, c.b, num) : new Color (c.r, c.g, c.b, c.a + num);
+//			}
 			Text[] texts = obj.GetComponentsInChildren<Text> ();
 			for (int i = 0; i < texts.Length; ++i) {
 				Color c = texts [i].color;
@@ -196,12 +199,12 @@ namespace DesignSociety
 				return -1;
 			float min = float.MaxValue;
 			float max = float.MinValue;
-			Image[] images = obj.GetComponentsInChildren<Image> ();
-			for (int i = 0; i < images.Length; ++i) {
-				float value = images [i].color.a;
-				min = value > min ? min : value;
-				max = value < max ? max : value;
-			}
+//			Image[] images = obj.GetComponentsInChildren<Image> ();
+//			for (int i = 0; i < images.Length; ++i) {
+//				float value = images [i].color.a;
+//				min = value > min ? min : value;
+//				max = value < max ? max : value;
+//			}
 			Text[] texts = obj.GetComponentsInChildren<Text> ();
 			for (int i = 0; i < texts.Length; ++i) {
 				float value = texts [i].color.a;

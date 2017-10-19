@@ -10,6 +10,12 @@ public class ClientMessageTest : MonoBehaviour
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			UIBubbleMessage.GetInstance ().PushMessage (Random.Range (0, 2), RandomText ("1"), RandomText ("2"));
 		}
+		if (Input.GetKeyDown (KeyCode.Z)) {
+			UIInformationMenu.GetInstance ().Show ();
+		}
+		if (Input.GetKeyDown (KeyCode.X)) {
+			UIInformationMenu.GetInstance ().Hide ();
+		}
 	}
 
 	string RandomText (string letter)

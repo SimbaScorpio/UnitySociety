@@ -931,7 +931,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.50762075
+      - time: 0.42094862
         functionName: OnStuffGivenTo
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -1080,7 +1080,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.7623118
+      - time: 0.7267387
         functionName: OnStuffTakenFrom
         data: 
         objectReferenceParameter: {instanceID: 0}

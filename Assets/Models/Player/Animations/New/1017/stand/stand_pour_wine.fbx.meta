@@ -1,145 +1,143 @@
 fileFormatVersion: 2
 guid: cba76f7608aab61488be268a3ebf9293
-timeCreated: 1508254648
+timeCreated: 1508302278
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: chest_ctrl
-    100002: "Cinema4D_\u7F16\u8F91\u5668"
-    100004: cup
-    100006: desk
-    100008: ears
-    100010: end
-    100012: hair
-    100014: head
-    100016: hip_ctrl
-    100018: left_ankle
-    100020: left_ankle_2
-    100022: left_ankle_Goal
-    100024: left_arm
-    100026: left_elbow
-    100028: left_fingertip
-    100030: left_fingertip_Goal
-    100032: left_foot
-    100034: left_foot_ctrl
-    100036: left_foot_lift
-    100038: left_hand
-    100040: left_hand_Goal
-    100042: left_hip
-    100044: left_knee
-    100046: left_mid
-    100048: left_mid2
-    100050: left_thumb
-    100052: left_thumbmid
-    100054: left_thumbtip
-    100056: left_thumbtip_Goal
-    100058: left_toe
-    100060: left_toe_2
-    100062: mesh
-    100064: neck
-    100066: neck_ctrl
-    100068: right_ankle
-    100070: right_ankle_2
-    100072: right_ankle_Goal
-    100074: right_arm
-    100076: right_chest
-    100078: right_elbow
-    100080: right_fingertip
-    100082: right_fingertip_Goal
-    100084: right_foot
-    100086: right_foot_ctrl
-    100088: right_foot_lift
-    100090: right_hand
-    100092: right_hand_Goal
-    100094: right_hip
-    100096: right_knee
-    100098: right_mid
-    100100: right_mid2
-    100102: right_thumb
-    100104: right_thumbmid
-    100106: right_thumbtip
-    100108: right_thumbtip_Goal
-    100110: right_toe
-    100112: right_toe_2
-    100114: root
-    100116: spline
-    100118: //RootNode
-    100120: "\u5706\u67F1"
+    100002: cup
+    100004: desk
+    100006: ears
+    100008: end
+    100010: hair
+    100012: head
+    100014: hip_ctrl
+    100016: left_ankle
+    100018: left_ankle_2
+    100020: left_ankle_Goal
+    100022: left_arm
+    100024: left_elbow
+    100026: left_fingertip
+    100028: left_fingertip_Goal
+    100030: left_foot
+    100032: left_foot_ctrl
+    100034: left_foot_lift
+    100036: left_hand
+    100038: left_hand_Goal
+    100040: left_hip
+    100042: left_knee
+    100044: left_mid
+    100046: left_mid2
+    100048: left_thumb
+    100050: left_thumbmid
+    100052: left_thumbtip
+    100054: left_thumbtip_Goal
+    100056: left_toe
+    100058: left_toe_2
+    100060: mesh
+    100062: neck
+    100064: neck_ctrl
+    100066: right_ankle
+    100068: right_ankle_2
+    100070: right_ankle_Goal
+    100072: right_arm
+    100074: right_chest
+    100076: right_elbow
+    100078: right_fingertip
+    100080: right_fingertip_Goal
+    100082: right_foot
+    100084: right_foot_ctrl
+    100086: right_foot_lift
+    100088: right_hand
+    100090: right_hand_Goal
+    100092: right_hip
+    100094: right_knee
+    100096: right_mid
+    100098: right_mid2
+    100100: right_thumb
+    100102: right_thumbmid
+    100104: right_thumbtip
+    100106: right_thumbtip_Goal
+    100108: right_toe
+    100110: right_toe_2
+    100112: root
+    100114: spline
+    100116: //RootNode
+    100118: wine
     400000: chest_ctrl
-    400002: "Cinema4D_\u7F16\u8F91\u5668"
-    400004: cup
-    400006: desk
-    400008: ears
-    400010: end
-    400012: hair
-    400014: head
-    400016: hip_ctrl
-    400018: left_ankle
-    400020: left_ankle_2
-    400022: left_ankle_Goal
-    400024: left_arm
-    400026: left_elbow
-    400028: left_fingertip
-    400030: left_fingertip_Goal
-    400032: left_foot
-    400034: left_foot_ctrl
-    400036: left_foot_lift
-    400038: left_hand
-    400040: left_hand_Goal
-    400042: left_hip
-    400044: left_knee
-    400046: left_mid
-    400048: left_mid2
-    400050: left_thumb
-    400052: left_thumbmid
-    400054: left_thumbtip
-    400056: left_thumbtip_Goal
-    400058: left_toe
-    400060: left_toe_2
-    400062: mesh
-    400064: neck
-    400066: neck_ctrl
-    400068: right_ankle
-    400070: right_ankle_2
-    400072: right_ankle_Goal
-    400074: right_arm
-    400076: right_chest
-    400078: right_elbow
-    400080: right_fingertip
-    400082: right_fingertip_Goal
-    400084: right_foot
-    400086: right_foot_ctrl
-    400088: right_foot_lift
-    400090: right_hand
-    400092: right_hand_Goal
-    400094: right_hip
-    400096: right_knee
-    400098: right_mid
-    400100: right_mid2
-    400102: right_thumb
-    400104: right_thumbmid
-    400106: right_thumbtip
-    400108: right_thumbtip_Goal
-    400110: right_toe
-    400112: right_toe_2
-    400114: root
-    400116: spline
-    400118: //RootNode
-    400120: "\u5706\u67F1"
+    400002: cup
+    400004: desk
+    400006: ears
+    400008: end
+    400010: hair
+    400012: head
+    400014: hip_ctrl
+    400016: left_ankle
+    400018: left_ankle_2
+    400020: left_ankle_Goal
+    400022: left_arm
+    400024: left_elbow
+    400026: left_fingertip
+    400028: left_fingertip_Goal
+    400030: left_foot
+    400032: left_foot_ctrl
+    400034: left_foot_lift
+    400036: left_hand
+    400038: left_hand_Goal
+    400040: left_hip
+    400042: left_knee
+    400044: left_mid
+    400046: left_mid2
+    400048: left_thumb
+    400050: left_thumbmid
+    400052: left_thumbtip
+    400054: left_thumbtip_Goal
+    400056: left_toe
+    400058: left_toe_2
+    400060: mesh
+    400062: neck
+    400064: neck_ctrl
+    400066: right_ankle
+    400068: right_ankle_2
+    400070: right_ankle_Goal
+    400072: right_arm
+    400074: right_chest
+    400076: right_elbow
+    400078: right_fingertip
+    400080: right_fingertip_Goal
+    400082: right_foot
+    400084: right_foot_ctrl
+    400086: right_foot_lift
+    400088: right_hand
+    400090: right_hand_Goal
+    400092: right_hip
+    400094: right_knee
+    400096: right_mid
+    400098: right_mid2
+    400100: right_thumb
+    400102: right_thumbmid
+    400104: right_thumbtip
+    400106: right_thumbtip_Goal
+    400108: right_toe
+    400110: right_toe_2
+    400112: root
+    400114: spline
+    400116: //RootNode
+    400118: wine
     2300000: cup
     2300002: desk
     2300004: ears
     2300006: hair
-    2300008: "\u5706\u67F1"
+    2300008: wine
     3300000: cup
     3300002: desk
     3300004: ears
     3300006: hair
-    3300008: "\u5706\u67F1"
+    3300008: wine
     4300000: cup
     4300002: desk
-    4300004: "\u5706\u67F1"
+    4300004: wine
     4300006: mesh
     4300008: hair
     4300010: ears
@@ -192,11 +190,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
-        weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
         weight: 1
       - path: cup
         weight: 1
@@ -258,7 +268,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/left_thumbtip
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/\u5706\u67F1"
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/wine
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumbtip_Goal
         weight: 1
