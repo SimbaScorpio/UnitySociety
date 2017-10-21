@@ -1,0 +1,363 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Networking;
+using Pathfinding;
+
+namespace DesignSociety
+{
+	public class NetworkPlayerTeleport : MonoBehaviour
+	{
+		public float smallSize = 10f;
+		public float largeSize = 20.2f;
+		public float clickPressThreshold = 0.3f;
+		public float dragPressThreshold = 2f;
+		public float panSpeed = 20f;
+		public GameObject ghost;
+
+		public float lerpRate = 20f;
+		public float dragDistanceThreshold = 50f;
+
+		public float dropHeight = 1.5f;
+		public float playerHeight = 1.75f;
+		public float gravity = -9.82f;
+
+		private float velocity;
+
+		private float pressCount = 0f;
+		private bool canDragDrop;
+		private Vector2 startMousePosition;
+		private Vector2 lastMousePosition;
+		private Vector3 mouseLandingPos;
+
+		// {0: 正常, 1: 大地图拖拽, 2: 小地图缩放中, 3: 小地图拖拽, 4: 大地图滚动, 5: 小地图滚动}
+		private int state = 0;
+
+		private CameraPerspectiveEditor cameraEditor;
+		private CameraFollower cameraFollower;
+		private Animator anim;
+		private Animator ghostAnim;
+		//private NetworkAnimator netAnim;
+
+		void Start ()
+		{
+			anim = GetComponent<Animator> ();
+			ghostAnim = ghost.GetComponent<Animator> ();
+			//if (isLocalPlayer) {
+			cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
+			cameraFollower = Camera.main.GetComponent<CameraFollower> ();
+			cameraFollower.target = this.gameObject;
+			Camera.main.orthographicSize = smallSize;
+			//}
+		}
+
+
+		void Update ()
+		{
+			//if (!isLocalPlayer)
+			//	return;
+			if (EventSystem.current.IsPointerOverGameObject ())
+				return;
+			if (Input.GetMouseButtonDown (0)) {
+				StartCoroutine (CountPressTime ());
+				CheckPressDownSpecial ();
+			}
+			if (Input.GetMouseButtonUp (0)) {
+				StopAllCoroutines ();
+				CheckPressUpSpecial ();
+			}
+			if (Input.GetMouseButton (0)) {
+				if (state == 1 || state == 3) { 	// drag and drop
+					DealWithDrag ();
+				} else if (state == 4) { 	// scroll and click drop
+					DealWithScroll ();
+				}
+			}
+		}
+
+		void OnClick ()
+		{
+			print ("OnClick()");
+			if (state == 0) {
+				print ("Move to!");
+			} else if (state == 4) {
+				print ("ScaleView!");
+				state = 5;
+			} else if (state == 5) {
+				print ("Drop!");
+				state = 0;
+			}
+		}
+
+		// press count (trigger drag event)
+		IEnumerator CountPressTime ()
+		{
+			print ("CountPressTime()");
+			pressCount = 0;
+			canDragDrop = false;
+			startMousePosition = Input.mousePosition;
+			lastMousePosition = Input.mousePosition;
+			bool alwaysPressing = true;
+			while (true) {
+				pressCount += Time.deltaTime;
+				yield return null;
+				if (state == 0) {
+					if (alwaysPressing && !IsPressing (this.gameObject))
+						alwaysPressing = false;
+					if (alwaysPressing && pressCount > dragPressThreshold) {
+						OnTeleportBegin ();
+						pressCount = 0;
+						state = 1;
+						break;
+					}
+				}
+			}
+		}
+
+		// hide menu and scale to world view
+		void OnTeleportBegin ()
+		{
+			print ("OnTeleportBegin()");
+			SwitchPlayerToGhost ();
+			UIInformationMenu.GetInstance ().Hide ();
+			StartCoroutine (LerpView (true));
+			ghostAnim.Play ("drag_float", 0, 0);
+		}
+
+		// scale to normal view, waiting drop command
+		void OnTeleportReadyEnd ()
+		{
+			print ("OnTeleportReadyEnd()");
+			StartCoroutine (LerpView (false));
+		}
+
+		// drop
+		void OnTeleportEnd ()
+		{
+			print ("OnTeleportEnd()");
+			SwitchGhostToPlayer ();
+			UIInformationMenu.GetInstance ().Show ();
+			anim.Play ("drag_drop", 0, 0);
+		}
+
+		// scroll view {true: large, false: normal}
+		IEnumerator LerpView (bool flag)
+		{
+			float size = flag ? largeSize : smallSize;
+			while (Mathf.Abs (Camera.main.orthographicSize - size) > 0.001f) {
+				Camera.main.orthographicSize = Mathf.Lerp (Camera.main.orthographicSize, size, Time.deltaTime * lerpRate);
+
+				// ghost scale with camera size
+				float ratio = Camera.main.orthographicSize / smallSize;
+				ghost.transform.localScale = new Vector3 (ratio, ratio, ratio);
+
+				// camera focus under mouse
+				float offsetX = Input.mousePosition.x / Screen.width;
+				float offsetY = Input.mousePosition.y / Screen.height;
+				Vector3 target = ghost.transform.position;
+				target.y += playerHeight / 2 * ratio;
+				Camera.main.transform.position = cameraFollower.CalCameraPosition (target, offsetX, offsetY);
+
+				yield return null;
+			}
+
+			if (state == 2)
+				state = 3;
+		}
+
+		bool IsPressing (GameObject obj)
+		{
+			Ray ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit, float.MaxValue)) {
+				if (hit.collider.gameObject == obj) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+
+		void DealWithDrag ()
+		{
+			bool panning = CheckMapPan ();
+			
+			if (!canDragDrop) {
+				float distance = Vector2.Distance (Input.mousePosition, startMousePosition);
+				if (distance > dragDistanceThreshold)
+					canDragDrop = true;
+			} else if (state == 1 && !panning && CheckFocus ()) {
+				OnTeleportReadyEnd ();
+				state = 2;
+				return;
+			}
+
+			CalRaycastLandingPos ();
+			ghost.transform.position = CalGhostWithMousePos ();
+		}
+
+		void CalRaycastLandingPos ()
+		{
+			Vector3 a1 = cameraEditor.WorldToScreenPoint (Vector3.zero);
+			Vector3 a2 = cameraEditor.WorldToScreenPoint (Vector3.zero + Vector3.up);
+			float worldNormYToScreenY = a2.y - a1.y;
+
+			Vector3 landingScreenPos = new Vector3 (Input.mousePosition.x, Input.mousePosition.y - dropHeight * worldNormYToScreenY, Input.mousePosition.z);
+			Ray ray = cameraEditor.ScreenPointToRay (landingScreenPos);
+
+			//Ray ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+
+			if (Physics.Raycast (ray, out hit, 1000)) {
+				if (hit.collider.tag != "Player") {
+					mouseLandingPos = hit.point;
+					GameObject.Find ("CubeShadow").transform.position = hit.point;
+				}
+			}
+		}
+
+		Vector3 CalGhostWithMousePos ()
+		{
+			float offsetX = Input.mousePosition.x / Screen.width;
+			float offsetY = Input.mousePosition.y / Screen.height;
+			Vector3 ghostFeetPos = cameraFollower.CalObjectPosition (ghost.transform.position.z, offsetX, offsetY);
+			ghostFeetPos.y -= playerHeight / 2 * ghost.transform.localScale.y;
+			return ghostFeetPos;
+		}
+
+		bool CheckFocus ()
+		{
+			float distance = Vector2.Distance (Input.mousePosition, lastMousePosition);
+			if (distance < 1f) {
+				pressCount += Time.deltaTime;
+			} else {
+				pressCount = 0;
+			}
+			lastMousePosition = Input.mousePosition;
+			return pressCount > dragPressThreshold;
+		}
+
+		bool CheckMapPan ()
+		{
+			float offsetX = Input.mousePosition.x / Screen.width;
+			float offsetY = Input.mousePosition.y / Screen.height;
+			if (offsetX < 0.2f)
+				return ScrollPanCamera (true, 1f);
+			if (offsetX > 0.8f)
+				return ScrollPanCamera (true, -1f);
+			if (offsetY < 0.2f)
+				return ScrollPanCamera (false, -1f);
+			if (offsetY > 0.8f)
+				return ScrollPanCamera (false, 1f);
+			return false;
+		}
+
+		bool ScrollPanCamera (bool flag, float ratio)
+		{
+			Vector3 pos = Camera.main.transform.position;
+			if (flag) {
+				Vector2 vx = cameraFollower.GetValidXRange ();
+				if (pos.x < vx.x && ratio < 0)
+					return false;
+				if (pos.x > vx.y && ratio > 0)
+					return false;
+				pos.x = pos.x + ratio;
+			} else {
+				Vector2 vy = cameraFollower.GetValidYRange ();
+				if (pos.y < vy.x && ratio < 0)
+					return false;
+				if (pos.y > vy.y && ratio > 0)
+					return false;
+				pos.y = pos.y + ratio;
+			}
+			Camera.main.transform.position = Vector3.Lerp (Camera.main.transform.position, pos, Time.deltaTime * panSpeed);
+			return true;
+		}
+
+
+
+		void DealWithScroll ()
+		{
+			
+		}
+
+
+
+
+		void CheckPressDownSpecial ()
+		{
+
+		}
+
+		void CheckPressUpSpecial ()
+		{
+			if (pressCount < clickPressThreshold)
+				OnClick ();
+			else {
+				if (state == 1) {
+					state = 4;
+				} else if (state == 2 || state == 3) {
+					OnTeleportEnd ();
+					StartCoroutine (Falling ());
+					state = 0;
+				}
+			}
+		}
+
+		void SwitchPlayerToGhost ()
+		{
+			// set ghost position
+			ghost.transform.position = CalGhostWithMousePos ();
+
+			// hide player
+			SetPlayerVisibility (false);
+			// show ghost
+			ghost.SetActive (true);
+			cameraFollower.target = null;
+		}
+
+		void SwitchGhostToPlayer ()
+		{
+			// set player target position
+			Vector3 landingPos = GetAvailableLandPos (mouseLandingPos);
+			// set player drop position
+			Vector3 dropingPos = new Vector3 (landingPos.x, landingPos.y + dropHeight - playerHeight / 2, landingPos.z);
+			transform.position = dropingPos;
+			mouseLandingPos = landingPos;
+
+			// show player
+			SetPlayerVisibility (true);
+			// hide ghost
+			ghost.SetActive (false);
+			cameraFollower.target = this.gameObject;
+		}
+
+		void SetPlayerVisibility (bool visible)
+		{
+			GetComponent<Collider> ().enabled = visible;
+			GetComponent<NavmeshCut> ().enabled = visible;
+			transform.Find ("mesh").gameObject.SetActive (visible);
+			transform.Find ("ears").gameObject.SetActive (visible);
+			transform.Find ("hair").gameObject.SetActive (visible);
+		}
+
+		IEnumerator Falling ()
+		{
+			Vector3 position = transform.position;
+			while (position.y > mouseLandingPos.y) {
+				velocity += Time.deltaTime * gravity;
+				position.y += velocity * Time.deltaTime;
+				transform.position = position;
+				yield return null;
+			}
+			transform.position = mouseLandingPos;
+		}
+
+		Vector3 GetAvailableLandPos (Vector3 pos)
+		{
+			NNInfo info = AstarPath.active.GetNearest (pos);
+			return info.clampedPosition;
+		}
+	}
+}

@@ -657,12 +657,9 @@ GameObject:
   - component: {fileID: 114006996655572614}
   - component: {fileID: 114244456047573028}
   - component: {fileID: 114191943624074866}
-  - component: {fileID: 114659445914384668}
-  - component: {fileID: 114932570049342896}
-  - component: {fileID: 114316409157176690}
   - component: {fileID: 54105917975356652}
   - component: {fileID: 136503079356482604}
-  - component: {fileID: 114155955308847502}
+  - component: {fileID: 114934495940414238}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1232,7 +1229,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1489831475210240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -105.36, y: 6.977, z: 5.28}
+  m_LocalPosition: {x: -72.07, y: 3.86, z: 26.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4532664015196104}
@@ -2819,21 +2816,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 100
---- !u!114 &114155955308847502
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489831475210240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24655e3388e3c548990bd4d92960160, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragThreshold: 10
-  dropHeight: 1.5
-  playerHeight: 1.75
-  gravity: -9.82
 --- !u!114 &114191943624074866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2897,22 +2879,6 @@ MonoBehaviour:
   cutsAddedGeom: 1
   updateRotationDistance: 10
   useRotation: 0
---- !u!114 &114316409157176690
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489831475210240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d203c64436516b945aedbf84fbf4c31c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isServerControl: 0
-  sendPosition: 1
-  sendRotation: 1
-  lerpPosRate: 20
-  lerpRotRate: 10
 --- !u!114 &114466194694012486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2946,38 +2912,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &114659445914384668
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489831475210240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 24
-    i1: 193
-    i2: 128
-    i3: 81
-    i4: 77
-    i5: 59
-    i6: 216
-    i7: 244
-    i8: 40
-    i9: 148
-    i10: 161
-    i11: 5
-    i12: 172
-    i13: 28
-    i14: 75
-    i15: 68
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!114 &114663881913300464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2994,7 +2928,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114932570049342896
+--- !u!114 &114934495940414238
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3002,17 +2936,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1489831475210240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d537ac0ecef440a95a0e82922b857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Animator: {fileID: 95441340956338124}
-  m_ParameterSendBits: 3
-  param0: 
-  param1: 
-  param2: 
-  param3: 
-  param4: 
-  param5: 
+  smallSize: 8
+  largeSize: 20.2
+  clickPressThreshold: 0.3
+  dragPressThreshold: 1
+  panSpeed: 20
+  ghost: {fileID: 0}
+  lerpRate: 20
+  dragDistanceThreshold: 50
+  dropHeight: 1.5
+  playerHeight: 1.75
+  gravity: -0.982
 --- !u!114 &114981383586730074
 MonoBehaviour:
   m_ObjectHideFlags: 1

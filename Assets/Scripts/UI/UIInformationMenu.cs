@@ -29,14 +29,18 @@ namespace DesignSociety
 		public void Show ()
 		{
 			StopAllCoroutines ();
-			StartCoroutine (Showing ());
+			//StartCoroutine (Showing ());
+			StartCoroutine (LerpShowing ());
 		}
 
 		public void Hide ()
 		{
 			StopAllCoroutines ();
-			StartCoroutine (Hiding ());
+			//StartCoroutine (Hiding ());
+			StartCoroutine (LerpHiding ());
 		}
+
+		#region show/hide
 
 		IEnumerator Showing ()
 		{
@@ -45,6 +49,18 @@ namespace DesignSociety
 				Vector3 pos = transform.localPosition;
 				pos.x += Time.deltaTime * lerpRate * 10;
 				pos.x = pos.x > 0 ? 0 : pos.x;
+				transform.localPosition = pos;
+				yield return null;
+			}
+			isLerping = false;
+		}
+
+		IEnumerator LerpShowing ()
+		{
+			isLerping = true;
+			while (transform.position.x < -0.001f) {
+				Vector3 pos = transform.localPosition;
+				pos.x = Mathf.Lerp (pos.x, 0, Time.deltaTime * lerpRate);
 				transform.localPosition = pos;
 				yield return null;
 			}
@@ -65,5 +81,21 @@ namespace DesignSociety
 			}
 			isLerping = false;
 		}
+
+		IEnumerator LerpHiding ()
+		{
+			isLerping = true;
+			RectTransform tr = transform as RectTransform;
+			float width = tr.rect.width;
+			while (tr.localPosition.x + width > 0.001f) {
+				Vector3 pos = tr.localPosition;
+				pos.x = Mathf.Lerp (pos.x, -width, Time.deltaTime * lerpRate);
+				tr.localPosition = pos;
+				yield return null;
+			}
+			isLerping = false;
+		}
+
+		#endregion
 	}
 }

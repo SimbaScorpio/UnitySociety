@@ -29,7 +29,7 @@ namespace DesignSociety
 		{
 			anim = GetComponent<Animator> ();
 			if (isLocalPlayer) {
-				Camera.main.GetComponent<CameraFollower> ().Character = this.gameObject;
+				Camera.main.GetComponent<CameraFollower> ().target = this.gameObject;
 				cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
 				netAnim = GetComponent<NetworkAnimator> ();
 				if (isServer) {
