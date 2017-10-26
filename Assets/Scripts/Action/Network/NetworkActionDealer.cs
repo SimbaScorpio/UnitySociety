@@ -29,7 +29,7 @@ namespace DesignSociety
 		#region 随机动作判断
 
 		private float nextTimeToConsider = 0.1f;
-		private float possibility = 0.1f;
+		private float possibility = 0.01f;
 		private Coroutine handler;
 		private bool aidActive;
 
@@ -103,6 +103,14 @@ namespace DesignSociety
 			ActionType newType = ActionName.IsValid (stateName);
 			if (newType == ActionType.error) {
 				Log.error ("未知的动作【" + stateName + "】");
+				// bubble
+				SyncActionBubble ac = gameObject.GetComponent<SyncActionBubble> ();
+				if (ac == null)
+					ac = gameObject.AddComponent<SyncActionBubble> ();
+				ac.Setting ("未知的动作【" + stateName + "】", 5f, null);
+				ActionIdle idle = gameObject.AddComponent<ActionIdle> ();
+				idle.Setting (gameObject, "", 5f, null);
+				return;
 			}
 			newStateName = stateName;
 			newCallback = callback;

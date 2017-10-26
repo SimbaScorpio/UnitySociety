@@ -102,9 +102,9 @@ namespace DesignSociety
 			}
 			state = ComState.LEAVING;
 
-			NetworkActionPlay ac = GetComponent<NetworkActionPlay> ();
+			SyncActionWalk ac = GetComponent<SyncActionWalk> ();
 			if (ac != null) {
-				ac.SafeFinish ();
+				ac.Finish ();
 			}
 		}
 

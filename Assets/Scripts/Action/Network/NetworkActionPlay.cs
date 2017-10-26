@@ -261,10 +261,11 @@ namespace DesignSociety
 							// player is waiting
 							NetworkActionPlay np = player.GetComponent<NetworkActionPlay> ();
 							if (np != null && np.waitingPartner) {
-								player.GetComponent<NetworkActionDealer> ().stuffs.Add (dealer.stuffs [0]);
-								dealer.stuffs [0].SetParent (player.transform.Find (boneRoot));
-								dealer.stuffs.RemoveAt (0);
-
+								if (dealer.stuffs.Count > 0) {
+									player.GetComponent<NetworkActionDealer> ().stuffs.Add (dealer.stuffs [0]);
+									dealer.stuffs [0].SetParent (player.transform.Find (boneRoot));
+									dealer.stuffs.RemoveAt (0);
+								}
 								anim.speed = 1;
 								dealer.RpcSetActionSpeed (1);
 
@@ -297,6 +298,11 @@ namespace DesignSociety
 
 		#endregion
 
+
+
+
+		#region util
+
 		string[] SplitRootAndName (string path)
 		{
 			int index = path.LastIndexOf ("/");
@@ -319,5 +325,7 @@ namespace DesignSociety
 			}
 			return name.Substring (0, cut);
 		}
+
+		#endregion
 	}
 }

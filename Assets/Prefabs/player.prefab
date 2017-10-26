@@ -2941,15 +2941,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smallSize: 8
   largeSize: 20.2
-  clickPressThreshold: 0.3
+  clickPressThreshold: 0.2
   dragPressThreshold: 1
-  panSpeed: 20
+  panSpeed: 40
   ghost: {fileID: 0}
   lerpRate: 20
   dragDistanceThreshold: 50
   dropHeight: 1.5
   playerHeight: 1.75
-  gravity: -0.982
+  gravity: -9.82
 --- !u!114 &114981383586730074
 MonoBehaviour:
   m_ObjectHideFlags: 1

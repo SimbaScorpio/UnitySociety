@@ -116,6 +116,29 @@ namespace DesignSociety
 			}
 		}
 
+		public bool SaveLogData (string data)
+		{
+			try {
+				byte[] bytes = Encoding.UTF8.GetBytes (data);
+
+				ExtensionFilter[] filters = new ExtensionFilter[] {
+					new ExtensionFilter ("Text", "txt")
+				};
+				string path = StandaloneFileBrowser.SaveFilePanel ("Save File", "", "", filters);
+				if (string.IsNullOrEmpty (path))
+					return false;
+				FileStream fs = new FileStream (path, FileMode.Create);
+				fs.Write (bytes, 0, bytes.Length);
+				fs.Flush ();
+				fs.Close ();
+				fs.Dispose ();
+				return true;
+			} catch (Exception e) {
+				Log.error (e.ToString ());
+				return false;
+			}
+		}
+
 		string GetFileURL (string path)
 		{
 			return (new System.Uri (path)).AbsoluteUri;

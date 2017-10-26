@@ -10,7 +10,8 @@ namespace DesignSociety
 		private UIScrollView scrollview;
 		private float maxWidth = 0;
 
-		private List<string> messages = new List<string> ();
+		[HideInInspector]
+		public List<string> messages = new List<string> ();
 
 		private static UISystemLog instance;
 

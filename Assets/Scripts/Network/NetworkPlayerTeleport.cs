@@ -9,19 +9,25 @@ namespace DesignSociety
 {
 	public class NetworkPlayerTeleport : MonoBehaviour
 	{
+		// smallest camera size
 		public float smallSize = 10f;
+		// largest camera size
 		public float largeSize = 20.2f;
+		// time interval between mouse down and up for click event
 		public float clickPressThreshold = 0.3f;
+		// smallest time interval between mouse down and up for drag event
 		public float dragPressThreshold = 2f;
-		public float panSpeed = 20f;
-		public GameObject ghost;
-
+		// lerp rate for zooming
 		public float lerpRate = 20f;
+		// minimum drag distance to start dropping
 		public float dragDistanceThreshold = 50f;
 
 		public float dropHeight = 1.5f;
 		public float playerHeight = 1.75f;
 		public float gravity = -9.82f;
+
+		public GameObject ghost;
+		public float ghostZ;
 
 		private float velocity;
 
@@ -30,6 +36,10 @@ namespace DesignSociety
 		private Vector2 startMousePosition;
 		private Vector2 lastMousePosition;
 		private Vector3 mouseLandingPos;
+		private Vector3 scrollMapStartTarget;
+		private Vector2 ghostFloatOffset;
+
+		private bool cameraValidX, cameraValidY;
 
 		// {0: 正常, 1: 大地图拖拽, 2: 小地图缩放中, 3: 小地图拖拽, 4: 大地图滚动, 5: 小地图滚动}
 		private int state = 0;
@@ -70,30 +80,15 @@ namespace DesignSociety
 			if (Input.GetMouseButton (0)) {
 				if (state == 1 || state == 3) { 	// drag and drop
 					DealWithDrag ();
-				} else if (state == 4) { 	// scroll and click drop
+				} else if (state == 4 || state == 5) { 	// scroll and click drop
 					DealWithScroll ();
 				}
-			}
-		}
-
-		void OnClick ()
-		{
-			print ("OnClick()");
-			if (state == 0) {
-				print ("Move to!");
-			} else if (state == 4) {
-				print ("ScaleView!");
-				state = 5;
-			} else if (state == 5) {
-				print ("Drop!");
-				state = 0;
 			}
 		}
 
 		// press count (trigger drag event)
 		IEnumerator CountPressTime ()
 		{
-			print ("CountPressTime()");
 			pressCount = 0;
 			canDragDrop = false;
 			startMousePosition = Input.mousePosition;
@@ -118,7 +113,6 @@ namespace DesignSociety
 		// hide menu and scale to world view
 		void OnTeleportBegin ()
 		{
-			print ("OnTeleportBegin()");
 			SwitchPlayerToGhost ();
 			UIInformationMenu.GetInstance ().Hide ();
 			StartCoroutine (LerpView (true));
@@ -128,17 +122,14 @@ namespace DesignSociety
 		// scale to normal view, waiting drop command
 		void OnTeleportReadyEnd ()
 		{
-			print ("OnTeleportReadyEnd()");
 			StartCoroutine (LerpView (false));
 		}
 
 		// drop
 		void OnTeleportEnd ()
 		{
-			print ("OnTeleportEnd()");
 			SwitchGhostToPlayer ();
 			UIInformationMenu.GetInstance ().Show ();
-			anim.Play ("drag_drop", 0, 0);
 		}
 
 		// scroll view {true: large, false: normal}
@@ -153,11 +144,13 @@ namespace DesignSociety
 				ghost.transform.localScale = new Vector3 (ratio, ratio, ratio);
 
 				// camera focus under mouse
-				float offsetX = Input.mousePosition.x / Screen.width;
-				float offsetY = Input.mousePosition.y / Screen.height;
-				Vector3 target = ghost.transform.position;
-				target.y += playerHeight / 2 * ratio;
-				Camera.main.transform.position = cameraFollower.CalCameraPosition (target, offsetX, offsetY);
+				Vector2 o = MouseOnScreenOffset ();
+				Vector3 target = RaycastPoint ();
+				Camera.main.transform.position = cameraFollower.CalCameraPosition (target, o.x, o.y);
+				if (state == 2)
+					ghost.transform.position = CalGhostWithMousePos ();
+				if (state == 5)
+					ghost.transform.position = CalGhostWithScreenPos (ghostFloatOffset.x, ghostFloatOffset.y);
 
 				yield return null;
 			}
@@ -178,6 +171,17 @@ namespace DesignSociety
 			return false;
 		}
 
+		Vector3 RaycastPoint ()
+		{
+			Ray ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit, float.MaxValue)) {
+				return hit.point;
+			}
+			return Vector3.zero;
+		}
+
+		# region 方式一：拖拽人物
 
 		void DealWithDrag ()
 		{
@@ -188,8 +192,8 @@ namespace DesignSociety
 				if (distance > dragDistanceThreshold)
 					canDragDrop = true;
 			} else if (state == 1 && !panning && CheckFocus ()) {
-				OnTeleportReadyEnd ();
 				state = 2;
+				OnTeleportReadyEnd ();
 				return;
 			}
 
@@ -219,9 +223,13 @@ namespace DesignSociety
 
 		Vector3 CalGhostWithMousePos ()
 		{
-			float offsetX = Input.mousePosition.x / Screen.width;
-			float offsetY = Input.mousePosition.y / Screen.height;
-			Vector3 ghostFeetPos = cameraFollower.CalObjectPosition (ghost.transform.position.z, offsetX, offsetY);
+			Vector2 o = MouseOnScreenOffset ();
+			return CalGhostWithScreenPos (o.x, o.y);
+		}
+
+		Vector3 CalGhostWithScreenPos (float offsetX, float offsetY)
+		{
+			Vector3 ghostFeetPos = cameraFollower.CalObjectPosition (ghostZ, offsetX, offsetY);
 			ghostFeetPos.y -= playerHeight / 2 * ghost.transform.localScale.y;
 			return ghostFeetPos;
 		}
@@ -240,68 +248,106 @@ namespace DesignSociety
 
 		bool CheckMapPan ()
 		{
-			float offsetX = Input.mousePosition.x / Screen.width;
-			float offsetY = Input.mousePosition.y / Screen.height;
-			if (offsetX < 0.2f)
+			Vector2 o = MouseOnScreenOffset ();
+			if (o.x < 0.2f)
 				return ScrollPanCamera (true, 1f);
-			if (offsetX > 0.8f)
+			if (o.x > 0.8f)
 				return ScrollPanCamera (true, -1f);
-			if (offsetY < 0.2f)
+			if (o.y < 0.2f)
 				return ScrollPanCamera (false, -1f);
-			if (offsetY > 0.8f)
+			if (o.y > 0.8f)
 				return ScrollPanCamera (false, 1f);
 			return false;
 		}
 
 		bool ScrollPanCamera (bool flag, float ratio)
 		{
+			ratio = ratio * Camera.main.orthographicSize / largeSize;
 			Vector3 pos = Camera.main.transform.position;
 			if (flag) {
 				Vector2 vx = cameraFollower.GetValidXRange ();
-				if (pos.x < vx.x && ratio < 0)
+				if (pos.x < vx.x && ratio <= 0)
 					return false;
-				if (pos.x > vx.y && ratio > 0)
+				if (pos.x > vx.y && ratio >= 0)
 					return false;
-				pos.x = pos.x + ratio;
+				float temp = pos.x + ratio;
+				if (pos.x < vx.x && temp > vx.x)
+					pos.x = temp > vx.y ? vx.y : temp;
+				else if (pos.x > vx.y && temp < vx.y)
+					pos.x = temp < vx.x ? vx.x : temp;
+				else
+					pos.x = temp;
 			} else {
 				Vector2 vy = cameraFollower.GetValidYRange ();
-				if (pos.y < vy.x && ratio < 0)
+				if (pos.y <= vy.x && ratio <= 0)
 					return false;
-				if (pos.y > vy.y && ratio > 0)
+				if (pos.y >= vy.y && ratio >= 0)
 					return false;
-				pos.y = pos.y + ratio;
+				float temp = pos.y + ratio;
+				if (pos.y <= vy.x && temp >= vy.x) {
+					pos.y = temp > vy.y ? vy.y : temp;
+				} else if (pos.y >= vy.y && temp <= vy.y) {
+					pos.y = temp < vy.x ? vy.x : temp;
+				} else {
+					pos.y = temp;
+				}
 			}
-			Camera.main.transform.position = Vector3.Lerp (Camera.main.transform.position, pos, Time.deltaTime * panSpeed);
+			Camera.main.transform.position = pos;
 			return true;
 		}
 
+		#endregion
 
+		#region 方式二：滚动地图
 
 		void DealWithScroll ()
 		{
-			
+			Vector2 o = MouseOnScreenOffset ();
+			Vector3 temp = cameraFollower.CalCameraPosition (scrollMapStartTarget, o.x, o.y);
+			Camera.main.transform.position = cameraFollower.ClampPosition (temp);
+			ghost.transform.position = CalGhostWithScreenPos (ghostFloatOffset.x, ghostFloatOffset.y);
 		}
 
+		#endregion
 
 
 
 		void CheckPressDownSpecial ()
 		{
-
+			if (state == 4 || state == 5) {
+				scrollMapStartTarget = RaycastPoint ();
+			}
 		}
 
 		void CheckPressUpSpecial ()
 		{
-			if (pressCount < clickPressThreshold)
+			if ((state == 0 || state == 4 || state == 5) && pressCount < clickPressThreshold)
 				OnClick ();
 			else {
 				if (state == 1) {
 					state = 4;
+					ghostFloatOffset = MouseOnScreenOffset ();
 				} else if (state == 2 || state == 3) {
 					OnTeleportEnd ();
 					StartCoroutine (Falling ());
 					state = 0;
 				}
+			}
+		}
+
+		void OnClick ()
+		{
+			print ("OnClick()");
+			if (state == 0) {
+				print ("Move to!");
+			} else if (state == 4) {
+				state = 5;
+				StartCoroutine (LerpView (false));
+			} else if (state == 5) {
+				state = 0;
+				mouseLandingPos = RaycastPoint ();
+				OnTeleportEnd ();
+				StartCoroutine (Falling ());
 			}
 		}
 
@@ -344,7 +390,9 @@ namespace DesignSociety
 
 		IEnumerator Falling ()
 		{
+			anim.Play ("drag_drop", 0, 0);
 			Vector3 position = transform.position;
+			velocity = 0;
 			while (position.y > mouseLandingPos.y) {
 				velocity += Time.deltaTime * gravity;
 				position.y += velocity * Time.deltaTime;
@@ -358,6 +406,13 @@ namespace DesignSociety
 		{
 			NNInfo info = AstarPath.active.GetNearest (pos);
 			return info.clampedPosition;
+		}
+
+		Vector2 MouseOnScreenOffset ()
+		{
+			float offsetX = Input.mousePosition.x / Screen.width;
+			float offsetY = Input.mousePosition.y / Screen.height;
+			return new Vector2 (offsetX, offsetY);
 		}
 	}
 }

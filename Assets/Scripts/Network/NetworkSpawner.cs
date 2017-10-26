@@ -13,8 +13,8 @@ namespace DesignSociety
 
 		void Start ()
 		{
-			CheckCanvasVisibility ();
 			DisableLobbyItems ();
+			CheckCanvasVisibility ();
 		}
 
 		void CheckCanvasVisibility ()
@@ -31,6 +31,8 @@ namespace DesignSociety
 			for (int i = 0; i < lobby.Count; ++i) {
 				lobby [i].SetActive (false);
 			}
+			NetworkManagerHUD nm = FindObjectOfType<NetworkManagerHUD> ();
+			nm.showGUI = false;
 		}
 	}
 }

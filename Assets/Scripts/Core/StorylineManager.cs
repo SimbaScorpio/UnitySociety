@@ -285,6 +285,7 @@ namespace DesignSociety
 				if (set.Count == 0) {
 					nameToSceneState [spotName] = SceneState.ENDED;
 					Log.info ("结束故事节点 " + Log.pink ("【" + spotName + "】"));
+					CheckLoopStoryline ();
 				}
 			}
 		}
@@ -301,8 +302,24 @@ namespace DesignSociety
 			set.Clear ();
 			nameToSceneState [spotName] = SceneState.KILLED;
 			Log.info ("杀死故事节点 " + Log.pink ("【" + spotName + "】"));
+			CheckLoopStoryline ();
 		}
 
+		void CheckLoopStoryline ()
+		{
+			foreach (string spotName in nameToSceneState.Keys) {
+				SceneState state = nameToSceneState [spotName];
+				if (state == SceneState.READY || state == SceneState.STARTED)
+					return;
+			}
+			// Attention! use foreach to iterate keys can't change dictionary values
+			List<string> names = new List<string> (nameToSceneState.Keys);
+			foreach (string spotName in names) {
+				nameToSceneState [spotName] = SceneState.READY;
+			}
+			RandomlyArrangeJobCandidates ();
+			Tick ();
+		}
 
 		public void Tick ()
 		{
@@ -315,6 +332,7 @@ namespace DesignSociety
 			if (!isTicking)
 				return;
 			time += Time.deltaTime;
+
 			foreach (string spotName in nameToScene.Keys) {
 				SceneData spot = nameToScene [spotName];
 				if (time >= spot.start_time && time < spot.end_time) {

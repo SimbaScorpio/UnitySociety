@@ -9,7 +9,7 @@ namespace DesignSociety
 		public static bool display = true;
 		public static bool displayError = true;
 		public static bool displayWarn = true;
-		public static bool displayInfo = true;
+		public static bool displayInfo = false;
 
 		public static void error (string content)
 		{

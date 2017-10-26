@@ -32,7 +32,7 @@ Material:
     - _Lightness: -1
     - _PanelHeight: 779
     - _PanelWidth: 380.875
-    - _PanelX: -0.0009765625
+    - _PanelX: 0
     - _PanelY: 389.5
     - _Quality: 3
     - _Reprocess: 0

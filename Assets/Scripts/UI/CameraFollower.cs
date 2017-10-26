@@ -40,6 +40,7 @@ namespace DesignSociety
 			float x = target.x + diffX + (offsetX * 2 - 1f) * Camera.main.orthographicSize * Screen.width / Screen.height;
 			float y = target.y - diffY - (offsetY * 2 - 1f) * Camera.main.orthographicSize;
 			Vector3 dest = new Vector3 (x, y, transform.position.z);
+			dest = ClampPosition (dest);
 			return dest;
 		}
 
@@ -76,7 +77,7 @@ namespace DesignSociety
 			float currentSize = Camera.main.orthographicSize;
 			float delta = initialSize - currentSize;
 			float xmin = clampX.x - delta * Screen.width / Screen.height;
-			float xmax = clampX.y + delta * Screen.width / Screen.height + 5f;	// 菜单偏移
+			float xmax = clampX.y + delta * Screen.width / Screen.height;
 			return new Vector2 (xmin, xmax);
 		}
 
