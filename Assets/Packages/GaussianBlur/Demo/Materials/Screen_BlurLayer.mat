@@ -77,10 +77,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _PanelHeight: 1309
-    - _PanelWidth: 2560
-    - _PanelX: 1280
-    - _PanelY: 654.5
+    - _PanelHeight: 359
+    - _PanelWidth: 638
+    - _PanelX: 319
+    - _PanelY: 179.5
     - _Parallax: 0.02
     - _Q0: 1
     - _Q1: 0
@@ -90,8 +90,8 @@ Material:
     - _Quality: 3
     - _Reprocess: 1
     - _ReprocessHor: 0
-    - _ScreenHeight: 1309
-    - _ScreenWidth: 2560
+    - _ScreenHeight: 359
+    - _ScreenWidth: 638
     - _Size: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

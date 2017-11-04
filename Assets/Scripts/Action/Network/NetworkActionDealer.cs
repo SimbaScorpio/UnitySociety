@@ -19,6 +19,7 @@ namespace DesignSociety
 		private string newRoot = "";
 
 		private Landmark landmark;
+		private bool callingStop;
 		[HideInInspector]
 		public GameObject createdItem;
 		[HideInInspector]
@@ -74,7 +75,7 @@ namespace DesignSociety
 		{
 			anim = GetComponent<Animator> ();
 			netAnim = GetComponent<NetworkAnimator> ();
-			if (isServer) {
+			if (netAnim != null && (isServer || isLocalPlayer)) {
 				for (int i = 0; i < anim.parameterCount; ++i)
 					netAnim.SetParameterAutoSend (i, true);
 			}
@@ -85,11 +86,12 @@ namespace DesignSociety
 		public void ApplyWalkAction (Landmark landmark, IActionCompleted callback)
 		{
 			this.landmark = landmark;
-			if (lastStateName == "stand_book_hold" || lastStateName == "stand_book_pickup_table" || lastStateName == "stand_book_pickup_bag") {
+			this.callingStop = false;
+			if (lastStateName == "walk_book_blend_tree" || lastStateName == "stand_book_hold" || lastStateName == "stand_book_pickup_table" || lastStateName == "stand_book_pickup_bag") {
 				ApplyAction ("walk_book_blend_tree", callback);
-			} else if (lastStateName == "stand_small_hold" || lastStateName == "stand_small_pickup_table" || lastStateName == "stand_small_pickup_bag") {
+			} else if (lastStateName == "walk_small_blend_tree" || lastStateName == "stand_small_hold" || lastStateName == "stand_small_pickup_table" || lastStateName == "stand_small_pickup_bag") {
 				ApplyAction ("walk_small_blend_tree", callback);
-			} else if (lastStateName == "stand_middle_hold" || lastStateName == "stand_middle_pickup_table" || lastStateName == "stand_middle_pickup_bag") {
+			} else if (lastStateName == "walk_middle_blend_tree" || lastStateName == "stand_middle_hold" || lastStateName == "stand_middle_pickup_table" || lastStateName == "stand_middle_pickup_bag") {
 				ApplyAction ("walk_middle_blend_tree", callback);
 			} else {
 				ApplyAction ("walk_blend_tree", callback);
@@ -170,8 +172,10 @@ namespace DesignSociety
 		{
 			lastStateName = newStateName;
 			if (landmark != null) {
-				SyncActionWalk (newStateName, landmark, newCallback);
-				landmark = null;
+				if (!callingStop) {
+					SyncActionWalk (newStateName, landmark, newCallback);
+					landmark = null;
+				}
 			} else {
 				// need to find items here
 				string[] paths = ActionName.FindItems (newStateName);
@@ -194,6 +198,17 @@ namespace DesignSociety
 			}
 		}
 
+
+		public void CallingStop ()
+		{
+			if (landmark != null) {
+				callingStop = true;
+			} else {
+				SyncActionWalk ac = GetComponent<SyncActionWalk> ();
+				if (ac != null)
+					ac.Finish ();
+			}
+		}
 
 
 		Action SyncActionWalk (string stateName, Landmark landmark, IActionCompleted callback)
@@ -224,13 +239,8 @@ namespace DesignSociety
 		[Command]
 		void CmdSyncAction (string name)
 		{
+			anim.Play (name, 0, 0f);
 			RpcSyncAction (name);
-		}
-
-		[Command]
-		void CmdSyncItem (string[] path, bool isShown)
-		{
-			RpcSyncItem (path, isShown);
 		}
 
 		[ClientRpc]
@@ -245,6 +255,12 @@ namespace DesignSociety
 		{
 			if (!isLocalPlayer)
 				anim.speed = speed;
+		}
+
+		[Command]
+		void CmdSyncItem (string[] path, bool isShown)
+		{
+			RpcSyncItem (path, isShown);
 		}
 
 		[ClientRpc]

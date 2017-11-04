@@ -1,0 +1,213 @@
+fileFormatVersion: 2
+guid: 622e50b888049814d9e189029f48a6d6
+timeCreated: 1509375404
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: chest_ctrl
+    100002: "Cinema4D_\u7F16\u8F91\u5668"
+    100004: Cylinder_1
+    100006: desk
+    100008: ears
+    100010: end
+    100012: hair
+    100014: head
+    100016: hip_ctrl
+    100018: left_ankle
+    100020: left_ankle_2
+    100022: left_ankle_Goal
+    100024: left_arm
+    100026: left_elbow
+    100028: left_fingertip
+    100030: left_fingertip_Goal
+    100032: left_foot
+    100034: left_foot_ctrl
+    100036: left_foot_lift
+    100038: left_hand
+    100040: left_hand_Goal
+    100042: left_hip
+    100044: left_knee
+    100046: left_mid
+    100048: left_mid2
+    100050: left_thumb
+    100052: left_thumbmid
+    100054: left_thumbtip
+    100056: left_thumbtip_Goal
+    100058: left_toe
+    100060: left_toe_2
+    100062: mesh
+    100064: neck
+    100066: neck_ctrl
+    100068: right_ankle
+    100070: right_ankle_2
+    100072: right_ankle_Goal
+    100074: right_arm
+    100076: right_chest
+    100078: right_elbow
+    100080: right_fingertip
+    100082: right_fingertip_Goal
+    100084: right_foot
+    100086: right_foot_ctrl
+    100088: right_foot_lift
+    100090: right_hand
+    100092: right_hand_Goal
+    100094: right_hip
+    100096: right_knee
+    100098: right_mid
+    100100: right_mid2
+    100102: right_thumb
+    100104: right_thumbmid
+    100106: right_thumbtip
+    100108: right_thumbtip_Goal
+    100110: right_toe
+    100112: right_toe_2
+    100114: root
+    100116: //RootNode
+    100118: spline
+    400000: chest_ctrl
+    400002: "Cinema4D_\u7F16\u8F91\u5668"
+    400004: Cylinder_1
+    400006: desk
+    400008: ears
+    400010: end
+    400012: hair
+    400014: head
+    400016: hip_ctrl
+    400018: left_ankle
+    400020: left_ankle_2
+    400022: left_ankle_Goal
+    400024: left_arm
+    400026: left_elbow
+    400028: left_fingertip
+    400030: left_fingertip_Goal
+    400032: left_foot
+    400034: left_foot_ctrl
+    400036: left_foot_lift
+    400038: left_hand
+    400040: left_hand_Goal
+    400042: left_hip
+    400044: left_knee
+    400046: left_mid
+    400048: left_mid2
+    400050: left_thumb
+    400052: left_thumbmid
+    400054: left_thumbtip
+    400056: left_thumbtip_Goal
+    400058: left_toe
+    400060: left_toe_2
+    400062: mesh
+    400064: neck
+    400066: neck_ctrl
+    400068: right_ankle
+    400070: right_ankle_2
+    400072: right_ankle_Goal
+    400074: right_arm
+    400076: right_chest
+    400078: right_elbow
+    400080: right_fingertip
+    400082: right_fingertip_Goal
+    400084: right_foot
+    400086: right_foot_ctrl
+    400088: right_foot_lift
+    400090: right_hand
+    400092: right_hand_Goal
+    400094: right_hip
+    400096: right_knee
+    400098: right_mid
+    400100: right_mid2
+    400102: right_thumb
+    400104: right_thumbmid
+    400106: right_thumbtip
+    400108: right_thumbtip_Goal
+    400110: right_toe
+    400112: right_toe_2
+    400114: root
+    400116: //RootNode
+    400118: spline
+    2300000: Cylinder_1
+    2300002: desk
+    2300004: ears
+    2300006: hair
+    3300000: Cylinder_1
+    3300002: desk
+    3300004: ears
+    3300006: hair
+    4300000: desk
+    4300002: Cylinder_1
+    4300004: mesh
+    4300006: hair
+    4300008: ears
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+    13700000: mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

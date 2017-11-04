@@ -71,7 +71,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Reprocess: 1
-    - _BlurSize: 16
+    - _BlurSize: 5
     - _BumpAmt: 128
     - _BumpScale: 1
     - _ColorMask: 357.3
@@ -86,10 +86,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _PanelHeight: 1309
-    - _PanelWidth: 640
-    - _PanelX: 320
-    - _PanelY: 654.5
+    - _PanelHeight: 359
+    - _PanelWidth: 159.5
+    - _PanelX: 79.75
+    - _PanelY: 179.5
     - _Parallax: 0.02
     - _Q0: 0
     - _Q1: 0
@@ -99,8 +99,8 @@ Material:
     - _Quality: 3
     - _Reprocess: 1
     - _ReprocessHor: 1
-    - _ScreenHeight: 1309
-    - _ScreenWidth: 2560
+    - _ScreenHeight: 359
+    - _ScreenWidth: 638
     - _Size: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

@@ -28,7 +28,6 @@ namespace DesignSociety
 				if (Physics.Raycast (ray, out hit, rayDistance)) {
 					if (hit.collider.tag == "Player" && hit.collider.GetComponent<Person> () != null) {
 						AvatarInfo av = ServerAIInfoManager.GetInstance ().GetAvatarInfo (hit.collider.name);
-						print ("change");
 						nameField.text = av.name;
 						careerField.text = av.job;
 						sceneField.text = av.scene;

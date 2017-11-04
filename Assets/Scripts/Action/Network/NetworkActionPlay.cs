@@ -51,7 +51,8 @@ namespace DesignSociety
 			this.monitor = callback;
 			dealer = GetComponent<NetworkActionDealer> ();
 			anim = GetComponent<Animator> ();
-			anim.Play (info.stateName, 0, 0f);
+			if (!string.IsNullOrEmpty (info.stateName))
+				anim.Play (info.stateName, 0, 0f);
 		}
 
 		void Update ()

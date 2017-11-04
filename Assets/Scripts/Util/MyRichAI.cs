@@ -557,7 +557,9 @@ namespace Pathfinding
 
 				if (pt is RichSpecial) {
 					if (!traversingSpecialPath) {
-						StartCoroutine (TraverseSpecial (pt as RichSpecial));
+						//StartCoroutine (TraverseSpecial (pt as RichSpecial));
+						NNInfo info = AstarPath.active.GetNearest ((pt as RichSpecial).nodeLink.end.position);
+						transform.position = info.clampedPosition;
 					}
 				}
 				//w.Stop();

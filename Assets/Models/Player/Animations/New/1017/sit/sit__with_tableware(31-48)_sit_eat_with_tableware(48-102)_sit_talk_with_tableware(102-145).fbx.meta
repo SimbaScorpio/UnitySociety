@@ -1,0 +1,233 @@
+fileFormatVersion: 2
+guid: 59b0c60bbca933740b5dc6bbe31ed52f
+timeCreated: 1509375229
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: CHAZI
+    100002: CHAZI_2
+    100004: chest_ctrl
+    100006: "Cinema4D_\u7F16\u8F91\u5668"
+    100008: DAO
+    100010: DAO_2
+    100012: desk
+    100014: ears
+    100016: end
+    100018: hair
+    100020: head
+    100022: hip_ctrl
+    100024: left_ankle
+    100026: left_ankle_2
+    100028: left_ankle_Goal
+    100030: left_arm
+    100032: left_elbow
+    100034: left_fingertip
+    100036: left_fingertip_Goal
+    100038: left_foot
+    100040: left_foot_ctrl
+    100042: left_foot_lift
+    100044: left_hand
+    100046: left_hand_Goal
+    100048: left_hip
+    100050: left_knee
+    100052: left_mid
+    100054: left_mid2
+    100056: left_thumb
+    100058: left_thumbmid
+    100060: left_thumbtip
+    100062: left_thumbtip_Goal
+    100064: left_toe
+    100066: left_toe_2
+    100068: mesh
+    100070: neck
+    100072: neck_ctrl
+    100074: PANZI
+    100076: right_ankle
+    100078: right_ankle_2
+    100080: right_ankle_Goal
+    100082: right_arm
+    100084: right_chest
+    100086: right_elbow
+    100088: right_fingertip
+    100090: right_fingertip_Goal
+    100092: right_foot
+    100094: right_foot_ctrl
+    100096: right_foot_lift
+    100098: right_hand
+    100100: right_hand_Goal
+    100102: right_hip
+    100104: right_knee
+    100106: right_mid
+    100108: right_mid2
+    100110: right_thumb
+    100112: right_thumbmid
+    100114: right_thumbtip
+    100116: right_thumbtip_Goal
+    100118: right_toe
+    100120: right_toe_2
+    100122: root
+    100124: //RootNode
+    100126: spline
+    400000: CHAZI
+    400002: CHAZI_2
+    400004: chest_ctrl
+    400006: "Cinema4D_\u7F16\u8F91\u5668"
+    400008: DAO
+    400010: DAO_2
+    400012: desk
+    400014: ears
+    400016: end
+    400018: hair
+    400020: head
+    400022: hip_ctrl
+    400024: left_ankle
+    400026: left_ankle_2
+    400028: left_ankle_Goal
+    400030: left_arm
+    400032: left_elbow
+    400034: left_fingertip
+    400036: left_fingertip_Goal
+    400038: left_foot
+    400040: left_foot_ctrl
+    400042: left_foot_lift
+    400044: left_hand
+    400046: left_hand_Goal
+    400048: left_hip
+    400050: left_knee
+    400052: left_mid
+    400054: left_mid2
+    400056: left_thumb
+    400058: left_thumbmid
+    400060: left_thumbtip
+    400062: left_thumbtip_Goal
+    400064: left_toe
+    400066: left_toe_2
+    400068: mesh
+    400070: neck
+    400072: neck_ctrl
+    400074: PANZI
+    400076: right_ankle
+    400078: right_ankle_2
+    400080: right_ankle_Goal
+    400082: right_arm
+    400084: right_chest
+    400086: right_elbow
+    400088: right_fingertip
+    400090: right_fingertip_Goal
+    400092: right_foot
+    400094: right_foot_ctrl
+    400096: right_foot_lift
+    400098: right_hand
+    400100: right_hand_Goal
+    400102: right_hip
+    400104: right_knee
+    400106: right_mid
+    400108: right_mid2
+    400110: right_thumb
+    400112: right_thumbmid
+    400114: right_thumbtip
+    400116: right_thumbtip_Goal
+    400118: right_toe
+    400120: right_toe_2
+    400122: root
+    400124: //RootNode
+    400126: spline
+    2300000: CHAZI
+    2300002: CHAZI_2
+    2300004: DAO
+    2300006: DAO_2
+    2300008: desk
+    2300010: ears
+    2300012: hair
+    2300014: PANZI
+    3300000: CHAZI
+    3300002: CHAZI_2
+    3300004: DAO
+    3300006: DAO_2
+    3300008: desk
+    3300010: ears
+    3300012: hair
+    3300014: PANZI
+    4300000: CHAZI
+    4300002: PANZI
+    4300004: DAO
+    4300006: desk
+    4300008: CHAZI_2
+    4300010: DAO_2
+    4300012: mesh
+    4300014: hair
+    4300016: ears
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+    13700000: mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -30,14 +30,14 @@ Material:
     - _BlurSize: 15
     - _BumpAmt: 205
     - _Lightness: -1
-    - _PanelHeight: 779
-    - _PanelWidth: 380.875
-    - _PanelX: 0
-    - _PanelY: 389.5
+    - _PanelHeight: 764
+    - _PanelWidth: 373.45
+    - _PanelX: -0.0007324219
+    - _PanelY: 382
     - _Quality: 3
     - _Reprocess: 0
-    - _ScreenHeight: 779
-    - _ScreenWidth: 1385
+    - _ScreenHeight: 764
+    - _ScreenWidth: 1358
     - _Size: 4
     - _TextureSize: 256
     - _WorldSpace: 1

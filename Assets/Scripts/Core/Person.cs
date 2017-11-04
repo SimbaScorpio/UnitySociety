@@ -15,10 +15,10 @@ namespace DesignSociety
 		private float compositeTiming;
 		private ComState state;
 
-		private List<PrincipalActivity> principalActivities;
-		private List<FollowingActivity> followingActivities;
-		private PrincipalActivity currentPrincipalActivity;
-		private FollowingActivity currentFollowingActivity;
+		public List<PrincipalActivity> principalActivities;
+		public List<FollowingActivity> followingActivities;
+		public PrincipalActivity currentPrincipalActivity;
+		public FollowingActivity currentFollowingActivity;
 		private List<SecondPerson> secondChildren;
 		private List<ThirdPerson> thirdChildren;
 		private List<Person> waitToBeChildren;
@@ -27,7 +27,7 @@ namespace DesignSociety
 		private StorylineManager storylineManager;
 		private NetworkActionDealer actionDealer;
 
-		private float distanceError = 0.5f;
+		private float distanceError = 0.1f;
 		private float randomDiff = 1.0f;
 		[HideInInspector]
 		public int actionListIndex;
@@ -102,18 +102,16 @@ namespace DesignSociety
 			}
 			state = ComState.LEAVING;
 
-			SyncActionWalk ac = GetComponent<SyncActionWalk> ();
-			if (ac != null) {
-				ac.Finish ();
-			}
+			// 注意！由于动作间有过度，行走动作的当前动作可能是起身等动作，因此不能直接通过GetComponent<Walk>这种方式判断，应借由Dealer来结束
+			actionDealer.CallingStop ();
 		}
 
 		void WhatNext ()
 		{
 			ActionSingle ac = GetComponent<ActionSingle> ();
-			if (ac != null) {
+			if (ac != null)
 				return;
-			} else if (isPrincipal && isBeingControlled) {
+			if (isPrincipal && isBeingControlled) {
 				Stop ();
 				Log.error ("Unexpected state of [" + this.name + "]: principal being controlled");
 			} else if (isPrincipal && parent != null) {
@@ -208,6 +206,7 @@ namespace DesignSociety
 					Person person = waitToBeChildren [i];
 					if (!person.isPrincipal && !person.isBeingControlled &&
 					    (person.parent == null || person.parent == this)) {
+						person.Stop ();
 						person.parent = this;
 						person.isBeingControlled = true;
 						person.spotName = spotName;
@@ -262,6 +261,7 @@ namespace DesignSociety
 					Person person = waitToBeChildren [i];
 					if (!person.isPrincipal && !person.isBeingControlled &&
 					    (person.parent == null || person.parent == this)) {
+						person.Stop ();
 						person.parent = this;
 						person.isBeingControlled = true;
 						person.spotName = spotName;
@@ -531,17 +531,25 @@ namespace DesignSociety
 				if (string.IsNullOrEmpty (self.location_to))
 					return true;
 				destination = LandmarkCollection.GetInstance ().Get (self.location_to);
-				if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
+				if (destination == null || Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError) {
+					if (doAction) {
+						gameObject.transform.position = destination.position;
+						gameObject.transform.rotation = destination.rotation;
+					}
 					return true;
-				else if (doAction) {
+				} else if (doAction) {
 					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, null);
 				}
 				return false;
 			case 2:	// initial location
 				destination = LandmarkCollection.GetInstance ().Get (cha.initial_position);
-				if (Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError)
+				if (destination == null || Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError) {
+					if (doAction) {
+						gameObject.transform.position = destination.position;
+						gameObject.transform.rotation = destination.rotation;
+					}
 					return true;
-				else if (doAction) {
+				} else if (doAction) {
 					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, null);
 				}
 				return false;

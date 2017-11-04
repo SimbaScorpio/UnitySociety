@@ -7,7 +7,7 @@ using Pathfinding;
 
 namespace DesignSociety
 {
-	public class NetworkPlayerTeleport : MonoBehaviour
+	public class NetworkPlayerTeleport : NetworkBehaviour
 	{
 		// smallest camera size
 		public float smallSize = 10f;
@@ -26,8 +26,9 @@ namespace DesignSociety
 		public float playerHeight = 1.75f;
 		public float gravity = -9.82f;
 
-		public GameObject ghost;
-		public float ghostZ;
+		public GameObject ghostPref;
+		private GameObject ghost;
+		public float ghostZ = 200f;
 
 		private float velocity;
 
@@ -46,27 +47,29 @@ namespace DesignSociety
 
 		private CameraPerspectiveEditor cameraEditor;
 		private CameraFollower cameraFollower;
-		private Animator anim;
 		private Animator ghostAnim;
-		//private NetworkAnimator netAnim;
 
 		void Start ()
 		{
-			anim = GetComponent<Animator> ();
-			ghostAnim = ghost.GetComponent<Animator> ();
-			//if (isLocalPlayer) {
-			cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
-			cameraFollower = Camera.main.GetComponent<CameraFollower> ();
-			cameraFollower.target = this.gameObject;
-			Camera.main.orthographicSize = smallSize;
-			//}
+			if (isLocalPlayer) {
+				
+				cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
+				cameraFollower = Camera.main.GetComponent<CameraFollower> ();
+				cameraFollower.target = this.gameObject;
+				Camera.main.orthographicSize = smallSize;
+
+				ghost = Instantiate (ghostPref) as GameObject;
+				ghost.SetActive (false);
+				ghostAnim = ghost.GetComponent<Animator> ();
+				// should init ghost mesh and texture here
+			}
 		}
 
 
 		void Update ()
 		{
-			//if (!isLocalPlayer)
-			//	return;
+			if (!isLocalPlayer)
+				return;
 			if (EventSystem.current.IsPointerOverGameObject ())
 				return;
 			if (Input.GetMouseButtonDown (0)) {
@@ -98,8 +101,9 @@ namespace DesignSociety
 				pressCount += Time.deltaTime;
 				yield return null;
 				if (state == 0) {
-					if (alwaysPressing && !IsPressing (this.gameObject))
+					if (alwaysPressing && !IsPressing (this.gameObject)) {
 						alwaysPressing = false;
+					}
 					if (alwaysPressing && pressCount > dragPressThreshold) {
 						OnTeleportBegin ();
 						pressCount = 0;
@@ -117,6 +121,7 @@ namespace DesignSociety
 			UIInformationMenu.GetInstance ().Hide ();
 			StartCoroutine (LerpView (true));
 			ghostAnim.Play ("drag_float", 0, 0);
+			GetComponent<NetworkActionDealer> ().ApplyAction ("drag_float", null);
 		}
 
 		// scale to normal view, waiting drop command
@@ -130,6 +135,7 @@ namespace DesignSociety
 		{
 			SwitchGhostToPlayer ();
 			UIInformationMenu.GetInstance ().Show ();
+			GetComponent<NetworkActionDealer> ().ApplyAction ("walk_blend_tree", null);
 		}
 
 		// scroll view {true: large, false: normal}
@@ -216,7 +222,7 @@ namespace DesignSociety
 			if (Physics.Raycast (ray, out hit, 1000)) {
 				if (hit.collider.tag != "Player") {
 					mouseLandingPos = hit.point;
-					GameObject.Find ("CubeShadow").transform.position = hit.point;
+					//GameObject.Find ("CubeShadow").transform.position = hit.point;
 				}
 			}
 		}
@@ -390,7 +396,6 @@ namespace DesignSociety
 
 		IEnumerator Falling ()
 		{
-			anim.Play ("drag_drop", 0, 0);
 			Vector3 position = transform.position;
 			velocity = 0;
 			while (position.y > mouseLandingPos.y) {

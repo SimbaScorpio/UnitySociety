@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 namespace DesignSociety
 {
@@ -33,7 +34,7 @@ namespace DesignSociety
 			landmarks.Clear ();
 			foreach (Landmark lm in list.landmarkList) {
 				if (landmarks.ContainsKey (lm.m_name)) {
-					Log.warn ("Initialize landmark [" + lm.m_name + "] warning: overlapped name");
+					Log.warn ("初始化地点 【" + lm.m_name + "】 警告: 重复的命名");
 				}
 				landmarks [lm.m_name] = lm;
 			}
@@ -45,14 +46,29 @@ namespace DesignSociety
 		public Landmark Get (string name)
 		{
 			if (string.IsNullOrEmpty (name)) {
-				Log.error ("Try to get a null location");
+				Log.error ("尝试获取一个空地点，请给出地点名称");
 				return null;
 			}
 			if (landmarks.ContainsKey (name)) {
 				return landmarks [name];
 			}
-			Log.error ("Try to get a nonexist location");
+			Log.error ("尝试获取一个不存在的地点 【" + name + "】，请确保该地点命名正确");
 			return null;
+		}
+
+
+		Landmark ValidLandmark (Landmark mark)
+		{
+			NNInfo info = AstarPath.active.GetNearest (mark.position);
+			Vector3 pos = info.clampedPosition;
+			Landmark ans = new Landmark ();
+			ans.m_name = mark.m_name;
+			ans.m_label = mark.m_label;
+			ans.m_data [0] = pos.x;
+			ans.m_data [1] = pos.y;
+			ans.m_data [2] = pos.z;
+			ans.m_data [3] = mark.m_data [3];
+			return ans;
 		}
 
 
