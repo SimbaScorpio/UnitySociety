@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,6 +49,25 @@ namespace DesignSociety
 				});
 			}
 			scrollview.content.sizeDelta = new Vector2 (maxWidth + 2, scrollview.content.sizeDelta.y);
+		}
+
+		public void ClearLog ()
+		{
+			UISystemLog.GetInstance ().messages.Clear ();
+			scrollview.SetTotalCount (0);
+		}
+
+		public void SaveLog ()
+		{
+			string data = "";
+			foreach (string log in UISystemLog.GetInstance().messages) {
+				data += log + Environment.NewLine;
+			}
+			if (FileManager.GetInstance ().SaveLogData (data)) {
+				Log.info (Log.green ("日志保存成功 ヽ(✿ﾟ▽ﾟ)ノ"));
+			} else {
+				Log.error ("日志保存失败 w(ﾟДﾟ)w");
+			}
 		}
 	}
 }

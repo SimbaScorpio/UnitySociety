@@ -36,7 +36,7 @@ namespace DesignSociety
 		private bool isRaycasting = false;
 		private float rayDistance = 1000;
 
-		private BasicCameraController basicCameraScript;
+		private UICameraSelectButtonSet2 cameraSelectScript;
 		private const float distanceFromMark = 12;
 
 		private List<Landmark> searchResults = new List<Landmark> ();
@@ -59,7 +59,7 @@ namespace DesignSociety
 			scrollview.OnEndDragHandler += OnEndDragHandler;
 			scrollview.Initialize ();
 
-			basicCameraScript = Camera.main.GetComponent<BasicCameraController> ();
+			cameraSelectScript = FindObjectOfType<UICameraSelectButtonSet2> ();
 			raycastBtnColors = raycastButton.colors;
 			markObj.SetActive (false);
 			foreach (InputField inputField in inputFields) {
@@ -289,12 +289,15 @@ namespace DesignSociety
 
 		public void ShiftCameraToMark ()
 		{
-			if (basicCameraScript != null) {
-				basicCameraScript.projection = BasicCameraController.CameraProjection.perspective;
-				basicCameraScript.SetProjectionScript ();
-				basicCameraScript.isDesired = true;
-				basicCameraScript.desiredPosition = markObj.transform.position - basicCameraScript.transform.forward * distanceFromMark;
-			}
+//			if (basicCameraScript != null) {
+//				basicCameraScript.projection = BasicCameraController.CameraProjection.perspective;
+//				basicCameraScript.SetProjectionScript ();
+//				basicCameraScript.isDesired = true;
+//				basicCameraScript.desiredPosition = markObj.transform.position - basicCameraScript.transform.forward * distanceFromMark;
+//			}
+			Vector3 position = markObj.transform.position - cameraSelectScript.perspective.transform.forward * distanceFromMark;
+			cameraSelectScript.OnPerspectiveClicked ();
+			cameraSelectScript.perspective.SetDesirePosition (position);
 		}
 
 		#endregion

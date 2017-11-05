@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 namespace DesignSociety
 {
@@ -10,6 +11,9 @@ namespace DesignSociety
 		public bool isPrincipal;
 		public bool isBeingControlled;
 		public string spotName;
+
+		// 随机走路速度
+		public Vector2 walkSpeedRange = new Vector2 (0.8f, 1.2f);
 
 		private CompositeMovementData compositeMovement;
 		private float compositeTiming;
@@ -27,7 +31,7 @@ namespace DesignSociety
 		private StorylineManager storylineManager;
 		private NetworkActionDealer actionDealer;
 
-		private float distanceError = 0.1f;
+		private float distanceError = 0.5f;
 		private float randomDiff = 1.0f;
 		[HideInInspector]
 		public int actionListIndex;
@@ -43,6 +47,8 @@ namespace DesignSociety
 			followingActivities = new List<FollowingActivity> ();
 			storylineManager = StorylineManager.GetInstance ();
 			actionDealer = GetComponent<NetworkActionDealer> ();
+
+			GetComponent<MyRichAI> ().maxSpeed = Random.Range (walkSpeedRange.x, walkSpeedRange.y);
 		}
 
 		public bool AddPrincipalActivities (PrincipalActivity[] activities, string name)
@@ -479,24 +485,23 @@ namespace DesignSociety
 			if (aid == null || aid.Length == 0) {
 				actionDealer.ApplyAction (main, null);
 
-				if (showInfo && !string.IsNullOrEmpty (main))
-					Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
+				//if (showInfo && !string.IsNullOrEmpty (main))
+				//	Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
 
 			} else {
 				if (actionDealer.IsAidActive ()) {
 					int index = Random.Range (0, aid.Length);
 					actionDealer.ApplyAction (aid [index], null);
 
-					if (showInfo && !string.IsNullOrEmpty (aid [index]))
-						Log.info (Log.yellow ("【" + personName + "】 ") + aidInfo + Log.blue (" 【" + aid [index] + "】"));
+					//if (showInfo && !string.IsNullOrEmpty (aid [index]))
+					//	Log.info (Log.yellow ("【" + personName + "】 ") + aidInfo + Log.blue (" 【" + aid [index] + "】"));
 
 				} else {
 					actionDealer.ApplyAction (main, null);
 
-					if (showInfo && !string.IsNullOrEmpty (main)) {
-						Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
+					//if (showInfo && !string.IsNullOrEmpty (main))
+					//	Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + main + "】"));
 
-					}
 				}
 				actionDealer.StartCountingAid ();
 			}
@@ -510,8 +515,8 @@ namespace DesignSociety
 					string actionName = list [index];
 					actionDealer.ApplyAction (actionName, null);
 
-					if (info && !string.IsNullOrEmpty (actionName))
-						Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + actionName + "】"));
+					//if (info && !string.IsNullOrEmpty (actionName))
+					//	Log.info (Log.yellow ("【" + personName + "】 ") + mainInfo + Log.blue (" 【" + actionName + "】"));
 					
 					return true;
 				}
@@ -595,7 +600,7 @@ namespace DesignSociety
 		{
 			switch (self.bubble_type) {
 			case 1:
-				ActionManager.GetInstance ().ApplyChatAction (obj, self.bubble_content, 2, null);
+				//ActionManager.GetInstance ().ApplyChatAction (obj, self.bubble_content, 2, null);
 				break;
 			case 2:
 				break;

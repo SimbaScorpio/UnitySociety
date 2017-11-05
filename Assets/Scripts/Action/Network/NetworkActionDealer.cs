@@ -14,7 +14,12 @@ namespace DesignSociety
 		private int checkState = 0;
 		private IActionCompleted newCallback;
 
-		// 如果接下来的动作和进行的动作具有相同的root名称，跳过开始和结束动作的过度判断
+		// 记录执行最近的动作
+		[HideInInspector]
+		public List<string> recentActions = new List<string> ();
+		private int maxRecord = 5;
+
+		// 如果接下来的动作和进行的动作具有相同的root名称，跳过开始和结束动作的过渡判断
 		private string oldRoot = "";
 		private string newRoot = "";
 
@@ -171,6 +176,7 @@ namespace DesignSociety
 		void ActualApply ()
 		{
 			lastStateName = newStateName;
+			RecordRecentAction (lastStateName);
 			if (landmark != null) {
 				if (!callingStop) {
 					SyncActionWalk (newStateName, landmark, newCallback);
@@ -186,6 +192,16 @@ namespace DesignSociety
 			}
 		}
 
+		void RecordRecentAction (string stateName)
+		{
+			if (recentActions.Count < maxRecord) {
+				recentActions.Add (stateName);
+			}
+			for (int i = recentActions.Count - 1; i > 0; --i) {
+				recentActions [i] = recentActions [i - 1];
+			}
+			recentActions [0] = stateName;
+		}
 
 		public void OnActionCompleted (Action ac)
 		{

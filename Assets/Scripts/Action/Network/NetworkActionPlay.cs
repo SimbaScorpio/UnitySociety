@@ -119,7 +119,7 @@ namespace DesignSociety
 		public void OnItemCreated ()
 		{
 			Transform parent = transform.Find (info.itemPaths [0]);
-			dealer.createdItem = Instantiate (Resources.Load ("Prefabs/" + info.prefabName)) as GameObject;
+			dealer.createdItem = Instantiate (Resources.Load ("Prefabs/Item/" + info.prefabName)) as GameObject;
 			dealer.createdItem.GetComponent<CopyTransform> ().target = parent;
 		}
 

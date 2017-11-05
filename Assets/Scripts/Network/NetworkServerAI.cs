@@ -23,9 +23,6 @@ namespace DesignSociety
 				Person person = GetComponent<Person> ();
 				if (person != null)
 					person.enabled = false;
-				ActionDealer actionDealer = GetComponent<ActionDealer> ();
-				if (actionDealer != null)
-					actionDealer.enabled = false;
 				NavmeshCut navmeshcut = GetComponent<NavmeshCut> ();
 				if (navmeshcut != null)
 					navmeshcut.enabled = false;
@@ -37,9 +34,8 @@ namespace DesignSociety
 
 		void InitialCharater ()
 		{
-			Material clothMat = MaterialCollection.GetInstance ().Get (character.clothing);
-			transform.Find ("mesh").GetComponent<Renderer> ().material = clothMat;
-			this.name = character.name;
+			name = character.name;
+			CharacterGenerator.GetInstance ().Generate (gameObject, character);
 		}
 	}
 }

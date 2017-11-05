@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace DesignSociety
 {
+	[RequireComponent (typeof(Camera))]
 	public class CameraFollower : MonoBehaviour
 	{
 		public GameObject target;
@@ -16,9 +17,12 @@ namespace DesignSociety
 		private Vector3 velocity = Vector3.zero;
 		private float initialSize;
 
+		private Camera cameraScript;
+
 		void Awake ()
 		{
-			initialSize = Camera.main.orthographicSize;
+			cameraScript = GetComponent<Camera> ();
+			initialSize = cameraScript.orthographicSize;
 			if (clampX.x > clampX.y)
 				Switch (ref clampX.x, ref clampX.y);
 			if (clampY.x > clampY.y)
@@ -37,8 +41,8 @@ namespace DesignSociety
 			float distanceZ = target.z - transform.position.z;
 			float diffX = distanceZ * lensShift.x;
 			float diffY = distanceZ * lensShift.y;
-			float x = target.x + diffX + (offsetX * 2 - 1f) * Camera.main.orthographicSize * Screen.width / Screen.height;
-			float y = target.y - diffY - (offsetY * 2 - 1f) * Camera.main.orthographicSize;
+			float x = target.x + diffX + (offsetX * 2 - 1f) * cameraScript.orthographicSize * Screen.width / Screen.height;
+			float y = target.y - diffY - (offsetY * 2 - 1f) * cameraScript.orthographicSize;
 			Vector3 dest = new Vector3 (x, y, transform.position.z);
 			dest = ClampPosition (dest);
 			return dest;
@@ -57,8 +61,8 @@ namespace DesignSociety
 			float distanceZ = z - transform.position.z;
 			float diffX = distanceZ * lensShift.x;
 			float diffY = distanceZ * lensShift.y;
-			float x = transform.position.x - diffX - (offsetX * 2 - 1f) * Camera.main.orthographicSize * Screen.width / Screen.height;
-			float y = transform.position.y + diffY + (offsetY * 2 - 1f) * Camera.main.orthographicSize;
+			float x = transform.position.x - diffX - (offsetX * 2 - 1f) * cameraScript.orthographicSize * Screen.width / Screen.height;
+			float y = transform.position.y + diffY + (offsetY * 2 - 1f) * cameraScript.orthographicSize;
 			Vector3 dest = new Vector3 (x, y, z);
 			return dest;
 		}
@@ -74,7 +78,7 @@ namespace DesignSociety
 
 		public Vector2 GetValidXRange ()
 		{
-			float currentSize = Camera.main.orthographicSize;
+			float currentSize = cameraScript.orthographicSize;
 			float delta = initialSize - currentSize;
 			float xmin = clampX.x - delta * Screen.width / Screen.height;
 			float xmax = clampX.y + delta * Screen.width / Screen.height;
@@ -83,7 +87,7 @@ namespace DesignSociety
 
 		public Vector2 GetValidYRange ()
 		{
-			float currentSize = Camera.main.orthographicSize;
+			float currentSize = cameraScript.orthographicSize;
 			float delta = initialSize - currentSize;
 			float ymin = clampY.x - delta;
 			float ymax = clampY.y + delta;
