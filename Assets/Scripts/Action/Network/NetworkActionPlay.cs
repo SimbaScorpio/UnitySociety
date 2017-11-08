@@ -106,6 +106,7 @@ namespace DesignSociety
 			for (int i = 0; i < info.itemPaths.Length; ++i) {
 				transform.Find (info.itemPaths [i]).gameObject.SetActive (true);
 			}
+			dealer.SyncActionItems (info.itemPaths, true);
 		}
 
 		public void OnItemHidden ()
@@ -113,6 +114,7 @@ namespace DesignSociety
 			for (int i = 0; i < info.itemPaths.Length; ++i) {
 				transform.Find (info.itemPaths [i]).gameObject.SetActive (false);
 			}
+			dealer.SyncActionItems (info.itemPaths, false);
 		}
 
 		// 创建物品至场景
@@ -247,7 +249,7 @@ namespace DesignSociety
 		{
 			// stop animation till partner show up
 			anim.speed = 0;
-			dealer.RpcSetActionSpeed (0);
+			dealer.SyncActionSpeed (0);
 			findingPartner = true;
 
 			GameObject[] objs = GameObject.FindGameObjectsWithTag ("Player");
@@ -268,7 +270,7 @@ namespace DesignSociety
 									dealer.stuffs.RemoveAt (0);
 								}
 								anim.speed = 1;
-								dealer.RpcSetActionSpeed (1);
+								dealer.SyncActionSpeed (1);
 
 								findingPartner = false;
 								np.waitingPartner = false;
@@ -285,7 +287,7 @@ namespace DesignSociety
 		{
 			// stop animation till partner show up
 			anim.speed = 0;
-			dealer.RpcSetActionSpeed (0);
+			dealer.SyncActionSpeed (0);
 			waitingPartner = true;
 
 			while (waitingPartner) {
@@ -293,7 +295,7 @@ namespace DesignSociety
 			}
 
 			anim.speed = 1;
-			dealer.RpcSetActionSpeed (1);
+			dealer.SyncActionSpeed (1);
 		}
 
 

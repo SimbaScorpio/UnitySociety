@@ -1,0 +1,671 @@
+fileFormatVersion: 2
+guid: f4536dd1d5060a94391ffa3514cea3ae
+timeCreated: 1510154786
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: "Cinema4D_\u7F16\u8F91\u5668"
+    100002: "\u514B\u9686_2"
+    100004: "\u5706\u73AF"
+    100006: "\u5706\u73AF_2"
+    100008: "\u626B\u63CF"
+    100010: "\u626B\u63CF_10"
+    100012: "\u626B\u63CF_11"
+    100014: "\u626B\u63CF_12"
+    100016: "\u626B\u63CF_13"
+    100018: "\u626B\u63CF_2"
+    100020: "\u626B\u63CF_3"
+    100022: "\u626B\u63CF_4"
+    100024: "\u626B\u63CF_5"
+    100026: "\u626B\u63CF_6"
+    100028: "\u626B\u63CF_7"
+    100030: "\u626B\u63CF_8"
+    100032: "\u626B\u63CF_9"
+    100034: //RootNode
+    100036: "\u65CB\u8F6C_1"
+    100038: "\u65CB\u8F6C_1_10"
+    100040: "\u65CB\u8F6C_1_11"
+    100042: "\u65CB\u8F6C_1_12"
+    100044: "\u65CB\u8F6C_1_13"
+    100046: "\u65CB\u8F6C_1_2"
+    100048: "\u65CB\u8F6C_1_3"
+    100050: "\u65CB\u8F6C_1_4"
+    100052: "\u65CB\u8F6C_1_5"
+    100054: "\u65CB\u8F6C_1_6"
+    100056: "\u65CB\u8F6C_1_7"
+    100058: "\u65CB\u8F6C_1_8"
+    100060: "\u65CB\u8F6C_1_9"
+    100062: "\u7403\u4F53_4"
+    100064: "\u7403\u4F53_4_10"
+    100066: "\u7403\u4F53_4_11"
+    100068: "\u7403\u4F53_4_12"
+    100070: "\u7403\u4F53_4_13"
+    100072: "\u7403\u4F53_4_2"
+    100074: "\u7403\u4F53_4_3"
+    100076: "\u7403\u4F53_4_4"
+    100078: "\u7403\u4F53_4_5"
+    100080: "\u7403\u4F53_4_6"
+    100082: "\u7403\u4F53_4_7"
+    100084: "\u7403\u4F53_4_8"
+    100086: "\u7403\u4F53_4_9"
+    100088: "\u7A7A\u767D"
+    100090: "\u7A7A\u767D_3"
+    100092: "\u7ACB\u65B9\u4F53"
+    100094: "\u7ACB\u65B9\u4F53_1"
+    100096: "\u7ACB\u65B9\u4F53_10"
+    100098: "\u7ACB\u65B9\u4F53_11"
+    100100: "\u7ACB\u65B9\u4F53_12"
+    100102: "\u7ACB\u65B9\u4F53_13"
+    100104: "\u7ACB\u65B9\u4F53_1_10"
+    100106: "\u7ACB\u65B9\u4F53_1_11"
+    100108: "\u7ACB\u65B9\u4F53_1_12"
+    100110: "\u7ACB\u65B9\u4F53_1_13"
+    100112: "\u7ACB\u65B9\u4F53_1_2"
+    100114: "\u7ACB\u65B9\u4F53_1_3"
+    100116: "\u7ACB\u65B9\u4F53_1_4"
+    100118: "\u7ACB\u65B9\u4F53_1_5"
+    100120: "\u7ACB\u65B9\u4F53_1_6"
+    100122: "\u7ACB\u65B9\u4F53_1_7"
+    100124: "\u7ACB\u65B9\u4F53_1_8"
+    100126: "\u7ACB\u65B9\u4F53_1_9"
+    100128: "\u7ACB\u65B9\u4F53_2"
+    100130: "\u7ACB\u65B9\u4F53_3"
+    100132: "\u7ACB\u65B9\u4F53_4"
+    100134: "\u7ACB\u65B9\u4F53_5"
+    100136: "\u7ACB\u65B9\u4F53_6"
+    100138: "\u7ACB\u65B9\u4F53_7"
+    100140: "\u7ACB\u65B9\u4F53_8"
+    100142: "\u7ACB\u65B9\u4F53_9"
+    400000: "Cinema4D_\u7F16\u8F91\u5668"
+    400002: "\u514B\u9686_2"
+    400004: "\u5706\u73AF"
+    400006: "\u5706\u73AF_2"
+    400008: "\u626B\u63CF"
+    400010: "\u626B\u63CF_10"
+    400012: "\u626B\u63CF_11"
+    400014: "\u626B\u63CF_12"
+    400016: "\u626B\u63CF_13"
+    400018: "\u626B\u63CF_2"
+    400020: "\u626B\u63CF_3"
+    400022: "\u626B\u63CF_4"
+    400024: "\u626B\u63CF_5"
+    400026: "\u626B\u63CF_6"
+    400028: "\u626B\u63CF_7"
+    400030: "\u626B\u63CF_8"
+    400032: "\u626B\u63CF_9"
+    400034: //RootNode
+    400036: "\u65CB\u8F6C_1"
+    400038: "\u65CB\u8F6C_1_10"
+    400040: "\u65CB\u8F6C_1_11"
+    400042: "\u65CB\u8F6C_1_12"
+    400044: "\u65CB\u8F6C_1_13"
+    400046: "\u65CB\u8F6C_1_2"
+    400048: "\u65CB\u8F6C_1_3"
+    400050: "\u65CB\u8F6C_1_4"
+    400052: "\u65CB\u8F6C_1_5"
+    400054: "\u65CB\u8F6C_1_6"
+    400056: "\u65CB\u8F6C_1_7"
+    400058: "\u65CB\u8F6C_1_8"
+    400060: "\u65CB\u8F6C_1_9"
+    400062: "\u7403\u4F53_4"
+    400064: "\u7403\u4F53_4_10"
+    400066: "\u7403\u4F53_4_11"
+    400068: "\u7403\u4F53_4_12"
+    400070: "\u7403\u4F53_4_13"
+    400072: "\u7403\u4F53_4_2"
+    400074: "\u7403\u4F53_4_3"
+    400076: "\u7403\u4F53_4_4"
+    400078: "\u7403\u4F53_4_5"
+    400080: "\u7403\u4F53_4_6"
+    400082: "\u7403\u4F53_4_7"
+    400084: "\u7403\u4F53_4_8"
+    400086: "\u7403\u4F53_4_9"
+    400088: "\u7A7A\u767D"
+    400090: "\u7A7A\u767D_3"
+    400092: "\u7ACB\u65B9\u4F53"
+    400094: "\u7ACB\u65B9\u4F53_1"
+    400096: "\u7ACB\u65B9\u4F53_10"
+    400098: "\u7ACB\u65B9\u4F53_11"
+    400100: "\u7ACB\u65B9\u4F53_12"
+    400102: "\u7ACB\u65B9\u4F53_13"
+    400104: "\u7ACB\u65B9\u4F53_1_10"
+    400106: "\u7ACB\u65B9\u4F53_1_11"
+    400108: "\u7ACB\u65B9\u4F53_1_12"
+    400110: "\u7ACB\u65B9\u4F53_1_13"
+    400112: "\u7ACB\u65B9\u4F53_1_2"
+    400114: "\u7ACB\u65B9\u4F53_1_3"
+    400116: "\u7ACB\u65B9\u4F53_1_4"
+    400118: "\u7ACB\u65B9\u4F53_1_5"
+    400120: "\u7ACB\u65B9\u4F53_1_6"
+    400122: "\u7ACB\u65B9\u4F53_1_7"
+    400124: "\u7ACB\u65B9\u4F53_1_8"
+    400126: "\u7ACB\u65B9\u4F53_1_9"
+    400128: "\u7ACB\u65B9\u4F53_2"
+    400130: "\u7ACB\u65B9\u4F53_3"
+    400132: "\u7ACB\u65B9\u4F53_4"
+    400134: "\u7ACB\u65B9\u4F53_5"
+    400136: "\u7ACB\u65B9\u4F53_6"
+    400138: "\u7ACB\u65B9\u4F53_7"
+    400140: "\u7ACB\u65B9\u4F53_8"
+    400142: "\u7ACB\u65B9\u4F53_9"
+    2300000: "\u514B\u9686_2"
+    2300002: "\u5706\u73AF"
+    2300004: "\u5706\u73AF_2"
+    2300006: "\u626B\u63CF"
+    2300008: "\u626B\u63CF_10"
+    2300010: "\u626B\u63CF_11"
+    2300012: "\u626B\u63CF_12"
+    2300014: "\u626B\u63CF_13"
+    2300016: "\u626B\u63CF_2"
+    2300018: "\u626B\u63CF_3"
+    2300020: "\u626B\u63CF_4"
+    2300022: "\u626B\u63CF_5"
+    2300024: "\u626B\u63CF_6"
+    2300026: "\u626B\u63CF_7"
+    2300028: "\u626B\u63CF_8"
+    2300030: "\u626B\u63CF_9"
+    2300032: "\u65CB\u8F6C_1"
+    2300034: "\u65CB\u8F6C_1_10"
+    2300036: "\u65CB\u8F6C_1_11"
+    2300038: "\u65CB\u8F6C_1_12"
+    2300040: "\u65CB\u8F6C_1_13"
+    2300042: "\u65CB\u8F6C_1_2"
+    2300044: "\u65CB\u8F6C_1_3"
+    2300046: "\u65CB\u8F6C_1_4"
+    2300048: "\u65CB\u8F6C_1_5"
+    2300050: "\u65CB\u8F6C_1_6"
+    2300052: "\u65CB\u8F6C_1_7"
+    2300054: "\u65CB\u8F6C_1_8"
+    2300056: "\u65CB\u8F6C_1_9"
+    2300058: "\u7403\u4F53_4"
+    2300060: "\u7403\u4F53_4_10"
+    2300062: "\u7403\u4F53_4_11"
+    2300064: "\u7403\u4F53_4_12"
+    2300066: "\u7403\u4F53_4_13"
+    2300068: "\u7403\u4F53_4_2"
+    2300070: "\u7403\u4F53_4_3"
+    2300072: "\u7403\u4F53_4_4"
+    2300074: "\u7403\u4F53_4_5"
+    2300076: "\u7403\u4F53_4_6"
+    2300078: "\u7403\u4F53_4_7"
+    2300080: "\u7403\u4F53_4_8"
+    2300082: "\u7403\u4F53_4_9"
+    2300084: "\u7A7A\u767D_3"
+    2300086: "\u7ACB\u65B9\u4F53"
+    2300088: "\u7ACB\u65B9\u4F53_1"
+    2300090: "\u7ACB\u65B9\u4F53_10"
+    2300092: "\u7ACB\u65B9\u4F53_11"
+    2300094: "\u7ACB\u65B9\u4F53_12"
+    2300096: "\u7ACB\u65B9\u4F53_13"
+    2300098: "\u7ACB\u65B9\u4F53_1_10"
+    2300100: "\u7ACB\u65B9\u4F53_1_11"
+    2300102: "\u7ACB\u65B9\u4F53_1_12"
+    2300104: "\u7ACB\u65B9\u4F53_1_13"
+    2300106: "\u7ACB\u65B9\u4F53_1_2"
+    2300108: "\u7ACB\u65B9\u4F53_1_3"
+    2300110: "\u7ACB\u65B9\u4F53_1_4"
+    2300112: "\u7ACB\u65B9\u4F53_1_5"
+    2300114: "\u7ACB\u65B9\u4F53_1_6"
+    2300116: "\u7ACB\u65B9\u4F53_1_7"
+    2300118: "\u7ACB\u65B9\u4F53_1_8"
+    2300120: "\u7ACB\u65B9\u4F53_1_9"
+    2300122: "\u7ACB\u65B9\u4F53_2"
+    2300124: "\u7ACB\u65B9\u4F53_3"
+    2300126: "\u7ACB\u65B9\u4F53_4"
+    2300128: "\u7ACB\u65B9\u4F53_5"
+    2300130: "\u7ACB\u65B9\u4F53_6"
+    2300132: "\u7ACB\u65B9\u4F53_7"
+    2300134: "\u7ACB\u65B9\u4F53_8"
+    2300136: "\u7ACB\u65B9\u4F53_9"
+    3300000: "\u514B\u9686_2"
+    3300002: "\u5706\u73AF"
+    3300004: "\u5706\u73AF_2"
+    3300006: "\u626B\u63CF"
+    3300008: "\u626B\u63CF_10"
+    3300010: "\u626B\u63CF_11"
+    3300012: "\u626B\u63CF_12"
+    3300014: "\u626B\u63CF_13"
+    3300016: "\u626B\u63CF_2"
+    3300018: "\u626B\u63CF_3"
+    3300020: "\u626B\u63CF_4"
+    3300022: "\u626B\u63CF_5"
+    3300024: "\u626B\u63CF_6"
+    3300026: "\u626B\u63CF_7"
+    3300028: "\u626B\u63CF_8"
+    3300030: "\u626B\u63CF_9"
+    3300032: "\u65CB\u8F6C_1"
+    3300034: "\u65CB\u8F6C_1_10"
+    3300036: "\u65CB\u8F6C_1_11"
+    3300038: "\u65CB\u8F6C_1_12"
+    3300040: "\u65CB\u8F6C_1_13"
+    3300042: "\u65CB\u8F6C_1_2"
+    3300044: "\u65CB\u8F6C_1_3"
+    3300046: "\u65CB\u8F6C_1_4"
+    3300048: "\u65CB\u8F6C_1_5"
+    3300050: "\u65CB\u8F6C_1_6"
+    3300052: "\u65CB\u8F6C_1_7"
+    3300054: "\u65CB\u8F6C_1_8"
+    3300056: "\u65CB\u8F6C_1_9"
+    3300058: "\u7403\u4F53_4"
+    3300060: "\u7403\u4F53_4_10"
+    3300062: "\u7403\u4F53_4_11"
+    3300064: "\u7403\u4F53_4_12"
+    3300066: "\u7403\u4F53_4_13"
+    3300068: "\u7403\u4F53_4_2"
+    3300070: "\u7403\u4F53_4_3"
+    3300072: "\u7403\u4F53_4_4"
+    3300074: "\u7403\u4F53_4_5"
+    3300076: "\u7403\u4F53_4_6"
+    3300078: "\u7403\u4F53_4_7"
+    3300080: "\u7403\u4F53_4_8"
+    3300082: "\u7403\u4F53_4_9"
+    3300084: "\u7A7A\u767D_3"
+    3300086: "\u7ACB\u65B9\u4F53"
+    3300088: "\u7ACB\u65B9\u4F53_1"
+    3300090: "\u7ACB\u65B9\u4F53_10"
+    3300092: "\u7ACB\u65B9\u4F53_11"
+    3300094: "\u7ACB\u65B9\u4F53_12"
+    3300096: "\u7ACB\u65B9\u4F53_13"
+    3300098: "\u7ACB\u65B9\u4F53_1_10"
+    3300100: "\u7ACB\u65B9\u4F53_1_11"
+    3300102: "\u7ACB\u65B9\u4F53_1_12"
+    3300104: "\u7ACB\u65B9\u4F53_1_13"
+    3300106: "\u7ACB\u65B9\u4F53_1_2"
+    3300108: "\u7ACB\u65B9\u4F53_1_3"
+    3300110: "\u7ACB\u65B9\u4F53_1_4"
+    3300112: "\u7ACB\u65B9\u4F53_1_5"
+    3300114: "\u7ACB\u65B9\u4F53_1_6"
+    3300116: "\u7ACB\u65B9\u4F53_1_7"
+    3300118: "\u7ACB\u65B9\u4F53_1_8"
+    3300120: "\u7ACB\u65B9\u4F53_1_9"
+    3300122: "\u7ACB\u65B9\u4F53_2"
+    3300124: "\u7ACB\u65B9\u4F53_3"
+    3300126: "\u7ACB\u65B9\u4F53_4"
+    3300128: "\u7ACB\u65B9\u4F53_5"
+    3300130: "\u7ACB\u65B9\u4F53_6"
+    3300132: "\u7ACB\u65B9\u4F53_7"
+    3300134: "\u7ACB\u65B9\u4F53_8"
+    3300136: "\u7ACB\u65B9\u4F53_9"
+    4300000: "\u5706\u73AF"
+    4300002: "\u7403\u4F53_4"
+    4300004: "\u626B\u63CF"
+    4300006: "\u7ACB\u65B9\u4F53_1"
+    4300008: "\u7ACB\u65B9\u4F53"
+    4300010: "\u65CB\u8F6C_1"
+    4300012: "\u514B\u9686_2"
+    4300014: "\u7A7A\u767D_3"
+    4300016: "\u5706\u73AF_2"
+    4300018: "\u7403\u4F53_4_2"
+    4300020: "\u626B\u63CF_2"
+    4300022: "\u7ACB\u65B9\u4F53_1_2"
+    4300024: "\u7ACB\u65B9\u4F53_2"
+    4300026: "\u65CB\u8F6C_1_2"
+    4300028: "\u7403\u4F53_4_3"
+    4300030: "\u626B\u63CF_3"
+    4300032: "\u7ACB\u65B9\u4F53_1_3"
+    4300034: "\u7ACB\u65B9\u4F53_3"
+    4300036: "\u65CB\u8F6C_1_3"
+    4300038: "\u7403\u4F53_4_4"
+    4300040: "\u626B\u63CF_4"
+    4300042: "\u7ACB\u65B9\u4F53_1_4"
+    4300044: "\u7ACB\u65B9\u4F53_4"
+    4300046: "\u65CB\u8F6C_1_4"
+    4300048: "\u7403\u4F53_4_5"
+    4300050: "\u626B\u63CF_5"
+    4300052: "\u7ACB\u65B9\u4F53_1_5"
+    4300054: "\u7ACB\u65B9\u4F53_5"
+    4300056: "\u65CB\u8F6C_1_5"
+    4300058: "\u7403\u4F53_4_6"
+    4300060: "\u626B\u63CF_6"
+    4300062: "\u7ACB\u65B9\u4F53_1_6"
+    4300064: "\u7ACB\u65B9\u4F53_6"
+    4300066: "\u65CB\u8F6C_1_6"
+    4300068: "\u7403\u4F53_4_7"
+    4300070: "\u626B\u63CF_7"
+    4300072: "\u7ACB\u65B9\u4F53_1_7"
+    4300074: "\u7ACB\u65B9\u4F53_7"
+    4300076: "\u65CB\u8F6C_1_7"
+    4300078: "\u7403\u4F53_4_8"
+    4300080: "\u626B\u63CF_8"
+    4300082: "\u7ACB\u65B9\u4F53_1_8"
+    4300084: "\u7ACB\u65B9\u4F53_8"
+    4300086: "\u65CB\u8F6C_1_8"
+    4300088: "\u7403\u4F53_4_9"
+    4300090: "\u626B\u63CF_9"
+    4300092: "\u7ACB\u65B9\u4F53_1_9"
+    4300094: "\u7ACB\u65B9\u4F53_9"
+    4300096: "\u65CB\u8F6C_1_9"
+    4300098: "\u7403\u4F53_4_10"
+    4300100: "\u626B\u63CF_10"
+    4300102: "\u7ACB\u65B9\u4F53_1_10"
+    4300104: "\u7ACB\u65B9\u4F53_10"
+    4300106: "\u65CB\u8F6C_1_10"
+    4300108: "\u7403\u4F53_4_11"
+    4300110: "\u626B\u63CF_11"
+    4300112: "\u7ACB\u65B9\u4F53_1_11"
+    4300114: "\u7ACB\u65B9\u4F53_11"
+    4300116: "\u65CB\u8F6C_1_11"
+    4300118: "\u7403\u4F53_4_12"
+    4300120: "\u626B\u63CF_12"
+    4300122: "\u7ACB\u65B9\u4F53_1_12"
+    4300124: "\u7ACB\u65B9\u4F53_12"
+    4300126: "\u65CB\u8F6C_1_12"
+    4300128: "\u7403\u4F53_4_13"
+    4300130: "\u626B\u63CF_13"
+    4300132: "\u7ACB\u65B9\u4F53_1_13"
+    4300134: "\u7ACB\u65B9\u4F53_13"
+    4300136: "\u65CB\u8F6C_1_13"
+    6400000: "\u514B\u9686_2"
+    6400002: "\u5706\u73AF"
+    6400004: "\u5706\u73AF_2"
+    6400006: "\u626B\u63CF"
+    6400008: "\u626B\u63CF_10"
+    6400010: "\u626B\u63CF_11"
+    6400012: "\u626B\u63CF_12"
+    6400014: "\u626B\u63CF_13"
+    6400016: "\u626B\u63CF_2"
+    6400018: "\u626B\u63CF_3"
+    6400020: "\u626B\u63CF_4"
+    6400022: "\u626B\u63CF_5"
+    6400024: "\u626B\u63CF_6"
+    6400026: "\u626B\u63CF_7"
+    6400028: "\u626B\u63CF_8"
+    6400030: "\u626B\u63CF_9"
+    6400032: "\u65CB\u8F6C_1"
+    6400034: "\u65CB\u8F6C_1_10"
+    6400036: "\u65CB\u8F6C_1_11"
+    6400038: "\u65CB\u8F6C_1_12"
+    6400040: "\u65CB\u8F6C_1_13"
+    6400042: "\u65CB\u8F6C_1_2"
+    6400044: "\u65CB\u8F6C_1_3"
+    6400046: "\u65CB\u8F6C_1_4"
+    6400048: "\u65CB\u8F6C_1_5"
+    6400050: "\u65CB\u8F6C_1_6"
+    6400052: "\u65CB\u8F6C_1_7"
+    6400054: "\u65CB\u8F6C_1_8"
+    6400056: "\u65CB\u8F6C_1_9"
+    6400058: "\u7403\u4F53_4"
+    6400060: "\u7403\u4F53_4_10"
+    6400062: "\u7403\u4F53_4_11"
+    6400064: "\u7403\u4F53_4_12"
+    6400066: "\u7403\u4F53_4_13"
+    6400068: "\u7403\u4F53_4_2"
+    6400070: "\u7403\u4F53_4_3"
+    6400072: "\u7403\u4F53_4_4"
+    6400074: "\u7403\u4F53_4_5"
+    6400076: "\u7403\u4F53_4_6"
+    6400078: "\u7403\u4F53_4_7"
+    6400080: "\u7403\u4F53_4_8"
+    6400082: "\u7403\u4F53_4_9"
+    6400084: "\u7A7A\u767D_3"
+    6400086: "\u7ACB\u65B9\u4F53"
+    6400088: "\u7ACB\u65B9\u4F53_1"
+    6400090: "\u7ACB\u65B9\u4F53_10"
+    6400092: "\u7ACB\u65B9\u4F53_11"
+    6400094: "\u7ACB\u65B9\u4F53_12"
+    6400096: "\u7ACB\u65B9\u4F53_13"
+    6400098: "\u7ACB\u65B9\u4F53_1_10"
+    6400100: "\u7ACB\u65B9\u4F53_1_11"
+    6400102: "\u7ACB\u65B9\u4F53_1_12"
+    6400104: "\u7ACB\u65B9\u4F53_1_13"
+    6400106: "\u7ACB\u65B9\u4F53_1_2"
+    6400108: "\u7ACB\u65B9\u4F53_1_3"
+    6400110: "\u7ACB\u65B9\u4F53_1_4"
+    6400112: "\u7ACB\u65B9\u4F53_1_5"
+    6400114: "\u7ACB\u65B9\u4F53_1_6"
+    6400116: "\u7ACB\u65B9\u4F53_1_7"
+    6400118: "\u7ACB\u65B9\u4F53_1_8"
+    6400120: "\u7ACB\u65B9\u4F53_1_9"
+    6400122: "\u7ACB\u65B9\u4F53_2"
+    6400124: "\u7ACB\u65B9\u4F53_3"
+    6400126: "\u7ACB\u65B9\u4F53_4"
+    6400128: "\u7ACB\u65B9\u4F53_5"
+    6400130: "\u7ACB\u65B9\u4F53_6"
+    6400132: "\u7ACB\u65B9\u4F53_7"
+    6400134: "\u7ACB\u65B9\u4F53_8"
+    6400136: "\u7ACB\u65B9\u4F53_9"
+    7400000: ferriswheel
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ferriswheel
+      takeName: CINEMA_4D___
+      firstFrame: 0
+      lastFrame: 1000
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: "Cinema4D_\u7F16\u8F91\u5668"
+        weight: 1
+      - path: "\u7A7A\u767D"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u514B\u9686_2"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u5706\u73AF_2"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4/\u626B\u63CF"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4/\u65CB\u8F6C_1"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4/\u7ACB\u65B9\u4F53"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4/\u7ACB\u65B9\u4F53_1"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_2"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_2/\u626B\u63CF_2"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_2/\u65CB\u8F6C_1_2"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_2/\u7ACB\u65B9\u4F53_1_2"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_2/\u7ACB\u65B9\u4F53_2"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_3"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_3/\u626B\u63CF_3"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_3/\u65CB\u8F6C_1_3"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_3/\u7ACB\u65B9\u4F53_1_3"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_3/\u7ACB\u65B9\u4F53_3"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_4"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_4/\u626B\u63CF_4"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_4/\u65CB\u8F6C_1_4"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_4/\u7ACB\u65B9\u4F53_1_4"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_4/\u7ACB\u65B9\u4F53_4"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_5"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_5/\u626B\u63CF_5"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_5/\u65CB\u8F6C_1_5"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_5/\u7ACB\u65B9\u4F53_1_5"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_5/\u7ACB\u65B9\u4F53_5"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_6"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_6/\u626B\u63CF_6"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_6/\u65CB\u8F6C_1_6"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_6/\u7ACB\u65B9\u4F53_1_6"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_6/\u7ACB\u65B9\u4F53_6"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_7"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_7/\u626B\u63CF_7"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_7/\u65CB\u8F6C_1_7"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_7/\u7ACB\u65B9\u4F53_1_7"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_7/\u7ACB\u65B9\u4F53_7"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_8"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_8/\u626B\u63CF_8"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_8/\u65CB\u8F6C_1_8"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_8/\u7ACB\u65B9\u4F53_1_8"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_8/\u7ACB\u65B9\u4F53_8"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_9"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_9/\u626B\u63CF_9"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_9/\u65CB\u8F6C_1_9"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_9/\u7ACB\u65B9\u4F53_1_9"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_9/\u7ACB\u65B9\u4F53_9"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_10"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_10/\u626B\u63CF_10"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_10/\u65CB\u8F6C_1_10"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_10/\u7ACB\u65B9\u4F53_1_10"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_10/\u7ACB\u65B9\u4F53_10"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_11"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_11/\u626B\u63CF_11"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_11/\u65CB\u8F6C_1_11"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_11/\u7ACB\u65B9\u4F53_1_11"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_11/\u7ACB\u65B9\u4F53_11"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_12"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_12/\u626B\u63CF_12"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_12/\u65CB\u8F6C_1_12"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_12/\u7ACB\u65B9\u4F53_1_12"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_12/\u7ACB\u65B9\u4F53_12"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_13"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_13/\u626B\u63CF_13"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_13/\u65CB\u8F6C_1_13"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_13/\u7ACB\u65B9\u4F53_1_13"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7403\u4F53_4_13/\u7ACB\u65B9\u4F53_13"
+        weight: 1
+      - path: "\u7A7A\u767D/\u5706\u73AF/\u7A7A\u767D_3"
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

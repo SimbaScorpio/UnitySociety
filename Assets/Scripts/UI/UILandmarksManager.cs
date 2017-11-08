@@ -78,7 +78,7 @@ namespace DesignSociety
 			JumpOperation ();
 
 			for (int i = 0; i < list.Length; ++i) {
-				data.Add (list [i]);
+				data.Add (list [i].Copy ());
 			}
 			scrollview.SetTotalCount (data.Count);
 		}

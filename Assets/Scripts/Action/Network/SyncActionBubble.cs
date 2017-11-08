@@ -1,115 +1,159 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace DesignSociety
 {
 	public class SyncActionBubble : ActionThread
 	{
-		protected IActionCompleted monitor;
+		public string currentContent;
+		public float currentDuration;
+		public int currentType;
+		private IActionCompleted currentMonitor;
 
-		private Queue<string> contents = new Queue<string> ();
-		private Queue<float> durations = new Queue<float> ();
-		private Queue<IActionCompleted> monitors = new Queue<IActionCompleted> ();
+		public string recentContent;
+		public float recentDuration;
+		public int recentType;
+		private IActionCompleted recentMonitor;
+	
+		protected List<Transform> bubbles;
+		private List<Vector3> offsets;
+		private List<UISceneBubbleEventReceiver> receivers = new List<UISceneBubbleEventReceiver> ();
 
-		private GameObject bubble;
-		private Text text;
-		private UISceneBubbleEventReceiver handler;
+		private Transform hook;
+		private bool faceCamera;
 
-		public string content = "";
-		public float duration = -1.0f;
+		private float duration = -1.0f;
+		private bool tryEnd;
 
-		private Animator animator;
-		private bool startCounting = false;
-		private float deltaHeight = 0.0f;
-		private Transform hip;
+		private string showStateName = "ChatBubbleShow";
+		private string hideStateName = "ChatBubbleHide";
 
-		void Awake ()
+		public void Setting (List<Transform> bubbles, List<Vector3> offsets, Transform hook, bool faceCamera,
+		                     string content, float duration, int type, IActionCompleted callback)
 		{
-			this.bubble = transform.Find ("Bubble").gameObject;
-			this.hip = transform.Find ("hip_ctrl");
-			this.animator = bubble.GetComponent<Animator> ();
-			this.text = bubble.GetComponentInChildren<Text> ();
-			this.handler = bubble.GetComponent<UISceneBubbleEventReceiver> ();
-			handler.OnBubbleStartedHandler += OnBubbleStarted;
-			handler.OnBubbleFinishedHandler += OnBubbleFinished;
-		}
-
-		public virtual void Setting (string content, float duration, IActionCompleted callback)
-		{
-			if (string.IsNullOrEmpty (this.content)) {
-				this.content = content;
-				this.duration = duration;
-				this.monitor = callback;
+			// 考虑是否需要顶替气泡
+			if (string.IsNullOrEmpty (currentContent)) {
+				Init (bubbles, offsets, hook, faceCamera);
+				currentContent = content;
+				currentDuration = duration;
+				currentType = type;
+				currentMonitor = callback;
 				Begin ();
 			} else {
-				contents.Enqueue (content);
-				durations.Enqueue (duration);
-				monitors.Enqueue (callback);
-				animator.Play ("Fade", 0, 0);
+				recentContent = content;
+				recentDuration = duration;
+				recentType = type;
+				recentMonitor = callback;
+				tryEnd = false;
+			}
+		}
+
+		void Init (List<Transform> bubbles, List<Vector3> offsets, Transform hook, bool faceCamera)
+		{
+			this.bubbles = bubbles;
+			this.offsets = offsets;
+			this.hook = hook;
+			this.faceCamera = faceCamera;
+			receivers.Clear ();
+			for (int i = 0; i < bubbles.Count; ++i) {
+				if (bubbles [i] != null) {
+					UISceneBubbleEventReceiver receiver = bubbles [i].GetComponent<UISceneBubbleEventReceiver> ();
+					receiver.OnBubbleStartedHandler += OnBubbleStarted;
+					receiver.OnBubbleFinishedHandler += OnBubbleFinished;
+					receivers.Add (receiver);
+					bubbles [i].Find ("root").localScale = Vector3.zero;
+					bubbles [i].gameObject.SetActive (false);
+				}
 			}
 		}
 
 		void Begin ()
 		{
-			text.text = content;
-			ContentSizeFitter fitter = text.GetComponent<ContentSizeFitter> ();
-			fitter.CallBack (delegate(Vector2 size) {
-				// bg image size
-				Image image = bubble.GetComponentInChildren<Image> ();
-				float height = size.y + 10;
-				height = height > 25 ? height : 25;
-				image.rectTransform.sizeDelta = new Vector2 (size.x * 1.3f, size.y + 10);
+			if (currentType < 0 || currentType >= bubbles.Count || bubbles [currentType] == null) {
+				OnBubbleFinished ();
+				return;
+			}
+			Transform bubble = bubbles [currentType];
+			bubble.gameObject.SetActive (true);
+			bubble.GetComponent<Animator> ().Play (showStateName);
+			OnSetContent (bubble, currentContent);
+		}
 
-				// bubble height
-				float worldHeight = height * image.rectTransform.localScale.y;
-				deltaHeight = worldHeight / 2 + 1.0f;
-			});
-			bubble.SetActive (true);
-			animator.Play ("Pop", 0, 0);
+		protected virtual void OnSetContent (Transform bubble, string content)
+		{
+		}
+
+		void End ()
+		{
+			Transform bubble = bubbles [currentType];
+			bubble.GetComponent<Animator> ().Play (hideStateName);
+			StopAllCoroutines ();
 		}
 
 		void OnBubbleStarted ()
 		{
-			startCounting = true;
+			StartCoroutine (BubbleCountdown ());
 		}
 
 		void OnBubbleFinished ()
 		{
-			if (monitor != null) {
-				monitor.OnActionCompleted (this);
+			if (!(currentType < 0 || currentType >= bubbles.Count || bubbles [currentType] == null)) {
+				bubbles [currentType].gameObject.SetActive (false);
 			}
-			if (contents.Count > 0) {
-				content = contents.Dequeue ();
-				duration = durations.Dequeue ();
-				monitor = monitors.Dequeue ();
+			if (currentMonitor != null)
+				currentMonitor.OnActionCompleted (this);
+			if (!string.IsNullOrEmpty (recentContent)) {
+				currentContent = recentContent;
+				currentDuration = recentDuration;
+				currentType = recentType;
+				currentMonitor = recentMonitor;
+				ClearRecent ();
 				Begin ();
 			} else {
-				bubble.SetActive (false);
-				Free ();
+				for (int i = 0; i < bubbles.Count; ++i) {
+					if (bubbles [i] != null) {
+						receivers [i].OnBubbleStartedHandler -= OnBubbleStarted;
+						receivers [i].OnBubbleFinishedHandler -= OnBubbleFinished;
+					}
+				}
+				Destroy (this);
 			}
 		}
 
-		void OnDestroy ()
+		void ClearRecent ()
 		{
-			handler.OnBubbleStartedHandler -= OnBubbleStarted;
-			handler.OnBubbleFinishedHandler -= OnBubbleFinished;
+			recentContent = null;
+			recentDuration = 0;
+			recentType = 0;
+			recentMonitor = null;
 		}
 
-		void Update ()
+		protected virtual void Update ()
 		{
-			if (startCounting) {
-				if (duration < 0) {
-					startCounting = false;
-					animator.Play ("Fade", 0, 0);
-				} else
-					duration -= Time.deltaTime;
+			if (bubbles [currentType] != null) {
+				if (faceCamera)
+					bubbles [currentType].rotation = Quaternion.Euler (new Vector3 (0, 180, 0));
+				if (hook != null)
+					bubbles [currentType].position = hook.position + offsets [currentType];
 			}
-			if (bubble != null) {
-				bubble.transform.localPosition = new Vector3 (0, hip.localPosition.y + deltaHeight, 0);
-				bubble.transform.rotation = Quaternion.Euler (new Vector3 (0, 180, 0));
+		}
+
+		IEnumerator BubbleCountdown ()
+		{
+			duration = currentDuration;
+			while (duration > 0 && string.IsNullOrEmpty (recentContent) && !tryEnd) {
+				duration -= Time.deltaTime;
+				yield return null;
 			}
+			End ();
+		}
+
+		// 留给Dealer的，用来关闭该类气泡
+		public virtual void Terminate ()
+		{
+			tryEnd = true;
+			ClearRecent ();
 		}
 	}
 }

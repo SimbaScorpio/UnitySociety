@@ -1,0 +1,391 @@
+{
+    "locationdata": [
+    {
+        "name": "book_编辑1_初始位置"
+    },
+    {
+        "name": "book_编辑2_初始位置"
+    },
+    {
+        "name": "book_编辑3_初始位置"
+    },
+    {
+        "name": "book_编辑4_初始位置"
+    },
+    {
+        "name": "book_编辑5_初始位置"
+    },
+    {
+        "name": "book_总监1_初始位置"
+    },
+    {
+        "name": "book_校对1_初始位置"
+    },
+    {
+        "name": "book_校对2_初始位置"
+    },
+    {
+        "name": "book_设计师1_初始位置"
+    },
+    {
+        "name": "book_设计师2_初始位置"
+    },
+    {
+        "name": "book_设计师3_初始位置"
+    },
+    {
+        "name": "book_设计师4_初始位置"
+    },
+    {
+        "name": "book_开会1"
+    },
+    {
+        "name": "book_开会2"
+    },
+    {
+        "name": "book_开会3"
+    },
+    {
+        "name": "book_开会4"
+    },
+    {
+        "name": "book_采访1"
+    },
+    {
+        "name": "book_采访2"
+    }],
+    "characterdata": [
+    {
+        "name": "book_编辑1",
+        "chinesename": "张三",
+        "job": "编辑",
+        "initial_position": "book_编辑1_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_1",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_编辑2",
+        "chinesename": "",
+        "job": "编辑",
+        "initial_position": "book_编辑2_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_2",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_编辑3",
+        "chinesename": "",
+        "job": "编辑",
+        "initial_position": "book_编辑3_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_3",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_编辑4",
+        "chinesename": "",
+        "job": "编辑",
+        "initial_position": "book_编辑4_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_1",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_编辑5",
+        "chinesename": "",
+        "job": "编辑",
+        "initial_position": "book_编辑5_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_2",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_总监1",
+        "chinesename": "",
+        "job": "总监",
+        "initial_position": "book_总监1_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_3",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_校对1",
+        "chinesename": "",
+        "job": "校对",
+        "initial_position": "book_校对1_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_1",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_校对2",
+        "chinesename": "",
+        "job": "校对",
+        "initial_position": "book_校对2_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_2",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_设计师1",
+        "chinesename": "",
+        "job": "设计师",
+        "initial_position": "book_设计师1_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_3",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_设计师2",
+        "chinesename": "",
+        "job": "设计师",
+        "initial_position": "book_设计师2_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_1",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_设计师3",
+        "chinesename": "",
+        "job": "设计师",
+        "initial_position": "book_设计师3_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_2",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "book_设计师4",
+        "chinesename": "",
+        "job": "设计师",
+        "initial_position": "book_设计师4_初始位置",
+        "body_type": "男胖",
+        "clothing": "cloth_3",
+        "hair": 0,
+        "glasses": 0,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    }],
+    "initcharacterdata": [
+    {
+        "name": "book_编辑甲",
+        "candidates": ["book_编辑1", "book_编辑2", "book_编辑4", "book_编辑5", "book_编辑3"]
+    },
+    {
+        "name": "book_编辑乙",
+        "candidates": ["book_编辑1", "book_编辑2", "book_编辑3", "book_编辑4", "book_编辑5"]
+    },
+    {
+        "name": "book_编辑丙",
+        "candidates": ["book_编辑1", "book_编辑3", "book_编辑4", "book_编辑5", "book_编辑2"]
+    },
+    {
+        "name": "book_编辑丁",
+        "candidates": ["book_编辑1", "book_编辑2", "book_编辑3", "book_编辑4", "book_编辑5"]
+    },
+    {
+        "name": "book_编辑戊",
+        "candidates": ["book_编辑1", "book_编辑2", "book_编辑3", "book_编辑5", "book_编辑4"]
+    },
+    {
+        "name": "book_总监甲",
+        "candidates": ["book_总监1"]
+    },
+    {
+        "name": "book_校对甲",
+        "candidates": ["book_校对1", "book_校对2"]
+    },
+    {
+        "name": "book_校对乙",
+        "candidates": ["book_校对1", "book_校对2"]
+    },
+    {
+        "name": "book_设计师甲",
+        "candidates": ["book_设计师1", "book_设计师2", "book_设计师3", "book_设计师4"]
+    },
+    {
+        "name": "book_设计师乙",
+        "candidates": ["book_设计师1", "book_设计师2", "book_设计师3", "book_设计师4"]
+    },
+    {
+        "name": "book_设计师丙",
+        "candidates": ["book_设计师1", "book_设计师2", "book_设计师3", "book_设计师4"]
+    },
+    {
+        "name": "book_设计师丁",
+        "candidates": ["book_设计师1", "book_设计师2", "book_设计师3", "book_设计师4"]
+    }],
+    "compositemovementdata": [
+    {
+        "name": "开会",
+        "mainrole_position": "stand",
+        "otherrole_position": "sit",
+        "mainrole_main": "talk",
+        "mainrole_aid": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "wait_mainrole_main": "breathe",
+        "wait_mainrole_aid": ["nod", "shake_head", "cross_arm", "watch"],
+        "start_mainrole_main": [],
+        "end_mainrole_main": ["applaud"],
+        "otherroles_main": "breathe",
+        "otherroles_aid": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "shake_head", "cross_arm", "raise_righthand", "watch"],
+        "wait_otherroles_main": "breathe",
+        "wait_otherroles_aid": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep"],
+        "start_otherroles_main": [],
+        "end_otherroles_main": ["applaud"]
+    }],
+    "scenedata": [
+    {
+        "start_time": 0.1,
+        "end_time": "60",
+        "spot_name": "开会",
+        "principal": "book_总监甲",
+        "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "composite",
+            "action": "开会",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "book_开会1",
+                "bubble_type": 1,
+                "bubble_content": "开始",
+                "screen": null,
+                "dashboard_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null
+            },
+            "num_other_people": 2,
+            "other_people": [
+            {
+                "name": "book_编辑甲",
+                "location_to_type": 1,
+                "location_to": "book_开会2",
+                "bubble_type": 1,
+                "bubble_content": "hoho",
+                "screen": null,
+                "dashboard_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": []
+            },
+            {
+                "name": "book_校对甲",
+                "location_to_type": 1,
+                "location_to": "book_开会3",
+                "bubble_type": 0,
+                "bubble_content": null,
+                "screen": null,
+                "dashboard_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": []
+            },
+            {
+                "name": "book_设计师甲",
+                "location_to_type": 1,
+                "location_to": "book_开会4",
+                "bubble_type": 0,
+                "bubble_content": null,
+                "screen": null,
+                "dashboard_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": []
+            }]
+        }]
+    }]
+}

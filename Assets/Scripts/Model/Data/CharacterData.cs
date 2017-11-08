@@ -8,9 +8,14 @@ namespace DesignSociety
 	public class CharacterData
 	{
 		public string name;
+		public string chinesename;
+		public string job;
 		public string initial_position;
 		public string body_type;
 		public string clothing;
+		public int hair;
+		public int glasses;
+		public int bag;
 		public string spare_time_main_position;
 		public string spare_time_main_action;
 		public string[] spare_time_aid_sit;

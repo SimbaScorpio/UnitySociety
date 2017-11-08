@@ -1,0 +1,527 @@
+fileFormatVersion: 2
+guid: a61b756e0f09b57428cfac4c810c022c
+timeCreated: 1510043379
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: bag
+    100004: chest_ctrl
+    100006: "Cinema4D_\u7F16\u8F91\u5668"
+    100008: Cube
+    100010: Cube_1
+    100012: Cube_1_2
+    100014: ears
+    100016: end
+    100018: hair
+    100020: head
+    100022: hip_ctrl
+    100024: left_ankle
+    100026: left_ankle_2
+    100028: left_ankle_Goal
+    100030: left_arm
+    100032: left_elbow
+    100034: left_fingertip
+    100036: left_fingertip_Goal
+    100038: left_foot
+    100040: left_foot_ctrl
+    100042: left_foot_lift
+    100044: left_hand
+    100046: left_hand_Goal
+    100048: left_hip
+    100050: left_knee
+    100052: left_mid
+    100054: left_mid2
+    100056: left_thumb
+    100058: left_thumbmid
+    100060: left_thumbtip
+    100062: left_thumbtip_Goal
+    100064: left_toe
+    100066: left_toe_2
+    100068: mesh
+    100070: neck
+    100072: neck_ctrl
+    100074: right_ankle
+    100076: right_ankle_2
+    100078: right_ankle_Goal
+    100080: right_arm
+    100082: right_chest
+    100084: right_elbow
+    100086: right_fingertip
+    100088: right_fingertip_Goal
+    100090: right_foot
+    100092: right_foot_ctrl
+    100094: right_foot_lift
+    100096: right_hand
+    100098: right_hand_Goal
+    100100: right_hip
+    100102: right_knee
+    100104: right_mid
+    100106: right_mid2
+    100108: right_thumb
+    100110: right_thumbmid
+    100112: right_thumbtip
+    100114: right_thumbtip_Goal
+    100116: right_toe
+    100118: right_toe_2
+    100120: root
+    100122: spline
+    400000: //RootNode
+    400002: bag
+    400004: chest_ctrl
+    400006: "Cinema4D_\u7F16\u8F91\u5668"
+    400008: Cube
+    400010: Cube_1
+    400012: Cube_1_2
+    400014: ears
+    400016: end
+    400018: hair
+    400020: head
+    400022: hip_ctrl
+    400024: left_ankle
+    400026: left_ankle_2
+    400028: left_ankle_Goal
+    400030: left_arm
+    400032: left_elbow
+    400034: left_fingertip
+    400036: left_fingertip_Goal
+    400038: left_foot
+    400040: left_foot_ctrl
+    400042: left_foot_lift
+    400044: left_hand
+    400046: left_hand_Goal
+    400048: left_hip
+    400050: left_knee
+    400052: left_mid
+    400054: left_mid2
+    400056: left_thumb
+    400058: left_thumbmid
+    400060: left_thumbtip
+    400062: left_thumbtip_Goal
+    400064: left_toe
+    400066: left_toe_2
+    400068: mesh
+    400070: neck
+    400072: neck_ctrl
+    400074: right_ankle
+    400076: right_ankle_2
+    400078: right_ankle_Goal
+    400080: right_arm
+    400082: right_chest
+    400084: right_elbow
+    400086: right_fingertip
+    400088: right_fingertip_Goal
+    400090: right_foot
+    400092: right_foot_ctrl
+    400094: right_foot_lift
+    400096: right_hand
+    400098: right_hand_Goal
+    400100: right_hip
+    400102: right_knee
+    400104: right_mid
+    400106: right_mid2
+    400108: right_thumb
+    400110: right_thumbmid
+    400112: right_thumbtip
+    400114: right_thumbtip_Goal
+    400116: right_toe
+    400118: right_toe_2
+    400120: root
+    400122: spline
+    2300000: Cube
+    2300002: Cube_1
+    2300004: Cube_1_2
+    2300006: ears
+    2300008: hair
+    3300000: Cube
+    3300002: Cube_1
+    3300004: Cube_1_2
+    3300006: ears
+    3300008: hair
+    4300000: Cube_1
+    4300002: Cube
+    4300004: Cube_1_2
+    4300006: mesh
+    4300008: hair
+    4300010: ears
+    4300012: bag
+    7400000: stand_small_observe
+    7400002: stand_small_point
+    9500000: //RootNode
+    13700000: bag
+    13700002: mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: stand_small_observe
+      takeName: CINEMA_4D_Main
+      firstFrame: 40
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bag
+        weight: 1
+      - path: "Cinema4D_\u7F16\u8F91\u5668"
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube_1
+        weight: 1
+      - path: ears
+        weight: 1
+      - path: hair
+        weight: 1
+      - path: hip_ctrl
+        weight: 1
+      - path: hip_ctrl/chest_ctrl
+        weight: 1
+      - path: hip_ctrl/chest_ctrl/neck_ctrl
+        weight: 1
+      - path: hip_ctrl/root
+        weight: 1
+      - path: hip_ctrl/root/left_hip
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot/left_toe
+        weight: 1
+      - path: hip_ctrl/root/right_hip
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot/right_toe
+        weight: 1
+      - path: hip_ctrl/root/spline
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/left_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/Cube_1_2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head/end
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2/right_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid/right_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
+        weight: 1
+      - path: left_foot_ctrl
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
+        weight: 1
+      - path: left_foot_ctrl/left_toe_2
+        weight: 1
+      - path: mesh
+        weight: 1
+      - path: right_foot_ctrl
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
+        weight: 1
+      - path: right_foot_ctrl/right_toe_2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: stand_small_point
+      takeName: CINEMA_4D_Main
+      firstFrame: 150
+      lastFrame: 255
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bag
+        weight: 1
+      - path: "Cinema4D_\u7F16\u8F91\u5668"
+        weight: 1
+      - path: Cube
+        weight: 1
+      - path: Cube_1
+        weight: 1
+      - path: ears
+        weight: 1
+      - path: hair
+        weight: 1
+      - path: hip_ctrl
+        weight: 1
+      - path: hip_ctrl/chest_ctrl
+        weight: 1
+      - path: hip_ctrl/chest_ctrl/neck_ctrl
+        weight: 1
+      - path: hip_ctrl/root
+        weight: 1
+      - path: hip_ctrl/root/left_hip
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot/left_toe
+        weight: 1
+      - path: hip_ctrl/root/right_hip
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot/right_toe
+        weight: 1
+      - path: hip_ctrl/root/spline
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/left_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/Cube_1_2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head/end
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2/right_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid/right_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
+        weight: 1
+      - path: left_foot_ctrl
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
+        weight: 1
+      - path: left_foot_ctrl/left_toe_2
+        weight: 1
+      - path: mesh
+        weight: 1
+      - path: right_foot_ctrl
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
+        weight: 1
+      - path: right_foot_ctrl/right_toe_2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

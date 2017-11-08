@@ -9,17 +9,17 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1309239913629452}
+  m_RootGameObject: {fileID: 1003645747685022}
   m_IsPrefabParent: 1
---- !u!1 &1309239913629452
+--- !u!1 &1003645747685022
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4125951563558908}
-  - component: {fileID: 137014705279427118}
+  - component: {fileID: 4703732110260736}
+  - component: {fileID: 137777905869283584}
   m_Layer: 0
   m_Name: body_woman_0
   m_TagString: Untagged
@@ -27,12 +27,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4125951563558908
+--- !u!4 &4703732110260736
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1309239913629452}
+  m_GameObject: {fileID: 1003645747685022}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,12 +40,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!137 &137014705279427118
+--- !u!137 &137777905869283584
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1309239913629452}
+  m_GameObject: {fileID: 1003645747685022}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -121,6 +121,6 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.020371713, y: 0.0639711, z: 0.1411193}
-    m_Extent: {x: 0.2255424, y: 0.9274903, z: 0.773868}
+    m_Center: {x: -0.020371653, y: 0.06397113, z: 0.14111921}
+    m_Extent: {x: 0.2255424, y: 0.92749035, z: 0.77386785}
   m_DirtyAABB: 0

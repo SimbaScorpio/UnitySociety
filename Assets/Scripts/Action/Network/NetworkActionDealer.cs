@@ -109,12 +109,8 @@ namespace DesignSociety
 				return;
 			ActionType newType = ActionName.IsValid (stateName);
 			if (newType == ActionType.error) {
-				Log.error ("未知的动作【" + stateName + "】");
-				// bubble
-				SyncActionBubble ac = gameObject.GetComponent<SyncActionBubble> ();
-				if (ac == null)
-					ac = gameObject.AddComponent<SyncActionBubble> ();
-				ac.Setting ("未知的动作【" + stateName + "】", 5f, null);
+				//Log.error ("未知的动作【" + stateName + "】");
+				GetComponent<NetworkBubbleDealer> ().ApplyErrorBubble ("未知的动作【" + stateName + "】", 5);
 				ActionIdle idle = gameObject.AddComponent<ActionIdle> ();
 				idle.Setting (gameObject, "", 5f, null);
 				return;
@@ -194,8 +190,11 @@ namespace DesignSociety
 
 		void RecordRecentAction (string stateName)
 		{
+			// set 0 as the most recent action index
+			if (recentActions.Count != 0 && recentActions [0] == stateName)
+				return;	// avoid repeat action
 			if (recentActions.Count < maxRecord) {
-				recentActions.Add (stateName);
+				recentActions.Add (stateName);	// enlarge list
 			}
 			for (int i = recentActions.Count - 1; i > 0; --i) {
 				recentActions [i] = recentActions [i - 1];
@@ -249,6 +248,22 @@ namespace DesignSociety
 			return ac;
 		}
 
+		public void SyncActionSpeed (float speed)
+		{
+			if (isServer)
+				RpcSyncActionSpeed (speed);
+			else
+				CmdSyncActionSpeed (speed);
+		}
+
+		public void SyncActionItems (string[] path, bool isShown)
+		{
+			if (isServer)
+				RpcSyncItems (path, isShown);
+			else
+				CmdSyncItems (path, isShown);
+		}
+
 
 		#region network
 
@@ -260,32 +275,41 @@ namespace DesignSociety
 		}
 
 		[ClientRpc]
-		public void RpcSyncAction (string name)
+		void RpcSyncAction (string name)
 		{
 			if (!isLocalPlayer)
 				anim.Play (name, 0, 0f);
 		}
 
+		[Command]
+		void CmdSyncActionSpeed (float speed)
+		{
+			anim.speed = speed;
+			RpcSyncActionSpeed (speed);
+		}
+
 		[ClientRpc]
-		public void RpcSetActionSpeed (float speed)
+		void RpcSyncActionSpeed (float speed)
 		{
 			if (!isLocalPlayer)
 				anim.speed = speed;
 		}
 
 		[Command]
-		void CmdSyncItem (string[] path, bool isShown)
+		void CmdSyncItems (string[] path, bool isShown)
 		{
-			RpcSyncItem (path, isShown);
+			for (int i = 0; i < path.Length; ++i) {
+				transform.Find (path [i]).gameObject.SetActive (isShown);
+			}
+			RpcSyncItems (path, isShown);
 		}
 
 		[ClientRpc]
-		public void RpcSyncItem (string[] path, bool isShown)
+		void RpcSyncItems (string[] path, bool isShown)
 		{
 			if (!isLocalPlayer) {
 				for (int i = 0; i < path.Length; ++i) {
-					GameObject obj = gameObject.transform.Find (path [i]).gameObject;
-					obj.SetActive (isShown);
+					transform.Find (path [i]).gameObject.SetActive (isShown);
 				}
 			}
 		}

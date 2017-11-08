@@ -8,10 +8,12 @@ namespace DesignSociety
 {
 	public static class Global
 	{
-		public static string StorylineJsonURL = "file://" + Application.dataPath + "/Data/json/storyline.json";
-		public static string LandmarkJsonRURL = "file://" + Application.dataPath + "/Data/json/landmark.json";
-		public static string LandmarkJsonWURL = Application.dataPath + "/Data/json/landmark.json";
-		public static string TexturePath = "file://" + Application.dataPath + "/Data/texture/";
+		public static char c = Path.DirectorySeparatorChar;
+		public static string StorylineJsonURL = Application.dataPath + c + "Data" + c + "story_json" + c;
+		public static string LandmarkJsonURL = Application.dataPath + c + "Data" + c + "location_json" + c;
+		public static string TexturePath = "file://" + Application.dataPath + c + "Data" + c + "texture" + c;
+		public static string IconPath = "file://" + Application.dataPath + c + "Data" + c + "icon" + c;
+		public static string DashboardPath = "file://" + Application.dataPath + c + "Data" + c + "dashboard" + c;
 	}
 
 	public enum SceneState

@@ -11,7 +11,10 @@ namespace DesignSociety
 	public class FileManager : MonoBehaviour
 	{
 		private UIFileDialog uiFileDialog;
+
 		private int loadCount = 0;
+		private Dictionary<string, bool> storylinefiles = new Dictionary<string, bool> ();
+		private Dictionary<string, bool> landmarkfiles = new Dictionary<string, bool> ();
 
 		private static FileManager instance;
 
@@ -31,66 +34,124 @@ namespace DesignSociety
 			if (++loadCount > 0)
 				Log.info ("----第【" + loadCount + "】次更新数据----");
 			LoadLandmarkData ();
-			LoadGameData ();
 		}
+
+
+		#region 故事线读取
 
 		public void LoadGameData ()
 		{
 			if (uiFileDialog == null || uiFileDialog.storylinePath == "") {
-				//StartCoroutine (LoadGameDataCoroutine (Global.StorylineJsonURL));
+				LoadGameDataPath (Global.StorylineJsonURL);
 			} else {
-				StartCoroutine (LoadGameDataCoroutine (GetFileURL (uiFileDialog.storylinePath)));
+				LoadGameDataPath (uiFileDialog.storylinePath);
 			}
 		}
 
-		IEnumerator LoadGameDataCoroutine (string url)
+		void LoadGameDataPath (string directory)
 		{
-			WWW www = new WWW (url);
+			StorylineManager.GetInstance ().ClearStorylinePart ();
+			storylinefiles.Clear ();
+			directory = FineTuneDirectoryPath (directory);
+			string[] paths = System.IO.Directory.GetFiles (directory);
+			foreach (string path in paths) {
+				storylinefiles [GetFileName (path)] = false;
+			}
+			foreach (string path in paths) {
+				StartCoroutine (LoadGameDataCoroutine (GetFileURL (path), GetFileName (path)));
+			}
+		}
+
+		IEnumerator LoadGameDataCoroutine (string jsonurl, string filename)
+		{
+			WWW www = new WWW (jsonurl);
 			yield return www;
 			if (!string.IsNullOrEmpty (www.error)) {
-				Log.error ("无法打开故事线文件");
+				Log.error ("无法打开故事线文件【" + filename + "】");
 			} else {
 				string json = www.text;
 				try {
-					Log.info (Log.green ("正在解析故事线..."));
-					StorylineManager.GetInstance ().storyline = JsonUtility.FromJson<Storyline> (json);
-					Log.info (Log.green ("故事线解析完成！"));
-					StorylineManager.GetInstance ().Restart ();
+					Log.info ("=> " + Log.green ("正在解析故事线【" + filename + "】..."));
+
+					StorylinePart part = StorylineManager.GetInstance ().gameObject.AddComponent<StorylinePart> ();
+					part.storyline = JsonUtility.FromJson<Storyline> (json);
+					part.fileName = filename;
+					StorylineManager.GetInstance ().AddStorylinePart (part);
+
+					Log.info (Log.green ("故事线【" + filename + "】解析完成！"));
 				} catch (Exception e) {
-					Log.error ("解析故事线出现错误");
+					Log.error ("解析故事线【" + filename + "】出现错误");
 					Log.error (e.ToString ());
 				}
 			}
+			storylinefiles [filename] = true;
+			foreach (string file in storylinefiles.Keys) {
+				if (storylinefiles [file] == false)
+					yield break;
+			}
+			Log.info ("---");
+			StorylineManager.GetInstance ().Restart ();
 		}
+
+		#endregion
+
+		#region 坐标集读取
 
 		public void LoadLandmarkData ()
 		{
 			if (uiFileDialog == null || uiFileDialog.landmarkPath == "") {
-				//StartCoroutine (LoadLandmarkDataCoroutine (Global.LandmarkJsonRURL));
+				LoadLandmarkDataPath (Global.LandmarkJsonURL);
 			} else {
-				StartCoroutine (LoadLandmarkDataCoroutine (GetFileURL (uiFileDialog.landmarkPath)));
+				LoadLandmarkDataPath (uiFileDialog.landmarkPath);
 			}
 		}
 
-		IEnumerator LoadLandmarkDataCoroutine (string url)
+		void LoadLandmarkDataPath (string directory)
 		{
-			WWW www = new WWW (url);
+			LandmarkCollection.GetInstance ().ClearLandmarkPart ();
+			landmarkfiles.Clear ();
+			directory = FineTuneDirectoryPath (directory);
+			string[] paths = System.IO.Directory.GetFiles (directory);
+			foreach (string path in paths) {
+				landmarkfiles [GetFileName (path)] = false;
+			}
+			foreach (string path in paths) {
+				StartCoroutine (LoadLandmarkDataCoroutine (GetFileURL (path), GetFileName (path)));
+			}
+		}
+
+		IEnumerator LoadLandmarkDataCoroutine (string jsonurl, string filename)
+		{
+			WWW www = new WWW (jsonurl);
 			yield return www;
 			if (!string.IsNullOrEmpty (www.error)) {
-				Log.error ("无法打开坐标集文件");
+				Log.error ("无法打开坐标集文件【" + filename + "】");
 			} else {
 				string json = www.text;
 				try {
-					Log.info (Log.green ("正在解析坐标集..."));
-					LandmarkCollection.GetInstance ().list = JsonUtility.FromJson<LandmarkList> (json);
-					Log.info (Log.green ("坐标集解析完成！"));
-					LandmarkCollection.GetInstance ().Initialize ();
+					Log.info ("=> " + Log.green ("正在解析坐标集【" + filename + "】..."));
+
+					LandmarkList part = JsonUtility.FromJson<LandmarkList> (json);
+					LandmarkCollection.GetInstance ().AddLandmarkPart (part);
+
+					Log.info (Log.green ("坐标集【" + filename + "】解析完成！"));
 				} catch (Exception e) {
-					Log.error ("解析坐标集出现错误");
+					Log.error ("解析坐标集【" + filename + "】出现错误");
 					Log.error (e.ToString ());
 				}
 			}
+			landmarkfiles [filename] = true;
+			foreach (string file in landmarkfiles.Keys) {
+				if (landmarkfiles [file] == false)
+					yield break;
+			}
+			Log.info ("---");
+			LandmarkCollection.GetInstance ().Initialize ();
+			LoadGameData ();
 		}
+
+		#endregion
+
 
 		public bool SaveLandmarkData (LandmarkList lmlist)
 		{
@@ -142,6 +203,23 @@ namespace DesignSociety
 		string GetFileURL (string path)
 		{
 			return (new System.Uri (path)).AbsoluteUri;
+		}
+
+		string GetFileName (string path)
+		{
+			int index = path.LastIndexOf (Path.DirectorySeparatorChar);
+			return (index < 0) ? path : path.Substring (index + 1, path.Length - index - 1);
+		}
+
+		string FineTuneDirectoryPath (string path)
+		{
+			if (path.Contains ("file:")) {
+				for (int i = 5; i < path.Length; ++i) {
+					if (path [i] != Path.DirectorySeparatorChar)
+						return Path.DirectorySeparatorChar + path.Substring (i, path.Length - i - 1);
+				}
+			}
+			return path;
 		}
 	}
 }

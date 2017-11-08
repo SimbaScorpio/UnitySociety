@@ -11,9 +11,11 @@ namespace DesignSociety
 		public string location_to;
 		public int bubble_type;
 		public string bubble_content;
+		public int bubble_direction;
+		public string screen;
+		public int dashboard_direction;
 		public string animation;
 		public float starttime;
-		public string screen;
 		public int carrytype;
 		public string carryobj;
 	}

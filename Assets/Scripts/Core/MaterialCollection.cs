@@ -9,6 +9,7 @@ namespace DesignSociety
 	public class MaterialCollection : MonoBehaviour
 	{
 		private Dictionary<string, Material> materials;
+		private Dictionary<string, Texture2D> textures;
 
 		private static MaterialCollection instance;
 
@@ -21,9 +22,10 @@ namespace DesignSociety
 		{
 			instance = this;
 			materials = new Dictionary<string, Material> ();
+			textures = new Dictionary<string, Texture2D> ();
 		}
 
-		public Material Get (string name)
+		public Material GetMaterial (string name)
 		{
 			if (string.IsNullOrEmpty (name)) {
 				return null;
@@ -31,15 +33,27 @@ namespace DesignSociety
 			if (materials.ContainsKey (name)) {
 				return materials [name];
 			} else {
-				return LoadData (name);
+				return LoadMaterial (name);
 			}
 		}
 
-		Material LoadData (string name)
+		public Texture2D GetTexture (string name, string path)
 		{
-			string url = Global.TexturePath + name + ".png";
+			if (string.IsNullOrEmpty (name)) {
+				return null;
+			}
+			if (textures.ContainsKey (name)) {
+				return textures [name];
+			} else {
+				return LoadTexture (name, path);
+			}
+		}
+
+		Texture2D LoadTexture (string name, string path)
+		{
+			string url = path + name + ".png";
 			url = GetFileURL (url);
-			Log.info ("贴图路径：" + url);
+			//Log.info ("贴图路径：" + url);
 
 			WWW www = new WWW (url);
 			while (!www.isDone) {
@@ -51,10 +65,21 @@ namespace DesignSociety
 			} else {
 				Texture2D texture = new Texture2D (2, 2);
 				www.LoadImageIntoTexture (texture);
+				textures.Add (name, texture);
+				return texture;
+			}
+		}
+
+
+		Material LoadMaterial (string name)
+		{
+			Texture2D texture = GetTexture (name, Global.TexturePath);
+			if (texture != null) {
 				Material mat = CreateMaterialWithTexture (texture);
 				materials.Add (name, mat);
 				return mat;
 			}
+			return null;
 		}
 
 		Material CreateMaterialWithTexture (Texture2D texture)

@@ -30,12 +30,15 @@ namespace DesignSociety
 
 		private StorylineManager storylineManager;
 		private NetworkActionDealer actionDealer;
+		private NetworkBubbleDealer bubbleDealer;
 
 		private float distanceError = 0.5f;
 		private float randomDiff = 1.0f;
 		[HideInInspector]
 		public int actionListIndex;
 
+		[HideInInspector]
+		public bool hasArrived;
 
 		void Start ()
 		{
@@ -47,6 +50,7 @@ namespace DesignSociety
 			followingActivities = new List<FollowingActivity> ();
 			storylineManager = StorylineManager.GetInstance ();
 			actionDealer = GetComponent<NetworkActionDealer> ();
+			bubbleDealer = GetComponent<NetworkBubbleDealer> ();
 
 			GetComponent<MyRichAI> ().maxSpeed = Random.Range (walkSpeedRange.x, walkSpeedRange.y);
 		}
@@ -107,6 +111,8 @@ namespace DesignSociety
 				spotName = null;
 			}
 			state = ComState.LEAVING;
+
+			hasArrived = false;
 
 			// 注意！由于动作间有过度，行走动作的当前动作可能是起身等动作，因此不能直接通过GetComponent<Walk>这种方式判断，应借由Dealer来结束
 			actionDealer.CallingStop ();
@@ -336,6 +342,7 @@ namespace DesignSociety
 						person.actionListIndex = -1;
 						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
 					}
+					Log.info (storylineManager.GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + Log.blue ("【" + currentPrincipalActivity.action + "】") + "正式开始");
 				}
 				break;
 
@@ -383,6 +390,7 @@ namespace DesignSociety
 						person.actionListIndex = -1;
 						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
 					}
+					Log.info (storylineManager.GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + Log.blue ("【" + currentPrincipalActivity.action + "】") + "正式结束");
 				}
 				break;
 
@@ -414,6 +422,7 @@ namespace DesignSociety
 					for (int i = 0; i < secondChildren.Count; ++i) {
 						children [i].AddFollowingActivities (secondChildren [i].following_actions);
 						children [i].isBeingControlled = false;
+						children [i].hasArrived = false;
 					}
 					secondChildren.Clear ();
 				} else {
@@ -424,6 +433,7 @@ namespace DesignSociety
 					thirdChildren.Clear ();
 				}
 				children.Clear ();
+				hasArrived = false;
 				break;
 			}
 		}
@@ -529,6 +539,7 @@ namespace DesignSociety
 		{
 			Landmark destination;
 			CharacterData cha = storylineManager.nameToCharacter [gameObject.name];
+			Person person = gameObject.GetComponent<Person> ();
 			switch (self.location_to_type) {
 			case 0:	// stand by
 				return true;
@@ -541,6 +552,10 @@ namespace DesignSociety
 						gameObject.transform.position = destination.position;
 						gameObject.transform.rotation = destination.rotation;
 					}
+					if (!person.hasArrived) {
+						person.hasArrived = true;
+						Log.info (storylineManager.GetPartTime (person.spotName) + Log.yellow ("【" + person.name + "】") + "到达" + Log.blue ("【" + currentPrincipalActivity.action + "】") + "需要的地点");
+					}
 					return true;
 				} else if (doAction) {
 					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, null);
@@ -552,6 +567,10 @@ namespace DesignSociety
 					if (doAction) {
 						gameObject.transform.position = destination.position;
 						gameObject.transform.rotation = destination.rotation;
+					}
+					if (!person.hasArrived) {
+						person.hasArrived = true;
+						Log.info (storylineManager.GetPartTime (person.spotName) + Log.yellow ("【" + person.name + "】") + "到达" + Log.blue ("【" + currentPrincipalActivity.action + "】") + "需要的地点");
 					}
 					return true;
 				} else if (doAction) {
@@ -598,12 +617,27 @@ namespace DesignSociety
 
 		void DisplayBubble (GameObject obj, Self self)
 		{
+			// 0-无气泡 1-对话气泡 2-关键词气泡 3-icon气泡
 			switch (self.bubble_type) {
 			case 1:
-				//ActionManager.GetInstance ().ApplyChatAction (obj, self.bubble_content, 2, null);
+				obj.GetComponent<Person> ().bubbleDealer.ApplyChatBubble (self.bubble_content, 3, self.bubble_direction, null);
 				break;
 			case 2:
 				break;
+			case 3:
+				obj.GetComponent<Person> ().bubbleDealer.ApplyIconBubble (self.bubble_content, 3, null);
+				break;
+			default:
+				break;
+			}
+			DisplayScreenDashboard (obj, self);
+		}
+
+
+		void DisplayScreenDashboard (GameObject obj, Self self)
+		{
+			if (!string.IsNullOrEmpty (self.screen)) {
+				obj.GetComponent<Person> ().bubbleDealer.ApplyScreenBubble (self.screen, 5, self.dashboard_direction, null);
 			}
 		}
 

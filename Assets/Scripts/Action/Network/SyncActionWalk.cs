@@ -59,14 +59,13 @@ namespace DesignSociety
 			anim.SetFloat (hashSpeedParaH, speedH);
 			anim.SetFloat (hashSpeedParaV, speedV);
 			anim.speed = speedH * animationSpeed;
-			GetComponent<NetworkActionDealer> ().RpcSetActionSpeed (anim.speed);
+			GetComponent<NetworkActionDealer> ().SyncActionSpeed (anim.speed);
 
 			lastH = transform.position.y;
 
+			DetectFrontPerson ();
 			if (finalRotate && FinalRotate ())
 				Finish ();
-
-			DetectFrontPerson ();
 		}
 
 		bool FinalRotate ()
@@ -92,7 +91,7 @@ namespace DesignSociety
 			}
 
 			anim.speed = 1;
-			GetComponent<NetworkActionDealer> ().RpcSetActionSpeed (anim.speed);
+			GetComponent<NetworkActionDealer> ().SyncActionSpeed (anim.speed);
 			anim.SetFloat (hashSpeedParaH, 0);
 			anim.SetFloat (hashSpeedParaV, 0);
 

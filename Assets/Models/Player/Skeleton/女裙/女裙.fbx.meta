@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 62e06cb791784ab42b5e56dc494bfcca
-timeCreated: 1509808741
+timeCreated: 1510050782
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -8,7 +8,7 @@ ModelImporter:
     100000: chest_ctrl
     100002: ears
     100004: end
-    100006: hair_woman_0
+    100006: hair
     100008: head
     100010: hip_ctrl
     100012: left_ankle
@@ -32,7 +32,7 @@ ModelImporter:
     100048: left_thumbtip
     100050: left_thumbtip_Goal
     100052: left_toe
-    100054: mesh_woman_0
+    100054: mesh_1
     100056: neck
     100058: right_ankle
     100060: right_ankle_2
@@ -64,7 +64,7 @@ ModelImporter:
     400000: chest_ctrl
     400002: ears
     400004: end
-    400006: hair_woman_0
+    400006: hair
     400008: head
     400010: hip_ctrl
     400012: left_ankle
@@ -88,7 +88,7 @@ ModelImporter:
     400048: left_thumbtip
     400050: left_thumbtip_Goal
     400052: left_toe
-    400054: mesh_woman_0
+    400054: mesh_1
     400056: neck
     400058: right_ankle
     400060: right_ankle_2
@@ -118,14 +118,14 @@ ModelImporter:
     400108: Subdivision_Surface_1
     400110: //RootNode
     2300000: ears
-    2300002: hair_woman_0
+    2300002: hair
     3300000: ears
-    3300002: hair_woman_0
-    4300000: mesh_woman_0
-    4300002: hair_woman_0
+    3300002: hair
+    4300000: mesh_1
+    4300002: hair
     4300004: ears
     9500000: //RootNode
-    13700000: mesh_woman_0
+    13700000: mesh_1
   materials:
     importMaterials: 1
     materialName: 0

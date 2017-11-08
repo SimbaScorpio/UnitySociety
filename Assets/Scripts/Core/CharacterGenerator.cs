@@ -24,7 +24,7 @@ namespace DesignSociety
 		public void Generate (GameObject model, CharacterData data)
 		{
 			// 发型
-			string hairName = GetHairName (1);
+			string hairName = GetHairName (data.hair);
 			Transform hair = model.transform.Find ("hair");
 			Transform[] children = hair.GetComponentsInChildren<Transform> ();
 			for (int i = 1; i < children.Length; ++i)
@@ -38,7 +38,7 @@ namespace DesignSociety
 			model.GetComponentInChildren<SkinnedMeshRenderer> ().sharedMesh = mesh;
 
 			// 服装贴图
-			Material clothMat = MaterialCollection.GetInstance ().Get (data.clothing);
+			Material clothMat = MaterialCollection.GetInstance ().GetMaterial (data.clothing);
 			model.transform.Find ("mesh").GetComponent<Renderer> ().material = clothMat;
 		}
 
@@ -57,6 +57,8 @@ namespace DesignSociety
 		{
 			if (type == "男瘦") {
 				return "body_man_0";
+			} else if (type == "男胖") {
+				return "body_man_1";
 			} else if (type == "女裙") {
 				return "body_woman_0";
 			} else if (type == "女裤") {

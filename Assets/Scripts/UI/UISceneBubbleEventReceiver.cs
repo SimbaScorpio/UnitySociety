@@ -16,14 +16,12 @@ namespace DesignSociety
 
 		public void OnBubbleStarted ()
 		{
-			print ("event started");
 			if (OnBubbleStartedHandler != null)
 				OnBubbleStartedHandler ();
 		}
 
 		public void OnBubbleFinished ()
 		{
-			print ("event finished");
 			if (OnBubbleFinishedHandler != null)
 				OnBubbleFinishedHandler ();
 		}

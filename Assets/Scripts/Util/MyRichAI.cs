@@ -557,9 +557,7 @@ namespace Pathfinding
 
 				if (pt is RichSpecial) {
 					if (!traversingSpecialPath) {
-						//StartCoroutine (TraverseSpecial (pt as RichSpecial));
-						NNInfo info = AstarPath.active.GetNearest ((pt as RichSpecial).nodeLink.end.position);
-						transform.position = info.clampedPosition;
+						StartCoroutine (TraverseSpecial (pt as RichSpecial));
 					}
 				}
 				//w.Stop();
@@ -641,16 +639,14 @@ namespace Pathfinding
 			traversingSpecialPath = true;
 			velocity = Vector3.zero;
 
-			var al = rs.nodeLink as AnimationLink;
+			//var al = rs.nodeLink as AnimationLink;
+			NodeLink2 al = rs.nodeLink as NodeLink2;
 			if (al == null) {
 				Debug.LogError ("Unhandled RichSpecial");
 				yield break;
 			}
 
-			//Rotate character to face the correct direction
-			while (!RotateTowards (rs.first.forward))
-				yield return null;
-
+			/*
 			//Reposition
 			tr.parent.position = tr.position;
 
@@ -679,6 +675,40 @@ namespace Pathfinding
 			traversingSpecialPath = false;
 			NextPart ();
 
+			//If a path completed during the time we traversed the special connection, we need to recalculate it
+			if (delayUpdatePath) {
+				delayUpdatePath = false;
+				UpdatePath ();
+			}
+			*/
+
+			Vector3 startPos = transform.position;
+			float ds = Vector3.Distance (startPos, al.StartTransform.position);
+			float de = Vector3.Distance (startPos, al.EndTransform.position);
+			Vector3 targetPos = ds < de ? al.EndTransform.position : al.StartTransform.position;
+			Vector3 direction = targetPos - startPos;
+			float speed = 0.1f;
+
+			// 如果跳跃点是非单向的，说明是直梯，否则是扶梯
+			while (Vector3.Distance (transform.position, targetPos) > 0.1f) {
+				if (!al.oneWay) {
+					transform.position = targetPos;
+				} else {
+					if (!RotateTowards (direction))
+						yield return null;
+					Vector3 currentDirection = targetPos - transform.position;
+					if (Vector3.Dot (currentDirection, direction) <= 0)
+						transform.position = targetPos;	// 考虑越过目标的情况
+					else {
+						transform.position += direction * Time.deltaTime * speed;
+					}
+				}
+				yield return null;
+			}
+
+			traversingSpecialPath = false;
+			NextPart ();
+			
 			//If a path completed during the time we traversed the special connection, we need to recalculate it
 			if (delayUpdatePath) {
 				delayUpdatePath = false;

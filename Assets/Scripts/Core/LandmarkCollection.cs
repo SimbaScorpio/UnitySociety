@@ -8,7 +8,8 @@ namespace DesignSociety
 	public class LandmarkCollection : MonoBehaviour
 	{
 		// Read-only
-		public LandmarkList list;
+		public List<LandmarkList> landmarkPartList = new List<LandmarkList> ();
+		public List<Landmark> landmarkList = new List<Landmark> ();
 
 		// won't change since first read
 		private Dictionary<string, Landmark> landmarks;
@@ -29,17 +30,32 @@ namespace DesignSociety
 			labeledLandmarks = new List<Landmark> ();
 		}
 
+		public void AddLandmarkPart (LandmarkList part)
+		{
+			if (!landmarkPartList.Contains (part))
+				landmarkPartList.Add (part);
+		}
+
+		public void ClearLandmarkPart ()
+		{
+			landmarkPartList.Clear ();
+		}
+
 		public void Initialize ()
 		{
 			landmarks.Clear ();
-			foreach (Landmark lm in list.landmarkList) {
-				if (landmarks.ContainsKey (lm.m_name)) {
-					Log.warn ("初始化地点 【" + lm.m_name + "】 警告: 重复的命名");
+			landmarkList.Clear ();
+			foreach (LandmarkList part in landmarkPartList) {
+				foreach (Landmark lm in part.landmarkList) {
+					if (landmarks.ContainsKey (lm.m_name)) {
+						Log.warn ("初始化坐标 【" + lm.m_name + "】 警告: 重复的命名");
+					}
+					landmarks [lm.m_name] = lm;
+					landmarkList.Add (lm);
 				}
-				landmarks [lm.m_name] = lm;
 			}
 			if (UILandmarksManager.GetInstance ())
-				UILandmarksManager.GetInstance ().Initialize (list.landmarkList);
+				UILandmarksManager.GetInstance ().Initialize (landmarkList.ToArray ());
 		}
 
 
