@@ -133,9 +133,9 @@ ModelImporter:
     4300002: mesh
     4300004: hair
     4300006: ears
-    7400000: sit_raise_right_hand
-    7400002: sit_raise_right_hand_begin
-    7400004: sit_raise_right_hand_end
+    7400000: sit_raise_righthand
+    7400002: sit_raise_righthand_begin
+    7400004: sit_raise_righthand_end
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -162,7 +162,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: sit_raise_right_hand
+      name: sit_raise_righthand
       takeName: CINEMA_4D_Main
       firstFrame: 71
       lastFrame: 72
@@ -308,7 +308,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: sit_raise_right_hand_begin
+      name: sit_raise_righthand_begin
       takeName: CINEMA_4D_Main
       firstFrame: 12
       lastFrame: 71
@@ -454,7 +454,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: sit_raise_right_hand_end
+      name: sit_raise_righthand_end
       takeName: CINEMA_4D_Main
       firstFrame: 72
       lastFrame: 90

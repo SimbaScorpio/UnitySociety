@@ -623,9 +623,10 @@ namespace DesignSociety
 				obj.GetComponent<Person> ().bubbleDealer.ApplyChatBubble (self.bubble_content, 3, self.bubble_direction, null);
 				break;
 			case 2:
+				obj.GetComponent<Person> ().bubbleDealer.ApplyKeywordBubble (self.bubble_content, 5);
 				break;
 			case 3:
-				obj.GetComponent<Person> ().bubbleDealer.ApplyIconBubble (self.bubble_content, 3, null);
+				obj.GetComponent<Person> ().bubbleDealer.ApplyIconBubble (self.bubble_content, 5, null);
 				break;
 			default:
 				break;

@@ -47,4 +47,21 @@ namespace DesignSociety
 			}
 		}
 	}
+
+	public class SyncActionKeywordBubble : SyncActionBubble
+	{
+		protected override void OnSetContent (Transform bubble, string content)
+		{
+			bubble.GetComponentInChildren<TextMeshPro> ().SetText (content);
+
+			int num = content.Length;
+			bubble.GetComponentsInChildren<SpriteRenderer> () [0].size = new Vector2 (num * 0.5f + 1f, 1.44f);
+			bubble.GetComponentsInChildren<SpriteRenderer> () [1].transform.localPosition = new Vector3 ((num * 0.5f + 1f) * 0.8f - 0.5f, 2f, 0);
+		}
+
+		protected override void Update ()
+		{
+			base.Update ();
+		}
+	}
 }

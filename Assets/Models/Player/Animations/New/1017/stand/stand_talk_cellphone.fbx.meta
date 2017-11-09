@@ -134,7 +134,7 @@ ModelImporter:
     4300004: hair
     4300006: ears
     7400000: stand_talk_cellphone
-    7400002: stand_talk_cellphone_listen
+    7400002: stand_listen_cellphone
     7400004: stand_talk_cellphone_pickup
     7400006: stand_talk_cellphone_putdown
     9500000: //RootNode
@@ -152,7 +152,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event OnItemHidden has a time (1.333333) outside the
+      clip's valid range (0.000000..1.333333). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 1
@@ -309,7 +310,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: stand_talk_cellphone_listen
+      name: stand_listen_cellphone
       takeName: CINEMA_4D_Main
       firstFrame: 80
       lastFrame: 105

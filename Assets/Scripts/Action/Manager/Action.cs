@@ -82,6 +82,15 @@ namespace DesignSociety
 			if (actionName == SitActionWithBorder.sit_talk_with_tableware.ToString ()) {
 				return SitActionWithBorder.sit_with_tableware.ToString ();
 			}
+			if (actionName == SitActionWithBorder.sit_keyboard.ToString ()) {
+				return SitActionWithBorder.sit_computer.ToString ();
+			}
+			if (actionName == SitActionWithBorder.sit_mouse_move.ToString ()) {
+				return SitActionWithBorder.sit_computer.ToString ();
+			}
+			if (actionName == SitActionWithBorder.sit_mouse_click.ToString ()) {
+				return SitActionWithBorder.sit_computer.ToString ();
+			}
 			return actionName;
 		}
 
@@ -355,36 +364,37 @@ namespace DesignSociety
 		//sit_scratch_head_computer,
 		//sit_chin_in_hand_computer,
 		sit_sleep,
-		sit_raise_right_hand,
+		sit_raise_righthand,
 		sit_hello,
 		sit_watch,
 		sit_applaud,
 		sit_laugh_loud,
 		sit_backward,
 		sit_hold_head_back,
-		//sit_swing_with_music,
+		sit_swing_with_music,
 		sit_computer,
 		sit_keyboard,
 		sit_mouse_move,
+		sit_mouse_click,
 		sit_fixphone,
 		sit_fixphone_pickup,
 		sit_fixphone_putdown,
 		sit_fixphone_dial,
-		//sit_hold_cellphone,
-		//sit_play_cellphone_scroll,
-		//sit_play_cellphone_click,
-		//sit_play_cellphone_pickup,
-		//sit_play_cellphone_putdown,
+		sit_hold_cellphone,
+		sit_play_cellphone_scroll,
+		sit_play_cellphone_click,
+		sit_play_cellphone_pickup,
+		sit_play_cellphone_putdown,
 		sit_photo_cellphone,
-		//sit_talk_cellphone,
-		//sit_talk_cellphone_pickup,
-		//sit_talk_cellphone_putdown,
-		//sit_listen_cellphone,
-		//sit_ipad,
-		//sit_ipad_pickup,
-		//sit_ipad_putdown,
-		//sit_ipad_click,
-		//sit_ipad_scroll,
+		sit_talk_cellphone,
+		sit_talk_cellphone_pickup,
+		sit_talk_cellphone_putdown,
+		sit_listen_cellphone,
+		sit_ipad,
+		sit_ipad_pickup,
+		sit_ipad_putdown,
+		sit_ipad_click,
+		sit_ipad_scroll,
 		sit_write_dictate,
 		sit_draw_pen,
 		sit_crumple_paper,
@@ -430,10 +440,6 @@ namespace DesignSociety
 		sit_recorder,
 		sit_recorder_pickup,
 		sit_recorder_putdown,
-		sit_talk_cellphone,
-		sit_talk_cellphone_pickup,
-		sit_talk_cellphone_putdown,
-		sit_listen_cellphone,
 		sit_drink_water,
 		sit_wine,
 		sit_wine_toast,
@@ -441,7 +447,14 @@ namespace DesignSociety
 		sit_wine_putdown,
 		sit_with_tableware,
 		sit_eat_with_tableware,
-		sit_talk_with_tableware
+		sit_talk_with_tableware,
+		sit_vr,
+		sit_vr_pickup,
+		sit_vr_putdown,
+		sit_fan,
+		sit_solder,
+		sit_drink_coffee,
+		sit_write_pen
 	}
 
 	public enum StandActionName
@@ -460,7 +473,7 @@ namespace DesignSociety
 		stand_shake_head,
 		stand_cross_arm,
 		stand_chin_in_hand,
-		stand_raise_hand,
+		stand_raise_righthand,
 		stand_hello,
 		stand_watch,
 		stand_applaud,
@@ -486,6 +499,15 @@ namespace DesignSociety
 		stand_play_cellphone_click,
 		stand_play_cellphone_pickup,
 		stand_play_cellphone_putdown,
+		stand_talk_cellphone,
+		stand_talk_cellphone_pickup,
+		stand_talk_cellphone_putdown,
+		stand_listen_cellphone,
+		stand_ipad,
+		stand_ipad_pickup,
+		stand_ipad_putdown,
+		stand_ipad_click,
+		stand_ipad_scroll,
 		stand_write_pen,
 		stand_small_hold,
 		stand_small_pickup_table,
@@ -494,7 +516,7 @@ namespace DesignSociety
 		stand_small_putdown_bag,
 		stand_small_observe,
 		stand_small_point,
-		//stand_small_pickup_ground,
+		stand_small_pickup_ground,
 		inter_small_give,
 		inter_small_take,
 		stand_middle_hold,
@@ -532,6 +554,9 @@ namespace DesignSociety
 		other_exercise_1,
 		other_exercise_2,
 		other_exercise_3,
+		other_ladder_up,
+		other_ladder_down,
+		other_ladder_operate,
 		stand_breathe,
 		stand_controller,
 		stand_drink_water,
@@ -550,10 +575,7 @@ namespace DesignSociety
 		stand_recorder_pickup,
 		stand_recorder_putdown,
 		stand_tailor_tape,
-		stand_talk_cellphone,
-		stand_talk_cellphone_listen,
-		stand_talk_cellphone_pickup,
-		stand_talk_cellphone_putdown,
+
 		stand_talk_look_down,
 		stand_talk_point_far_times,
 		stand_water_flower,
@@ -571,7 +593,14 @@ namespace DesignSociety
 		stand_paper_pickup_table,
 		stand_paper_pickup_bag,
 		stand_paper_putdown_table,
-		stand_paper_putdown_bag
+		stand_paper_putdown_bag,
+
+		stand_cut,
+		stand_grinder,
+		stand_iron,
+		stand_saws,
+		stand_solder,
+		stand_stell_tape
 	}
 
 	public enum SitActionWithBorder
@@ -601,7 +630,12 @@ namespace DesignSociety
 		sit_talk_look_up,
 		sit_with_tableware,
 		sit_eat_with_tableware,
-		sit_talk_with_tableware
+		sit_talk_with_tableware,
+		sit_computer,
+		sit_keyboard,
+		sit_mouse_move,
+		sit_mouse_click,
+		sit_write_pen
 	}
 
 	public enum StandActionWithBorder

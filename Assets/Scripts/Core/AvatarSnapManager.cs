@@ -46,6 +46,7 @@ namespace DesignSociety
 			// 设置人物
 			GameObject man = snap.transform.Find (PlayerPath).gameObject;
 			CharacterGenerator.GetInstance ().Generate (man, cd);
+			man.GetComponent<Animator> ().Play (StandActionName.stand_nod.ToString (), 0, 0f);
 
 			// 设置投影
 			Camera cs = snap.GetComponentInChildren<Camera> ();
@@ -75,6 +76,7 @@ namespace DesignSociety
 
 				GameObject man = snap.transform.Find (PlayerPath).gameObject;
 				CharacterGenerator.GetInstance ().Generate (man, cd);
+				man.GetComponent<Animator> ().Play (StandActionName.stand_nod.ToString (), 0, 0f);
 
 				Camera cs = snap.GetComponentInChildren<Camera> ();
 				return cs.targetTexture;

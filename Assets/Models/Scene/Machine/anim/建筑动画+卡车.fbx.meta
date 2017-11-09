@@ -1,0 +1,2911 @@
+fileFormatVersion: 2
+guid: 99b5dd5480360ab4d930baffc5269420
+timeCreated: 1510239879
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arm
+    100002: arm1
+    100004: arm1_2
+    100006: arm_2
+    100008: car
+    100010: car_1
+    100012: car_1_2
+    100014: car_2
+    100016: car_3
+    100018: chair
+    100020: chair_2
+    100022: chair_3
+    100024: chair_4
+    100026: chair_5
+    100028: chair_6
+    100030: chair_7
+    100032: Cloner
+    100034: Cloner_1
+    100036: concert_hall
+    100038: craine1
+    100040: craine2
+    100042: craine2_1
+    100044: Cube
+    100046: Cylinder_0
+    100048: Cylinder_0_2
+    100050: Cylinder_1
+    100052: Cylinder_10
+    100054: Cylinder_10_2
+    100056: Cylinder_11
+    100058: Cylinder_11_2
+    100060: Cylinder_12
+    100062: Cylinder_13
+    100064: Cylinder_14
+    100066: Cylinder_15
+    100068: Cylinder_16
+    100070: Cylinder_17
+    100072: Cylinder_18
+    100074: Cylinder_19
+    100076: Cylinder_1_2
+    100078: Cylinder_2
+    100080: Cylinder_20
+    100082: Cylinder_21
+    100084: Cylinder_22
+    100086: Cylinder_23
+    100088: Cylinder_2_2
+    100090: Cylinder_3
+    100092: Cylinder_3_2
+    100094: Cylinder_4
+    100096: Cylinder_4_2
+    100098: Cylinder_5
+    100100: Cylinder_5_2
+    100102: Cylinder_6
+    100104: Cylinder_6_2
+    100106: Cylinder_7
+    100108: Cylinder_7_2
+    100110: Cylinder_8
+    100112: Cylinder_8_2
+    100114: Cylinder_9
+    100116: Cylinder_9_2
+    100118: Disc
+    100120: door
+    100122: door_2
+    100124: door_3
+    100126: door_4
+    100128: floor1__Copy_
+    100130: floor2__Copy_
+    100132: floor3__Copy_
+    100134: floor4__Copy_
+    100136: floor5__Copy_
+    100138: floor6__Copy_
+    100140: floor7__Copy_
+    100142: frame
+    100144: hand
+    100146: hand_2
+    100148: kinfe
+    100150: Landscape
+    100152: Landscape_1
+    100154: Loft
+    100156: Loft_1_10__Copy_
+    100158: Loft_1_11__Copy_
+    100160: Loft_1_12__Copy_
+    100162: Loft_1_13__Copy_
+    100164: Loft_1_1__Copy_
+    100166: Loft_1_2__Copy_
+    100168: Loft_1_3__Copy_
+    100170: Loft_1_4__Copy_
+    100172: Loft_1_5__Copy_
+    100174: Loft_1_6__Copy_
+    100176: Loft_1_7__Copy_
+    100178: Loft_1_8__Copy_
+    100180: Loft_1_9__Copy_
+    100182: Loft_1__Copy_
+    100184: lorry1
+    100186: lorry2
+    100188: man
+    100190: man_1
+    100192: man_2
+    100194: man_2_2
+    100196: man_3
+    100198: music_100__Copy_
+    100200: music_101__Copy_
+    100202: music_102__Copy_
+    100204: music_103__Copy_
+    100206: music_104__Copy_
+    100208: music_105__Copy_
+    100210: music_106__Copy_
+    100212: music_107__Copy_
+    100214: music_108__Copy_
+    100216: music_109__Copy_
+    100218: music_10__Copy_
+    100220: music_110__Copy_
+    100222: music_111__Copy_
+    100224: music_112__Copy_
+    100226: music_113__Copy_
+    100228: music_114__Copy_
+    100230: music_115__Copy_
+    100232: music_116__Copy_
+    100234: music_117__Copy_
+    100236: music_118__Copy_
+    100238: music_119__Copy_
+    100240: music_11__Copy_
+    100242: music_120__Copy_
+    100244: music_121__Copy_
+    100246: music_122__Copy_
+    100248: music_123__Copy_
+    100250: music_124__Copy_
+    100252: music_125__Copy_
+    100254: music_126__Copy_
+    100256: music_127__Copy_
+    100258: music_128__Copy_
+    100260: music_129__Copy_
+    100262: music_12__Copy_
+    100264: music_130__Copy_
+    100266: music_131__Copy_
+    100268: music_132__Copy_
+    100270: music_133__Copy_
+    100272: music_134__Copy_
+    100274: music_135__Copy_
+    100276: music_136__Copy_
+    100278: music_137__Copy_
+    100280: music_138__Copy_
+    100282: music_139__Copy_
+    100284: music_13__Copy_
+    100286: music_140__Copy_
+    100288: music_141__Copy_
+    100290: music_142__Copy_
+    100292: music_143__Copy_
+    100294: music_144__Copy_
+    100296: music_145__Copy_
+    100298: music_146__Copy_
+    100300: music_147__Copy_
+    100302: music_148__Copy_
+    100304: music_149__Copy_
+    100306: music_14__Copy_
+    100308: music_150__Copy_
+    100310: music_151__Copy_
+    100312: music_152__Copy_
+    100314: music_153__Copy_
+    100316: music_154__Copy_
+    100318: music_155__Copy_
+    100320: music_156__Copy_
+    100322: music_157__Copy_
+    100324: music_158__Copy_
+    100326: music_159__Copy_
+    100328: music_15__Copy_
+    100330: music_160__Copy_
+    100332: music_161__Copy_
+    100334: music_162__Copy_
+    100336: music_163__Copy_
+    100338: music_164__Copy_
+    100340: music_165__Copy_
+    100342: music_166__Copy_
+    100344: music_167__Copy_
+    100346: music_168__Copy_
+    100348: music_169__Copy_
+    100350: music_16__Copy_
+    100352: music_170__Copy_
+    100354: music_171__Copy_
+    100356: music_172__Copy_
+    100358: music_173__Copy_
+    100360: music_174__Copy_
+    100362: music_175__Copy_
+    100364: music_176__Copy_
+    100366: music_177__Copy_
+    100368: music_178__Copy_
+    100370: music_179__Copy_
+    100372: music_17__Copy_
+    100374: music_180__Copy_
+    100376: music_181__Copy_
+    100378: music_182__Copy_
+    100380: music_183__Copy_
+    100382: music_184__Copy_
+    100384: music_185__Copy_
+    100386: music_186__Copy_
+    100388: music_187__Copy_
+    100390: music_188__Copy_
+    100392: music_189__Copy_
+    100394: music_18__Copy_
+    100396: music_190__Copy_
+    100398: music_191__Copy_
+    100400: music_192__Copy_
+    100402: music_193__Copy_
+    100404: music_194__Copy_
+    100406: music_195__Copy_
+    100408: music_196__Copy_
+    100410: music_197__Copy_
+    100412: music_198__Copy_
+    100414: music_199__Copy_
+    100416: music_19__Copy_
+    100418: music_1__Copy_
+    100420: music_200__Copy_
+    100422: music_201__Copy_
+    100424: music_202__Copy_
+    100426: music_203__Copy_
+    100428: music_204__Copy_
+    100430: music_205__Copy_
+    100432: music_206__Copy_
+    100434: music_207__Copy_
+    100436: music_208__Copy_
+    100438: music_209__Copy_
+    100440: music_20__Copy_
+    100442: music_210__Copy_
+    100444: music_211__Copy_
+    100446: music_212__Copy_
+    100448: music_21__Copy_
+    100450: music_22__Copy_
+    100452: music_23__Copy_
+    100454: music_24__Copy_
+    100456: music_25__Copy_
+    100458: music_26__Copy_
+    100460: music_27__Copy_
+    100462: music_28__Copy_
+    100464: music_29__Copy_
+    100466: music_2__Copy_
+    100468: music_30__Copy_
+    100470: music_31__Copy_
+    100472: music_32__Copy_
+    100474: music_33__Copy_
+    100476: music_34__Copy_
+    100478: music_35__Copy_
+    100480: music_36__Copy_
+    100482: music_37__Copy_
+    100484: music_38__Copy_
+    100486: music_39__Copy_
+    100488: music_3__Copy_
+    100490: music_40__Copy_
+    100492: music_41__Copy_
+    100494: music_42__Copy_
+    100496: music_43__Copy_
+    100498: music_44__Copy_
+    100500: music_45__Copy_
+    100502: music_46__Copy_
+    100504: music_47__Copy_
+    100506: music_48__Copy_
+    100508: music_49__Copy_
+    100510: music_4__Copy_
+    100512: music_50__Copy_
+    100514: music_51__Copy_
+    100516: music_52__Copy_
+    100518: music_53__Copy_
+    100520: music_54__Copy_
+    100522: music_55__Copy_
+    100524: music_56__Copy_
+    100526: music_57__Copy_
+    100528: music_58__Copy_
+    100530: music_59__Copy_
+    100532: music_5__Copy_
+    100534: music_60__Copy_
+    100536: music_61__Copy_
+    100538: music_62__Copy_
+    100540: music_63__Copy_
+    100542: music_64__Copy_
+    100544: music_65__Copy_
+    100546: music_66__Copy_
+    100548: music_67__Copy_
+    100550: music_68__Copy_
+    100552: music_69__Copy_
+    100554: music_6__Copy_
+    100556: music_70__Copy_
+    100558: music_71__Copy_
+    100560: music_72__Copy_
+    100562: music_73__Copy_
+    100564: music_74__Copy_
+    100566: music_75__Copy_
+    100568: music_76__Copy_
+    100570: music_77__Copy_
+    100572: music_78__Copy_
+    100574: music_79__Copy_
+    100576: music_7__Copy_
+    100578: music_80__Copy_
+    100580: music_81__Copy_
+    100582: music_82__Copy_
+    100584: music_83__Copy_
+    100586: music_84__Copy_
+    100588: music_85__Copy_
+    100590: music_86__Copy_
+    100592: music_87__Copy_
+    100594: music_88__Copy_
+    100596: music_89__Copy_
+    100598: music_8__Copy_
+    100600: music_90__Copy_
+    100602: music_91__Copy_
+    100604: music_92__Copy_
+    100606: music_93__Copy_
+    100608: music_94__Copy_
+    100610: music_95__Copy_
+    100612: music_96__Copy_
+    100614: music_97__Copy_
+    100616: music_98__Copy_
+    100618: music_99__Copy_
+    100620: music_9__Copy_
+    100622: roof1
+    100624: roof2
+    100626: roof_10__Copy_
+    100628: roof_11__Copy_
+    100630: roof_12__Copy_
+    100632: roof_13__Copy_
+    100634: roof_14__Copy_
+    100636: roof_15__Copy_
+    100638: roof_1__Copy_
+    100640: roof_2__Copy_
+    100642: roof_3__Copy_
+    100644: roof_4__Copy_
+    100646: roof_5__Copy_
+    100648: roof_6__Copy_
+    100650: roof_7__Copy_
+    100652: roof_8__Copy_
+    100654: roof_9__Copy_
+    100656: steering_wheel_1
+    100658: steering_wheel_1_2
+    100660: stick
+    100662: stick_1
+    100664: stick_1_2
+    100666: stick_1_3
+    100668: stick_2
+    100670: tire
+    100672: tire_10
+    100674: tire_11
+    100676: tire_12
+    100678: tire_13
+    100680: tire_14
+    100682: tire_15
+    100684: tire_16
+    100686: tire_2
+    100688: tire_3
+    100690: tire_4
+    100692: tire_5
+    100694: tire_6
+    100696: tire_7
+    100698: tire_8
+    100700: tire_9
+    100702: Tube
+    100704: Tube_2
+    100706: wall
+    100708: wheel
+    100710: wheel_2
+    100712: //RootNode
+    400000: arm
+    400002: arm1
+    400004: arm1_2
+    400006: arm_2
+    400008: car
+    400010: car_1
+    400012: car_1_2
+    400014: car_2
+    400016: car_3
+    400018: chair
+    400020: chair_2
+    400022: chair_3
+    400024: chair_4
+    400026: chair_5
+    400028: chair_6
+    400030: chair_7
+    400032: Cloner
+    400034: Cloner_1
+    400036: concert_hall
+    400038: craine1
+    400040: craine2
+    400042: craine2_1
+    400044: Cube
+    400046: Cylinder_0
+    400048: Cylinder_0_2
+    400050: Cylinder_1
+    400052: Cylinder_10
+    400054: Cylinder_10_2
+    400056: Cylinder_11
+    400058: Cylinder_11_2
+    400060: Cylinder_12
+    400062: Cylinder_13
+    400064: Cylinder_14
+    400066: Cylinder_15
+    400068: Cylinder_16
+    400070: Cylinder_17
+    400072: Cylinder_18
+    400074: Cylinder_19
+    400076: Cylinder_1_2
+    400078: Cylinder_2
+    400080: Cylinder_20
+    400082: Cylinder_21
+    400084: Cylinder_22
+    400086: Cylinder_23
+    400088: Cylinder_2_2
+    400090: Cylinder_3
+    400092: Cylinder_3_2
+    400094: Cylinder_4
+    400096: Cylinder_4_2
+    400098: Cylinder_5
+    400100: Cylinder_5_2
+    400102: Cylinder_6
+    400104: Cylinder_6_2
+    400106: Cylinder_7
+    400108: Cylinder_7_2
+    400110: Cylinder_8
+    400112: Cylinder_8_2
+    400114: Cylinder_9
+    400116: Cylinder_9_2
+    400118: Disc
+    400120: door
+    400122: door_2
+    400124: door_3
+    400126: door_4
+    400128: floor1__Copy_
+    400130: floor2__Copy_
+    400132: floor3__Copy_
+    400134: floor4__Copy_
+    400136: floor5__Copy_
+    400138: floor6__Copy_
+    400140: floor7__Copy_
+    400142: frame
+    400144: hand
+    400146: hand_2
+    400148: kinfe
+    400150: Landscape
+    400152: Landscape_1
+    400154: Loft
+    400156: Loft_1_10__Copy_
+    400158: Loft_1_11__Copy_
+    400160: Loft_1_12__Copy_
+    400162: Loft_1_13__Copy_
+    400164: Loft_1_1__Copy_
+    400166: Loft_1_2__Copy_
+    400168: Loft_1_3__Copy_
+    400170: Loft_1_4__Copy_
+    400172: Loft_1_5__Copy_
+    400174: Loft_1_6__Copy_
+    400176: Loft_1_7__Copy_
+    400178: Loft_1_8__Copy_
+    400180: Loft_1_9__Copy_
+    400182: Loft_1__Copy_
+    400184: lorry1
+    400186: lorry2
+    400188: man
+    400190: man_1
+    400192: man_2
+    400194: man_2_2
+    400196: man_3
+    400198: music_100__Copy_
+    400200: music_101__Copy_
+    400202: music_102__Copy_
+    400204: music_103__Copy_
+    400206: music_104__Copy_
+    400208: music_105__Copy_
+    400210: music_106__Copy_
+    400212: music_107__Copy_
+    400214: music_108__Copy_
+    400216: music_109__Copy_
+    400218: music_10__Copy_
+    400220: music_110__Copy_
+    400222: music_111__Copy_
+    400224: music_112__Copy_
+    400226: music_113__Copy_
+    400228: music_114__Copy_
+    400230: music_115__Copy_
+    400232: music_116__Copy_
+    400234: music_117__Copy_
+    400236: music_118__Copy_
+    400238: music_119__Copy_
+    400240: music_11__Copy_
+    400242: music_120__Copy_
+    400244: music_121__Copy_
+    400246: music_122__Copy_
+    400248: music_123__Copy_
+    400250: music_124__Copy_
+    400252: music_125__Copy_
+    400254: music_126__Copy_
+    400256: music_127__Copy_
+    400258: music_128__Copy_
+    400260: music_129__Copy_
+    400262: music_12__Copy_
+    400264: music_130__Copy_
+    400266: music_131__Copy_
+    400268: music_132__Copy_
+    400270: music_133__Copy_
+    400272: music_134__Copy_
+    400274: music_135__Copy_
+    400276: music_136__Copy_
+    400278: music_137__Copy_
+    400280: music_138__Copy_
+    400282: music_139__Copy_
+    400284: music_13__Copy_
+    400286: music_140__Copy_
+    400288: music_141__Copy_
+    400290: music_142__Copy_
+    400292: music_143__Copy_
+    400294: music_144__Copy_
+    400296: music_145__Copy_
+    400298: music_146__Copy_
+    400300: music_147__Copy_
+    400302: music_148__Copy_
+    400304: music_149__Copy_
+    400306: music_14__Copy_
+    400308: music_150__Copy_
+    400310: music_151__Copy_
+    400312: music_152__Copy_
+    400314: music_153__Copy_
+    400316: music_154__Copy_
+    400318: music_155__Copy_
+    400320: music_156__Copy_
+    400322: music_157__Copy_
+    400324: music_158__Copy_
+    400326: music_159__Copy_
+    400328: music_15__Copy_
+    400330: music_160__Copy_
+    400332: music_161__Copy_
+    400334: music_162__Copy_
+    400336: music_163__Copy_
+    400338: music_164__Copy_
+    400340: music_165__Copy_
+    400342: music_166__Copy_
+    400344: music_167__Copy_
+    400346: music_168__Copy_
+    400348: music_169__Copy_
+    400350: music_16__Copy_
+    400352: music_170__Copy_
+    400354: music_171__Copy_
+    400356: music_172__Copy_
+    400358: music_173__Copy_
+    400360: music_174__Copy_
+    400362: music_175__Copy_
+    400364: music_176__Copy_
+    400366: music_177__Copy_
+    400368: music_178__Copy_
+    400370: music_179__Copy_
+    400372: music_17__Copy_
+    400374: music_180__Copy_
+    400376: music_181__Copy_
+    400378: music_182__Copy_
+    400380: music_183__Copy_
+    400382: music_184__Copy_
+    400384: music_185__Copy_
+    400386: music_186__Copy_
+    400388: music_187__Copy_
+    400390: music_188__Copy_
+    400392: music_189__Copy_
+    400394: music_18__Copy_
+    400396: music_190__Copy_
+    400398: music_191__Copy_
+    400400: music_192__Copy_
+    400402: music_193__Copy_
+    400404: music_194__Copy_
+    400406: music_195__Copy_
+    400408: music_196__Copy_
+    400410: music_197__Copy_
+    400412: music_198__Copy_
+    400414: music_199__Copy_
+    400416: music_19__Copy_
+    400418: music_1__Copy_
+    400420: music_200__Copy_
+    400422: music_201__Copy_
+    400424: music_202__Copy_
+    400426: music_203__Copy_
+    400428: music_204__Copy_
+    400430: music_205__Copy_
+    400432: music_206__Copy_
+    400434: music_207__Copy_
+    400436: music_208__Copy_
+    400438: music_209__Copy_
+    400440: music_20__Copy_
+    400442: music_210__Copy_
+    400444: music_211__Copy_
+    400446: music_212__Copy_
+    400448: music_21__Copy_
+    400450: music_22__Copy_
+    400452: music_23__Copy_
+    400454: music_24__Copy_
+    400456: music_25__Copy_
+    400458: music_26__Copy_
+    400460: music_27__Copy_
+    400462: music_28__Copy_
+    400464: music_29__Copy_
+    400466: music_2__Copy_
+    400468: music_30__Copy_
+    400470: music_31__Copy_
+    400472: music_32__Copy_
+    400474: music_33__Copy_
+    400476: music_34__Copy_
+    400478: music_35__Copy_
+    400480: music_36__Copy_
+    400482: music_37__Copy_
+    400484: music_38__Copy_
+    400486: music_39__Copy_
+    400488: music_3__Copy_
+    400490: music_40__Copy_
+    400492: music_41__Copy_
+    400494: music_42__Copy_
+    400496: music_43__Copy_
+    400498: music_44__Copy_
+    400500: music_45__Copy_
+    400502: music_46__Copy_
+    400504: music_47__Copy_
+    400506: music_48__Copy_
+    400508: music_49__Copy_
+    400510: music_4__Copy_
+    400512: music_50__Copy_
+    400514: music_51__Copy_
+    400516: music_52__Copy_
+    400518: music_53__Copy_
+    400520: music_54__Copy_
+    400522: music_55__Copy_
+    400524: music_56__Copy_
+    400526: music_57__Copy_
+    400528: music_58__Copy_
+    400530: music_59__Copy_
+    400532: music_5__Copy_
+    400534: music_60__Copy_
+    400536: music_61__Copy_
+    400538: music_62__Copy_
+    400540: music_63__Copy_
+    400542: music_64__Copy_
+    400544: music_65__Copy_
+    400546: music_66__Copy_
+    400548: music_67__Copy_
+    400550: music_68__Copy_
+    400552: music_69__Copy_
+    400554: music_6__Copy_
+    400556: music_70__Copy_
+    400558: music_71__Copy_
+    400560: music_72__Copy_
+    400562: music_73__Copy_
+    400564: music_74__Copy_
+    400566: music_75__Copy_
+    400568: music_76__Copy_
+    400570: music_77__Copy_
+    400572: music_78__Copy_
+    400574: music_79__Copy_
+    400576: music_7__Copy_
+    400578: music_80__Copy_
+    400580: music_81__Copy_
+    400582: music_82__Copy_
+    400584: music_83__Copy_
+    400586: music_84__Copy_
+    400588: music_85__Copy_
+    400590: music_86__Copy_
+    400592: music_87__Copy_
+    400594: music_88__Copy_
+    400596: music_89__Copy_
+    400598: music_8__Copy_
+    400600: music_90__Copy_
+    400602: music_91__Copy_
+    400604: music_92__Copy_
+    400606: music_93__Copy_
+    400608: music_94__Copy_
+    400610: music_95__Copy_
+    400612: music_96__Copy_
+    400614: music_97__Copy_
+    400616: music_98__Copy_
+    400618: music_99__Copy_
+    400620: music_9__Copy_
+    400622: roof1
+    400624: roof2
+    400626: roof_10__Copy_
+    400628: roof_11__Copy_
+    400630: roof_12__Copy_
+    400632: roof_13__Copy_
+    400634: roof_14__Copy_
+    400636: roof_15__Copy_
+    400638: roof_1__Copy_
+    400640: roof_2__Copy_
+    400642: roof_3__Copy_
+    400644: roof_4__Copy_
+    400646: roof_5__Copy_
+    400648: roof_6__Copy_
+    400650: roof_7__Copy_
+    400652: roof_8__Copy_
+    400654: roof_9__Copy_
+    400656: steering_wheel_1
+    400658: steering_wheel_1_2
+    400660: stick
+    400662: stick_1
+    400664: stick_1_2
+    400666: stick_1_3
+    400668: stick_2
+    400670: tire
+    400672: tire_10
+    400674: tire_11
+    400676: tire_12
+    400678: tire_13
+    400680: tire_14
+    400682: tire_15
+    400684: tire_16
+    400686: tire_2
+    400688: tire_3
+    400690: tire_4
+    400692: tire_5
+    400694: tire_6
+    400696: tire_7
+    400698: tire_8
+    400700: tire_9
+    400702: Tube
+    400704: Tube_2
+    400706: wall
+    400708: wheel
+    400710: wheel_2
+    400712: //RootNode
+    2300000: arm
+    2300002: arm1
+    2300004: arm1_2
+    2300006: arm_2
+    2300008: car
+    2300010: car_1
+    2300012: car_1_2
+    2300014: car_2
+    2300016: car_3
+    2300018: chair
+    2300020: chair_2
+    2300022: chair_3
+    2300024: chair_4
+    2300026: chair_5
+    2300028: chair_6
+    2300030: chair_7
+    2300032: Cube
+    2300034: Cylinder_0
+    2300036: Cylinder_0_2
+    2300038: Cylinder_1
+    2300040: Cylinder_10
+    2300042: Cylinder_10_2
+    2300044: Cylinder_11
+    2300046: Cylinder_11_2
+    2300048: Cylinder_12
+    2300050: Cylinder_13
+    2300052: Cylinder_14
+    2300054: Cylinder_15
+    2300056: Cylinder_16
+    2300058: Cylinder_17
+    2300060: Cylinder_18
+    2300062: Cylinder_19
+    2300064: Cylinder_1_2
+    2300066: Cylinder_2
+    2300068: Cylinder_20
+    2300070: Cylinder_21
+    2300072: Cylinder_22
+    2300074: Cylinder_23
+    2300076: Cylinder_2_2
+    2300078: Cylinder_3
+    2300080: Cylinder_3_2
+    2300082: Cylinder_4
+    2300084: Cylinder_4_2
+    2300086: Cylinder_5
+    2300088: Cylinder_5_2
+    2300090: Cylinder_6
+    2300092: Cylinder_6_2
+    2300094: Cylinder_7
+    2300096: Cylinder_7_2
+    2300098: Cylinder_8
+    2300100: Cylinder_8_2
+    2300102: Cylinder_9
+    2300104: Cylinder_9_2
+    2300106: Disc
+    2300108: door
+    2300110: door_2
+    2300112: door_3
+    2300114: door_4
+    2300116: floor1__Copy_
+    2300118: floor2__Copy_
+    2300120: floor3__Copy_
+    2300122: floor4__Copy_
+    2300124: floor5__Copy_
+    2300126: floor6__Copy_
+    2300128: floor7__Copy_
+    2300130: hand
+    2300132: hand_2
+    2300134: kinfe
+    2300136: Landscape
+    2300138: Landscape_1
+    2300140: Loft
+    2300142: Loft_1_10__Copy_
+    2300144: Loft_1_11__Copy_
+    2300146: Loft_1_12__Copy_
+    2300148: Loft_1_13__Copy_
+    2300150: Loft_1_1__Copy_
+    2300152: Loft_1_2__Copy_
+    2300154: Loft_1_3__Copy_
+    2300156: Loft_1_4__Copy_
+    2300158: Loft_1_5__Copy_
+    2300160: Loft_1_6__Copy_
+    2300162: Loft_1_7__Copy_
+    2300164: Loft_1_8__Copy_
+    2300166: Loft_1_9__Copy_
+    2300168: Loft_1__Copy_
+    2300170: man
+    2300172: man_1
+    2300174: man_2
+    2300176: man_2_2
+    2300178: man_3
+    2300180: music_100__Copy_
+    2300182: music_101__Copy_
+    2300184: music_102__Copy_
+    2300186: music_103__Copy_
+    2300188: music_104__Copy_
+    2300190: music_105__Copy_
+    2300192: music_106__Copy_
+    2300194: music_107__Copy_
+    2300196: music_108__Copy_
+    2300198: music_109__Copy_
+    2300200: music_10__Copy_
+    2300202: music_110__Copy_
+    2300204: music_111__Copy_
+    2300206: music_112__Copy_
+    2300208: music_113__Copy_
+    2300210: music_114__Copy_
+    2300212: music_115__Copy_
+    2300214: music_116__Copy_
+    2300216: music_117__Copy_
+    2300218: music_118__Copy_
+    2300220: music_119__Copy_
+    2300222: music_11__Copy_
+    2300224: music_120__Copy_
+    2300226: music_121__Copy_
+    2300228: music_122__Copy_
+    2300230: music_123__Copy_
+    2300232: music_124__Copy_
+    2300234: music_125__Copy_
+    2300236: music_126__Copy_
+    2300238: music_127__Copy_
+    2300240: music_128__Copy_
+    2300242: music_129__Copy_
+    2300244: music_12__Copy_
+    2300246: music_130__Copy_
+    2300248: music_131__Copy_
+    2300250: music_132__Copy_
+    2300252: music_133__Copy_
+    2300254: music_134__Copy_
+    2300256: music_135__Copy_
+    2300258: music_136__Copy_
+    2300260: music_137__Copy_
+    2300262: music_138__Copy_
+    2300264: music_139__Copy_
+    2300266: music_13__Copy_
+    2300268: music_140__Copy_
+    2300270: music_141__Copy_
+    2300272: music_142__Copy_
+    2300274: music_143__Copy_
+    2300276: music_144__Copy_
+    2300278: music_145__Copy_
+    2300280: music_146__Copy_
+    2300282: music_147__Copy_
+    2300284: music_148__Copy_
+    2300286: music_149__Copy_
+    2300288: music_14__Copy_
+    2300290: music_150__Copy_
+    2300292: music_151__Copy_
+    2300294: music_152__Copy_
+    2300296: music_153__Copy_
+    2300298: music_154__Copy_
+    2300300: music_155__Copy_
+    2300302: music_156__Copy_
+    2300304: music_157__Copy_
+    2300306: music_158__Copy_
+    2300308: music_159__Copy_
+    2300310: music_15__Copy_
+    2300312: music_160__Copy_
+    2300314: music_161__Copy_
+    2300316: music_162__Copy_
+    2300318: music_163__Copy_
+    2300320: music_164__Copy_
+    2300322: music_165__Copy_
+    2300324: music_166__Copy_
+    2300326: music_167__Copy_
+    2300328: music_168__Copy_
+    2300330: music_169__Copy_
+    2300332: music_16__Copy_
+    2300334: music_170__Copy_
+    2300336: music_171__Copy_
+    2300338: music_172__Copy_
+    2300340: music_173__Copy_
+    2300342: music_174__Copy_
+    2300344: music_175__Copy_
+    2300346: music_176__Copy_
+    2300348: music_177__Copy_
+    2300350: music_178__Copy_
+    2300352: music_179__Copy_
+    2300354: music_17__Copy_
+    2300356: music_180__Copy_
+    2300358: music_181__Copy_
+    2300360: music_182__Copy_
+    2300362: music_183__Copy_
+    2300364: music_184__Copy_
+    2300366: music_185__Copy_
+    2300368: music_186__Copy_
+    2300370: music_187__Copy_
+    2300372: music_188__Copy_
+    2300374: music_189__Copy_
+    2300376: music_18__Copy_
+    2300378: music_190__Copy_
+    2300380: music_191__Copy_
+    2300382: music_192__Copy_
+    2300384: music_193__Copy_
+    2300386: music_194__Copy_
+    2300388: music_195__Copy_
+    2300390: music_196__Copy_
+    2300392: music_197__Copy_
+    2300394: music_198__Copy_
+    2300396: music_199__Copy_
+    2300398: music_19__Copy_
+    2300400: music_1__Copy_
+    2300402: music_200__Copy_
+    2300404: music_201__Copy_
+    2300406: music_202__Copy_
+    2300408: music_203__Copy_
+    2300410: music_204__Copy_
+    2300412: music_205__Copy_
+    2300414: music_206__Copy_
+    2300416: music_207__Copy_
+    2300418: music_208__Copy_
+    2300420: music_209__Copy_
+    2300422: music_20__Copy_
+    2300424: music_210__Copy_
+    2300426: music_211__Copy_
+    2300428: music_212__Copy_
+    2300430: music_21__Copy_
+    2300432: music_22__Copy_
+    2300434: music_23__Copy_
+    2300436: music_24__Copy_
+    2300438: music_25__Copy_
+    2300440: music_26__Copy_
+    2300442: music_27__Copy_
+    2300444: music_28__Copy_
+    2300446: music_29__Copy_
+    2300448: music_2__Copy_
+    2300450: music_30__Copy_
+    2300452: music_31__Copy_
+    2300454: music_32__Copy_
+    2300456: music_33__Copy_
+    2300458: music_34__Copy_
+    2300460: music_35__Copy_
+    2300462: music_36__Copy_
+    2300464: music_37__Copy_
+    2300466: music_38__Copy_
+    2300468: music_39__Copy_
+    2300470: music_3__Copy_
+    2300472: music_40__Copy_
+    2300474: music_41__Copy_
+    2300476: music_42__Copy_
+    2300478: music_43__Copy_
+    2300480: music_44__Copy_
+    2300482: music_45__Copy_
+    2300484: music_46__Copy_
+    2300486: music_47__Copy_
+    2300488: music_48__Copy_
+    2300490: music_49__Copy_
+    2300492: music_4__Copy_
+    2300494: music_50__Copy_
+    2300496: music_51__Copy_
+    2300498: music_52__Copy_
+    2300500: music_53__Copy_
+    2300502: music_54__Copy_
+    2300504: music_55__Copy_
+    2300506: music_56__Copy_
+    2300508: music_57__Copy_
+    2300510: music_58__Copy_
+    2300512: music_59__Copy_
+    2300514: music_5__Copy_
+    2300516: music_60__Copy_
+    2300518: music_61__Copy_
+    2300520: music_62__Copy_
+    2300522: music_63__Copy_
+    2300524: music_64__Copy_
+    2300526: music_65__Copy_
+    2300528: music_66__Copy_
+    2300530: music_67__Copy_
+    2300532: music_68__Copy_
+    2300534: music_69__Copy_
+    2300536: music_6__Copy_
+    2300538: music_70__Copy_
+    2300540: music_71__Copy_
+    2300542: music_72__Copy_
+    2300544: music_73__Copy_
+    2300546: music_74__Copy_
+    2300548: music_75__Copy_
+    2300550: music_76__Copy_
+    2300552: music_77__Copy_
+    2300554: music_78__Copy_
+    2300556: music_79__Copy_
+    2300558: music_7__Copy_
+    2300560: music_80__Copy_
+    2300562: music_81__Copy_
+    2300564: music_82__Copy_
+    2300566: music_83__Copy_
+    2300568: music_84__Copy_
+    2300570: music_85__Copy_
+    2300572: music_86__Copy_
+    2300574: music_87__Copy_
+    2300576: music_88__Copy_
+    2300578: music_89__Copy_
+    2300580: music_8__Copy_
+    2300582: music_90__Copy_
+    2300584: music_91__Copy_
+    2300586: music_92__Copy_
+    2300588: music_93__Copy_
+    2300590: music_94__Copy_
+    2300592: music_95__Copy_
+    2300594: music_96__Copy_
+    2300596: music_97__Copy_
+    2300598: music_98__Copy_
+    2300600: music_99__Copy_
+    2300602: music_9__Copy_
+    2300604: roof_10__Copy_
+    2300606: roof_11__Copy_
+    2300608: roof_12__Copy_
+    2300610: roof_13__Copy_
+    2300612: roof_14__Copy_
+    2300614: roof_15__Copy_
+    2300616: roof_1__Copy_
+    2300618: roof_2__Copy_
+    2300620: roof_3__Copy_
+    2300622: roof_4__Copy_
+    2300624: roof_5__Copy_
+    2300626: roof_6__Copy_
+    2300628: roof_7__Copy_
+    2300630: roof_8__Copy_
+    2300632: roof_9__Copy_
+    2300634: steering_wheel_1
+    2300636: steering_wheel_1_2
+    2300638: stick
+    2300640: stick_1
+    2300642: stick_1_2
+    2300644: stick_1_3
+    2300646: stick_2
+    2300648: tire
+    2300650: tire_10
+    2300652: tire_11
+    2300654: tire_12
+    2300656: tire_13
+    2300658: tire_14
+    2300660: tire_15
+    2300662: tire_16
+    2300664: tire_2
+    2300666: tire_3
+    2300668: tire_4
+    2300670: tire_5
+    2300672: tire_6
+    2300674: tire_7
+    2300676: tire_8
+    2300678: tire_9
+    2300680: Tube
+    2300682: Tube_2
+    2300684: wheel
+    2300686: wheel_2
+    3300000: arm
+    3300002: arm1
+    3300004: arm1_2
+    3300006: arm_2
+    3300008: car
+    3300010: car_1
+    3300012: car_1_2
+    3300014: car_2
+    3300016: car_3
+    3300018: chair
+    3300020: chair_2
+    3300022: chair_3
+    3300024: chair_4
+    3300026: chair_5
+    3300028: chair_6
+    3300030: chair_7
+    3300032: Cube
+    3300034: Cylinder_0
+    3300036: Cylinder_0_2
+    3300038: Cylinder_1
+    3300040: Cylinder_10
+    3300042: Cylinder_10_2
+    3300044: Cylinder_11
+    3300046: Cylinder_11_2
+    3300048: Cylinder_12
+    3300050: Cylinder_13
+    3300052: Cylinder_14
+    3300054: Cylinder_15
+    3300056: Cylinder_16
+    3300058: Cylinder_17
+    3300060: Cylinder_18
+    3300062: Cylinder_19
+    3300064: Cylinder_1_2
+    3300066: Cylinder_2
+    3300068: Cylinder_20
+    3300070: Cylinder_21
+    3300072: Cylinder_22
+    3300074: Cylinder_23
+    3300076: Cylinder_2_2
+    3300078: Cylinder_3
+    3300080: Cylinder_3_2
+    3300082: Cylinder_4
+    3300084: Cylinder_4_2
+    3300086: Cylinder_5
+    3300088: Cylinder_5_2
+    3300090: Cylinder_6
+    3300092: Cylinder_6_2
+    3300094: Cylinder_7
+    3300096: Cylinder_7_2
+    3300098: Cylinder_8
+    3300100: Cylinder_8_2
+    3300102: Cylinder_9
+    3300104: Cylinder_9_2
+    3300106: Disc
+    3300108: door
+    3300110: door_2
+    3300112: door_3
+    3300114: door_4
+    3300116: floor1__Copy_
+    3300118: floor2__Copy_
+    3300120: floor3__Copy_
+    3300122: floor4__Copy_
+    3300124: floor5__Copy_
+    3300126: floor6__Copy_
+    3300128: floor7__Copy_
+    3300130: hand
+    3300132: hand_2
+    3300134: kinfe
+    3300136: Landscape
+    3300138: Landscape_1
+    3300140: Loft
+    3300142: Loft_1_10__Copy_
+    3300144: Loft_1_11__Copy_
+    3300146: Loft_1_12__Copy_
+    3300148: Loft_1_13__Copy_
+    3300150: Loft_1_1__Copy_
+    3300152: Loft_1_2__Copy_
+    3300154: Loft_1_3__Copy_
+    3300156: Loft_1_4__Copy_
+    3300158: Loft_1_5__Copy_
+    3300160: Loft_1_6__Copy_
+    3300162: Loft_1_7__Copy_
+    3300164: Loft_1_8__Copy_
+    3300166: Loft_1_9__Copy_
+    3300168: Loft_1__Copy_
+    3300170: man
+    3300172: man_1
+    3300174: man_2
+    3300176: man_2_2
+    3300178: man_3
+    3300180: music_100__Copy_
+    3300182: music_101__Copy_
+    3300184: music_102__Copy_
+    3300186: music_103__Copy_
+    3300188: music_104__Copy_
+    3300190: music_105__Copy_
+    3300192: music_106__Copy_
+    3300194: music_107__Copy_
+    3300196: music_108__Copy_
+    3300198: music_109__Copy_
+    3300200: music_10__Copy_
+    3300202: music_110__Copy_
+    3300204: music_111__Copy_
+    3300206: music_112__Copy_
+    3300208: music_113__Copy_
+    3300210: music_114__Copy_
+    3300212: music_115__Copy_
+    3300214: music_116__Copy_
+    3300216: music_117__Copy_
+    3300218: music_118__Copy_
+    3300220: music_119__Copy_
+    3300222: music_11__Copy_
+    3300224: music_120__Copy_
+    3300226: music_121__Copy_
+    3300228: music_122__Copy_
+    3300230: music_123__Copy_
+    3300232: music_124__Copy_
+    3300234: music_125__Copy_
+    3300236: music_126__Copy_
+    3300238: music_127__Copy_
+    3300240: music_128__Copy_
+    3300242: music_129__Copy_
+    3300244: music_12__Copy_
+    3300246: music_130__Copy_
+    3300248: music_131__Copy_
+    3300250: music_132__Copy_
+    3300252: music_133__Copy_
+    3300254: music_134__Copy_
+    3300256: music_135__Copy_
+    3300258: music_136__Copy_
+    3300260: music_137__Copy_
+    3300262: music_138__Copy_
+    3300264: music_139__Copy_
+    3300266: music_13__Copy_
+    3300268: music_140__Copy_
+    3300270: music_141__Copy_
+    3300272: music_142__Copy_
+    3300274: music_143__Copy_
+    3300276: music_144__Copy_
+    3300278: music_145__Copy_
+    3300280: music_146__Copy_
+    3300282: music_147__Copy_
+    3300284: music_148__Copy_
+    3300286: music_149__Copy_
+    3300288: music_14__Copy_
+    3300290: music_150__Copy_
+    3300292: music_151__Copy_
+    3300294: music_152__Copy_
+    3300296: music_153__Copy_
+    3300298: music_154__Copy_
+    3300300: music_155__Copy_
+    3300302: music_156__Copy_
+    3300304: music_157__Copy_
+    3300306: music_158__Copy_
+    3300308: music_159__Copy_
+    3300310: music_15__Copy_
+    3300312: music_160__Copy_
+    3300314: music_161__Copy_
+    3300316: music_162__Copy_
+    3300318: music_163__Copy_
+    3300320: music_164__Copy_
+    3300322: music_165__Copy_
+    3300324: music_166__Copy_
+    3300326: music_167__Copy_
+    3300328: music_168__Copy_
+    3300330: music_169__Copy_
+    3300332: music_16__Copy_
+    3300334: music_170__Copy_
+    3300336: music_171__Copy_
+    3300338: music_172__Copy_
+    3300340: music_173__Copy_
+    3300342: music_174__Copy_
+    3300344: music_175__Copy_
+    3300346: music_176__Copy_
+    3300348: music_177__Copy_
+    3300350: music_178__Copy_
+    3300352: music_179__Copy_
+    3300354: music_17__Copy_
+    3300356: music_180__Copy_
+    3300358: music_181__Copy_
+    3300360: music_182__Copy_
+    3300362: music_183__Copy_
+    3300364: music_184__Copy_
+    3300366: music_185__Copy_
+    3300368: music_186__Copy_
+    3300370: music_187__Copy_
+    3300372: music_188__Copy_
+    3300374: music_189__Copy_
+    3300376: music_18__Copy_
+    3300378: music_190__Copy_
+    3300380: music_191__Copy_
+    3300382: music_192__Copy_
+    3300384: music_193__Copy_
+    3300386: music_194__Copy_
+    3300388: music_195__Copy_
+    3300390: music_196__Copy_
+    3300392: music_197__Copy_
+    3300394: music_198__Copy_
+    3300396: music_199__Copy_
+    3300398: music_19__Copy_
+    3300400: music_1__Copy_
+    3300402: music_200__Copy_
+    3300404: music_201__Copy_
+    3300406: music_202__Copy_
+    3300408: music_203__Copy_
+    3300410: music_204__Copy_
+    3300412: music_205__Copy_
+    3300414: music_206__Copy_
+    3300416: music_207__Copy_
+    3300418: music_208__Copy_
+    3300420: music_209__Copy_
+    3300422: music_20__Copy_
+    3300424: music_210__Copy_
+    3300426: music_211__Copy_
+    3300428: music_212__Copy_
+    3300430: music_21__Copy_
+    3300432: music_22__Copy_
+    3300434: music_23__Copy_
+    3300436: music_24__Copy_
+    3300438: music_25__Copy_
+    3300440: music_26__Copy_
+    3300442: music_27__Copy_
+    3300444: music_28__Copy_
+    3300446: music_29__Copy_
+    3300448: music_2__Copy_
+    3300450: music_30__Copy_
+    3300452: music_31__Copy_
+    3300454: music_32__Copy_
+    3300456: music_33__Copy_
+    3300458: music_34__Copy_
+    3300460: music_35__Copy_
+    3300462: music_36__Copy_
+    3300464: music_37__Copy_
+    3300466: music_38__Copy_
+    3300468: music_39__Copy_
+    3300470: music_3__Copy_
+    3300472: music_40__Copy_
+    3300474: music_41__Copy_
+    3300476: music_42__Copy_
+    3300478: music_43__Copy_
+    3300480: music_44__Copy_
+    3300482: music_45__Copy_
+    3300484: music_46__Copy_
+    3300486: music_47__Copy_
+    3300488: music_48__Copy_
+    3300490: music_49__Copy_
+    3300492: music_4__Copy_
+    3300494: music_50__Copy_
+    3300496: music_51__Copy_
+    3300498: music_52__Copy_
+    3300500: music_53__Copy_
+    3300502: music_54__Copy_
+    3300504: music_55__Copy_
+    3300506: music_56__Copy_
+    3300508: music_57__Copy_
+    3300510: music_58__Copy_
+    3300512: music_59__Copy_
+    3300514: music_5__Copy_
+    3300516: music_60__Copy_
+    3300518: music_61__Copy_
+    3300520: music_62__Copy_
+    3300522: music_63__Copy_
+    3300524: music_64__Copy_
+    3300526: music_65__Copy_
+    3300528: music_66__Copy_
+    3300530: music_67__Copy_
+    3300532: music_68__Copy_
+    3300534: music_69__Copy_
+    3300536: music_6__Copy_
+    3300538: music_70__Copy_
+    3300540: music_71__Copy_
+    3300542: music_72__Copy_
+    3300544: music_73__Copy_
+    3300546: music_74__Copy_
+    3300548: music_75__Copy_
+    3300550: music_76__Copy_
+    3300552: music_77__Copy_
+    3300554: music_78__Copy_
+    3300556: music_79__Copy_
+    3300558: music_7__Copy_
+    3300560: music_80__Copy_
+    3300562: music_81__Copy_
+    3300564: music_82__Copy_
+    3300566: music_83__Copy_
+    3300568: music_84__Copy_
+    3300570: music_85__Copy_
+    3300572: music_86__Copy_
+    3300574: music_87__Copy_
+    3300576: music_88__Copy_
+    3300578: music_89__Copy_
+    3300580: music_8__Copy_
+    3300582: music_90__Copy_
+    3300584: music_91__Copy_
+    3300586: music_92__Copy_
+    3300588: music_93__Copy_
+    3300590: music_94__Copy_
+    3300592: music_95__Copy_
+    3300594: music_96__Copy_
+    3300596: music_97__Copy_
+    3300598: music_98__Copy_
+    3300600: music_99__Copy_
+    3300602: music_9__Copy_
+    3300604: roof_10__Copy_
+    3300606: roof_11__Copy_
+    3300608: roof_12__Copy_
+    3300610: roof_13__Copy_
+    3300612: roof_14__Copy_
+    3300614: roof_15__Copy_
+    3300616: roof_1__Copy_
+    3300618: roof_2__Copy_
+    3300620: roof_3__Copy_
+    3300622: roof_4__Copy_
+    3300624: roof_5__Copy_
+    3300626: roof_6__Copy_
+    3300628: roof_7__Copy_
+    3300630: roof_8__Copy_
+    3300632: roof_9__Copy_
+    3300634: steering_wheel_1
+    3300636: steering_wheel_1_2
+    3300638: stick
+    3300640: stick_1
+    3300642: stick_1_2
+    3300644: stick_1_3
+    3300646: stick_2
+    3300648: tire
+    3300650: tire_10
+    3300652: tire_11
+    3300654: tire_12
+    3300656: tire_13
+    3300658: tire_14
+    3300660: tire_15
+    3300662: tire_16
+    3300664: tire_2
+    3300666: tire_3
+    3300668: tire_4
+    3300670: tire_5
+    3300672: tire_6
+    3300674: tire_7
+    3300676: tire_8
+    3300678: tire_9
+    3300680: Tube
+    3300682: Tube_2
+    3300684: wheel
+    3300686: wheel_2
+    4300000: Landscape_1
+    4300002: Landscape
+    4300004: Tube_2
+    4300006: Cylinder_0
+    4300008: Cylinder_1
+    4300010: Cylinder_2
+    4300012: Cylinder_3
+    4300014: Cylinder_4
+    4300016: Cylinder_5
+    4300018: Cylinder_6
+    4300020: Cylinder_7
+    4300022: Cylinder_8
+    4300024: Cylinder_9
+    4300026: Cylinder_10
+    4300028: Cylinder_11
+    4300030: Cylinder_0_2
+    4300032: Cylinder_1_2
+    4300034: Cylinder_2_2
+    4300036: Cylinder_3_2
+    4300038: Cylinder_4_2
+    4300040: Cylinder_5_2
+    4300042: Cylinder_6_2
+    4300044: Cylinder_7_2
+    4300046: Cylinder_8_2
+    4300048: Cylinder_9_2
+    4300050: Cylinder_10_2
+    4300052: Cylinder_11_2
+    4300054: Cylinder_12
+    4300056: Cylinder_13
+    4300058: Cylinder_14
+    4300060: Cylinder_15
+    4300062: Cylinder_16
+    4300064: Cylinder_17
+    4300066: Cylinder_18
+    4300068: Cylinder_19
+    4300070: Cylinder_20
+    4300072: Cylinder_21
+    4300074: Cylinder_22
+    4300076: Cylinder_23
+    4300078: wheel
+    4300080: car
+    4300082: man_1
+    4300084: chair
+    4300086: arm
+    4300088: arm1
+    4300090: hand
+    4300092: stick
+    4300094: steering_wheel_1
+    4300096: Cube
+    4300098: chair_2
+    4300100: chair_3
+    4300102: car_1
+    4300104: man
+    4300106: door
+    4300108: door_2
+    4300110: tire
+    4300112: tire_2
+    4300114: tire_3
+    4300116: tire_4
+    4300118: tire_5
+    4300120: tire_6
+    4300122: tire_7
+    4300124: tire_8
+    4300126: steering_wheel_1_2
+    4300128: chair_4
+    4300130: chair_5
+    4300132: car_1_2
+    4300134: man_2
+    4300136: Loft
+    4300138: door_3
+    4300140: door_4
+    4300142: tire_9
+    4300144: tire_10
+    4300146: tire_11
+    4300148: tire_12
+    4300150: tire_13
+    4300152: tire_14
+    4300154: tire_15
+    4300156: tire_16
+    4300158: chair_6
+    4300160: stick_1
+    4300162: stick_1_2
+    4300164: stick_1_3
+    4300166: kinfe
+    4300168: car_2
+    4300170: man_2_2
+    4300172: Tube
+    4300174: Disc
+    4300176: roof_1__Copy_
+    4300178: roof_2__Copy_
+    4300180: roof_3__Copy_
+    4300182: roof_4__Copy_
+    4300184: roof_5__Copy_
+    4300186: roof_6__Copy_
+    4300188: roof_7__Copy_
+    4300190: roof_8__Copy_
+    4300192: roof_9__Copy_
+    4300194: roof_10__Copy_
+    4300196: roof_11__Copy_
+    4300198: roof_12__Copy_
+    4300200: roof_13__Copy_
+    4300202: roof_14__Copy_
+    4300204: roof_15__Copy_
+    4300206: Loft_1_1__Copy_
+    4300208: Loft_1_2__Copy_
+    4300210: Loft_1_3__Copy_
+    4300212: Loft_1_4__Copy_
+    4300214: Loft_1_5__Copy_
+    4300216: Loft_1_6__Copy_
+    4300218: Loft_1_7__Copy_
+    4300220: Loft_1__Copy_
+    4300222: Loft_1_8__Copy_
+    4300224: Loft_1_9__Copy_
+    4300226: Loft_1_10__Copy_
+    4300228: Loft_1_11__Copy_
+    4300230: Loft_1_12__Copy_
+    4300232: Loft_1_13__Copy_
+    4300234: music_1__Copy_
+    4300236: music_2__Copy_
+    4300238: music_3__Copy_
+    4300240: music_4__Copy_
+    4300242: music_5__Copy_
+    4300244: music_6__Copy_
+    4300246: music_7__Copy_
+    4300248: music_8__Copy_
+    4300250: music_9__Copy_
+    4300252: music_10__Copy_
+    4300254: music_11__Copy_
+    4300256: music_12__Copy_
+    4300258: music_13__Copy_
+    4300260: music_14__Copy_
+    4300262: music_15__Copy_
+    4300264: music_16__Copy_
+    4300266: music_17__Copy_
+    4300268: music_18__Copy_
+    4300270: music_19__Copy_
+    4300272: music_20__Copy_
+    4300274: music_21__Copy_
+    4300276: music_22__Copy_
+    4300278: music_23__Copy_
+    4300280: music_24__Copy_
+    4300282: music_25__Copy_
+    4300284: music_26__Copy_
+    4300286: music_27__Copy_
+    4300288: music_28__Copy_
+    4300290: music_29__Copy_
+    4300292: music_30__Copy_
+    4300294: music_31__Copy_
+    4300296: music_32__Copy_
+    4300298: music_33__Copy_
+    4300300: music_34__Copy_
+    4300302: music_35__Copy_
+    4300304: music_36__Copy_
+    4300306: music_37__Copy_
+    4300308: music_38__Copy_
+    4300310: music_39__Copy_
+    4300312: music_40__Copy_
+    4300314: music_41__Copy_
+    4300316: music_42__Copy_
+    4300318: music_43__Copy_
+    4300320: music_44__Copy_
+    4300322: music_45__Copy_
+    4300324: music_46__Copy_
+    4300326: music_47__Copy_
+    4300328: music_48__Copy_
+    4300330: music_49__Copy_
+    4300332: music_50__Copy_
+    4300334: music_51__Copy_
+    4300336: music_52__Copy_
+    4300338: music_53__Copy_
+    4300340: music_54__Copy_
+    4300342: music_55__Copy_
+    4300344: music_56__Copy_
+    4300346: music_57__Copy_
+    4300348: music_58__Copy_
+    4300350: music_59__Copy_
+    4300352: music_60__Copy_
+    4300354: music_61__Copy_
+    4300356: music_62__Copy_
+    4300358: music_63__Copy_
+    4300360: music_64__Copy_
+    4300362: music_65__Copy_
+    4300364: music_66__Copy_
+    4300366: music_67__Copy_
+    4300368: music_68__Copy_
+    4300370: music_69__Copy_
+    4300372: music_70__Copy_
+    4300374: music_71__Copy_
+    4300376: music_72__Copy_
+    4300378: music_73__Copy_
+    4300380: music_74__Copy_
+    4300382: music_75__Copy_
+    4300384: music_76__Copy_
+    4300386: music_77__Copy_
+    4300388: music_78__Copy_
+    4300390: music_79__Copy_
+    4300392: music_80__Copy_
+    4300394: music_81__Copy_
+    4300396: music_82__Copy_
+    4300398: music_83__Copy_
+    4300400: music_84__Copy_
+    4300402: music_85__Copy_
+    4300404: music_86__Copy_
+    4300406: music_87__Copy_
+    4300408: music_88__Copy_
+    4300410: music_89__Copy_
+    4300412: music_90__Copy_
+    4300414: music_91__Copy_
+    4300416: music_92__Copy_
+    4300418: music_93__Copy_
+    4300420: music_94__Copy_
+    4300422: music_95__Copy_
+    4300424: music_96__Copy_
+    4300426: music_97__Copy_
+    4300428: music_98__Copy_
+    4300430: music_99__Copy_
+    4300432: music_100__Copy_
+    4300434: music_101__Copy_
+    4300436: music_102__Copy_
+    4300438: music_103__Copy_
+    4300440: music_104__Copy_
+    4300442: music_105__Copy_
+    4300444: music_106__Copy_
+    4300446: music_107__Copy_
+    4300448: music_108__Copy_
+    4300450: music_109__Copy_
+    4300452: music_110__Copy_
+    4300454: music_111__Copy_
+    4300456: music_112__Copy_
+    4300458: music_113__Copy_
+    4300460: music_114__Copy_
+    4300462: music_115__Copy_
+    4300464: music_116__Copy_
+    4300466: music_117__Copy_
+    4300468: music_118__Copy_
+    4300470: music_119__Copy_
+    4300472: music_120__Copy_
+    4300474: music_121__Copy_
+    4300476: music_122__Copy_
+    4300478: music_123__Copy_
+    4300480: music_124__Copy_
+    4300482: music_125__Copy_
+    4300484: music_126__Copy_
+    4300486: music_127__Copy_
+    4300488: music_128__Copy_
+    4300490: music_129__Copy_
+    4300492: music_130__Copy_
+    4300494: music_131__Copy_
+    4300496: music_132__Copy_
+    4300498: music_133__Copy_
+    4300500: music_134__Copy_
+    4300502: music_135__Copy_
+    4300504: music_136__Copy_
+    4300506: music_137__Copy_
+    4300508: music_138__Copy_
+    4300510: music_139__Copy_
+    4300512: music_140__Copy_
+    4300514: music_141__Copy_
+    4300516: music_142__Copy_
+    4300518: music_143__Copy_
+    4300520: music_144__Copy_
+    4300522: music_145__Copy_
+    4300524: music_146__Copy_
+    4300526: music_147__Copy_
+    4300528: music_148__Copy_
+    4300530: music_149__Copy_
+    4300532: music_150__Copy_
+    4300534: music_151__Copy_
+    4300536: music_152__Copy_
+    4300538: music_153__Copy_
+    4300540: music_154__Copy_
+    4300542: music_155__Copy_
+    4300544: music_156__Copy_
+    4300546: music_157__Copy_
+    4300548: music_158__Copy_
+    4300550: music_159__Copy_
+    4300552: music_160__Copy_
+    4300554: music_161__Copy_
+    4300556: music_162__Copy_
+    4300558: music_163__Copy_
+    4300560: music_164__Copy_
+    4300562: music_165__Copy_
+    4300564: music_166__Copy_
+    4300566: music_167__Copy_
+    4300568: music_168__Copy_
+    4300570: music_169__Copy_
+    4300572: music_170__Copy_
+    4300574: music_171__Copy_
+    4300576: music_172__Copy_
+    4300578: music_173__Copy_
+    4300580: music_174__Copy_
+    4300582: music_175__Copy_
+    4300584: music_176__Copy_
+    4300586: music_177__Copy_
+    4300588: music_178__Copy_
+    4300590: music_179__Copy_
+    4300592: music_180__Copy_
+    4300594: music_181__Copy_
+    4300596: music_182__Copy_
+    4300598: music_183__Copy_
+    4300600: music_184__Copy_
+    4300602: music_185__Copy_
+    4300604: music_186__Copy_
+    4300606: music_187__Copy_
+    4300608: music_188__Copy_
+    4300610: music_189__Copy_
+    4300612: music_190__Copy_
+    4300614: music_191__Copy_
+    4300616: music_192__Copy_
+    4300618: music_193__Copy_
+    4300620: music_194__Copy_
+    4300622: music_195__Copy_
+    4300624: music_196__Copy_
+    4300626: music_197__Copy_
+    4300628: music_198__Copy_
+    4300630: music_199__Copy_
+    4300632: music_200__Copy_
+    4300634: music_201__Copy_
+    4300636: music_202__Copy_
+    4300638: music_203__Copy_
+    4300640: music_204__Copy_
+    4300642: music_205__Copy_
+    4300644: music_206__Copy_
+    4300646: music_207__Copy_
+    4300648: music_208__Copy_
+    4300650: music_209__Copy_
+    4300652: music_210__Copy_
+    4300654: music_211__Copy_
+    4300656: music_212__Copy_
+    4300658: floor7__Copy_
+    4300660: floor6__Copy_
+    4300662: floor5__Copy_
+    4300664: floor4__Copy_
+    4300666: floor3__Copy_
+    4300668: floor2__Copy_
+    4300670: floor1__Copy_
+    4300672: wheel_2
+    4300674: car_3
+    4300676: man_3
+    4300678: chair_7
+    4300680: arm_2
+    4300682: arm1_2
+    4300684: hand_2
+    4300686: stick_2
+    6400000: arm
+    6400002: arm1
+    6400004: arm1_2
+    6400006: arm_2
+    6400008: car
+    6400010: car_1
+    6400012: car_1_2
+    6400014: car_2
+    6400016: car_3
+    6400018: chair
+    6400020: chair_2
+    6400022: chair_3
+    6400024: chair_4
+    6400026: chair_5
+    6400028: chair_6
+    6400030: chair_7
+    6400032: Cube
+    6400034: Cylinder_0
+    6400036: Cylinder_0_2
+    6400038: Cylinder_1
+    6400040: Cylinder_10
+    6400042: Cylinder_10_2
+    6400044: Cylinder_11
+    6400046: Cylinder_11_2
+    6400048: Cylinder_12
+    6400050: Cylinder_13
+    6400052: Cylinder_14
+    6400054: Cylinder_15
+    6400056: Cylinder_16
+    6400058: Cylinder_17
+    6400060: Cylinder_18
+    6400062: Cylinder_19
+    6400064: Cylinder_1_2
+    6400066: Cylinder_2
+    6400068: Cylinder_20
+    6400070: Cylinder_21
+    6400072: Cylinder_22
+    6400074: Cylinder_23
+    6400076: Cylinder_2_2
+    6400078: Cylinder_3
+    6400080: Cylinder_3_2
+    6400082: Cylinder_4
+    6400084: Cylinder_4_2
+    6400086: Cylinder_5
+    6400088: Cylinder_5_2
+    6400090: Cylinder_6
+    6400092: Cylinder_6_2
+    6400094: Cylinder_7
+    6400096: Cylinder_7_2
+    6400098: Cylinder_8
+    6400100: Cylinder_8_2
+    6400102: Cylinder_9
+    6400104: Cylinder_9_2
+    6400106: Disc
+    6400108: door
+    6400110: door_2
+    6400112: door_3
+    6400114: door_4
+    6400116: floor1__Copy_
+    6400118: floor2__Copy_
+    6400120: floor3__Copy_
+    6400122: floor4__Copy_
+    6400124: floor5__Copy_
+    6400126: floor6__Copy_
+    6400128: floor7__Copy_
+    6400130: hand
+    6400132: hand_2
+    6400134: kinfe
+    6400136: Landscape
+    6400138: Landscape_1
+    6400140: Loft
+    6400142: Loft_1_10__Copy_
+    6400144: Loft_1_11__Copy_
+    6400146: Loft_1_12__Copy_
+    6400148: Loft_1_13__Copy_
+    6400150: Loft_1_1__Copy_
+    6400152: Loft_1_2__Copy_
+    6400154: Loft_1_3__Copy_
+    6400156: Loft_1_4__Copy_
+    6400158: Loft_1_5__Copy_
+    6400160: Loft_1_6__Copy_
+    6400162: Loft_1_7__Copy_
+    6400164: Loft_1_8__Copy_
+    6400166: Loft_1_9__Copy_
+    6400168: Loft_1__Copy_
+    6400170: man
+    6400172: man_1
+    6400174: man_2
+    6400176: man_2_2
+    6400178: man_3
+    6400180: music_100__Copy_
+    6400182: music_101__Copy_
+    6400184: music_102__Copy_
+    6400186: music_103__Copy_
+    6400188: music_104__Copy_
+    6400190: music_105__Copy_
+    6400192: music_106__Copy_
+    6400194: music_107__Copy_
+    6400196: music_108__Copy_
+    6400198: music_109__Copy_
+    6400200: music_10__Copy_
+    6400202: music_110__Copy_
+    6400204: music_111__Copy_
+    6400206: music_112__Copy_
+    6400208: music_113__Copy_
+    6400210: music_114__Copy_
+    6400212: music_115__Copy_
+    6400214: music_116__Copy_
+    6400216: music_117__Copy_
+    6400218: music_118__Copy_
+    6400220: music_119__Copy_
+    6400222: music_11__Copy_
+    6400224: music_120__Copy_
+    6400226: music_121__Copy_
+    6400228: music_122__Copy_
+    6400230: music_123__Copy_
+    6400232: music_124__Copy_
+    6400234: music_125__Copy_
+    6400236: music_126__Copy_
+    6400238: music_127__Copy_
+    6400240: music_128__Copy_
+    6400242: music_129__Copy_
+    6400244: music_12__Copy_
+    6400246: music_130__Copy_
+    6400248: music_131__Copy_
+    6400250: music_132__Copy_
+    6400252: music_133__Copy_
+    6400254: music_134__Copy_
+    6400256: music_135__Copy_
+    6400258: music_136__Copy_
+    6400260: music_137__Copy_
+    6400262: music_138__Copy_
+    6400264: music_139__Copy_
+    6400266: music_13__Copy_
+    6400268: music_140__Copy_
+    6400270: music_141__Copy_
+    6400272: music_142__Copy_
+    6400274: music_143__Copy_
+    6400276: music_144__Copy_
+    6400278: music_145__Copy_
+    6400280: music_146__Copy_
+    6400282: music_147__Copy_
+    6400284: music_148__Copy_
+    6400286: music_149__Copy_
+    6400288: music_14__Copy_
+    6400290: music_150__Copy_
+    6400292: music_151__Copy_
+    6400294: music_152__Copy_
+    6400296: music_153__Copy_
+    6400298: music_154__Copy_
+    6400300: music_155__Copy_
+    6400302: music_156__Copy_
+    6400304: music_157__Copy_
+    6400306: music_158__Copy_
+    6400308: music_159__Copy_
+    6400310: music_15__Copy_
+    6400312: music_160__Copy_
+    6400314: music_161__Copy_
+    6400316: music_162__Copy_
+    6400318: music_163__Copy_
+    6400320: music_164__Copy_
+    6400322: music_165__Copy_
+    6400324: music_166__Copy_
+    6400326: music_167__Copy_
+    6400328: music_168__Copy_
+    6400330: music_169__Copy_
+    6400332: music_16__Copy_
+    6400334: music_170__Copy_
+    6400336: music_171__Copy_
+    6400338: music_172__Copy_
+    6400340: music_173__Copy_
+    6400342: music_174__Copy_
+    6400344: music_175__Copy_
+    6400346: music_176__Copy_
+    6400348: music_177__Copy_
+    6400350: music_178__Copy_
+    6400352: music_179__Copy_
+    6400354: music_17__Copy_
+    6400356: music_180__Copy_
+    6400358: music_181__Copy_
+    6400360: music_182__Copy_
+    6400362: music_183__Copy_
+    6400364: music_184__Copy_
+    6400366: music_185__Copy_
+    6400368: music_186__Copy_
+    6400370: music_187__Copy_
+    6400372: music_188__Copy_
+    6400374: music_189__Copy_
+    6400376: music_18__Copy_
+    6400378: music_190__Copy_
+    6400380: music_191__Copy_
+    6400382: music_192__Copy_
+    6400384: music_193__Copy_
+    6400386: music_194__Copy_
+    6400388: music_195__Copy_
+    6400390: music_196__Copy_
+    6400392: music_197__Copy_
+    6400394: music_198__Copy_
+    6400396: music_199__Copy_
+    6400398: music_19__Copy_
+    6400400: music_1__Copy_
+    6400402: music_200__Copy_
+    6400404: music_201__Copy_
+    6400406: music_202__Copy_
+    6400408: music_203__Copy_
+    6400410: music_204__Copy_
+    6400412: music_205__Copy_
+    6400414: music_206__Copy_
+    6400416: music_207__Copy_
+    6400418: music_208__Copy_
+    6400420: music_209__Copy_
+    6400422: music_20__Copy_
+    6400424: music_210__Copy_
+    6400426: music_211__Copy_
+    6400428: music_212__Copy_
+    6400430: music_21__Copy_
+    6400432: music_22__Copy_
+    6400434: music_23__Copy_
+    6400436: music_24__Copy_
+    6400438: music_25__Copy_
+    6400440: music_26__Copy_
+    6400442: music_27__Copy_
+    6400444: music_28__Copy_
+    6400446: music_29__Copy_
+    6400448: music_2__Copy_
+    6400450: music_30__Copy_
+    6400452: music_31__Copy_
+    6400454: music_32__Copy_
+    6400456: music_33__Copy_
+    6400458: music_34__Copy_
+    6400460: music_35__Copy_
+    6400462: music_36__Copy_
+    6400464: music_37__Copy_
+    6400466: music_38__Copy_
+    6400468: music_39__Copy_
+    6400470: music_3__Copy_
+    6400472: music_40__Copy_
+    6400474: music_41__Copy_
+    6400476: music_42__Copy_
+    6400478: music_43__Copy_
+    6400480: music_44__Copy_
+    6400482: music_45__Copy_
+    6400484: music_46__Copy_
+    6400486: music_47__Copy_
+    6400488: music_48__Copy_
+    6400490: music_49__Copy_
+    6400492: music_4__Copy_
+    6400494: music_50__Copy_
+    6400496: music_51__Copy_
+    6400498: music_52__Copy_
+    6400500: music_53__Copy_
+    6400502: music_54__Copy_
+    6400504: music_55__Copy_
+    6400506: music_56__Copy_
+    6400508: music_57__Copy_
+    6400510: music_58__Copy_
+    6400512: music_59__Copy_
+    6400514: music_5__Copy_
+    6400516: music_60__Copy_
+    6400518: music_61__Copy_
+    6400520: music_62__Copy_
+    6400522: music_63__Copy_
+    6400524: music_64__Copy_
+    6400526: music_65__Copy_
+    6400528: music_66__Copy_
+    6400530: music_67__Copy_
+    6400532: music_68__Copy_
+    6400534: music_69__Copy_
+    6400536: music_6__Copy_
+    6400538: music_70__Copy_
+    6400540: music_71__Copy_
+    6400542: music_72__Copy_
+    6400544: music_73__Copy_
+    6400546: music_74__Copy_
+    6400548: music_75__Copy_
+    6400550: music_76__Copy_
+    6400552: music_77__Copy_
+    6400554: music_78__Copy_
+    6400556: music_79__Copy_
+    6400558: music_7__Copy_
+    6400560: music_80__Copy_
+    6400562: music_81__Copy_
+    6400564: music_82__Copy_
+    6400566: music_83__Copy_
+    6400568: music_84__Copy_
+    6400570: music_85__Copy_
+    6400572: music_86__Copy_
+    6400574: music_87__Copy_
+    6400576: music_88__Copy_
+    6400578: music_89__Copy_
+    6400580: music_8__Copy_
+    6400582: music_90__Copy_
+    6400584: music_91__Copy_
+    6400586: music_92__Copy_
+    6400588: music_93__Copy_
+    6400590: music_94__Copy_
+    6400592: music_95__Copy_
+    6400594: music_96__Copy_
+    6400596: music_97__Copy_
+    6400598: music_98__Copy_
+    6400600: music_99__Copy_
+    6400602: music_9__Copy_
+    6400604: roof_10__Copy_
+    6400606: roof_11__Copy_
+    6400608: roof_12__Copy_
+    6400610: roof_13__Copy_
+    6400612: roof_14__Copy_
+    6400614: roof_15__Copy_
+    6400616: roof_1__Copy_
+    6400618: roof_2__Copy_
+    6400620: roof_3__Copy_
+    6400622: roof_4__Copy_
+    6400624: roof_5__Copy_
+    6400626: roof_6__Copy_
+    6400628: roof_7__Copy_
+    6400630: roof_8__Copy_
+    6400632: roof_9__Copy_
+    6400634: steering_wheel_1
+    6400636: steering_wheel_1_2
+    6400638: stick
+    6400640: stick_1
+    6400642: stick_1_2
+    6400644: stick_1_3
+    6400646: stick_2
+    6400648: tire
+    6400650: tire_10
+    6400652: tire_11
+    6400654: tire_12
+    6400656: tire_13
+    6400658: tire_14
+    6400660: tire_15
+    6400662: tire_16
+    6400664: tire_2
+    6400666: tire_3
+    6400668: tire_4
+    6400670: tire_5
+    6400672: tire_6
+    6400674: tire_7
+    6400676: tire_8
+    6400678: tire_9
+    6400680: Tube
+    6400682: Tube_2
+    6400684: wheel
+    6400686: wheel_2
+    7400000: concert_hall
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: concert_hall
+      takeName: CINEMA_4D_Main
+      firstFrame: 0
+      lastFrame: 1144
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cloner
+        weight: 1
+      - path: Cloner/Cylinder_0_2
+        weight: 1
+      - path: Cloner/Cylinder_1_2
+        weight: 1
+      - path: Cloner/Cylinder_2_2
+        weight: 1
+      - path: Cloner/Cylinder_3_2
+        weight: 1
+      - path: Cloner/Cylinder_4_2
+        weight: 1
+      - path: Cloner/Cylinder_5_2
+        weight: 1
+      - path: Cloner/Cylinder_6_2
+        weight: 1
+      - path: Cloner/Cylinder_7_2
+        weight: 1
+      - path: Cloner/Cylinder_8_2
+        weight: 1
+      - path: Cloner/Cylinder_9_2
+        weight: 1
+      - path: Cloner/Cylinder_10_2
+        weight: 1
+      - path: Cloner/Cylinder_11_2
+        weight: 1
+      - path: Cloner/Cylinder_12
+        weight: 1
+      - path: Cloner/Cylinder_13
+        weight: 1
+      - path: Cloner/Cylinder_14
+        weight: 1
+      - path: Cloner/Cylinder_15
+        weight: 1
+      - path: Cloner/Cylinder_16
+        weight: 1
+      - path: Cloner/Cylinder_17
+        weight: 1
+      - path: Cloner/Cylinder_18
+        weight: 1
+      - path: Cloner/Cylinder_19
+        weight: 1
+      - path: Cloner/Cylinder_20
+        weight: 1
+      - path: Cloner/Cylinder_21
+        weight: 1
+      - path: Cloner/Cylinder_22
+        weight: 1
+      - path: Cloner/Cylinder_23
+        weight: 1
+      - path: Cloner_1
+        weight: 1
+      - path: Cloner_1/Cylinder_0
+        weight: 1
+      - path: Cloner_1/Cylinder_1
+        weight: 1
+      - path: Cloner_1/Cylinder_2
+        weight: 1
+      - path: Cloner_1/Cylinder_3
+        weight: 1
+      - path: Cloner_1/Cylinder_4
+        weight: 1
+      - path: Cloner_1/Cylinder_5
+        weight: 1
+      - path: Cloner_1/Cylinder_6
+        weight: 1
+      - path: Cloner_1/Cylinder_7
+        weight: 1
+      - path: Cloner_1/Cylinder_8
+        weight: 1
+      - path: Cloner_1/Cylinder_9
+        weight: 1
+      - path: Cloner_1/Cylinder_10
+        weight: 1
+      - path: Cloner_1/Cylinder_11
+        weight: 1
+      - path: concert_hall
+        weight: 1
+      - path: concert_hall/frame
+        weight: 1
+      - path: concert_hall/frame/floor1__Copy_
+        weight: 1
+      - path: concert_hall/frame/floor2__Copy_
+        weight: 1
+      - path: concert_hall/frame/floor3__Copy_
+        weight: 1
+      - path: concert_hall/frame/floor4__Copy_
+        weight: 1
+      - path: concert_hall/frame/floor5__Copy_
+        weight: 1
+      - path: concert_hall/frame/floor6__Copy_
+        weight: 1
+      - path: concert_hall/frame/floor7__Copy_
+        weight: 1
+      - path: concert_hall/roof1
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_1__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_2__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_3__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_4__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_5__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_6__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_7__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_8__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_9__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_10__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_11__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_12__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1_13__Copy_
+        weight: 1
+      - path: concert_hall/roof1/Loft_1__Copy_
+        weight: 1
+      - path: concert_hall/roof2
+        weight: 1
+      - path: concert_hall/roof2/roof_1__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_2__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_3__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_4__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_5__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_6__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_7__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_8__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_9__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_10__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_11__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_12__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_13__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_14__Copy_
+        weight: 1
+      - path: concert_hall/roof2/roof_15__Copy_
+        weight: 1
+      - path: concert_hall/wall
+        weight: 1
+      - path: concert_hall/wall/music_1__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_2__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_3__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_4__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_5__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_6__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_7__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_8__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_9__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_10__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_11__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_12__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_13__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_14__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_15__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_16__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_17__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_18__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_19__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_20__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_21__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_22__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_23__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_24__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_25__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_26__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_27__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_28__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_29__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_30__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_31__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_32__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_33__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_34__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_35__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_36__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_37__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_38__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_39__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_40__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_41__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_42__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_43__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_44__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_45__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_46__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_47__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_48__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_49__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_50__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_51__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_52__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_53__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_54__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_55__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_56__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_57__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_58__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_59__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_60__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_61__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_62__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_63__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_64__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_65__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_66__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_67__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_68__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_69__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_70__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_71__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_72__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_73__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_74__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_75__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_76__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_77__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_78__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_79__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_80__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_81__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_82__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_83__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_84__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_85__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_86__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_87__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_88__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_89__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_90__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_91__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_92__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_93__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_94__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_95__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_96__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_97__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_98__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_99__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_100__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_101__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_102__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_103__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_104__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_105__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_106__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_107__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_108__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_109__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_110__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_111__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_112__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_113__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_114__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_115__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_116__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_117__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_118__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_119__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_120__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_121__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_122__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_123__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_124__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_125__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_126__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_127__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_128__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_129__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_130__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_131__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_132__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_133__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_134__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_135__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_136__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_137__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_138__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_139__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_140__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_141__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_142__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_143__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_144__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_145__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_146__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_147__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_148__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_149__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_150__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_151__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_152__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_153__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_154__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_155__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_156__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_157__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_158__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_159__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_160__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_161__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_162__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_163__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_164__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_165__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_166__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_167__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_168__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_169__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_170__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_171__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_172__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_173__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_174__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_175__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_176__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_177__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_178__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_179__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_180__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_181__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_182__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_183__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_184__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_185__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_186__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_187__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_188__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_189__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_190__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_191__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_192__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_193__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_194__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_195__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_196__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_197__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_198__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_199__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_200__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_201__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_202__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_203__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_204__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_205__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_206__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_207__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_208__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_209__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_210__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_211__Copy_
+        weight: 1
+      - path: concert_hall/wall/music_212__Copy_
+        weight: 1
+      - path: craine1
+        weight: 1
+      - path: craine1/car_2
+        weight: 1
+      - path: craine1/car_2/man_2_2
+        weight: 1
+      - path: craine1/chair_6
+        weight: 1
+      - path: craine1/stick_1
+        weight: 1
+      - path: craine1/stick_1_2
+        weight: 1
+      - path: craine1/stick_1_2/kinfe
+        weight: 1
+      - path: craine1/stick_1_2/stick_1_3
+        weight: 1
+      - path: craine2
+        weight: 1
+      - path: craine2/car_3
+        weight: 1
+      - path: craine2/car_3/arm_2
+        weight: 1
+      - path: craine2/car_3/arm_2/arm1_2
+        weight: 1
+      - path: craine2/car_3/arm_2/arm1_2/hand_2
+        weight: 1
+      - path: craine2/car_3/arm_2/arm1_2/stick_2
+        weight: 1
+      - path: craine2/car_3/chair_7
+        weight: 1
+      - path: craine2/car_3/man_3
+        weight: 1
+      - path: craine2/wheel_2
+        weight: 1
+      - path: craine2_1
+        weight: 1
+      - path: craine2_1/car
+        weight: 1
+      - path: craine2_1/car/arm
+        weight: 1
+      - path: craine2_1/car/arm/arm1
+        weight: 1
+      - path: craine2_1/car/arm/arm1/hand
+        weight: 1
+      - path: craine2_1/car/arm/arm1/stick
+        weight: 1
+      - path: craine2_1/car/chair
+        weight: 1
+      - path: craine2_1/car/man_1
+        weight: 1
+      - path: craine2_1/wheel
+        weight: 1
+      - path: Landscape
+        weight: 1
+      - path: Landscape_1
+        weight: 1
+      - path: lorry1
+        weight: 1
+      - path: lorry1/car_1_2
+        weight: 1
+      - path: lorry1/car_1_2/man_2
+        weight: 1
+      - path: lorry1/chair_4
+        weight: 1
+      - path: lorry1/chair_5
+        weight: 1
+      - path: lorry1/door_3
+        weight: 1
+      - path: lorry1/door_4
+        weight: 1
+      - path: lorry1/Loft
+        weight: 1
+      - path: lorry1/steering_wheel_1_2
+        weight: 1
+      - path: lorry1/tire_9
+        weight: 1
+      - path: lorry1/tire_10
+        weight: 1
+      - path: lorry1/tire_11
+        weight: 1
+      - path: lorry1/tire_12
+        weight: 1
+      - path: lorry1/tire_13
+        weight: 1
+      - path: lorry1/tire_14
+        weight: 1
+      - path: lorry1/tire_15
+        weight: 1
+      - path: lorry1/tire_16
+        weight: 1
+      - path: lorry2
+        weight: 1
+      - path: lorry2/car_1
+        weight: 1
+      - path: lorry2/car_1/man
+        weight: 1
+      - path: lorry2/chair_2
+        weight: 1
+      - path: lorry2/chair_3
+        weight: 1
+      - path: lorry2/Cube
+        weight: 1
+      - path: lorry2/door
+        weight: 1
+      - path: lorry2/door_2
+        weight: 1
+      - path: lorry2/steering_wheel_1
+        weight: 1
+      - path: lorry2/tire
+        weight: 1
+      - path: lorry2/tire_2
+        weight: 1
+      - path: lorry2/tire_3
+        weight: 1
+      - path: lorry2/tire_4
+        weight: 1
+      - path: lorry2/tire_5
+        weight: 1
+      - path: lorry2/tire_6
+        weight: 1
+      - path: lorry2/tire_7
+        weight: 1
+      - path: lorry2/tire_8
+        weight: 1
+      - path: Tube
+        weight: 1
+      - path: Tube/Disc
+        weight: 1
+      - path: Tube_2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -12,7 +12,7 @@ TagManager:
   - barbell
   - dumbbell
   - cup
-  - Floor
+  - Car
   layers:
   - Default
   - TransparentFX

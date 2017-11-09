@@ -12,11 +12,13 @@ namespace DesignSociety
 		public List<Transform> errorBubbles;
 		public List<Transform> iconBubbles;
 		public List<Transform> screenBubbles;
+		public List<Transform> keywordBubbles;
 
 		private List<Vector3> chatOffsets = new List<Vector3> ();
 		private List<Vector3> errorOffsets = new List<Vector3> ();
 		private List<Vector3> iconOffsets = new List<Vector3> ();
 		private List<Vector3> screenOffsets = new List<Vector3> ();
+		private List<Vector3> keywordOffsets = new List<Vector3> ();
 
 		void Start ()
 		{
@@ -25,6 +27,7 @@ namespace DesignSociety
 				CalOffset (errorBubbles, errorOffsets);
 				CalOffset (iconBubbles, iconOffsets);
 				CalOffset (screenBubbles, screenOffsets);
+				CalOffset (keywordBubbles, keywordOffsets);
 			}
 		}
 
@@ -85,12 +88,13 @@ namespace DesignSociety
 			ac.Setting (screenBubbles, screenOffsets, null, false, screen, duration, type, callback);
 		}
 
-		public void ApplyKeywordBubble (string type)
+		public void ApplyKeywordBubble (string content, float duration)
 		{
-
+			SyncActionKeywordBubble ac = GetComponent<SyncActionKeywordBubble> ();
+			if (ac == null)
+				ac = gameObject.AddComponent<SyncActionKeywordBubble> ();
+			ac.Setting (keywordBubbles, keywordOffsets, root, faceCamera, content, duration, 0, null);
+			DealWithOverlap (ac);
 		}
-
-
-
 	}
 }

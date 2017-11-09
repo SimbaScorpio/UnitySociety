@@ -35,6 +35,9 @@ public class PressToMessage : MonoBehaviour
 			bd.ApplyIconBubble ("办公&日常_事项", 5, null);
 		} else if (Input.GetKeyDown (KeyCode.C)) {
 			bd.ApplyScreenBubble ("办公&日常_事项", 5, Random.Range (0, 5), null);
+		} else if (Input.GetKeyDown (KeyCode.B)) {
+			GenerateMessage ();
+			bd.ApplyKeywordBubble (message, 5);
 		}
 	}
 }
