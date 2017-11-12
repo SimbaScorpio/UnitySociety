@@ -35,11 +35,11 @@ namespace DesignSociety
 
 		public void OnStorylinePathButtonClicked ()
 		{
-			//ExtensionFilter[] filters = new ExtensionFilter[] {
-			//	new ExtensionFilter ("Json", "json")
-			//};
-			//string[] paths = StandaloneFileBrowser.OpenFilePanel ("Open File", "", filters, false);
-			string[] paths = StandaloneFileBrowser.OpenFolderPanel ("Select Folder", "", false);
+			ExtensionFilter[] filters = new ExtensionFilter[] {
+				new ExtensionFilter ("Json", "json")
+			};
+			string[] paths = StandaloneFileBrowser.OpenFilePanel ("Open File", "", filters, false);
+			//string[] paths = StandaloneFileBrowser.OpenFolderPanel ("Select Folder", "", false);
 			storylinePath = paths.Length > 0 ? paths [0] : storylinePath;
 			storylineInputField.text = storylinePath;
 		}
@@ -51,10 +51,11 @@ namespace DesignSociety
 
 		public void OnLandmarkPathButtonClicked ()
 		{
-			//ExtensionFilter[] filters = new ExtensionFilter[] {
-			//	new ExtensionFilter ("Json", "json")
-			//};
-			string[] paths = StandaloneFileBrowser.OpenFolderPanel ("Select Folder", "", false);
+			ExtensionFilter[] filters = new ExtensionFilter[] {
+				new ExtensionFilter ("Json", "json")
+			};
+			string[] paths = StandaloneFileBrowser.OpenFilePanel ("Open File", "", filters, false);
+			//string[] paths = StandaloneFileBrowser.OpenFolderPanel ("Select Folder", "", false);
 			landmarkPath = paths.Length > 0 ? paths [0] : landmarkPath;
 			landmarkInputField.text = landmarkPath;
 		}

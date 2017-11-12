@@ -30,7 +30,7 @@ public class ClickToMove : NetworkBehaviour
 				mark.m_data [0] = hit.point.x;
 				mark.m_data [1] = hit.point.y;
 				mark.m_data [2] = hit.point.z;
-				GetComponent<NetworkActionDealer> ().ApplyWalkAction (mark, null);
+				GetComponent<NetworkActionDealer> ().ApplyWalkAction (mark, false, null);
 			}
 		}
 		if (Input.GetKeyDown (KeyCode.A)) {

@@ -24,6 +24,7 @@ namespace DesignSociety
 		private string newRoot = "";
 
 		private Landmark landmark;
+		private bool shouldTurn;
 		private bool callingStop;
 		[HideInInspector]
 		public GameObject createdItem;
@@ -88,9 +89,10 @@ namespace DesignSociety
 
 
 
-		public void ApplyWalkAction (Landmark landmark, IActionCompleted callback)
+		public void ApplyWalkAction (Landmark landmark, bool turn, IActionCompleted callback)
 		{
 			this.landmark = landmark;
+			this.shouldTurn = turn;
 			this.callingStop = false;
 			if (lastStateName == "walk_book_blend_tree" || lastStateName == "stand_book_hold" || lastStateName == "stand_book_pickup_table" || lastStateName == "stand_book_pickup_bag") {
 				ApplyAction ("walk_book_blend_tree", callback);
@@ -110,9 +112,9 @@ namespace DesignSociety
 			ActionType newType = ActionName.IsValid (stateName);
 			if (newType == ActionType.error) {
 				//Log.error ("未知的动作【" + stateName + "】");
-				GetComponent<NetworkBubbleDealer> ().ApplyErrorBubble ("未知的动作【" + stateName + "】", 5);
+				//GetComponent<NetworkBubbleDealer> ().ApplyErrorBubble ("未知的动作【" + stateName + "】", 5);
 				ActionIdle idle = gameObject.AddComponent<ActionIdle> ();
-				idle.Setting (gameObject, "", 5f, null);
+				idle.Setting (gameObject, "", 2f, null);
 				return;
 			}
 			newStateName = stateName;
@@ -175,7 +177,7 @@ namespace DesignSociety
 			RecordRecentAction (lastStateName);
 			if (landmark != null) {
 				if (!callingStop) {
-					SyncActionWalk (newStateName, landmark, newCallback);
+					SyncActionWalk (newStateName, landmark, shouldTurn, newCallback);
 					landmark = null;
 				}
 			} else {
@@ -226,10 +228,11 @@ namespace DesignSociety
 		}
 
 
-		Action SyncActionWalk (string stateName, Landmark landmark, IActionCompleted callback)
+		Action SyncActionWalk (string stateName, Landmark landmark, bool turn, IActionCompleted callback)
 		{
 			SyncActionWalk ac = gameObject.AddComponent<SyncActionWalk> ();
-			ac.Setting (stateName, landmark, callback);
+			if (ac != null)
+				ac.Setting (stateName, landmark, turn, callback);
 			if (isServer)
 				RpcSyncAction (stateName);
 			else
@@ -240,7 +243,8 @@ namespace DesignSociety
 		Action SyncAction (ActionInfo info, IActionCompleted callback)
 		{
 			NetworkActionPlay ac = gameObject.AddComponent<NetworkActionPlay> ();
-			ac.Setting (info, callback);
+			if (ac != null)
+				ac.Setting (info, callback);
 			if (isServer)
 				RpcSyncAction (info.stateName);
 			else

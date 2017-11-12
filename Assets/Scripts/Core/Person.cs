@@ -17,7 +17,7 @@ namespace DesignSociety
 
 		private CompositeMovementData compositeMovement;
 		private float compositeTiming;
-		private ComState state;
+		public ComState state;
 
 		public List<PrincipalActivity> principalActivities;
 		public List<FollowingActivity> followingActivities;
@@ -33,6 +33,7 @@ namespace DesignSociety
 		private NetworkBubbleDealer bubbleDealer;
 
 		private float distanceError = 0.5f;
+		private float rotationError = 0.2f;
 		private float randomDiff = 1.0f;
 		[HideInInspector]
 		public int actionListIndex;
@@ -159,8 +160,8 @@ namespace DesignSociety
 		{
 			CharacterData character = storylineManager.nameToCharacter [this.name];
 			Landmark initialLandmark = LandmarkCollection.GetInstance ().Get (character.initial_position);
-			if (Vector3.Distance (transform.position, initialLandmark.position) > distanceError) {
-				actionDealer.ApplyWalkAction (initialLandmark, null);
+			if (Vector3.Distance (transform.position, initialLandmark.position) > distanceError || Mathf.Abs (gameObject.transform.rotation.eulerAngles.y - initialLandmark.rotation.eulerAngles.y) % 360 > rotationError) {
+				actionDealer.ApplyWalkAction (initialLandmark, true, null);
 			} else {
 				string[] aid;
 				int num = Random.Range (0, 3);
@@ -336,13 +337,13 @@ namespace DesignSociety
 				actionDealer.StopCountingAid ();
 				if (CheckEveryOneEndAction ()) {
 					state = ComState.PREPARING;
-					actionListIndex = -1;
-					foreach (Person person in children) {
-						person.actionDealer.StopCountingAid ();
-						person.actionListIndex = -1;
-						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
-					}
-					Log.info (storylineManager.GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + Log.blue ("【" + currentPrincipalActivity.action + "】") + "正式开始");
+//					actionListIndex = -1;
+//					foreach (Person person in children) {
+//						person.actionDealer.StopCountingAid ();
+//						person.actionListIndex = -1;
+//						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
+//					}
+					LogTimeToStartOrEnd ("正式开始");
 				}
 				break;
 
@@ -390,7 +391,7 @@ namespace DesignSociety
 						person.actionListIndex = -1;
 						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
 					}
-					Log.info (storylineManager.GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + Log.blue ("【" + currentPrincipalActivity.action + "】") + "正式结束");
+					LogTimeToStartOrEnd ("正式结束");
 				}
 				break;
 
@@ -547,34 +548,34 @@ namespace DesignSociety
 				if (string.IsNullOrEmpty (self.location_to))
 					return true;
 				destination = LandmarkCollection.GetInstance ().Get (self.location_to);
-				if (destination == null || Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError) {
+				if (destination == null || Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError && Mathf.Abs (gameObject.transform.rotation.eulerAngles.y - destination.rotation.eulerAngles.y) % 360 < rotationError) {
 					if (doAction) {
 						gameObject.transform.position = destination.position;
 						gameObject.transform.rotation = destination.rotation;
 					}
 					if (!person.hasArrived) {
 						person.hasArrived = true;
-						Log.info (storylineManager.GetPartTime (person.spotName) + Log.yellow ("【" + person.name + "】") + "到达" + Log.blue ("【" + currentPrincipalActivity.action + "】") + "需要的地点");
+						LogTimeToActionPlace (person);
 					}
 					return true;
 				} else if (doAction) {
-					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, null);
+					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, true, null);
 				}
 				return false;
 			case 2:	// initial location
 				destination = LandmarkCollection.GetInstance ().Get (cha.initial_position);
-				if (destination == null || Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError) {
+				if (destination == null || Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError && Mathf.Abs (gameObject.transform.rotation.eulerAngles.y - destination.rotation.eulerAngles.y) % 360 < rotationError) {
 					if (doAction) {
 						gameObject.transform.position = destination.position;
 						gameObject.transform.rotation = destination.rotation;
 					}
 					if (!person.hasArrived) {
 						person.hasArrived = true;
-						Log.info (storylineManager.GetPartTime (person.spotName) + Log.yellow ("【" + person.name + "】") + "到达" + Log.blue ("【" + currentPrincipalActivity.action + "】") + "需要的地点");
+						LogTimeToActionPlace (person);
 					}
 					return true;
 				} else if (doAction) {
-					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, null);
+					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, true, null);
 				}
 				return false;
 			default:
@@ -639,6 +640,38 @@ namespace DesignSociety
 		{
 			if (!string.IsNullOrEmpty (self.screen)) {
 				obj.GetComponent<Person> ().bubbleDealer.ApplyScreenBubble (self.screen, 5, self.dashboard_direction, null);
+			}
+		}
+
+
+		void LogTimeToActionPlace (Person person)
+		{
+			if (isPrincipal) {
+				if (currentPrincipalActivity.action != null)
+					Log.info (storylineManager.GetPartTime (person.spotName) + Log.yellow ("【" + person.name + "】") + "到达" + Log.blue ("【" + currentPrincipalActivity.action + "】") + "需要的地点");
+				else
+					Log.info (storylineManager.GetPartTime (person.spotName) + Log.yellow ("【" + person.name + "】") + "到达" + Log.blue ("【" + currentPrincipalActivity.position + "】") + "需要的地点");
+			} else {
+				if (currentFollowingActivity.action != null)
+					Log.info (storylineManager.GetPartTime (person.spotName) + Log.yellow ("【" + person.name + "】") + "到达" + Log.blue ("【" + currentFollowingActivity.action + "】") + "需要的地点");
+				else
+					Log.info (storylineManager.GetPartTime (person.spotName) + Log.yellow ("【" + person.name + "】") + "到达" + Log.blue ("【" + currentFollowingActivity.position + "】") + "需要的地点");
+			}
+		}
+
+
+		void LogTimeToStartOrEnd (string info)
+		{
+			if (isPrincipal) {
+				if (currentPrincipalActivity.action != null)
+					Log.info (storylineManager.GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + Log.blue ("【" + currentPrincipalActivity.action + "】") + info);
+				else
+					Log.info (storylineManager.GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + Log.blue ("【" + currentPrincipalActivity.position + "】") + info);
+			} else {
+				if (currentFollowingActivity.action != null)
+					Log.info (storylineManager.GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + Log.blue ("【" + currentFollowingActivity.action + "】") + info);
+				else
+					Log.info (storylineManager.GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + Log.blue ("【" + currentFollowingActivity.position + "】") + info);
 			}
 		}
 

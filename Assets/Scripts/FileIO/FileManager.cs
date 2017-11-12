@@ -10,6 +10,7 @@ namespace DesignSociety
 {
 	public class FileManager : MonoBehaviour
 	{
+		public bool loadAtStart = false;
 		private UIFileDialog uiFileDialog;
 
 		private int loadCount = 0;
@@ -26,13 +27,20 @@ namespace DesignSociety
 		void Awake ()
 		{
 			instance = this;
-			uiFileDialog = FindObjectOfType<UIFileDialog> ();
+		}
+
+		void Start ()
+		{
+			if (loadAtStart)
+				StartLoading ();
 		}
 
 		public void StartLoading ()
 		{
 			if (++loadCount > 0)
 				Log.info ("----第【" + loadCount + "】次更新数据----");
+			if (uiFileDialog == null)
+				uiFileDialog = FindObjectOfType<UIFileDialog> ();
 			LoadLandmarkData ();
 		}
 
@@ -41,24 +49,30 @@ namespace DesignSociety
 
 		public void LoadGameData ()
 		{
+			LoadKeywordData ();
 			if (uiFileDialog == null || uiFileDialog.storylinePath == "") {
-				LoadGameDataPath (Global.StorylineJsonURL);
+				LoadGameDataPath (Global.StorylineJsonURL, true);
 			} else {
-				LoadGameDataPath (uiFileDialog.storylinePath);
+				LoadGameDataPath (uiFileDialog.storylinePath, false);
 			}
 		}
 
-		void LoadGameDataPath (string directory)
+		void LoadGameDataPath (string directory, bool flag)
 		{
 			StorylineManager.GetInstance ().ClearStorylinePart ();
 			storylinefiles.Clear ();
-			directory = FineTuneDirectoryPath (directory);
-			string[] paths = System.IO.Directory.GetFiles (directory);
-			foreach (string path in paths) {
-				storylinefiles [GetFileName (path)] = false;
-			}
-			foreach (string path in paths) {
-				StartCoroutine (LoadGameDataCoroutine (GetFileURL (path), GetFileName (path)));
+			if (flag) {
+				directory = FineTuneDirectoryPath (directory);
+				string[] paths = System.IO.Directory.GetFiles (directory);
+				foreach (string path in paths) {
+					storylinefiles [GetFileName (path)] = false;
+				}
+				foreach (string path in paths) {
+					StartCoroutine (LoadGameDataCoroutine (GetFileURL (path), GetFileName (path)));
+				}
+			} else {
+				storylinefiles [GetFileName (directory)] = false;
+				StartCoroutine (LoadGameDataCoroutine (GetFileURL (directory), GetFileName (directory)));
 			}
 		}
 
@@ -95,28 +109,34 @@ namespace DesignSociety
 
 		#endregion
 
+
 		#region 坐标集读取
 
 		public void LoadLandmarkData ()
 		{
 			if (uiFileDialog == null || uiFileDialog.landmarkPath == "") {
-				LoadLandmarkDataPath (Global.LandmarkJsonURL);
+				LoadLandmarkDataPath (Global.LandmarkJsonURL, true);
 			} else {
-				LoadLandmarkDataPath (uiFileDialog.landmarkPath);
+				LoadLandmarkDataPath (uiFileDialog.landmarkPath, false);
 			}
 		}
 
-		void LoadLandmarkDataPath (string directory)
+		void LoadLandmarkDataPath (string directory, bool flag)
 		{
 			LandmarkCollection.GetInstance ().ClearLandmarkPart ();
 			landmarkfiles.Clear ();
-			directory = FineTuneDirectoryPath (directory);
-			string[] paths = System.IO.Directory.GetFiles (directory);
-			foreach (string path in paths) {
-				landmarkfiles [GetFileName (path)] = false;
-			}
-			foreach (string path in paths) {
-				StartCoroutine (LoadLandmarkDataCoroutine (GetFileURL (path), GetFileName (path)));
+			if (flag) {
+				directory = FineTuneDirectoryPath (directory);
+				string[] paths = System.IO.Directory.GetFiles (directory);
+				foreach (string path in paths) {
+					landmarkfiles [GetFileName (path)] = false;
+				}
+				foreach (string path in paths) {
+					StartCoroutine (LoadLandmarkDataCoroutine (GetFileURL (path), GetFileName (path)));
+				}
+			} else {
+				landmarkfiles [GetFileName (directory)] = false;
+				StartCoroutine (LoadLandmarkDataCoroutine (GetFileURL (directory), GetFileName (directory)));
 			}
 		}
 
@@ -153,6 +173,38 @@ namespace DesignSociety
 		#endregion
 
 
+		#region 关键词读取
+
+		public void LoadKeywordData ()
+		{
+			StartCoroutine (LoadKeywordDataCoroutine (Global.KeywordJsonURL));
+		}
+
+		IEnumerator LoadKeywordDataCoroutine (string jsonurl)
+		{
+			print (jsonurl);
+			WWW www = new WWW (jsonurl);
+			yield return www;
+			if (!string.IsNullOrEmpty (www.error)) {
+				Log.error ("无法打开关键词文件");
+			} else {
+				string json = www.text;
+				try {
+					Log.info ("=> " + Log.green ("正在解析关键词..."));
+
+					KeywordCollection.GetInstance ().keywordList = JsonUtility.FromJson<KeywordList> (json);
+
+					Log.info ("=> " + Log.green ("关键词解析完成！"));
+				} catch (Exception e) {
+					Log.error ("解析关键词出现错误");
+					Log.error (e.ToString ());
+				}
+			}
+		}
+
+		#endregion
+
+
 		public bool SaveLandmarkData (LandmarkList lmlist)
 		{
 			try {
@@ -176,6 +228,7 @@ namespace DesignSociety
 				return false;
 			}
 		}
+
 
 		public bool SaveLogData (string data)
 		{

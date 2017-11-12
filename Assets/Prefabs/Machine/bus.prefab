@@ -2123,7 +2123,7 @@ MonoBehaviour:
   drawGizmos: 1
   repeatedlySearchPaths: 0
   repathRate: 0.5
-  maxSpeed: 10
+  maxSpeed: 5
   acceleration: 100
   slowdownTime: 0
   rotationSpeed: 360

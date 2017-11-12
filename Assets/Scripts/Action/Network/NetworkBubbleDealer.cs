@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace DesignSociety
 {
-	public class NetworkBubbleDealer : MonoBehaviour
+	public class NetworkBubbleDealer : NetworkBehaviour
 	{
 		public Transform root;
 		public bool faceCamera = true;
@@ -89,6 +90,12 @@ namespace DesignSociety
 		}
 
 		public void ApplyKeywordBubble (string content, float duration)
+		{
+			RpcApplyKeywordBubble (content, duration);
+		}
+
+		[ClientRpc]
+		void RpcApplyKeywordBubble (string content, float duration)
 		{
 			SyncActionKeywordBubble ac = GetComponent<SyncActionKeywordBubble> ();
 			if (ac == null)

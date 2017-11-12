@@ -40,5 +40,12 @@ namespace DesignSociety
 			m_name = m_label = "";
 			m_data = new float[4]{ 0, 0, 0, 0 };
 		}
+
+		public void Set (Vector3 position)
+		{
+			m_data [0] = position.x;
+			m_data [1] = position.y;
+			m_data [2] = position.z;
+		}
 	}
 }

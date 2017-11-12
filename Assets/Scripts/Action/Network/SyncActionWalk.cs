@@ -10,12 +10,14 @@ namespace DesignSociety
 	{
 		public Landmark landmark;
 
+		private bool shouldTurn = true;
 		private bool finalRotate = false;
 		private float animationSpeed = 1.5f;
 
 		private NavmeshCut navCut;
 		[HideInInspector]
 		public MyRichAI ai;
+		private TileHandlerHelper tileHandler;
 
 		private float lastH, speedV = 0f, speedH = 0f;
 		private float initAISpeed;
@@ -23,23 +25,24 @@ namespace DesignSociety
 		private readonly int hashSpeedParaH = Animator.StringToHash ("SpeedH");
 		private readonly int hashSpeedParaV = Animator.StringToHash ("SpeedV");
 
-		public void Setting (string stateName, Landmark landmark, IActionCompleted monitor)
+		public void Setting (string stateName, Landmark landmark, bool turn, IActionCompleted monitor)
 		{
 			this.landmark = landmark;
+			this.shouldTurn = turn;
 			lastH = transform.position.y;
 
 			// navcut (disable and force mesh update)
-			navCut = GetComponent<NavmeshCut> ();
-			if (navCut != null) {
-				navCut.enabled = false;
-				FindObjectOfType<TileHandlerHelper> ().ForceUpdate ();
-			}
-
+			if (navCut == null)
+				navCut = GetComponent<NavmeshCut> ();
 			// richAI (enable and add target reached listener)
-			ai = GetComponent<MyRichAI> ();
+			if (ai == null)
+				ai = GetComponent<MyRichAI> ();
+			Navcut (false);
 			ai.target = landmark;	// make sure target set before enabled
 			ai.enabled = true;
 			ai.OnTargetReached += OnTargetReached;
+			if (!ai.repeatedlySearchPaths)
+				ai.UpdatePath ();
 
 			initAISpeed = ai.maxSpeed;
 
@@ -64,7 +67,7 @@ namespace DesignSociety
 			lastH = transform.position.y;
 
 			DetectFrontPerson ();
-			if (finalRotate && FinalRotate ())
+			if (finalRotate && (!shouldTurn || FinalRotate ()))
 				Finish ();
 		}
 
@@ -76,7 +79,7 @@ namespace DesignSociety
 			float deltaTime = Mathf.Min (Time.smoothDeltaTime * 2, Time.deltaTime);
 			ran.y = Mathf.MoveTowardsAngle (ran.y, tan.y, ai.rotationSpeed * deltaTime);
 			transform.rotation = Quaternion.Euler (ran);
-			return Mathf.Abs (ran.y - tan.y) < 1f;
+			return Mathf.Abs (ran.y - tan.y) < 0.1f;
 		}
 
 		public override void Finish ()
@@ -85,10 +88,7 @@ namespace DesignSociety
 			ai.enabled = false;
 			ai.maxSpeed = initAISpeed;
 
-			if (navCut != null) {
-				navCut.enabled = true;
-				FindObjectOfType<TileHandlerHelper> ().ForceUpdate ();
-			}
+			Navcut (true);
 
 			anim.speed = 1;
 			GetComponent<NetworkActionDealer> ().SyncActionSpeed (anim.speed);
@@ -96,6 +96,19 @@ namespace DesignSociety
 			anim.SetFloat (hashSpeedParaV, 0);
 
 			base.Finish ();
+		}
+
+		void Navcut (bool flag)
+		{
+			if (!ai.cutMesh)
+				flag = false;
+			if (navCut != null && navCut.enabled != flag) {
+				navCut.enabled = flag;
+				if (tileHandler == null)
+					tileHandler = FindObjectOfType<TileHandlerHelper> ();
+				else
+					tileHandler.ForceUpdate ();
+			}
 		}
 
 		void DetectFrontPerson ()

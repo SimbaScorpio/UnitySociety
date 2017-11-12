@@ -14,7 +14,7 @@ namespace DesignSociety
 	{
 		public void Free ()
 		{
-			DestroyImmediate (this);	// 卸载脚本
+			Destroy (this);	// 卸载脚本
 		}
 	}
 
@@ -31,19 +31,30 @@ namespace DesignSociety
 
 	public class ActionName
 	{
+		static Dictionary<string, ActionType> nameIsValid = new Dictionary<string, ActionType> ();
+		static Dictionary<string, string> nameWithBorder = new Dictionary<string, string> ();
+
 		// 判断动作是否合法，返回动作类型
 		public static ActionType IsValid (string actionName)
 		{
+			if (nameIsValid.ContainsKey (actionName))
+				return nameIsValid [actionName];
+
 			string[] sitActionNames = System.Enum.GetNames (typeof(SitActionName));
 			for (int i = 0; i < sitActionNames.Length; ++i) {
-				if (actionName == sitActionNames [i])
+				if (actionName == sitActionNames [i]) {
+					nameIsValid [actionName] = ActionType.sit;
 					return ActionType.sit;
+				}
 			}
 			string[] standActionNames = System.Enum.GetNames (typeof(StandActionName));
 			for (int i = 0; i < standActionNames.Length; ++i) {
-				if (actionName == standActionNames [i])
+				if (actionName == standActionNames [i]) {
+					nameIsValid [actionName] = ActionType.stand;
 					return ActionType.stand;
+				}
 			}
+			nameIsValid [actionName] = ActionType.error;
 			return ActionType.error;
 		}
 
@@ -51,16 +62,24 @@ namespace DesignSociety
 		// 返回含有起始和结束动作的根动作名称（不包含begin/end），如果没有则返回null
 		public static string FindBorder (string actionName)
 		{
+			if (nameWithBorder.ContainsKey (actionName))
+				return nameWithBorder [actionName];
+
+			string border;
 			string[] sitActionNames = System.Enum.GetNames (typeof(SitActionWithBorder));
 			for (int i = 0; i < sitActionNames.Length; ++i) {
 				if (actionName == sitActionNames [i]) {
-					return GetSitRoot (actionName);
+					border = GetSitRoot (actionName);
+					nameWithBorder [actionName] = border;
+					return border;
 				}
 			}
 			string[] standActionNames = System.Enum.GetNames (typeof(StandActionWithBorder));
 			for (int i = 0; i < standActionNames.Length; ++i) {
 				if (actionName == standActionNames [i]) {
-					return GetStandRoot (actionName);
+					border = GetStandRoot (actionName);
+					nameWithBorder [actionName] = border;
+					return border;
 				}
 			}
 			return null;
@@ -431,7 +450,7 @@ namespace DesignSociety
 		sit_largepaper_putdown_bag,
 		sit_largepaper_putdown_table,
 		sit_largepaper_read,
-		//sit_book_pickup_bag,
+		sit_book_pickup_bag,
 		sit_book_pickup_table,
 		sit_book_putdown_bag,
 		sit_book_putdown_table,
@@ -454,7 +473,11 @@ namespace DesignSociety
 		sit_fan,
 		sit_solder,
 		sit_drink_coffee,
-		sit_write_pen
+		sit_write_pen,
+		sit_mixer,
+		sit_draw_digital_3d_pen,
+		sit_remote,
+		sit_spin_pen
 	}
 
 	public enum StandActionName
@@ -594,13 +617,20 @@ namespace DesignSociety
 		stand_paper_pickup_bag,
 		stand_paper_putdown_table,
 		stand_paper_putdown_bag,
+		stand_largepaper_read,
+		stand_largepaper_pickup_table,
+		stand_largepaper_pickup_bag,
+		stand_largepaper_putdown_table,
+		stand_largepaper_putdown_bag,
 
 		stand_cut,
 		stand_grinder,
 		stand_iron,
 		stand_saws,
 		stand_solder,
-		stand_stell_tape
+		stand_stell_tape,
+
+		stand_scratch_cd
 	}
 
 	public enum SitActionWithBorder
@@ -635,7 +665,9 @@ namespace DesignSociety
 		sit_keyboard,
 		sit_mouse_move,
 		sit_mouse_click,
-		sit_write_pen
+		sit_write_pen,
+		sit_mixer,
+		sit_remote
 	}
 
 	public enum StandActionWithBorder
@@ -662,6 +694,7 @@ namespace DesignSociety
 		stand_record_rod,
 		stand_talk_look_down,
 		drag_float,
-		stand_remote
+		stand_remote,
+		stand_scratch_cd
 	}
 }

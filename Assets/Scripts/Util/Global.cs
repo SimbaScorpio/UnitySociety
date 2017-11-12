@@ -9,8 +9,9 @@ namespace DesignSociety
 	public static class Global
 	{
 		public static char c = Path.DirectorySeparatorChar;
-		public static string StorylineJsonURL = Application.dataPath + c + "Data" + c + "story_json" + c;
-		public static string LandmarkJsonURL = Application.dataPath + c + "Data" + c + "location_json" + c;
+		public static string StorylineJsonURL = Application.dataPath + c + "Data" + c + "storyline" + c;
+		public static string LandmarkJsonURL = Application.dataPath + c + "Data" + c + "location" + c;
+		public static string KeywordJsonURL = "file://" + Application.dataPath + c + "Data" + c + "keyword" + c + "keyword.json";
 		public static string TexturePath = "file://" + Application.dataPath + c + "Data" + c + "texture" + c;
 		public static string IconPath = "file://" + Application.dataPath + c + "Data" + c + "icon" + c;
 		public static string DashboardPath = "file://" + Application.dataPath + c + "Data" + c + "dashboard" + c;

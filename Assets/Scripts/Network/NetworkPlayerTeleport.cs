@@ -49,6 +49,8 @@ namespace DesignSociety
 		private CameraFollower cameraFollower;
 		private Animator ghostAnim;
 
+		private NetworkPlayerAction playerAction;
+
 		void Start ()
 		{
 			if (isLocalPlayer) {
@@ -62,6 +64,8 @@ namespace DesignSociety
 				ghost.SetActive (false);
 				ghostAnim = ghost.GetComponent<Animator> ();
 				// should init ghost mesh and texture here
+				// ...
+				playerAction = GetComponent<NetworkPlayerAction> ();
 			}
 		}
 
@@ -121,7 +125,7 @@ namespace DesignSociety
 			UIInformationMenu.GetInstance ().Hide ();
 			StartCoroutine (LerpView (true));
 			ghostAnim.Play ("drag_float", 0, 0);
-			GetComponent<NetworkActionDealer> ().ApplyAction ("drag_float", null);
+			playerAction.ApplyAction ("drag_float", null);
 		}
 
 		// scale to normal view, waiting drop command
@@ -135,7 +139,7 @@ namespace DesignSociety
 		{
 			SwitchGhostToPlayer ();
 			UIInformationMenu.GetInstance ().Show ();
-			GetComponent<NetworkActionDealer> ().ApplyAction ("walk_blend_tree", null);
+			playerAction.ApplyAction ("walk_blend_tree", null);
 		}
 
 		// scroll view {true: large, false: normal}
@@ -343,9 +347,9 @@ namespace DesignSociety
 
 		void OnClick ()
 		{
-			print ("OnClick()");
 			if (state == 0) {
-				print ("Move to!");
+				mouseLandingPos = RaycastPoint ();
+				playerAction.WalkTo (mouseLandingPos);
 			} else if (state == 4) {
 				state = 5;
 				StartCoroutine (LerpView (false));
@@ -385,10 +389,18 @@ namespace DesignSociety
 			cameraFollower.target = this.gameObject;
 		}
 
+		private Collider m_collider;
+		private NavmeshCut m_navCut;
+
 		void SetPlayerVisibility (bool visible)
 		{
-			GetComponent<Collider> ().enabled = visible;
-			GetComponent<NavmeshCut> ().enabled = visible;
+			if (m_collider == null)
+				m_collider = GetComponent<Collider> ();
+			m_collider.enabled = visible;
+			if (m_navCut == null)
+				m_navCut = GetComponent<NavmeshCut> ();
+			if (m_navCut != null)
+				m_navCut.enabled = visible;
 			transform.Find ("mesh").gameObject.SetActive (visible);
 			transform.Find ("ears").gameObject.SetActive (visible);
 			transform.Find ("hair").gameObject.SetActive (visible);

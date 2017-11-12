@@ -19,7 +19,7 @@ namespace DesignSociety
 		public Dictionary<string, HashSet<string>> nameToSceneCandidateNames;
 		public Dictionary<string, StorylinePart> nameToStorylinePart;
 	
-		private List<StorylinePart> storylinParts = new List<StorylinePart> ();
+		public List<StorylinePart> storylinParts = new List<StorylinePart> ();
 
 		private static StorylineManager instance;
 
@@ -55,6 +55,8 @@ namespace DesignSociety
 
 		public void ClearStorylinePart ()
 		{
+			for (int i = 0; i < storylinParts.Count; ++i)
+				Destroy (storylinParts [i]);
 			storylinParts.Clear ();
 		}
 

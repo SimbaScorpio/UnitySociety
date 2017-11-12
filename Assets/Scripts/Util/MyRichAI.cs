@@ -16,6 +16,7 @@ namespace Pathfinding
 	public class MyRichAI : MonoBehaviour
 	{
 		public Landmark target;
+		public bool cutMesh;
 
 		/** Draw gizmos in the scene view */
 		public bool drawGizmos = true;
@@ -117,6 +118,8 @@ namespace Pathfinding
 		bool startHasRun;
 		protected float lastRepath = -9999;
 
+		private Coroutine handler;
+
 		//private List<GameObject> colliders = new List<GameObject> ();
 
 		void Awake ()
@@ -156,7 +159,8 @@ namespace Pathfinding
 				//Make sure we receive callbacks when paths complete
 				seeker.pathCallback += OnPathComplete;
 
-				StartCoroutine (SearchPaths ());
+				// 为避免频繁开启关闭脚本造成多次创建线程，导致线程堆积逐渐卡顿，应在OnDisable处取消线程
+				handler = StartCoroutine (SearchPaths ());
 			}
 		}
 
@@ -168,6 +172,10 @@ namespace Pathfinding
 
 			//Make sure we receive callbacks when paths complete
 			seeker.pathCallback -= OnPathComplete;
+
+			// 这非常重要！
+			if (handler != null)
+				StopCoroutine (handler);
 		}
 
 		/** Force recalculation of the current path.
