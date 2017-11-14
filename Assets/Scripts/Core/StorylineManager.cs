@@ -19,7 +19,7 @@ namespace DesignSociety
 		public Dictionary<string, HashSet<string>> nameToSceneCandidateNames;
 		public Dictionary<string, StorylinePart> nameToStorylinePart;
 	
-		public List<StorylinePart> storylinParts = new List<StorylinePart> ();
+		public List<StorylinePart> storylineParts = new List<StorylinePart> ();
 
 		private static StorylineManager instance;
 
@@ -48,16 +48,16 @@ namespace DesignSociety
 
 		public void AddStorylinePart (StorylinePart part)
 		{
-			if (!storylinParts.Contains (part)) {
-				storylinParts.Add (part);
+			if (!storylineParts.Contains (part)) {
+				storylineParts.Add (part);
 			}
 		}
 
 		public void ClearStorylinePart ()
 		{
-			for (int i = 0; i < storylinParts.Count; ++i)
-				Destroy (storylinParts [i]);
-			storylinParts.Clear ();
+			for (int i = 0; i < storylineParts.Count; ++i)
+				Destroy (storylineParts [i]);
+			storylineParts.Clear ();
 		}
 
 		public void Initialize ()
@@ -71,8 +71,8 @@ namespace DesignSociety
 			Log.info (Log.blue ("初始化场景..."));
 			InitializeScenes ();
 			Log.info (Log.blue ("开始！"));
-			foreach (StorylinePart part in nameToStorylinePart.Values) {
-				part.Restart ();
+			for (int i = 0; i < storylineParts.Count; ++i) {
+				storylineParts [i].Restart ();
 			}
 		}
 
@@ -88,7 +88,7 @@ namespace DesignSociety
 
 		void InitializeCharacters ()
 		{
-			foreach (StorylinePart part in storylinParts) {
+			foreach (StorylinePart part in storylineParts) {
 				if (part.storyline.characterdata == null)
 					continue;
 				Log.info ("初始化文件【" + part.fileName + "】角色...");
@@ -126,7 +126,7 @@ namespace DesignSociety
 
 		void InitializeCompositeMovements ()
 		{
-			foreach (StorylinePart part in storylinParts) {
+			foreach (StorylinePart part in storylineParts) {
 				if (part.storyline.compositemovementdata == null)
 					continue;
 				Log.info ("初始化文件【" + part.fileName + "】组合动作...");
@@ -185,7 +185,7 @@ namespace DesignSociety
 
 		void InitializeJobs ()
 		{
-			foreach (StorylinePart part in storylinParts) {
+			foreach (StorylinePart part in storylineParts) {
 				if (part.storyline.initcharacterdata == null)
 					continue;
 				Log.info ("初始化文件【" + part.fileName + "】岗位...");
@@ -204,7 +204,7 @@ namespace DesignSociety
 
 		void InitializeScenes ()
 		{
-			foreach (StorylinePart part in storylinParts) {
+			foreach (StorylinePart part in storylineParts) {
 				if (part.storyline.scenedata == null)
 					continue;
 				Log.info ("初始化文件【" + part.fileName + "】场景...");

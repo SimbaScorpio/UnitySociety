@@ -13,6 +13,10 @@ namespace DesignSociety
 
 		[HideInInspector]
 		public List<string> messages = new List<string> ();
+		[HideInInspector]
+		public List<string> infomessages = new List<string> ();
+		[HideInInspector]
+		public List<string> errormessages = new List<string> ();
 
 		private static UISystemLog instance;
 
@@ -29,11 +33,15 @@ namespace DesignSociety
 			scrollview.Initialize ();
 		}
 
-		public void AddMessage (string message)
+		public void AddMessage (string message, bool flag)
 		{
 			if (string.IsNullOrEmpty (message))
 				return;
 			messages.Add (message);
+			if (flag)
+				infomessages.Add (message);
+			else
+				errormessages.Add (message);
 			scrollview.SetTotalCount (messages.Count);
 		}
 
@@ -57,16 +65,27 @@ namespace DesignSociety
 			scrollview.SetTotalCount (0);
 		}
 
-		public void SaveLog ()
+		public void SaveLog (bool flag)
 		{
 			string data = "";
-			foreach (string log in UISystemLog.GetInstance().messages) {
-				data += log + Environment.NewLine;
-			}
-			if (FileManager.GetInstance ().SaveLogData (data)) {
-				Log.info (Log.green ("日志保存成功 ヽ(✿ﾟ▽ﾟ)ノ"));
+			if (flag) {
+				foreach (string log in UISystemLog.GetInstance().infomessages) {
+					data += log + Environment.NewLine;
+				}
+				if (FileManager.GetInstance ().SaveInfoLogData (data)) {
+					Log.info (Log.green ("时间日志保存成功 ヽ(✿ﾟ▽ﾟ)ノ"));
+				} else {
+					Log.error ("时间日志保存失败 w(ﾟДﾟ)w");
+				}
 			} else {
-				Log.error ("日志保存失败 w(ﾟДﾟ)w");
+				foreach (string log in UISystemLog.GetInstance().errormessages) {
+					data += log + Environment.NewLine;
+				}
+				if (FileManager.GetInstance ().SaveErrorAndWarningLogData (data)) {
+					Log.info (Log.green ("错误日志保存成功 ヽ(✿ﾟ▽ﾟ)ノ"));
+				} else {
+					Log.error ("错误日志保存失败 w(ﾟДﾟ)w");
+				}
 			}
 		}
 	}

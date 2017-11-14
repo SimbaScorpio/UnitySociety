@@ -11,5 +11,6 @@ namespace DesignSociety
 		public InitCharacterData[] initcharacterdata;
 		public CompositeMovementData[] compositemovementdata;
 		public SceneData[] scenedata;
+		public RandomActivity[] random;
 	}
 }

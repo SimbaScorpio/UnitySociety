@@ -98,6 +98,7 @@ namespace DesignSociety
 					Log.error (e.ToString ());
 				}
 			}
+			// 即使失败也不堵塞
 			storylinefiles [filename] = true;
 			foreach (string file in storylinefiles.Keys) {
 				if (storylinefiles [file] == false)
@@ -182,7 +183,6 @@ namespace DesignSociety
 
 		IEnumerator LoadKeywordDataCoroutine (string jsonurl)
 		{
-			print (jsonurl);
 			WWW www = new WWW (jsonurl);
 			yield return www;
 			if (!string.IsNullOrEmpty (www.error)) {
@@ -194,7 +194,7 @@ namespace DesignSociety
 
 					KeywordCollection.GetInstance ().keywordList = JsonUtility.FromJson<KeywordList> (json);
 
-					Log.info ("=> " + Log.green ("关键词解析完成！"));
+					Log.info (Log.green ("关键词解析完成！"));
 				} catch (Exception e) {
 					Log.error ("解析关键词出现错误");
 					Log.error (e.ToString ());
@@ -204,6 +204,8 @@ namespace DesignSociety
 
 		#endregion
 
+
+		#region 坐标保存
 
 		public bool SaveLandmarkData (LandmarkList lmlist)
 		{
@@ -229,8 +231,11 @@ namespace DesignSociety
 			}
 		}
 
+		#endregion
 
-		public bool SaveLogData (string data)
+		#region 时间日志保存
+
+		public bool SaveInfoLogData (string data)
 		{
 			try {
 				byte[] bytes = Encoding.UTF8.GetBytes (data);
@@ -238,7 +243,7 @@ namespace DesignSociety
 				ExtensionFilter[] filters = new ExtensionFilter[] {
 					new ExtensionFilter ("Text", "txt")
 				};
-				string path = StandaloneFileBrowser.SaveFilePanel ("Save File", "", "", filters);
+				string path = StandaloneFileBrowser.SaveFilePanel ("Save File", "", "time_log", filters);
 				if (string.IsNullOrEmpty (path))
 					return false;
 				FileStream fs = new FileStream (path, FileMode.Create);
@@ -252,6 +257,36 @@ namespace DesignSociety
 				return false;
 			}
 		}
+
+		# endregion
+
+		#region 错误日志保存
+
+		public bool SaveErrorAndWarningLogData (string data)
+		{
+			try {
+				byte[] bytes = Encoding.UTF8.GetBytes (data);
+
+				ExtensionFilter[] filters = new ExtensionFilter[] {
+					new ExtensionFilter ("Text", "txt")
+				};
+				string path = StandaloneFileBrowser.SaveFilePanel ("Save File", "", "error_log", filters);
+				if (string.IsNullOrEmpty (path))
+					return false;
+				FileStream fs = new FileStream (path, FileMode.Create);
+				fs.Write (bytes, 0, bytes.Length);
+				fs.Flush ();
+				fs.Close ();
+				fs.Dispose ();
+				return true;
+			} catch (Exception e) {
+				Log.error (e.ToString ());
+				return false;
+			}
+		}
+
+		# endregion
+
 
 		string GetFileURL (string path)
 		{

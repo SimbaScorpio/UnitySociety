@@ -678,6 +678,11 @@ namespace DesignSociety
 
 		void Update ()
 		{
+			if (isRandomPerson) {
+				DealWithRandomActivity ();
+				return;
+			}
+
 			WhatNext ();
 
 			if (currentPrincipalActivity != null || currentFollowingActivity != null)
@@ -696,5 +701,53 @@ namespace DesignSociety
 				compositeTiming = 0.0f;
 			}
 		}
+
+
+
+		#region random
+
+		// 添加的需求：人物随机行动
+		public bool isRandomPerson;
+		public StorylinePart part;
+		public RandomAction randomAction;
+		public string randomScene;
+		public Landmark randomLandmark;
+
+		private float randomMaxTime;
+		private float randomCountTime;
+		private bool randomTick;
+
+		public void SetAsRandomPerson (StorylinePart part, string randomScene)
+		{
+			isRandomPerson = true;
+			this.part = part;
+			this.randomScene = randomScene;
+		}
+
+		void DealWithRandomActivity ()
+		{
+			if (randomTick) {
+				randomCountTime += Time.deltaTime;
+			}
+			ActionSingle ac = GetComponent<ActionSingle> ();
+			if (ac != null)
+				return;
+			if (randomCountTime >= randomMaxTime) {
+				actionDealer.StopCountingAid ();
+				randomCountTime = 0;
+				randomTick = false;
+				randomAction = part.AskForNewLocation (randomScene, this, ref randomLandmark, ref randomMaxTime);
+				actionDealer.ApplyWalkAction (randomLandmark, true, null);
+			} else if (randomTick) {
+				if (randomAction != null)
+					DealMainActionWithAid (actionDealer, randomAction.main, randomAction.aid, false, "", "", "");
+			} else if (!randomTick) {
+				if (Vector3.Distance (transform.position, randomLandmark.position) < distanceError)
+					randomTick = true;
+			}
+			return;
+		}
+
+		#endregion
 	}
 }

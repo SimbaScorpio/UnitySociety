@@ -111,10 +111,11 @@ namespace DesignSociety
 				return;
 			ActionType newType = ActionName.IsValid (stateName);
 			if (newType == ActionType.error) {
-				//Log.error ("未知的动作【" + stateName + "】");
-				//GetComponent<NetworkBubbleDealer> ().ApplyErrorBubble ("未知的动作【" + stateName + "】", 5);
+				Log.error ("未知的动作【" + stateName + "】");
+				GetComponent<NetworkBubbleDealer> ().ApplyErrorBubble ("未知的动作【" + stateName + "】", 5);
 				ActionIdle idle = gameObject.AddComponent<ActionIdle> ();
-				idle.Setting (gameObject, "", 2f, null);
+				idle.Setting (gameObject, "", 5f, null);
+				RecordRecentAction (stateName);
 				return;
 			}
 			newStateName = stateName;

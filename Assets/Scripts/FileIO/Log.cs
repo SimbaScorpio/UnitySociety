@@ -16,7 +16,7 @@ namespace DesignSociety
 			if (display && displayError) {
 				Debug.LogError (content);
 				if (UISystemLog.GetInstance ())
-					UISystemLog.GetInstance ().AddMessage (red (content));
+					UISystemLog.GetInstance ().AddMessage (red (content), false);
 			}
 		}
 
@@ -25,7 +25,7 @@ namespace DesignSociety
 			if (display && displayWarn) {
 				Debug.LogWarning (content);
 				if (UISystemLog.GetInstance ())
-					UISystemLog.GetInstance ().AddMessage (yellow (content));
+					UISystemLog.GetInstance ().AddMessage (yellow (content), false);
 			}
 		}
 
@@ -34,7 +34,7 @@ namespace DesignSociety
 			if (display && displayInfo) {
 				Debug.Log (content);
 				if (UISystemLog.GetInstance ())
-					UISystemLog.GetInstance ().AddMessage (content);
+					UISystemLog.GetInstance ().AddMessage (content, true);
 			}
 		}
 

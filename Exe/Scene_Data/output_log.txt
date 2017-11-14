@@ -29,16 +29,20 @@ Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\S
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Drawing.dll into Unity Child Domain
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll (this message is harmless)
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
-- Completed reload, in  0.019 seconds
+- Completed reload, in  0.209 seconds
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\Scene_Data\Managed\System.dll (this message is harmless)
 desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 1.018147 ms
+UnloadTime: 63.547909 ms
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 14c0c -> priority: 1 
-  Thread -> id: 15580 -> priority: 1 
-  Thread -> id: 15a28 -> priority: 1 
-  Thread -> id: 16128 -> priority: 1 
+  Thread -> id: 1c138 -> priority: 1 
+  Thread -> id: d208 -> priority: 1 
+  Thread -> id: f580 -> priority: 1 
+  Thread -> id: 1d5a4 -> priority: 1 
+----第【1】次更新数据----
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

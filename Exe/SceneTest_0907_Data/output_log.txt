@@ -27,19 +27,19 @@ Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0907_Data\
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0907_Data\Managed\Pathfinding.Poly2Tri.dll into Unity Child Domain
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0907_Data\Managed\System.Drawing.dll (this message is harmless)
 Loading E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0907_Data\Managed\System.Drawing.dll into Unity Child Domain
-- Completed reload, in  0.572 seconds
+- Completed reload, in  0.562 seconds
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0907_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: E:\hjc\Documents\GitHub\UnitySociety\Exe\SceneTest_0907_Data\Managed\System.dll (this message is harmless)
 desktop: 2560x1440 59Hz; virtual: 2560x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 37.448566 ms
+UnloadTime: 27.626514 ms
 Collecting Meshes
 Generating Tile #0 of 1
 Assigning Graph Indices
 Connecing Tile #0 of 1
-Scanning - Process took 436 ms to complete
+Scanning - Process took 842 ms to complete
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -91,7 +91,7 @@ Scanning - Process took 436 ms to complete
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-<color=yellow>【John】</color> 加入故事节点 <color=#FFA07A>【采访】</color>
+<color=yellow>【Tom】</color> 加入故事节点 <color=#FFA07A>【采访】</color>
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -99,11 +99,11 @@ Scanning - Process took 436 ms to complete
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-<color=yellow>【John】 </color>执行开始动作<color=#BFEFFF> 【站立听】</color>
+<color=yellow>【Tom】 </color>执行开始动作<color=#BFEFFF> 【站立听】</color>
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-<color=yellow>【John】 </color>执行开始动作<color=#BFEFFF> 【边说边指远方】</color>
+<color=yellow>【Tom】 </color>执行开始动作<color=#BFEFFF> 【边说边指远方】</color>
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -111,7 +111,7 @@ Scanning - Process took 436 ms to complete
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【接纸】</color>
+<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【接纸】</color>
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -127,7 +127,7 @@ Scanning - Process took 436 ms to complete
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-<color=yellow>【John】</color> 退出故事节点 <color=#FFA07A>【采访】</color>
+<color=yellow>【Tom】</color> 退出故事节点 <color=#FFA07A>【采访】</color>
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -147,372 +147,16 @@ Scanning - Process took 436 ms to complete
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-<color=yellow>【John】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
 <color=yellow>【Tom】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行等待动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行开始动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行开始动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【David】 </color>执行主要动作<color=#BFEFFF> 【发言】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【David】 </color>执行主要动作<color=#BFEFFF> 【发言】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行主要动作<color=#BFEFFF> 【坐着不动】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】 </color>执行结束动作<color=#BFEFFF> 【站立鼓掌】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】 </color>执行结束动作<color=#BFEFFF> 【站立鼓掌】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【Tom】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【John】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=yellow>【David】</color> 退出故事节点 <color=#FFA07A>【开会】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-结束故事节点 <color=#FFA07A>【开会】</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-----------------------------------------------------------------------------------------------------------------------
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#CAFF70>正在解析坐标集...</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#CAFF70>坐标集解析完成！</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#CAFF70>正在解析数据集...</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#CAFF70>数据集解析完成！</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#BFEFFF>初始化角色...</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#BFEFFF>初始化组合动作...</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#BFEFFF>初始化岗位...</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#BFEFFF>进行岗位分配...</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#BFEFFF>初始化故事节点...</color>
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-<color=#BFEFFF>开始！</color>
+<color=yellow>【John】</color> 加入故事节点 <color=#FFA07A>【开会】</color>
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 222c -> priority: 1 
-  Thread -> id: 49d0 -> priority: 1 
-  Thread -> id: 2f0c -> priority: 1 
-  Thread -> id: 53dc -> priority: 1 
+  Thread -> id: 6d04 -> priority: 1 
+  Thread -> id: 43d0 -> priority: 1 
+  Thread -> id: b368 -> priority: 1 
+  Thread -> id: 18214 -> priority: 1 

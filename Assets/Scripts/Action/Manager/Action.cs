@@ -110,6 +110,12 @@ namespace DesignSociety
 			if (actionName == SitActionWithBorder.sit_mouse_click.ToString ()) {
 				return SitActionWithBorder.sit_computer.ToString ();
 			}
+			if (actionName == SitActionWithBorder.sit_scratch_head_computer.ToString ()) {
+				return SitActionWithBorder.sit_computer.ToString ();
+			}
+			if (actionName == SitActionWithBorder.sit_chin_in_hand_computer.ToString ()) {
+				return SitActionWithBorder.sit_computer.ToString ();
+			}
 			return actionName;
 		}
 
@@ -380,8 +386,8 @@ namespace DesignSociety
 		sit_cross_arm_shake_head,
 		sit_scratch_head,
 		sit_chin_in_hand,
-		//sit_scratch_head_computer,
-		//sit_chin_in_hand_computer,
+		sit_scratch_head_computer,
+		sit_chin_in_hand_computer,
 		sit_sleep,
 		sit_raise_righthand,
 		sit_hello,
@@ -468,6 +474,7 @@ namespace DesignSociety
 		sit_eat_with_tableware,
 		sit_talk_with_tableware,
 		sit_vr,
+		sit_vr_handle,
 		sit_vr_pickup,
 		sit_vr_putdown,
 		sit_fan,
@@ -477,7 +484,11 @@ namespace DesignSociety
 		sit_mixer,
 		sit_draw_digital_3d_pen,
 		sit_remote,
-		sit_spin_pen
+		sit_spin_pen,
+		sit_drive,
+		sit_experiment,
+		sit_sewing_machine,
+		sit_snacks
 	}
 
 	public enum StandActionName
@@ -630,7 +641,9 @@ namespace DesignSociety
 		stand_solder,
 		stand_stell_tape,
 
-		stand_scratch_cd
+		stand_scratch_cd,
+		stand_serve_dish,
+		stand_take_dish
 	}
 
 	public enum SitActionWithBorder
@@ -667,7 +680,10 @@ namespace DesignSociety
 		sit_mouse_click,
 		sit_write_pen,
 		sit_mixer,
-		sit_remote
+		sit_remote,
+		sit_drive,
+		sit_scratch_head_computer,
+		sit_chin_in_hand_computer
 	}
 
 	public enum StandActionWithBorder
