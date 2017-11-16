@@ -30,66 +30,58 @@ namespace DesignSociety
 	/// 4) stuff always remain in scene
 	/// </summary>
 	/// 
-	public class NetworkActionPlay : ActionSingle
+	public class NetworkActionPlay : MonoBehaviour
 	{
+		public bool isPlaying;
 		public ActionInfo info;
 		protected IActionCompleted monitor;
 		protected Animator anim;
-		private bool hasFinished = false;
 
 		private NetworkActionDealer dealer;
 
-		public bool findingPartner{ get; set; }
-
-		public bool waitingPartner{ get; set; }
+		public bool findingPartner;
+		public bool waitingPartner;
 
 		#region basic
+
+		void Awake ()
+		{
+			dealer = GetComponent<NetworkActionDealer> ();
+			anim = GetComponent<Animator> ();
+		}
 
 		public virtual void Setting (ActionInfo info, IActionCompleted callback)
 		{
 			this.info = info;
 			this.monitor = callback;
-			dealer = GetComponent<NetworkActionDealer> ();
-			anim = GetComponent<Animator> ();
-			if (!string.IsNullOrEmpty (info.stateName))
+
+			if (!string.IsNullOrEmpty (info.stateName)) {
+				StopAllCoroutines ();
+				StartCoroutine (WaitFinish ());
 				anim.Play (info.stateName, 0, 0f);
+				isPlaying = true;
+			}
 		}
 
-		void Update ()
+		IEnumerator WaitFinish ()
 		{
-			if (!string.IsNullOrEmpty (info.stateName)) {
-				if (anim.GetCurrentAnimatorStateInfo (0).normalizedTime >= 1 || !anim.GetCurrentAnimatorStateInfo (0).IsName (info.stateName)) {
-					Finish ();
-				}
+			while (anim.GetCurrentAnimatorStateInfo (0).normalizedTime >= 1
+			       || !anim.GetCurrentAnimatorStateInfo (0).IsName (info.stateName)) {
+				yield return null;
 			}
+			while (anim.GetCurrentAnimatorStateInfo (0).normalizedTime < 1
+			       && anim.GetCurrentAnimatorStateInfo (0).IsName (info.stateName)) {
+				yield return null;
+			}
+			isPlaying = false;
+			Finish ();
 		}
 
 		public virtual void Finish ()
 		{
+			StopAllCoroutines ();
 			if (monitor != null) {
-				monitor.OnActionCompleted (this);
-			}
-			if (!hasFinished) {
-				hasFinished = true;
-				Free ();
-			}
-		}
-
-		public void SafeFinish ()
-		{
-			OnItemHidden ();
-			OnItemReleased ();
-			OnItemReset ();
-			OnStuffPutDown ();
-			monitor = null;
-			this.Finish ();
-		}
-
-		void OnDestroy ()
-		{
-			if (!hasFinished) {
-				hasFinished = true;
-				Finish ();
+				monitor.OnActionCompleted (null);
 			}
 		}
 
@@ -136,18 +128,27 @@ namespace DesignSociety
 		// 从场景中拿取物品
 		public void OnItemGained ()
 		{
+			// temp
+			GameObject obj;
+			GameObject[] objs;
+			GameObject closest;
+			string[] root_name;
+			Transform tr;
+
 			// search item in scene
 			dealer.gainedItems.Clear ();
 			for (int i = 0; i < info.itemPaths.Length; ++i) {
-				string[] root_name = SplitRootAndName (info.itemPaths [i]);
-				Transform tr = transform.Find (root_name [0]);
+				root_name = SplitRootAndName (info.itemPaths [i]);
+				tr = transform.Find (root_name [0]);
 				string itemName = GetRealName (root_name [1]);
-				GameObject[] objs = GameObject.FindGameObjectsWithTag (itemName);
+				objs = GameObjectCollection.GetInstance ().Get (itemName);
 
 				// find closest obj relative to parent position
-				GameObject closest = null;
+				closest = null;
 				float min = float.MaxValue;
-				foreach (GameObject obj in objs) {
+
+				for (int j = 0; j < objs.Length; ++j) {
+					obj = objs [j];
 					if (obj.GetComponent<CopyTransform> ().target == null) {
 						float distance = Vector3.Distance (obj.transform.position, tr.position);
 						if (distance < min) {
@@ -228,8 +229,10 @@ namespace DesignSociety
 			Stuff nearestStuff = null;
 			Stuff tempStuff = null;
 
-			GameObject[] objs = GameObject.FindGameObjectsWithTag (stuffType.ToString ());
-			foreach (GameObject stuffobj in objs) {
+			GameObject[] objs = GameObjectCollection.GetInstance ().Get (stuffType.ToString ());
+			GameObject stuffobj;
+			for (int i = 0; i < objs.Length; ++i) {
+				stuffobj = objs [i];
 				distance = Vector3.Distance (transform.position, stuffobj.transform.position);
 				if (distance <= reasonableDistance && distance < nearestDistance) {
 					objectDir = transform.TransformDirection (stuffobj.transform.position - transform.position);
@@ -252,9 +255,11 @@ namespace DesignSociety
 			dealer.SyncActionSpeed (0);
 			findingPartner = true;
 
-			GameObject[] objs = GameObject.FindGameObjectsWithTag ("Player");
+			GameObject[] objs = GameObjectCollection.GetInstance ().Get ("Player");
+			GameObject player;
 			while (findingPartner) {
-				foreach (GameObject player in objs) {
+				for (int i = 0; i < objs.Length; ++i) {
+					player = objs [i];
 					// player in certain range
 					if (player != this.gameObject && Vector3.Distance (player.transform.position, transform.position) < 2f) {
 						// player in the front

@@ -2229,7 +2229,7 @@ MonoBehaviour:
   drawGizmos: 1
   repeatedlySearchPaths: 0
   repathRate: 0.5
-  maxSpeed: 1
+  maxSpeed: 1.5
   acceleration: 5
   slowdownTime: 0.5
   rotationSpeed: 360
@@ -2246,6 +2246,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   preciseSlowdown: 1
   slowWhenNotFacingTarget: 0
+  traversingSpecialPath: 0
 --- !u!114 &114244456047573028
 MonoBehaviour:
   m_ObjectHideFlags: 1

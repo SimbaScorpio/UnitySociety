@@ -9,6 +9,9 @@ namespace DesignSociety
 	{
 		Animator anim;
 		NetworkAnimator netAnim;
+		NetworkActionPlay actionPlayer;
+		NetworkActionWalk actionWalker;
+		NetworkBubbleDealer bubbleDealer;
 		private string lastStateName = "walk_blend_tree";
 		private string newStateName = "";
 		private int checkState = 0;
@@ -26,6 +29,7 @@ namespace DesignSociety
 		private Landmark landmark;
 		private bool shouldTurn;
 		private bool callingStop;
+
 		[HideInInspector]
 		public GameObject createdItem;
 		[HideInInspector]
@@ -81,13 +85,29 @@ namespace DesignSociety
 		{
 			anim = GetComponent<Animator> ();
 			netAnim = GetComponent<NetworkAnimator> ();
+			actionWalker = GetComponent<NetworkActionWalk> ();
+			actionPlayer = GetComponent<NetworkActionPlay> ();
+			bubbleDealer = GetComponent<NetworkBubbleDealer> ();
 			if (netAnim != null && (isServer || isLocalPlayer)) {
 				for (int i = 0; i < anim.parameterCount; ++i)
 					netAnim.SetParameterAutoSend (i, true);
 			}
 		}
 
+		public bool IsPlaying ()
+		{
+			return actionPlayer.isPlaying || actionWalker.isPlaying || GetComponent<ActionIdle> () != null;
+		}
 
+		public bool IsWalking ()
+		{
+			return actionWalker.isPlaying;
+		}
+
+		public bool IsBubbling ()
+		{
+			return bubbleDealer.isPlaying;
+		}
 
 		public void ApplyWalkAction (Landmark landmark, bool turn, IActionCompleted callback)
 		{
@@ -216,42 +236,36 @@ namespace DesignSociety
 			}
 		}
 
-
+		// 叫停即将或已经开始的行走行为（非即时）
 		public void CallingStop ()
 		{
 			if (landmark != null) {
 				callingStop = true;
-			} else {
-				SyncActionWalk ac = GetComponent<SyncActionWalk> ();
-				if (ac != null)
-					ac.Finish ();
+			} else if (IsWalking ()) {
+				actionWalker.Finish ();
 			}
 		}
 
 
-		Action SyncActionWalk (string stateName, Landmark landmark, bool turn, IActionCompleted callback)
+		void SyncActionWalk (string stateName, Landmark landmark, bool turn, IActionCompleted callback)
 		{
-			SyncActionWalk ac = gameObject.AddComponent<SyncActionWalk> ();
-			if (ac != null)
-				ac.Setting (stateName, landmark, turn, callback);
+			actionWalker.Setting (stateName, landmark, turn, callback);
 			if (isServer)
 				RpcSyncAction (stateName);
 			else
 				CmdSyncAction (stateName);
-			return ac;
 		}
 
-		Action SyncAction (ActionInfo info, IActionCompleted callback)
+		void SyncAction (ActionInfo info, IActionCompleted callback)
 		{
-			NetworkActionPlay ac = gameObject.AddComponent<NetworkActionPlay> ();
-			if (ac != null)
-				ac.Setting (info, callback);
+			actionPlayer.Setting (info, callback);
 			if (isServer)
 				RpcSyncAction (info.stateName);
 			else
 				CmdSyncAction (info.stateName);
-			return ac;
 		}
+
+
 
 		public void SyncActionSpeed (float speed)
 		{

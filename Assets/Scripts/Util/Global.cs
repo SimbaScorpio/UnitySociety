@@ -14,7 +14,7 @@ namespace DesignSociety
 		public static string KeywordJsonURL = "file://" + Application.dataPath + c + "Data" + c + "keyword" + c + "keyword.json";
 		public static string TexturePath = "file://" + Application.dataPath + c + "Data" + c + "texture" + c;
 		public static string IconPath = "file://" + Application.dataPath + c + "Data" + c + "icon" + c;
-		public static string DashboardPath = "file://" + Application.dataPath + c + "Data" + c + "dashboard" + c;
+		public static string DashboardPath = "file://" + Application.dataPath + c + "Data" + c + "screen" + c;
 	}
 
 	public enum SceneState

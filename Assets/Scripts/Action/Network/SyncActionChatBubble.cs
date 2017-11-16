@@ -11,6 +11,9 @@ namespace DesignSociety
 		protected override void OnSetContent (Transform bubble, string content)
 		{
 			bubble.GetComponentInChildren<TextMeshPro> ().SetText (content);
+
+			int num = content.Length;
+			bubble.GetComponentsInChildren<SpriteRenderer> () [0].size = new Vector2 (num * 0.55f + 1f, 1.44f);
 		}
 	}
 

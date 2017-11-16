@@ -2836,12 +2836,13 @@ MonoBehaviour:
   raycastingForGroundPlacement: 1
   groundMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   centerOffset: 1.2
   funnelSimplification: 0
   anim: {fileID: 0}
   preciseSlowdown: 1
   slowWhenNotFacingTarget: 0
+  traversingSpecialPath: 0
 --- !u!114 &114181528956393654
 MonoBehaviour:
   m_ObjectHideFlags: 1

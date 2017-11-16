@@ -37,9 +37,24 @@ namespace DesignSociety
 		private float randomDiff = 1.0f;
 		[HideInInspector]
 		public int actionListIndex;
+		public int bubbleListIndex;
 
 		[HideInInspector]
 		public bool hasArrived;
+
+
+		// temp variables (reduce GC)
+		private CharacterData tempChaData;
+		private Landmark tempLandmark;
+		private string[] tempStrings;
+		private CompositeMovementData tempComMovement = new CompositeMovementData ();
+		private Self tempSelf;
+		private bool tempHasAction;
+		private Person tempPerson;
+		private List<Self> tempOthers = new List<Self> ();
+		private Landmark tempDestination;
+		private CharacterData tempChaData2;
+
 
 		void Start ()
 		{
@@ -63,15 +78,16 @@ namespace DesignSociety
 			Stop ();
 			isPrincipal = true;
 			spotName = name;
-			foreach (PrincipalActivity activity in activities)
-				principalActivities.Add (activity);
+			for (int i = 0; i < activities.Length; ++i) {
+				principalActivities.Add (activities [i]);
+			}
 			return true;
 		}
 
 		public void AddFollowingActivities (FollowingActivity[] activities)
 		{
-			foreach (FollowingActivity activity in activities)
-				followingActivities.Add (activity);
+			for (int i = 0; i < activities.Length; ++i)
+				followingActivities.Add (activities [i]);
 		}
 
 		public void Stop ()
@@ -83,8 +99,10 @@ namespace DesignSociety
 			currentPrincipalActivity = null;
 			currentFollowingActivity = null;
 
-			foreach (SecondPerson person in secondChildren) {
-				string candidate = storylineManager.nameToJobCandidateName [person.name];
+			SecondPerson person1;
+			for (int i = 0; i < secondChildren.Count; ++i) {
+				person1 = secondChildren [i];
+				string candidate = storylineManager.nameToJobCandidateName [person1.name];
 				GameObject obj = storylineManager.nameToCharacterObj [candidate];
 				Person script = obj.GetComponent<Person> ();
 				script.spotName = spotName;
@@ -92,8 +110,11 @@ namespace DesignSociety
 					script.Stop ();
 			}
 			secondChildren.Clear ();
-			foreach (ThirdPerson person in thirdChildren) {
-				string candidate = storylineManager.nameToJobCandidateName [person.name];
+
+			ThirdPerson person2;
+			for (int i = 0; i < thirdChildren.Count; ++i) {
+				person2 = thirdChildren [i];
+				string candidate = storylineManager.nameToJobCandidateName [person2.name];
 				GameObject obj = storylineManager.nameToCharacterObj [candidate];
 				Person script = obj.GetComponent<Person> ();
 				script.spotName = spotName;
@@ -121,8 +142,7 @@ namespace DesignSociety
 
 		void WhatNext ()
 		{
-			ActionSingle ac = GetComponent<ActionSingle> ();
-			if (ac != null)
+			if (actionDealer.IsPlaying ())
 				return;
 			if (isPrincipal && isBeingControlled) {
 				Stop ();
@@ -156,23 +176,24 @@ namespace DesignSociety
 			}
 		}
 
+
 		void DealSpareActivity ()
 		{
-			CharacterData character = storylineManager.nameToCharacter [this.name];
-			Landmark initialLandmark = LandmarkCollection.GetInstance ().Get (character.initial_position);
-			if (Vector3.Distance (transform.position, initialLandmark.position) > distanceError || Mathf.Abs (gameObject.transform.rotation.eulerAngles.y - initialLandmark.rotation.eulerAngles.y) % 360 > rotationError) {
-				actionDealer.ApplyWalkAction (initialLandmark, true, null);
+			tempChaData = storylineManager.nameToCharacter [this.name];
+			tempLandmark = LandmarkCollection.GetInstance ().Get (tempChaData.initial_position);
+			if (Vector3.Distance (transform.position, tempLandmark.position) > distanceError
+			    || Mathf.Abs (gameObject.transform.rotation.eulerAngles.y - tempLandmark.rotation.eulerAngles.y) % 360 > rotationError) {
+				actionDealer.ApplyWalkAction (tempLandmark, true, null);
 			} else {
-				string[] aid;
 				int num = Random.Range (0, 3);
 				if (num == 0)
-					aid = character.spare_time_aid_sit;
+					tempStrings = tempChaData.spare_time_aid_sit;
 				else if (num == 1)
-					aid = character.spare_time_aid_stand;
+					tempStrings = tempChaData.spare_time_aid_stand;
 				else
-					aid = character.spare_time_aid_other;
+					tempStrings = tempChaData.spare_time_aid_other;
 				
-				DealMainActionWithAid (actionDealer, character.spare_time_main_action, aid, false, "?", "?", "?");
+				DealMainActionWithAid (actionDealer, tempChaData.spare_time_main_action, tempStrings, false, "?", "?", "?");
 			}
 		}
 
@@ -181,7 +202,9 @@ namespace DesignSociety
 		{
 			PrincipalActivity activity = principalActivities [0];
 			if (isValidCompositeAction (activity.position, activity.action)) {
-				foreach (SecondPerson other in activity.other_people) {
+				SecondPerson other;
+				for (int i = 0; i < activity.other_people.Length; ++i) {
+					other = activity.other_people [i];
 					if (storylineManager.nameToJob.ContainsKey (other.name)) {
 						int index = 0;
 						for (index = 0; index < secondChildren.Count; ++index) {
@@ -236,7 +259,9 @@ namespace DesignSociety
 		{
 			FollowingActivity activity = followingActivities [0];
 			if (isValidCompositeAction (activity.position, activity.action)) {
-				foreach (ThirdPerson other in activity.other_people) {
+				ThirdPerson other;
+				for (int i = 0; i < activity.other_people.Length; ++i) {
+					other = activity.other_people [i];
 					if (storylineManager.nameToJob.ContainsKey (other.name)) {
 						int index = 0;
 						for (index = 0; index < thirdChildren.Count; ++index) {
@@ -303,26 +328,23 @@ namespace DesignSociety
 			if (position == "composite") {
 				return storylineManager.nameToCompositeMovement [action];
 			} else {
-				CompositeMovementData temp = new CompositeMovementData ();
 				if (action == "sit" || action == "stand")
-					temp.mainrole_main = action;
+					tempComMovement.mainrole_main = action;
 				else
-					temp.mainrole_main = position + "_" + action;
-				return temp;
+					tempComMovement.mainrole_main = position + "_" + action;
+				return tempComMovement;
 			}
 		}
 
-
+	
 
 		void DealOwnActivity ()
 		{
-			Self self = isPrincipal ? currentPrincipalActivity.self : currentFollowingActivity.self;
+			tempSelf = isPrincipal ? currentPrincipalActivity.self : currentFollowingActivity.self;
 
-			bool hasAction;
 			switch (state) {
-
 			case ComState.ARRIVING:
-				if (IsAtProperLocation (self, gameObject, true)) {
+				if (IsAtProperLocation (tempSelf, this, true)) {
 					if (CheckEveryOneInPosition ()) {
 						state = ComState.ARRIVINGSTOP;
 					} else {
@@ -337,42 +359,40 @@ namespace DesignSociety
 				actionDealer.StopCountingAid ();
 				if (CheckEveryOneEndAction ()) {
 					state = ComState.PREPARING;
-//					actionListIndex = -1;
-//					foreach (Person person in children) {
-//						person.actionDealer.StopCountingAid ();
-//						person.actionListIndex = -1;
-//						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
-//					}
+					actionListIndex = -1;
+					for (int i = 0; i < children.Count; ++i) {
+						tempPerson = children [i];
+						tempPerson.actionDealer.StopCountingAid ();
+						tempPerson.actionListIndex = -1;
+					}
 					LogTimeToStartOrEnd ("正式开始");
 				}
 				break;
 
 			case ComState.PREPARING:
 			// 如果有开始动作，并且开始动作未执行完，继续执行
-				hasAction = DealListAction (actionDealer, compositeMovement.start_mainrole_main, ref actionListIndex, true, name, "执行开始动作");
+				tempHasAction = DealListAction (actionDealer, compositeMovement.start_mainrole_main, ref actionListIndex, true, name, "执行开始动作");
 			// 如果没有开始动作，或已经执行完，判断他人是否完成，否则继续
-				if (!hasAction && compositeMovement.start_otherroles_main != null) {
-					foreach (Person person in children) {
-						if (person.actionListIndex < compositeMovement.start_otherroles_main.Length) {
-							hasAction = true;
+				if (!tempHasAction && compositeMovement.start_otherroles_main != null) {
+					for (int i = 0; i < children.Count; ++i) {
+						tempPerson = children [i];
+						if (tempPerson.actionListIndex < compositeMovement.start_otherroles_main.Length) {
+							tempHasAction = true;
 							break;
 						}
 					}
 				}
 			// 全部完成，进入下一状态
-				if (!hasAction)
+				if (!tempHasAction)
 					state = ComState.PREPARINGSTOP;
 				break;
 
 			case ComState.PREPARINGSTOP:
 				if (CheckEveryOneEndAction ()) {
 					state = ComState.STARTING;
-					DisplayBubble (gameObject, self);
+					bubbleListIndex = 0;
 					for (int i = 0; i < children.Count; ++i) {
-						if (isPrincipal)
-							DisplayBubble (children [i].gameObject, secondChildren [i]);
-						else
-							DisplayBubble (children [i].gameObject, thirdChildren [i]);
+						children [i].bubbleListIndex = 0;
 					}
 				}
 				break;
@@ -386,10 +406,11 @@ namespace DesignSociety
 				if (CheckEveryOneEndAction ()) {
 					state = ComState.ENDING;
 					actionListIndex = -1;
-					foreach (Person person in children) {
-						person.actionDealer.StopCountingAid ();
-						person.actionListIndex = -1;
-						ActionManager.GetInstance ().ApplyIdleAction (person.gameObject, "", Random.Range (0.0f, randomDiff), null);
+					for (int i = 0; i < children.Count; ++i) {
+						tempPerson = children [i];
+						tempPerson.actionDealer.StopCountingAid ();
+						tempPerson.actionListIndex = -1;
+						ActionManager.GetInstance ().ApplyIdleAction (tempPerson.gameObject, "", Random.Range (0.0f, randomDiff), null);
 					}
 					LogTimeToStartOrEnd ("正式结束");
 				}
@@ -397,18 +418,19 @@ namespace DesignSociety
 
 			case ComState.ENDING:
 				// 如果有结束动作，并且结束动作未执行完，继续执行
-				hasAction = DealListAction (actionDealer, compositeMovement.end_mainrole_main, ref actionListIndex, true, name, "执行结束动作");
+				tempHasAction = DealListAction (actionDealer, compositeMovement.end_mainrole_main, ref actionListIndex, true, name, "执行结束动作");
 				// 如果没有结束动作，或已经执行完，判断他人是否完成，否则继续
-				if (!hasAction && compositeMovement.end_otherroles_main != null) {
-					foreach (Person person in children) {
-						if (person.actionListIndex < compositeMovement.end_otherroles_main.Length) {
-							hasAction = true;
+				if (!tempHasAction && compositeMovement.end_otherroles_main != null) {
+					for (int i = 0; i < children.Count; ++i) {
+						tempPerson = children [i];
+						if (tempPerson.actionListIndex < compositeMovement.end_otherroles_main.Length) {
+							tempHasAction = true;
 							break;
 						}
 					}
 				}
 				// 全部完成，进入下一状态
-				if (!hasAction)
+				if (!tempHasAction)
 					state = ComState.ENDINGSTOP;
 				break;
 
@@ -442,44 +464,44 @@ namespace DesignSociety
 
 		void DealChildActivity ()
 		{  
-			List<Self> others = new List<Self> ();
+			tempOthers.Clear ();
 			if (isPrincipal) {
-				foreach (SecondPerson sp in secondChildren)
-					others.Add (sp as Self);
+				for (int i = 0; i < secondChildren.Count; ++i)
+					tempOthers.Add (secondChildren [i] as Self);
 			} else {
-				foreach (ThirdPerson tp in thirdChildren)
-					others.Add (tp as Self);
+				for (int i = 0; i < thirdChildren.Count; ++i)
+					tempOthers.Add (thirdChildren [i] as Self);
 			}
 
-			for (int i = 0; i < others.Count; ++i) {
-				Person person = children [i];
-				if (person.parent != this)
+			for (int i = 0; i < tempOthers.Count; ++i) {
+				tempPerson = children [i];
+				if (tempPerson.parent != this)
 					continue;
-				if (person.GetComponent<ActionSingle> () != null)
+				if (tempPerson.actionDealer.IsPlaying ())
 					continue;
 			
 				switch (state) {
 				case ComState.ARRIVING:
-					if (IsAtProperLocation (others [i], person.gameObject, true)) {
-						DealMainActionWithAid (person.actionDealer, compositeMovement.wait_otherroles_main, compositeMovement.wait_otherroles_aid, true, person.name, "执行等待动作", "执行等待动作(辅助)");
+					if (IsAtProperLocation (tempOthers [i], tempPerson, true)) {
+						DealMainActionWithAid (tempPerson.actionDealer, compositeMovement.wait_otherroles_main, compositeMovement.wait_otherroles_aid, true, tempPerson.name, "执行等待动作", "执行等待动作(辅助)");
 					} else {
-						person.actionDealer.StopCountingAid ();
+						tempPerson.actionDealer.StopCountingAid ();
 					}
 					break;
 				case ComState.ARRIVINGSTOP:
 					break;
 				case ComState.PREPARING:
-					DealListAction (person.actionDealer, compositeMovement.start_otherroles_main, ref person.actionListIndex, true, person.name, "执行开始动作");
+					DealListAction (tempPerson.actionDealer, compositeMovement.start_otherroles_main, ref tempPerson.actionListIndex, true, tempPerson.name, "执行开始动作");
 					break;
 				case ComState.PREPARINGSTOP:
 					break;
 				case ComState.STARTING:
-					DealMainActionWithAid (person.actionDealer, compositeMovement.otherroles_main, compositeMovement.otherroles_aid, true, person.name, "执行主要动作", "执行主要动作(辅助)");
+					DealMainActionWithAid (tempPerson.actionDealer, compositeMovement.otherroles_main, compositeMovement.otherroles_aid, true, tempPerson.name, "执行主要动作", "执行主要动作(辅助)");
 					break;
 				case ComState.STARTINGSTOP:
 					break;
 				case ComState.ENDING:
-					DealListAction (person.actionDealer, compositeMovement.end_otherroles_main, ref person.actionListIndex, true, person.name, "执行结束动作");
+					DealListAction (tempPerson.actionDealer, compositeMovement.end_otherroles_main, ref tempPerson.actionListIndex, true, tempPerson.name, "执行结束动作");
 					break;
 				case ComState.ENDINGSTOP:
 					break;
@@ -536,22 +558,20 @@ namespace DesignSociety
 		}
 
 
-		bool IsAtProperLocation (Self self, GameObject gameObject, bool doAction)
+		bool IsAtProperLocation (Self self, Person person, bool doAction)
 		{
-			Landmark destination;
-			CharacterData cha = storylineManager.nameToCharacter [gameObject.name];
-			Person person = gameObject.GetComponent<Person> ();
+			tempChaData2 = storylineManager.nameToCharacter [person.gameObject.name];
 			switch (self.location_to_type) {
 			case 0:	// stand by
 				return true;
 			case 1:	// labeled location
 				if (string.IsNullOrEmpty (self.location_to))
 					return true;
-				destination = LandmarkCollection.GetInstance ().Get (self.location_to);
-				if (destination == null || Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError && Mathf.Abs (gameObject.transform.rotation.eulerAngles.y - destination.rotation.eulerAngles.y) % 360 < rotationError) {
+				tempDestination = LandmarkCollection.GetInstance ().Get (self.location_to);
+				if (tempDestination == null || Vector3.Distance (person.transform.position, tempDestination.position) <= distanceError && Mathf.Abs (person.transform.rotation.eulerAngles.y - tempDestination.rotation.eulerAngles.y) % 360 < rotationError) {
 					if (doAction) {
-						gameObject.transform.position = destination.position;
-						gameObject.transform.rotation = destination.rotation;
+						person.transform.position = tempDestination.position;
+						person.transform.rotation = tempDestination.rotation;
 					}
 					if (!person.hasArrived) {
 						person.hasArrived = true;
@@ -559,15 +579,15 @@ namespace DesignSociety
 					}
 					return true;
 				} else if (doAction) {
-					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, true, null);
+					person.actionDealer.ApplyWalkAction (tempDestination, true, null);
 				}
 				return false;
 			case 2:	// initial location
-				destination = LandmarkCollection.GetInstance ().Get (cha.initial_position);
-				if (destination == null || Vector3.Distance (gameObject.transform.position, destination.position) <= distanceError && Mathf.Abs (gameObject.transform.rotation.eulerAngles.y - destination.rotation.eulerAngles.y) % 360 < rotationError) {
+				tempDestination = LandmarkCollection.GetInstance ().Get (tempChaData2.initial_position);
+				if (tempDestination == null || Vector3.Distance (person.transform.position, tempDestination.position) <= distanceError && Mathf.Abs (person.transform.rotation.eulerAngles.y - tempDestination.rotation.eulerAngles.y) % 360 < rotationError) {
 					if (doAction) {
-						gameObject.transform.position = destination.position;
-						gameObject.transform.rotation = destination.rotation;
+						person.transform.position = tempDestination.position;
+						person.transform.rotation = tempDestination.rotation;
 					}
 					if (!person.hasArrived) {
 						person.hasArrived = true;
@@ -575,7 +595,7 @@ namespace DesignSociety
 					}
 					return true;
 				} else if (doAction) {
-					gameObject.GetComponent<NetworkActionDealer> ().ApplyWalkAction (destination, true, null);
+					person.actionDealer.ApplyWalkAction (tempDestination, true, null);
 				}
 				return false;
 			default:
@@ -588,17 +608,17 @@ namespace DesignSociety
 		bool CheckEveryOneInPosition ()
 		{
 			if (isPrincipal) {
-				if (!IsAtProperLocation (currentPrincipalActivity.self, gameObject, false))
+				if (!IsAtProperLocation (currentPrincipalActivity.self, this, false))
 					return false;
 				for (int i = 0; i < secondChildren.Count; ++i)
-					if (children [i].parent != this || !IsAtProperLocation (secondChildren [i], children [i].gameObject, false))
+					if (children [i].parent != this || !IsAtProperLocation (secondChildren [i], children [i], false))
 						return false;
 				return true;
 			} else {
-				if (!IsAtProperLocation (currentFollowingActivity.self, gameObject, false))
+				if (!IsAtProperLocation (currentFollowingActivity.self, this, false))
 					return false;
 				for (int i = 0; i < thirdChildren.Count; ++i)
-					if (children [i].parent != this || !IsAtProperLocation (thirdChildren [i], children [i].gameObject, false))
+					if (children [i].parent != this || !IsAtProperLocation (thirdChildren [i], children [i], false))
 						return false;
 				return true;
 			}
@@ -607,39 +627,61 @@ namespace DesignSociety
 
 		bool CheckEveryOneEndAction ()
 		{
-			if (GetComponent<ActionSingle> () != null)
+			if (actionDealer.IsPlaying ())
 				return false;
 			for (int i = 0; i < children.Count; ++i)
-				if (children [i].parent != this || children [i].GetComponent<ActionSingle> () != null)
+				if (children [i].parent != this || children [i].actionDealer.IsPlaying ())
 					return false;
 			return true;
 		}
 
 
-		void DisplayBubble (GameObject obj, Self self)
+		// 0-无气泡 1-对话气泡 2-关键词气泡 3-icon气泡 4-screen
+		void DisplayBubble (Person person, Self self, ref int index)
 		{
-			// 0-无气泡 1-对话气泡 2-关键词气泡 3-icon气泡
-			switch (self.bubble_type) {
+			if (self.bubble_content == null || self.bubble_content.Length == 0)
+				return;
+			if (index < 0 || index >= self.bubble_content.Length)
+				return;
+			// 解析格式: num_name
+			string str = self.bubble_content [index];
+			index = (index + 1) % self.bubble_content.Length;
+			int i = str.IndexOf ('_');
+			if (i <= 0)
+				return;
+			string num = str.Substring (0, i);
+			string content = str.Substring (i + 1);
+			int bubble_type = int.Parse (num);
+			// 分类
+			switch (bubble_type) {
 			case 1:
-				obj.GetComponent<Person> ().bubbleDealer.ApplyChatBubble (self.bubble_content, 3, self.bubble_direction, null);
+				person.bubbleDealer.NetworkChatBubble (content, 8f, self.bubble_direction);
 				break;
 			case 2:
-				obj.GetComponent<Person> ().bubbleDealer.ApplyKeywordBubble (self.bubble_content, 5);
+				person.bubbleDealer.NetworkKeywordBubble (content, 5f);
 				break;
 			case 3:
-				obj.GetComponent<Person> ().bubbleDealer.ApplyIconBubble (self.bubble_content, 5, null);
+				person.bubbleDealer.NetworkIconBubble (content, 3f);
 				break;
-			default:
+			case 4:
+				person.bubbleDealer.NetworkScreenBubble (content, 3f, self.bubble_direction);
 				break;
 			}
-			DisplayScreenDashboard (obj, self);
 		}
 
-
-		void DisplayScreenDashboard (GameObject obj, Self self)
+		void DealBubbleActivity ()
 		{
-			if (!string.IsNullOrEmpty (self.screen)) {
-				obj.GetComponent<Person> ().bubbleDealer.ApplyScreenBubble (self.screen, 5, self.dashboard_direction, null);
+			tempSelf = isPrincipal ? currentPrincipalActivity.self : currentFollowingActivity.self;
+			if (!actionDealer.IsBubbling ())
+				DisplayBubble (this, tempSelf, ref bubbleListIndex);
+			for (int i = 0; i < children.Count; ++i) {
+				if (!children [i].actionDealer.IsBubbling ()) {
+					if (isPrincipal) {
+						DisplayBubble (children [i], secondChildren [i], ref children [i].bubbleListIndex);
+					} else {
+						DisplayBubble (children [i], thirdChildren [i], ref children [i].bubbleListIndex);
+					}
+				}
 			}
 		}
 
@@ -697,6 +739,7 @@ namespace DesignSociety
 					if (compositeTiming >= currentFollowingActivity.duration)
 						state = ComState.STARTINGSTOP;
 				}
+				DealBubbleActivity ();
 			} else {
 				compositeTiming = 0.0f;
 			}
@@ -729,8 +772,7 @@ namespace DesignSociety
 			if (randomTick) {
 				randomCountTime += Time.deltaTime;
 			}
-			ActionSingle ac = GetComponent<ActionSingle> ();
-			if (ac != null)
+			if (actionDealer.IsPlaying ())
 				return;
 			if (randomCountTime >= randomMaxTime) {
 				actionDealer.StopCountingAid ();

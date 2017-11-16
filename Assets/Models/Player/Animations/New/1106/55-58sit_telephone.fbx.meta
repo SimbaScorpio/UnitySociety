@@ -605,7 +605,7 @@ ModelImporter:
       name: sit_fixphone_putdown
       takeName: CINEMA_4D_Main
       firstFrame: 200
-      lastFrame: 235
+      lastFrame: 233
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -744,7 +744,7 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

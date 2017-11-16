@@ -3087,12 +3087,13 @@ MonoBehaviour:
   raycastingForGroundPlacement: 1
   groundMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   centerOffset: 1.2
   funnelSimplification: 0
   anim: {fileID: 0}
   preciseSlowdown: 1
   slowWhenNotFacingTarget: 0
+  traversingSpecialPath: 0
 --- !u!137 &137553535261875758
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

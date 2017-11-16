@@ -431,7 +431,6 @@ GameObject:
   - component: {fileID: 114107002808323392}
   - component: {fileID: 114598727510574934}
   - component: {fileID: 65239385997250052}
-  - component: {fileID: 95794163495953252}
   m_Layer: 8
   m_Name: bus
   m_TagString: Car
@@ -2086,23 +2085,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.47, y: 3.35, z: 6.06}
   m_Center: {x: 0, y: 1.67, z: 0.42}
---- !u!95 &95794163495953252
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1825608873793962}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8fec9c7dc11b005418dc61291e810dee, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114107002808323392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2137,12 +2119,13 @@ MonoBehaviour:
   raycastingForGroundPlacement: 1
   groundMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   centerOffset: 1.2
   funnelSimplification: 0
   anim: {fileID: 0}
   preciseSlowdown: 1
   slowWhenNotFacingTarget: 0
+  traversingSpecialPath: 0
 --- !u!114 &114164142383780864
 MonoBehaviour:
   m_ObjectHideFlags: 1

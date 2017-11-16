@@ -11,6 +11,8 @@ namespace DesignSociety
 		private Dictionary<string, Material> materials;
 		private Dictionary<string, Texture2D> textures;
 
+		private List<string> errorTextures;
+
 		private static MaterialCollection instance;
 
 		public static MaterialCollection GetInstance ()
@@ -23,11 +25,12 @@ namespace DesignSociety
 			instance = this;
 			materials = new Dictionary<string, Material> ();
 			textures = new Dictionary<string, Texture2D> ();
+			errorTextures = new List<string> ();
 		}
 
 		public Material GetMaterial (string name)
 		{
-			if (string.IsNullOrEmpty (name)) {
+			if (string.IsNullOrEmpty (name) || errorTextures.Contains (name)) {
 				return null;
 			}
 			if (materials.ContainsKey (name)) {
@@ -39,7 +42,7 @@ namespace DesignSociety
 
 		public Texture2D GetTexture (string name, string path)
 		{
-			if (string.IsNullOrEmpty (name)) {
+			if (string.IsNullOrEmpty (name) || errorTextures.Contains (name)) {
 				return null;
 			}
 			if (textures.ContainsKey (name)) {
@@ -61,6 +64,7 @@ namespace DesignSociety
 			}
 			if (!string.IsNullOrEmpty (www.error)) {
 				Log.error (www.error);
+				errorTextures.Add (name);
 				return null;
 			} else {
 				Texture2D texture = new Texture2D (2, 2);

@@ -108,7 +108,7 @@ namespace Pathfinding
 		protected bool waitingForPathCalc;
 		protected bool canSearchPath;
 		protected bool delayUpdatePath;
-		protected bool traversingSpecialPath;
+		public bool traversingSpecialPath;
 		protected bool lastCorner;
 		float distanceToWaypoint = 999;
 

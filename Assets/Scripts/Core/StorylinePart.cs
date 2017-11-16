@@ -16,6 +16,9 @@ namespace DesignSociety
 
 		public float time = 0.0f;
 		private bool isTicking = false;
+		private float maxTime = -1f;
+
+		List<string> spotNames;
 
 		void Awake ()
 		{
@@ -24,17 +27,16 @@ namespace DesignSociety
 
 		public void Restart ()
 		{
+			if (spotNames == null) {
+				InitSpotNames ();
+			}
 			StartCoroutine (WaitJobArrangementToStart ());
 		}
 
-		void Update ()
+		void InitSpotNames ()
 		{
-			// isTicking 实际上是用来让Manager调用的，保证数据统筹完成才开始
-			if (!isTicking || storyline.scenedata.Length == 0)
-				return;
-			time += Time.deltaTime;
-
 			// 通过自身的spotName，获取Manager的SceneData，,因为假设不知道Manager如何处理不同故事线间重叠的场景命名
+			spotNames = new List<string> ();
 			foreach (SceneData scene in storyline.scenedata) {
 				string spotName = scene.spot_name;
 				if (!sm.nameToScene.ContainsKey (spotName))
@@ -42,6 +44,23 @@ namespace DesignSociety
 				SceneData spot = sm.nameToScene [spotName];
 				if (spot != scene)
 					continue;	// 该场景被覆盖
+				spotNames.Add (spotName);
+				if (scene.end_time > maxTime)
+					maxTime = scene.end_time;
+			}
+		}
+
+		void Update ()
+		{
+			// isTicking 实际上是用来让Manager调用的，保证数据统筹完成才开始
+			if (!isTicking || storyline.scenedata.Length == 0 || spotNames == null)
+				return;
+			time += Time.deltaTime;
+
+			bool flag = true;
+			for (int i = 0; i < spotNames.Count; ++i) {
+				string spotName = spotNames [i];
+				SceneData spot = sm.nameToScene [spotName];
 				if (time >= spot.start_time && time < spot.end_time) {
 					if (sm.nameToSceneState [spotName] == SceneState.READY) {
 						sm.StartStorylineSpot (spotName);
@@ -51,29 +70,18 @@ namespace DesignSociety
 						sm.KillStorylineSpot (spotName);
 					}
 				}
+				SceneState state = sm.nameToSceneState [spotName];
+				if (state == SceneState.READY || state == SceneState.STARTED)
+					flag = false;
+			}
+			if (flag && time >= maxTime) {
+				foreach (string spotName in spotNames) {
+					sm.nameToSceneState [spotName] = SceneState.READY;
+				}
+				Restart ();
 			}
 		}
 
-		public void CheckLoopStoryline ()
-		{
-			List<string> spotNames = new List<string> ();
-			foreach (SceneData scene in storyline.scenedata) {
-				string spotName = scene.spot_name;
-				if (!sm.nameToScene.ContainsKey (spotName))
-					continue;	// 该场景不合格
-				SceneData spot = sm.nameToScene [spotName];
-				if (spot != scene)
-					continue;	// 该场景被覆盖
-				spotNames.Add (spotName);
-				SceneState state = sm.nameToSceneState [spotName];
-				if (state == SceneState.READY || state == SceneState.STARTED)
-					return;
-			}
-			foreach (string spotName in spotNames) {
-				sm.nameToSceneState [spotName] = SceneState.READY;
-			}
-			Restart ();
-		}
 
 		IEnumerator WaitJobArrangementToStart ()
 		{
@@ -81,10 +89,13 @@ namespace DesignSociety
 			while (!RandomlyArrangeJobCandidates ()) {
 				yield return wait;
 			}
-			InitRandomInfo ();
 			time = 0.0f;
 			isTicking = true;
 			Log.info (Log.green ("【" + fileName + "故事线】") + "置零开始");
+			if (!randomStarted) {
+				randomStarted = true;
+				InitRandomInfo ();
+			}
 		}
 
 
@@ -155,6 +166,7 @@ namespace DesignSociety
 
 		#region random
 
+		private bool randomStarted = false;
 		public Vector2 randomTime = new Vector2 (20f, 60f);
 		private Dictionary<string, RandomActivity> nameToRandomActivity = new Dictionary<string, RandomActivity> ();
 		private Dictionary<string, Dictionary<string, RandomAction>> nameToActionDict = new Dictionary<string, Dictionary<string, RandomAction>> ();
@@ -163,6 +175,9 @@ namespace DesignSociety
 
 		void InitRandomInfo ()
 		{
+			nameToRandomActivity.Clear ();
+			nameToActionDict.Clear ();
+			nameToLandmarkDict.Clear ();
 			InitRandomActivity ();
 			foreach (string randomscene in nameToRandomActivity.Keys)
 				InitRandomPerson (nameToRandomActivity [randomscene]);
@@ -170,6 +185,8 @@ namespace DesignSociety
 
 		void InitRandomActivity ()
 		{
+			if (storyline.random == null)
+				return;
 			RandomActivity temp;
 			for (int i = 0; i < storyline.random.Length; ++i) {
 				temp = storyline.random [i];
@@ -260,10 +277,12 @@ namespace DesignSociety
 					availableLandmark.Add (lm);
 			}
 			if (availableLandmark.Count != 0) {
+				if (dict.ContainsKey (landmark))
+					dict [landmark] = null;
 				int randomIndex = Random.Range (0, availableLandmark.Count);
 				landmark = availableLandmark [randomIndex];
+				dict [landmark] = asker;
 			}
-			dict [landmark] = asker;
 			maxTime = Random.Range (randomTime.x, randomTime.y);
 			return nameToActionDict [randomscene] [landmark.m_label];
 		}

@@ -260,7 +260,6 @@ namespace DesignSociety
 				if (set.Count == 0) {
 					nameToSceneState [spotName] = SceneState.ENDED;
 					Log.info (GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + "场景结束");
-					nameToStorylinePart [spotName].CheckLoopStoryline ();
 				}
 			}
 		}
@@ -277,7 +276,6 @@ namespace DesignSociety
 			set.Clear ();
 			nameToSceneState [spotName] = SceneState.KILLED;
 			Log.info (GetPartTime (spotName) + Log.pink ("【" + spotName + "】") + "场景杀死");
-			nameToStorylinePart [spotName].CheckLoopStoryline ();
 		}
 
 		public string GetPartTime (string spotName)
