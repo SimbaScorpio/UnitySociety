@@ -486,7 +486,9 @@ namespace DesignSociety
 		sit_experiment,
 		sit_sewing_machine,
 		sit_snacks,
-		sit_calculator
+		sit_calculator,
+		sit_jump_cheer,
+		sit_draw_digital_pen
 	}
 
 	public enum StandActionName
@@ -505,6 +507,7 @@ namespace DesignSociety
 		stand_right30,
 		stand_shake_head,
 		stand_cross_arm,
+		stand_cross_arm_shake_head,
 		stand_chin_in_hand,
 		stand_raise_righthand,
 		stand_hello,
@@ -638,11 +641,24 @@ namespace DesignSociety
 		stand_iron,
 		stand_saws,
 		stand_solder,
-		stand_stell_tape,
+		stand_steel_tape,
 
 		stand_scratch_cd,
 		stand_serve_dish,
-		stand_take_dish
+		stand_take_dish,
+
+		inter_shake_hand,
+		stand_3dprinter_productstoryline,
+		stand_3dprinter_architectstoryline,
+		stand_bartend,
+		stand_cnc_productstoryline,
+		stand_experiment_chemistry,
+		stand_holo,
+		stand_mic_other,
+		stand_panel,
+		stand_smoke,
+		stand_table_soccer,
+		stand_xbox
 	}
 
 	public enum SitActionWithBorder
@@ -682,7 +698,8 @@ namespace DesignSociety
 		sit_drive,
 		sit_scratch_head_computer,
 		sit_chin_in_hand_computer,
-		sit_calculator
+		sit_calculator,
+		sit_draw_digital_pen
 	}
 
 	public enum StandActionWithBorder
@@ -711,6 +728,9 @@ namespace DesignSociety
 		stand_talk_look_down,
 		drag_float,
 		stand_remote,
-		stand_scratch_cd
+		stand_scratch_cd,
+		inter_shake_hand,
+		stand_mic_other,
+		stand_smoke
 	}
 }

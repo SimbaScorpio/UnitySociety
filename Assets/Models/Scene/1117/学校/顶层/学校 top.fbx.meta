@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: a582790ee8964284fbf19c8c10cd1614
+timeCreated: 1510929311
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cylinder
+    100004: Cylinder_2
+    100006: Plane
+    100008: Plane_1
+    100010: Plane_10
+    100012: Plane_11
+    100014: Plane_12
+    100016: Plane_13
+    100018: Plane_2
+    100020: Plane_4
+    100022: Plane_5
+    100024: Plane_6
+    100026: Plane_7
+    100028: Plane_8
+    100030: Plane_9
+    100032: Sphere
+    100034: Sphere_1
+    100036: top_floor
+    100038: //RootNode
+    400000: Cube
+    400002: Cylinder
+    400004: Cylinder_2
+    400006: Plane
+    400008: Plane_1
+    400010: Plane_10
+    400012: Plane_11
+    400014: Plane_12
+    400016: Plane_13
+    400018: Plane_2
+    400020: Plane_4
+    400022: Plane_5
+    400024: Plane_6
+    400026: Plane_7
+    400028: Plane_8
+    400030: Plane_9
+    400032: Sphere
+    400034: Sphere_1
+    400036: top_floor
+    400038: //RootNode
+    2300000: Cube
+    2300002: Cylinder
+    2300004: Cylinder_2
+    2300006: Plane
+    2300008: Plane_1
+    2300010: Plane_10
+    2300012: Plane_11
+    2300014: Plane_12
+    2300016: Plane_13
+    2300018: Plane_2
+    2300020: Plane_4
+    2300022: Plane_5
+    2300024: Plane_6
+    2300026: Plane_7
+    2300028: Plane_8
+    2300030: Plane_9
+    2300032: Sphere
+    2300034: Sphere_1
+    3300000: Cube
+    3300002: Cylinder
+    3300004: Cylinder_2
+    3300006: Plane
+    3300008: Plane_1
+    3300010: Plane_10
+    3300012: Plane_11
+    3300014: Plane_12
+    3300016: Plane_13
+    3300018: Plane_2
+    3300020: Plane_4
+    3300022: Plane_5
+    3300024: Plane_6
+    3300026: Plane_7
+    3300028: Plane_8
+    3300030: Plane_9
+    3300032: Sphere
+    3300034: Sphere_1
+    4300000: Sphere
+    4300002: Cylinder
+    4300004: Sphere_1
+    4300006: Cylinder_2
+    4300008: Plane
+    4300010: Cube
+    4300012: Plane_1
+    4300014: Plane_2
+    4300016: Plane_13
+    4300018: Plane_4
+    4300020: Plane_5
+    4300022: Plane_6
+    4300024: Plane_7
+    4300026: Plane_8
+    4300028: Plane_9
+    4300030: Plane_10
+    4300032: Plane_11
+    4300034: Plane_12
+    6400000: Cube
+    6400002: Cylinder
+    6400004: Cylinder_2
+    6400006: Plane
+    6400008: Plane_1
+    6400010: Plane_10
+    6400012: Plane_11
+    6400014: Plane_12
+    6400016: Plane_13
+    6400018: Plane_2
+    6400020: Plane_4
+    6400022: Plane_5
+    6400024: Plane_6
+    6400026: Plane_7
+    6400028: Plane_8
+    6400030: Plane_9
+    6400032: Sphere
+    6400034: Sphere_1
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

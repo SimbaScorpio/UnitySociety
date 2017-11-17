@@ -600,6 +600,8 @@ GameObject:
   - component: {fileID: 114284448203844770}
   - component: {fileID: 114071263274359436}
   - component: {fileID: 114357362538574220}
+  - component: {fileID: 114920788719268886}
+  - component: {fileID: 114093723893533244}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2206,6 +2208,20 @@ MonoBehaviour:
   idleMark: {fileID: 1411221102247528}
   idleCount: 0
   isIdleForALongTime: 1
+--- !u!114 &114093723893533244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489831475210240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ecb5059933ccc4993d3255f0d0fbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlaying: 0
+  findingPartner: 0
+  waitingPartner: 0
 --- !u!114 &114191943624074866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2354,6 +2370,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d18bf1872354d8a84e751f5c2cccda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114920788719268886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489831475210240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8455a5ba7496f346808300c7599f423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlaying: 0
+  landmark:
+    m_name: 
+    m_label: 
+    m_data:
+    - 0
+    - 0
+    - 0
+    - 0
+  ai: {fileID: 0}
 --- !u!114 &114934495940414238
 MonoBehaviour:
   m_ObjectHideFlags: 1

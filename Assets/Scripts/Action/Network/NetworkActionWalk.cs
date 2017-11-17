@@ -138,31 +138,46 @@ namespace DesignSociety
 
 		void DetectFrontPerson ()
 		{
+			float d = 2f;
 			Vector3 start = transform.position;
+			start -= transform.TransformDirection (Vector3.forward) * 0.25f;
 			start.y += 1f;
 
 			Ray ray1 = new Ray (start, transform.TransformDirection (Vector3.forward));
-			Debug.DrawLine (ray1.origin, ray1.origin + ray1.direction, Color.blue);
-			Ray ray2 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.right) / 2f));
-			Debug.DrawLine (ray2.origin, ray2.origin + ray2.direction, Color.blue);
-			Ray ray3 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.left) / 2f));
-			Debug.DrawLine (ray3.origin, ray3.origin + ray3.direction, Color.blue);
+			Debug.DrawLine (ray1.origin, ray1.origin + ray1.direction * d, Color.blue);
+			Ray ray2 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.right / 2)));
+			Debug.DrawLine (ray2.origin, ray2.origin + ray2.direction * d, Color.blue);
+			Ray ray3 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.left / 2)));
+			Debug.DrawLine (ray3.origin, ray3.origin + ray3.direction * d, Color.blue);
+//			Ray ray4 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.right / 6f)));
+//			Debug.DrawLine (ray4.origin, ray4.origin + ray4.direction * d, Color.blue);
+//			Ray ray5 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.left / 6f)));
+//			Debug.DrawLine (ray5.origin, ray5.origin + ray5.direction * d, Color.blue);
 
 			RaycastHit hit;
 			bool flag = false;
-			if (!flag && Physics.Raycast (ray1, out hit, 1f)) {
+			if (!flag && Physics.Raycast (ray1, out hit, d)) {
 				if (hit.collider.tag == "Player") {
 					flag = DealWithDetect (hit.collider);
 				}
-			} else if (!flag && Physics.Raycast (ray2, out hit, 1f)) {
+			} else if (!flag && Physics.Raycast (ray2, out hit, d)) {
 				if (hit.collider.tag == "Player") {
 					flag = DealWithDetect (hit.collider);
 				}
-			} else if (!flag && Physics.Raycast (ray3, out hit, 1f)) {
+			} else if (!flag && Physics.Raycast (ray3, out hit, d)) {
 				if (hit.collider.tag == "Player") {
 					flag = DealWithDetect (hit.collider);
 				}
 			}
+//			} else if (!flag && Physics.Raycast (ray4, out hit, d)) {
+//				if (hit.collider.tag == "Player") {
+//					flag = DealWithDetect (hit.collider);
+//				}
+//			} else if (!flag && Physics.Raycast (ray5, out hit, d)) {
+//				if (hit.collider.tag == "Player") {
+//					flag = DealWithDetect (hit.collider);
+//				}
+//			}
 			if (!flag) {
 				ai.maxSpeed = initAISpeed;
 			}
@@ -177,10 +192,12 @@ namespace DesignSociety
 				Vector3 v23 = sw.ai.Velocity;
 				Vector2 v22 = new Vector2 (v23.x, v23.z);
 				if (Vector2.Dot (v12, v22) > 0) {
-					ai.maxSpeed = initAISpeed - 0.5f;
-				} else {
-					ai.maxSpeed = initAISpeed + 0.5f;
-				}
+					ai.maxSpeed = sw.initAISpeed - 0.5f;
+					ai.maxSpeed = ai.maxSpeed <= 0 ? 0.5f : ai.maxSpeed;
+				} 
+				//else {
+				//	ai.maxSpeed = initAISpeed + 0.5f;
+				//}
 				return true;
 			}
 			return false;

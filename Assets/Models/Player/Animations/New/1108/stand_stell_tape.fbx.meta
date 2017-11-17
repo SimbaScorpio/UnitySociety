@@ -135,7 +135,7 @@ ModelImporter:
     4300006: mesh
     4300008: hair
     4300010: ears
-    7400000: stand_stell
+    7400000: stand_steel_tape
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -162,7 +162,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: stand_stell
+      name: stand_steel_tape
       takeName: CINEMA_4D_Main
       firstFrame: 0
       lastFrame: 184
