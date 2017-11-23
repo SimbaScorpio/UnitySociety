@@ -8,6 +8,7 @@ namespace DesignSociety
 	{
 		Dictionary<string, GameObject[]> tagToGameObject = new Dictionary<string, GameObject[]> ();
 
+
 		private static GameObjectCollection instance;
 
 		public static GameObjectCollection GetInstance ()
@@ -27,5 +28,11 @@ namespace DesignSociety
 			tagToGameObject [tag] = GameObject.FindGameObjectsWithTag (tag);
 			return tagToGameObject [tag];
 		}
+
+		public void Clear (string tag)
+		{
+			tagToGameObject.Remove (tag);
+		}
+			
 	}
 }

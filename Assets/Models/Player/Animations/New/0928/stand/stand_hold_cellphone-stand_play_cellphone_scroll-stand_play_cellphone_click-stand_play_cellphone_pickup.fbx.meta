@@ -62,6 +62,7 @@ ModelImporter:
     100108: root
     100110: spline
     100112: //RootNode
+    100114: A_cellphone_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -119,21 +120,29 @@ ModelImporter:
     400108: root
     400110: spline
     400112: //RootNode
+    400114: A_cellphone_1
     2300000: ears
     2300002: hair
     2300004: phone
+    2300006: A_cellphone_1
     3300000: ears
     3300002: hair
     3300004: phone
+    3300006: A_cellphone_1
     4300000: phone
     4300002: mesh
     4300004: hair
     4300006: ears
-    7400000: stand_hold_cellphone
+    4300008: A_cellphone_1
+    7400000: stand_play_cellphone_scroll
     7400002: stand_play_cellphone_scroll
     7400004: stand_play_cellphone_click
     7400006: stand_play_cellphone_pickup
     7400008: stand_play_cellphone_putdown
+    7400010: stand_hold_cellphone
+    7400012: stand_play_cellphone_click
+    7400014: stand_hold_cellphone_begin
+    7400016: stand_hold_cellphone_end
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -246,7 +255,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/phone
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_cellphone_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -388,7 +397,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/phone
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_cellphone_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -530,7 +539,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/phone
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_cellphone_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -586,7 +595,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: stand_play_cellphone_pickup
+      name: stand_hold_cellphone_begin
       takeName: CINEMA_4D_Main
       firstFrame: 0
       lastFrame: 55
@@ -679,7 +688,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/phone
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_cellphone_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -735,7 +744,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: stand_play_cellphone_putdown
+      name: stand_hold_cellphone_end
       takeName: CINEMA_4D_Main
       firstFrame: 150
       lastFrame: 180
@@ -828,7 +837,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/phone
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_cellphone_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1

@@ -64,6 +64,7 @@ ModelImporter:
     100112: root
     100114: spline
     100116: //RootNode
+    100118: A_cellphone_2
     400000: chest_ctrl
     400002: "Cinema4D_\u7F16\u8F91\u5668"
     400004: ears
@@ -123,16 +124,20 @@ ModelImporter:
     400112: root
     400114: spline
     400116: //RootNode
+    400118: A_cellphone_2
     2300000: ears
     2300002: hair
     2300004: phone
+    2300006: A_cellphone_2
     3300000: ears
     3300002: hair
     3300004: phone
+    3300006: A_cellphone_2
     4300000: phone
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: A_cellphone_2
     7400000: stand_photo_cellphone
     9500000: //RootNode
     13700000: mesh

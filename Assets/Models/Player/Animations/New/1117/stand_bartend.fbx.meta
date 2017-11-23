@@ -87,6 +87,20 @@ ModelImporter:
     100158: "\u9152\u74F6"
     100160: "\u9152\u74F6_1"
     100162: "\u9152\u74F6_2"
+    100164: A_bottle_1
+    100166: A_bottle_2
+    100168: A_bottle_3
+    100170: A_bottle_4
+    100172: A_cup_1
+    100174: A_cup_2
+    100176: A_cup_3
+    100178: A_cup_4
+    100180: A_mixing_cap_1
+    100182: A_mixing_cap_2
+    100184: A_mixing_cap_3
+    100186: A_mixing_cap_4
+    100188: A_mixing_cup_1
+    100190: A_mixing_cup_2
     400000: chest_ctrl
     400002: "Cinema4D_\u7F16\u8F91\u5668"
     400004: cup
@@ -169,6 +183,20 @@ ModelImporter:
     400158: "\u9152\u74F6"
     400160: "\u9152\u74F6_1"
     400162: "\u9152\u74F6_2"
+    400164: A_bottle_1
+    400166: A_bottle_2
+    400168: A_bottle_3
+    400170: A_bottle_4
+    400172: A_cup_1
+    400174: A_cup_2
+    400176: A_cup_3
+    400178: A_cup_4
+    400180: A_mixing_cap_1
+    400182: A_mixing_cap_2
+    400184: A_mixing_cap_3
+    400186: A_mixing_cap_4
+    400188: A_mixing_cup_1
+    400190: A_mixing_cup_2
     2300000: cup
     2300002: cup_1
     2300004: cup_2
@@ -193,6 +221,19 @@ ModelImporter:
     2300042: "\u9152\u74F6"
     2300044: "\u9152\u74F6_1"
     2300046: "\u9152\u74F6_2"
+    2300048: A_bottle_1
+    2300050: A_bottle_2
+    2300052: A_bottle_3
+    2300054: A_bottle_4
+    2300056: A_cup_1
+    2300058: A_cup_2
+    2300060: A_cup_3
+    2300062: A_cup_4
+    2300064: A_mixing_cap_1
+    2300066: A_mixing_cap_2
+    2300068: A_mixing_cap_3
+    2300070: A_mixing_cup_1
+    2300072: A_mixing_cup_2
     3300000: cup
     3300002: cup_1
     3300004: cup_2
@@ -217,6 +258,19 @@ ModelImporter:
     3300042: "\u9152\u74F6"
     3300044: "\u9152\u74F6_1"
     3300046: "\u9152\u74F6_2"
+    3300048: A_bottle_1
+    3300050: A_bottle_2
+    3300052: A_bottle_3
+    3300054: A_bottle_4
+    3300056: A_cup_1
+    3300058: A_cup_2
+    3300060: A_cup_3
+    3300062: A_cup_4
+    3300064: A_mixing_cap_1
+    3300066: A_mixing_cap_2
+    3300068: A_mixing_cap_3
+    3300070: A_mixing_cup_1
+    3300072: A_mixing_cup_2
     4300000: "\u4E2D_1"
     4300002: cup
     4300004: cup_1
@@ -242,6 +296,19 @@ ModelImporter:
     4300044: mesh
     4300046: hair
     4300048: ears
+    4300050: A_cup_1
+    4300052: A_cup_2
+    4300054: A_bottle_1
+    4300056: A_bottle_2
+    4300058: A_mixing_cup_1
+    4300060: A_mixing_cap_1
+    4300062: A_mixing_cap_2
+    4300064: A_mixing_cup_2
+    4300066: A_mixing_cap_3
+    4300068: A_cup_3
+    4300070: A_cup_4
+    4300072: A_bottle_3
+    4300074: A_bottle_4
     7400000: stand_bartend
     9500000: //RootNode
     13700000: mesh
@@ -291,15 +358,37 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
+      - path: A_bottle_1
         weight: 1
-      - path: cup
+      - path: A_bottle_2
         weight: 1
-      - path: cup_1
+      - path: A_cup_1
+        weight: 1
+      - path: A_cup_2
+        weight: 1
+      - path: A_mixing_cap_1
+        weight: 1
+      - path: A_mixing_cap_2
+        weight: 1
+      - path: A_mixing_cup_1
         weight: 1
       - path: desk
         weight: 1
@@ -310,8 +399,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -363,17 +450,17 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/cup_2
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_bottle_3
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/left_hand_Goal/\u7A7A\u767D_1"
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_bottle_4
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/left_hand_Goal/\u7A7A\u767D_1/\u4E2D_3"
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_cup_4
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/left_hand_Goal/\u7A7A\u767D_1/\u76D6_3"
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_mixing_cap_4
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/left_hand_Goal/\u82CF\u6253\u6C34"
+      - path: "hip_ctrl/root/spline/right_chest/left_hand_Goal/A_mixing_cap_4/\u4E2D_3"
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/left_hand_Goal/\u9152\u74F6_2"
+      - path: "hip_ctrl/root/spline/right_chest/left_hand_Goal/A_mixing_cap_4/\u76D6_3"
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -405,11 +492,11 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/right_hand_Goal/\u4E2D_1_2"
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/A_cup_3
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/right_hand_Goal/\u5E95_1"
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/A_mixing_cap_3
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/right_hand_Goal/\u65CB\u8F6C_2"
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/A_mixing_cup_2
         weight: 1
       - path: left_foot_ctrl
         weight: 1
@@ -418,8 +505,6 @@ ModelImporter:
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
-        weight: 1
-      - path: left_foot_ctrl/left_toe_2
         weight: 1
       - path: mesh
         weight: 1
@@ -430,32 +515,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
-      - path: "\u4E2D"
-        weight: 1
-      - path: "\u4E2D_1"
-        weight: 1
-      - path: "\u5E95"
-        weight: 1
-      - path: "\u65CB\u8F6C"
-        weight: 1
-      - path: "\u65CB\u8F6C_1"
-        weight: 1
-      - path: "\u76D6"
-        weight: 1
-      - path: "\u7A7A\u767D"
-        weight: 1
-      - path: "\u7A7A\u767D/\u4E2D_2"
-        weight: 1
-      - path: "\u7A7A\u767D/\u76D6_2"
-        weight: 1
-      - path: "\u82CF\u6253\u6C34_1"
-        weight: 1
-      - path: "\u9152\u74F6"
-        weight: 1
-      - path: "\u9152\u74F6_1"
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

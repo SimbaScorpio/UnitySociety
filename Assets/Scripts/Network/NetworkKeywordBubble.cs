@@ -17,13 +17,13 @@ namespace DesignSociety
 
 		void Update ()
 		{
-			if (Input.GetMouseButtonDown (0)) {
-				Ray ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
-				RaycastHit hit;
-				if (Physics.Raycast (ray, out hit, float.MaxValue)) {
-					CheckKeywordPressed (hit.collider.gameObject);
-				}
-			}
+//			if (Input.GetMouseButtonDown (0)) {
+//				Ray ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
+//				RaycastHit hit;
+//				if (Physics.Raycast (ray, out hit, float.MaxValue)) {
+//					CheckKeywordPressed (hit.collider.gameObject);
+//				}
+//			}
 		}
 
 		public bool CheckKeywordPressed (GameObject collider)

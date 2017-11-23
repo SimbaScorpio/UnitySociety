@@ -63,6 +63,7 @@ ModelImporter:
     100110: spline
     100112: spotlight
     100114: //RootNode
+    100116: A_spotlight_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -121,19 +122,24 @@ ModelImporter:
     400110: spline
     400112: spotlight
     400114: //RootNode
+    400116: A_spotlight_1
     2300000: ears
     2300002: hair
     2300004: spotlight
+    2300006: A_spotlight_1
     3300000: ears
     3300002: hair
     3300004: spotlight
+    3300006: A_spotlight_1
     4300000: spotlight
     4300002: mesh
     4300004: hair
     4300006: ears
-    7400000: stand_light
+    4300008: A_spotlight_1
+    7400000: stand_light_begin
     7400002: stand_light_begin
     7400004: stand_light_end
+    7400006: stand_light
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -162,7 +168,7 @@ ModelImporter:
     - serializedVersion: 16
       name: stand_light
       takeName: CINEMA_4D_Main
-      firstFrame: 25
+      firstFrame: 27
       lastFrame: 74
       wrapMode: 0
       orientationOffsetY: 0
@@ -186,6 +192,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_spotlight_1
+        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -193,8 +201,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -284,8 +290,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -296,10 +300,6 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
-      - path: spotlight
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
@@ -307,7 +307,7 @@ ModelImporter:
       name: stand_light_begin
       takeName: CINEMA_4D_Main
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 27
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -337,6 +337,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_spotlight_1
+        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -344,8 +346,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -435,8 +435,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -446,10 +444,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
-      - path: spotlight
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -488,6 +482,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_spotlight_1
+        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -495,8 +491,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -586,8 +580,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -597,10 +589,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
-      - path: spotlight
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

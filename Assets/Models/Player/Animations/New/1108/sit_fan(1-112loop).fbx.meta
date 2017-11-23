@@ -66,6 +66,7 @@ ModelImporter:
     100116: shanzi_1
     100118: //RootNode
     100120: spline
+    100122: A_fan_1
     400000: chest_ctrl
     400002: "Cinema4D_\u7F16\u8F91\u5668"
     400004: desk
@@ -127,23 +128,29 @@ ModelImporter:
     400116: shanzi_1
     400118: //RootNode
     400120: spline
+    400122: A_fan_1
     2300000: desk
     2300002: ears
     2300004: hair
     2300006: shanzi
     2300008: shanzi_1
+    2300010: A_fan_1
     3300000: desk
     3300002: ears
     3300004: hair
     3300006: shanzi
     3300008: shanzi_1
+    3300010: A_fan_1
     4300000: shanzi
     4300002: desk
     4300004: shanzi_1
     4300006: mesh
     4300008: hair
     4300010: ears
+    4300012: A_fan_1
     7400000: sit_fan
+    7400002: sit_fan_begin
+    7400004: sit_fan_end
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -172,8 +179,8 @@ ModelImporter:
     - serializedVersion: 16
       name: sit_fan
       takeName: CINEMA_4D_Main
-      firstFrame: 12
-      lastFrame: 112
+      firstFrame: 36
+      lastFrame: 76
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -196,8 +203,6 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
-        weight: 1
       - path: desk
         weight: 1
       - path: ears
@@ -207,8 +212,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -260,7 +263,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/shanzi_1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_fan_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -300,7 +303,154 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
+      - path: mesh
+        weight: 1
+      - path: right_foot_ctrl
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
+        weight: 1
+      - path: shanzi
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: sit_fan_begin
+      takeName: CINEMA_4D_Main
+      firstFrame: 12
+      lastFrame: 36
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: desk
+        weight: 1
+      - path: ears
+        weight: 1
+      - path: hair
+        weight: 1
+      - path: hip_ctrl
+        weight: 1
+      - path: hip_ctrl/chest_ctrl
+        weight: 1
+      - path: hip_ctrl/root
+        weight: 1
+      - path: hip_ctrl/root/left_hip
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot/left_toe
+        weight: 1
+      - path: hip_ctrl/root/right_hip
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot/right_toe
+        weight: 1
+      - path: hip_ctrl/root/spline
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/left_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_fan_1
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head/end
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2/right_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid/right_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
+        weight: 1
+      - path: left_foot_ctrl
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
       - path: mesh
         weight: 1
@@ -312,13 +462,160 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
+      - path: shanzi
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: sit_fan_end
+      takeName: CINEMA_4D_Main
+      firstFrame: 76
+      lastFrame: 112
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: desk
+        weight: 1
+      - path: ears
+        weight: 1
+      - path: hair
+        weight: 1
+      - path: hip_ctrl
+        weight: 1
+      - path: hip_ctrl/chest_ctrl
+        weight: 1
+      - path: hip_ctrl/root
+        weight: 1
+      - path: hip_ctrl/root/left_hip
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot
+        weight: 1
+      - path: hip_ctrl/root/left_hip/left_knee/left_ankle/left_foot/left_toe
+        weight: 1
+      - path: hip_ctrl/root/right_hip
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot
+        weight: 1
+      - path: hip_ctrl/root/right_hip/right_knee/right_ankle/right_foot/right_toe
+        weight: 1
+      - path: hip_ctrl/root/spline
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb/left_thumbmid/left_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_fan_1
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/neck/head/end
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_fingertip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_mid/right_mid2/right_fingertip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumb/right_thumbmid/right_thumbtip
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_arm/right_elbow/right_hand/right_thumbtip_Goal
+        weight: 1
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
+        weight: 1
+      - path: left_foot_ctrl
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2
+        weight: 1
+      - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
+        weight: 1
+      - path: mesh
+        weight: 1
+      - path: right_foot_ctrl
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2
+        weight: 1
+      - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
       - path: shanzi
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

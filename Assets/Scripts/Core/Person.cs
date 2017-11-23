@@ -639,13 +639,19 @@ namespace DesignSociety
 		// 0-无气泡 1-对话气泡 2-关键词气泡 3-icon气泡 4-screen
 		void DisplayBubble (Person person, Self self, ref int index)
 		{
-			if (self.bubble_content == null || self.bubble_content.Length == 0)
+			if (person != null && self != null)
+				DisplayBubble (person, self.bubble_content, self.bubble_direction, ref index);
+		}
+
+		void DisplayBubble (Person person, string[] bubble_content, int bubble_direction, ref int index)
+		{
+			if (person == null || bubble_content == null || bubble_content.Length == 0)
 				return;
-			if (index < 0 || index >= self.bubble_content.Length)
-				return;
+			if (index < 0 || index >= bubble_content.Length)
+				index = Mathf.Clamp (index, 0, bubble_content.Length - 1);
 			// 解析格式: num_name
-			string str = self.bubble_content [index];
-			index = (index + 1) % self.bubble_content.Length;
+			string str = bubble_content [index];
+			index = (index + 1) % bubble_content.Length;
 			int i = str.IndexOf ('_');
 			if (i <= 0)
 				return;
@@ -655,16 +661,16 @@ namespace DesignSociety
 			// 分类
 			switch (bubble_type) {
 			case 1:
-				person.bubbleDealer.NetworkChatBubble (content, 8f, self.bubble_direction);
+				person.bubbleDealer.NetworkChatBubble (content, 8f, bubble_direction);
 				break;
 			case 2:
-				person.bubbleDealer.NetworkKeywordBubble (content, 5f);
+				person.bubbleDealer.NetworkKeywordBubble (content, 8f);
 				break;
 			case 3:
-				person.bubbleDealer.NetworkIconBubble (content, 3f);
+				person.bubbleDealer.NetworkIconBubble (content, 8f);
 				break;
 			case 4:
-				person.bubbleDealer.NetworkScreenBubble (content, 3f, self.bubble_direction);
+				person.bubbleDealer.NetworkScreenBubble (content, 8f, bubble_direction);
 				break;
 			}
 		}
@@ -751,19 +757,17 @@ namespace DesignSociety
 
 		// 添加的需求：人物随机行动
 		public bool isRandomPerson;
-		public StorylinePart part;
-		public RandomAction randomAction;
 		public string randomScene;
+		public RandomAction randomAction;
 		public Landmark randomLandmark;
 
 		private float randomMaxTime;
 		private float randomCountTime;
 		private bool randomTick;
 
-		public void SetAsRandomPerson (StorylinePart part, string randomScene)
+		public void SetAsRandomPerson (string randomScene)
 		{
 			isRandomPerson = true;
-			this.part = part;
 			this.randomScene = randomScene;
 		}
 
@@ -771,6 +775,9 @@ namespace DesignSociety
 		{
 			if (randomTick) {
 				randomCountTime += Time.deltaTime;
+				if (!actionDealer.IsBubbling () && randomLandmark != null) {
+					DisplayBubble (this, randomLandmark.m_bubble_content, randomLandmark.m_bubble_direction, ref bubbleListIndex);
+				}
 			}
 			if (actionDealer.IsPlaying ())
 				return;
@@ -778,7 +785,7 @@ namespace DesignSociety
 				actionDealer.StopCountingAid ();
 				randomCountTime = 0;
 				randomTick = false;
-				randomAction = part.AskForNewLocation (randomScene, this, ref randomLandmark, ref randomMaxTime);
+				randomAction = storylineManager.AskForNewLocation (randomScene, this, ref randomLandmark, ref randomMaxTime);
 				actionDealer.ApplyWalkAction (randomLandmark, true, null);
 			} else if (randomTick) {
 				if (randomAction != null)

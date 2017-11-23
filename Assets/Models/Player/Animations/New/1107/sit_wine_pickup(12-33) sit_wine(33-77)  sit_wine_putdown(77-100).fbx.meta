@@ -66,6 +66,7 @@ ModelImporter:
     100116: right_toe_2
     100118: root
     100120: spline
+    100122: B_cup_1
     400000: //RootNode
     400002: chest_ctrl
     400004: "Cinema4D_\u7F16\u8F91\u5668"
@@ -127,25 +128,30 @@ ModelImporter:
     400116: right_toe_2
     400118: root
     400120: spline
+    400122: B_cup_1
     2300000: cup
     2300002: cup_2
     2300004: desk
     2300006: ears
     2300008: hair
+    2300010: B_cup_1
     3300000: cup
     3300002: cup_2
     3300004: desk
     3300006: ears
     3300008: hair
+    3300010: B_cup_1
     4300000: cup
     4300002: desk
     4300004: cup_2
     4300006: mesh
     4300008: hair
     4300010: ears
-    7400000: sit_wine_pickup
+    4300012: B_cup_1
+    7400000: sit_wine_begin
     7400002: sit_wine
     7400004: sit_wine_putdown
+    7400006: sit_wine_end
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -172,9 +178,9 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: sit_wine_pickup
+      name: sit_wine_begin
       takeName: CINEMA_4D_Main
-      firstFrame: 0
+      firstFrame: 12
       lastFrame: 33
       wrapMode: 0
       orientationOffsetY: 0
@@ -194,11 +200,16 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: OnItemGained
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
-        weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
         weight: 1
       - path: cup
         weight: 1
@@ -211,8 +222,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -264,7 +273,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/cup_2
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/B_cup_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -304,8 +313,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -316,11 +323,9 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: sit_wine
       takeName: CINEMA_4D_Main
@@ -348,8 +353,6 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
-        weight: 1
       - path: cup
         weight: 1
       - path: desk
@@ -361,8 +364,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -414,7 +415,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/cup_2
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/B_cup_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -454,8 +455,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -466,13 +465,11 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: sit_wine_putdown
+      name: sit_wine_end
       takeName: CINEMA_4D_Main
       firstFrame: 100
       lastFrame: 126
@@ -494,11 +491,16 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemReset
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
-        weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
         weight: 1
       - path: cup
         weight: 1
@@ -511,8 +513,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -564,7 +564,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/cup_2
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/B_cup_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -604,8 +604,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -616,11 +614,9 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

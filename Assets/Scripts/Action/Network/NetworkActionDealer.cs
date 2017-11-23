@@ -132,7 +132,7 @@ namespace DesignSociety
 			ActionType newType = ActionName.IsValid (stateName);
 			if (newType == ActionType.error) {
 				Log.error ("未知的动作【" + stateName + "】");
-				GetComponent<NetworkBubbleDealer> ().ApplyErrorBubble ("未知的动作【" + stateName + "】", 5);
+				bubbleDealer.ApplyErrorBubble ("未知的动作【" + stateName + "】", 5);
 				ActionIdle idle = gameObject.AddComponent<ActionIdle> ();
 				idle.Setting (gameObject, "", 5f, null);
 				RecordRecentAction (stateName);

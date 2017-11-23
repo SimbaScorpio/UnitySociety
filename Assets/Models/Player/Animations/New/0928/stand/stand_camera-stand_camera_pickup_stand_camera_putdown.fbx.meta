@@ -51,6 +51,7 @@ ModelImporter:
     100086: root
     100088: spline
     100090: //RootNode
+    100092: A_camera_1
     400000: camera2
     400002: ears
     400004: end
@@ -97,19 +98,26 @@ ModelImporter:
     400086: root
     400088: spline
     400090: //RootNode
+    400092: A_camera_1
     2300000: camera2
     2300002: ears
     2300004: hair
+    2300006: A_camera_1
     3300000: camera2
     3300002: ears
     3300004: hair
+    3300006: A_camera_1
     4300000: camera2
     4300002: mesh
     4300004: hair
     4300006: ears
-    7400000: stand_camera
-    7400002: stand_camera_pickup
+    4300008: A_camera_1
+    7400000: stand_camera_begin
+    7400002: stand_camera_end
     7400004: stand_camera_putdown
+    7400006: stand_camera
+    7400008: stand_camera_pickup
+    7400010: stand_camera
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -125,8 +133,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: Event OnItemShown has a time (0.000000) outside the clip's
-      valid range (0.041667..1.250000). It will never be fired
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 1
@@ -201,7 +208,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/camera2
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/A_camera_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_fingertip_Goal
         weight: 1
@@ -255,11 +262,11 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: stand_camera_pickup
+      name: stand_camera_begin
       takeName: CINEMA_4D_Main
-      firstFrame: 0
+      firstFrame: 1
       lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
@@ -328,7 +335,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/camera2
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/A_camera_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_fingertip_Goal
         weight: 1
@@ -382,9 +389,9 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: stand_camera_putdown
+      name: stand_camera_end
       takeName: CINEMA_4D_Main
       firstFrame: 122
       lastFrame: 144
@@ -455,7 +462,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/camera2
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/A_camera_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_fingertip_Goal
         weight: 1

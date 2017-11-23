@@ -23,7 +23,7 @@ namespace DesignSociety
 		private Transform hook;
 		private bool faceCamera;
 
-		private float duration = -1.0f;
+		public float duration = -1.0f;
 		private bool tryEnd;
 
 		private string showStateName = "ChatBubbleShow";
@@ -74,6 +74,7 @@ namespace DesignSociety
 				OnBubbleFinished ();
 				return;
 			}
+			StopAllCoroutines ();
 			Transform bubble = bubbles [currentType];
 			bubble.gameObject.SetActive (true);
 			bubble.GetComponent<Animator> ().Play (showStateName);

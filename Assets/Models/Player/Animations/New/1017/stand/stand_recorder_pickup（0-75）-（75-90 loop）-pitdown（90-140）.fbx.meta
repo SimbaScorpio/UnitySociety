@@ -64,6 +64,7 @@ ModelImporter:
     100112: root
     100114: spline
     100116: //RootNode
+    100118: A_pen_3
     400000: chest_ctrl
     400002: "Cinema4D_\u7F16\u8F91\u5668"
     400004: ears
@@ -123,19 +124,26 @@ ModelImporter:
     400112: root
     400114: spline
     400116: //RootNode
+    400118: A_pen_3
     2300000: ears
     2300002: hair
     2300004: pen
+    2300006: A_pen_3
     3300000: ears
     3300002: hair
     3300004: pen
+    3300006: A_pen_3
     4300000: pen
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: A_pen_3
     7400000: stand_recorder
     7400002: stand_recorder_pickup
     7400004: stand_recorder_putdown
+    7400006: stand_recorder
+    7400008: stand_recorder_begin
+    7400010: stand_recorder_end
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -188,8 +196,6 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
-        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -197,8 +203,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -238,9 +242,9 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/A_pen_3
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/pen
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb
         weight: 1
@@ -290,8 +294,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -302,13 +304,11 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: stand_recorder_pickup
+      name: stand_recorder_begin
       takeName: CINEMA_4D_Main
       firstFrame: 0
       lastFrame: 75
@@ -341,8 +341,6 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
-        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -350,8 +348,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -391,9 +387,9 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/A_pen_3
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/pen
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb
         weight: 1
@@ -443,8 +439,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -455,13 +449,11 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: stand_recorder_putdown
+      name: stand_recorder_end
       takeName: CINEMA_4D_Main
       firstFrame: 76
       lastFrame: 168
@@ -494,8 +486,6 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
-        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -503,8 +493,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -544,9 +532,9 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/A_pen_3
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/pen
+      - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_mid/left_mid2/left_fingertip
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_arm/left_elbow/left_hand/left_thumb
         weight: 1
@@ -596,8 +584,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -607,8 +593,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: right_foot_ctrl/right_toe_2
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

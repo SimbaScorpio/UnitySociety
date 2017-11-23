@@ -63,6 +63,7 @@ ModelImporter:
     100110: //RootNode
     100112: tailor
     100114: target
+    100116: A_tailor_tape_1
     400000: chest_ctrl
     400002: Cube
     400004: Cylinder
@@ -121,6 +122,7 @@ ModelImporter:
     400110: //RootNode
     400112: tailor
     400114: target
+    400116: A_tailor_tape_1
     2300000: Cube
     2300002: Cylinder
     2300004: ears
@@ -200,6 +202,12 @@ ModelImporter:
         messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: A_tailor_tape_1
+        weight: 1
+      - path: A_tailor_tape_1/Cube
+        weight: 1
+      - path: A_tailor_tape_1/Cylinder
         weight: 1
       - path: ears
         weight: 1
@@ -306,12 +314,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: tailor
-        weight: 1
-      - path: tailor/Cube
-        weight: 1
-      - path: tailor/Cylinder
         weight: 1
       - path: target
         weight: 1

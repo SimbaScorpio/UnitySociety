@@ -66,6 +66,7 @@ ModelImporter:
     100116: spline
     100118: "\u5E73\u9762"
     100120: crumple_paper
+    100122: A_crumple_paper_1
     400000: chest_ctrl
     400002: "Cinema4D_\u7F16\u8F91\u5668"
     400004: desk
@@ -127,22 +128,26 @@ ModelImporter:
     400116: spline
     400118: "\u5E73\u9762"
     400120: crumple_paper
+    400122: A_crumple_paper_1
     2300000: desk
     2300002: ears
     2300004: hair
     2300006: "\u5E73\u9762"
     2300008: crumple_paper
+    2300010: A_crumple_paper_1
     3300000: desk
     3300002: ears
     3300004: hair
     3300006: "\u5E73\u9762"
     3300008: crumple_paper
+    3300010: A_crumple_paper_1
     4300000: desk
     4300002: "\u5E73\u9762"
     4300004: mesh
     4300006: hair
     4300008: ears
     4300010: crumple_paper
+    4300012: A_crumple_paper_1
     7400000: sit_crumple_paper
     9500000: //RootNode
     13700000: mesh
@@ -192,7 +197,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -256,7 +275,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/crumple_paper
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_crumple_paper_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -308,7 +327,7 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

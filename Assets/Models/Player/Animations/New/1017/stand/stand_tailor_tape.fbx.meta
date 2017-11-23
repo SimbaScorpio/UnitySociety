@@ -65,6 +65,7 @@ ModelImporter:
     100114: //RootNode
     100116: tailor
     100118: "\u5E73\u9762"
+    100120: A_tailor_tape_2
     400000: chest_ctrl
     400002: desk
     400004: ears
@@ -125,22 +126,26 @@ ModelImporter:
     400114: //RootNode
     400116: tailor
     400118: "\u5E73\u9762"
+    400120: A_tailor_tape_2
     2300000: desk
     2300002: ears
     2300004: hair
     2300006: tailor
     2300008: "\u5E73\u9762"
+    2300010: A_tailor_tape_2
     3300000: desk
     3300002: ears
     3300004: hair
     3300006: tailor
     3300008: "\u5E73\u9762"
+    3300010: A_tailor_tape_2
     4300000: desk
     4300002: tailor
     4300004: "\u5E73\u9762"
     4300006: mesh
     4300008: hair
     4300010: ears
+    4300012: A_tailor_tape_2
     7400000: stand_tailor_tape
     9500000: //RootNode
     13700000: mesh
@@ -217,8 +222,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -300,9 +303,9 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/tailor
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/A_tailor_tape_2
         weight: 1
-      - path: "hip_ctrl/root/spline/right_chest/right_hand_Goal/tailor/\u5E73\u9762"
+      - path: "hip_ctrl/root/spline/right_chest/right_hand_Goal/A_tailor_tape_2/\u5E73\u9762"
         weight: 1
       - path: left_foot_ctrl
         weight: 1
@@ -311,8 +314,6 @@ ModelImporter:
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
-        weight: 1
-      - path: left_foot_ctrl/left_toe_2
         weight: 1
       - path: mesh
         weight: 1
@@ -323,8 +324,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: right_foot_ctrl/right_toe_2
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

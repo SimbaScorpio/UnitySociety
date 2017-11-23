@@ -95,6 +95,8 @@ namespace DesignSociety
 		// 普通的显示和消失
 		public void OnItemShown ()
 		{
+			if (info.itemPaths == null)
+				return;
 			for (int i = 0; i < info.itemPaths.Length; ++i) {
 				transform.Find (info.itemPaths [i]).gameObject.SetActive (true);
 			}
@@ -103,6 +105,8 @@ namespace DesignSociety
 
 		public void OnItemHidden ()
 		{
+			if (info.itemPaths == null)
+				return;
 			for (int i = 0; i < info.itemPaths.Length; ++i) {
 				transform.Find (info.itemPaths [i]).gameObject.SetActive (false);
 			}
@@ -112,6 +116,8 @@ namespace DesignSociety
 		// 创建物品至场景
 		public void OnItemCreated ()
 		{
+			if (info.itemPaths == null)
+				return;
 			Transform parent = transform.Find (info.itemPaths [0]);
 			dealer.createdItem = Instantiate (Resources.Load ("Prefabs/Item/" + info.prefabName)) as GameObject;
 			dealer.createdItem.GetComponent<CopyTransform> ().target = parent;
@@ -136,6 +142,8 @@ namespace DesignSociety
 			Transform tr;
 
 			// search item in scene
+			if (info.itemPaths == null)
+				return;
 			dealer.gainedItems.Clear ();
 			for (int i = 0; i < info.itemPaths.Length; ++i) {
 				root_name = SplitRootAndName (info.itemPaths [i]);

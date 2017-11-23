@@ -64,6 +64,9 @@ ModelImporter:
     100112: root
     100114: //RootNode
     100116: spline
+    100118: A_paper_3
+    100120: A_pen_3
+    100122: A_pen_4
     400000: book
     400002: chest_ctrl
     400004: desk
@@ -123,22 +126,34 @@ ModelImporter:
     400112: root
     400114: //RootNode
     400116: spline
+    400118: A_paper_3
+    400120: A_pen_3
+    400122: A_pen_4
     2300000: book
     2300002: desk
     2300004: ears
     2300006: hair
     2300008: pen
+    2300010: A_paper_3
+    2300012: A_pen_3
+    2300014: A_pen_4
     3300000: book
     3300002: desk
     3300004: ears
     3300006: hair
     3300008: pen
+    3300010: A_paper_3
+    3300012: A_pen_3
+    3300014: A_pen_4
     4300000: desk
     4300002: book
     4300004: pen
     4300006: mesh
     4300008: hair
     4300010: ears
+    4300012: A_paper_3
+    4300014: A_pen_3
+    4300016: A_pen_4
     7400000: sit_write_dictate
     7400002: sit_write_dictate_begin
     7400004: sit_write_dictate_end
@@ -256,7 +271,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/pen
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_pen_4
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -290,7 +305,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/book
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/A_paper_3
         weight: 1
       - path: left_foot_ctrl
         weight: 1
@@ -409,7 +424,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/pen
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_pen_4
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -443,7 +458,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/book
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/A_paper_3
         weight: 1
       - path: left_foot_ctrl
         weight: 1
@@ -562,7 +577,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/pen
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_pen_4
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -596,7 +611,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/book
+      - path: hip_ctrl/root/spline/right_chest/right_hand_Goal/A_paper_3
         weight: 1
       - path: left_foot_ctrl
         weight: 1

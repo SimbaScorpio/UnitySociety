@@ -68,6 +68,8 @@ ModelImporter:
     100120: root
     100122: //RootNode
     100124: spline
+    100126: A_computer_1
+    100128: A_mouse_2
     400000: 1
     400002: 2
     400004: chest_ctrl
@@ -131,6 +133,8 @@ ModelImporter:
     400120: root
     400122: //RootNode
     400124: spline
+    400126: A_computer_1
+    400128: A_mouse_2
     2300000: 1
     2300002: 2
     2300004: computer
@@ -138,6 +142,8 @@ ModelImporter:
     2300008: ears
     2300010: hair
     2300012: mouse
+    2300014: A_computer_1
+    2300016: A_mouse_2
     3300000: 1
     3300002: 2
     3300004: computer
@@ -145,6 +151,8 @@ ModelImporter:
     3300008: ears
     3300010: hair
     3300012: mouse
+    3300014: A_computer_1
+    3300016: A_mouse_2
     4300000: mouse
     4300002: computer
     4300004: 1
@@ -153,6 +161,8 @@ ModelImporter:
     4300010: mesh
     4300012: hair
     4300014: ears
+    4300016: A_mouse_2
+    4300018: A_computer_1
     7400000: sit_calculator_begin
     7400002: sit_calculator
     7400004: sit_calculator_end
@@ -192,7 +202,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -208,13 +218,13 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
+      - path: A_computer_1
         weight: 1
-      - path: computer
+      - path: A_computer_1/1
         weight: 1
-      - path: computer/1
+      - path: A_computer_1/2
         weight: 1
-      - path: computer/2
+      - path: A_mouse_2
         weight: 1
       - path: desk
         weight: 1
@@ -225,8 +235,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -316,11 +324,7 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
-        weight: 1
-      - path: mouse
         weight: 1
       - path: right_foot_ctrl
         weight: 1
@@ -330,11 +334,9 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: sit_calculator_begin
       takeName: CINEMA_4D_Main
@@ -358,17 +360,24 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
+      - path: A_computer_1
         weight: 1
-      - path: computer
+      - path: A_computer_1/1
         weight: 1
-      - path: computer/1
+      - path: A_computer_1/2
         weight: 1
-      - path: computer/2
+      - path: A_mouse_2
         weight: 1
       - path: desk
         weight: 1
@@ -379,8 +388,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -470,11 +477,7 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
-        weight: 1
-      - path: mouse
         weight: 1
       - path: right_foot_ctrl
         weight: 1
@@ -484,11 +487,9 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: sit_calculator_end
       takeName: CINEMA_4D_Main
@@ -512,17 +513,24 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
-      - path: "Cinema4D_\u7F16\u8F91\u5668"
+      - path: A_computer_1
         weight: 1
-      - path: computer
+      - path: A_computer_1/1
         weight: 1
-      - path: computer/1
+      - path: A_computer_1/2
         weight: 1
-      - path: computer/2
+      - path: A_mouse_2
         weight: 1
       - path: desk
         weight: 1
@@ -533,8 +541,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -624,11 +630,7 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
-        weight: 1
-      - path: mouse
         weight: 1
       - path: right_foot_ctrl
         weight: 1
@@ -638,11 +640,9 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

@@ -61,6 +61,7 @@ ModelImporter:
     100106: //RootNode
     100108: stickynote
     100110: target
+    100112: C_stickynote_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -117,16 +118,20 @@ ModelImporter:
     400106: //RootNode
     400108: stickynote
     400110: target
+    400112: C_stickynote_1
     2300000: ears
     2300002: hair
     2300004: stickynote
+    2300006: C_stickynote_1
     3300000: ears
     3300002: hair
     3300004: stickynote
+    3300006: C_stickynote_1
     4300000: stickynote
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: C_stickynote_1
     7400000: stand_stickynote_wall
     9500000: //RootNode
     13700000: mesh
@@ -193,6 +198,8 @@ ModelImporter:
         messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: C_stickynote_1
         weight: 1
       - path: ears
         weight: 1
@@ -299,8 +306,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: stickynote
         weight: 1
       - path: target
         weight: 1

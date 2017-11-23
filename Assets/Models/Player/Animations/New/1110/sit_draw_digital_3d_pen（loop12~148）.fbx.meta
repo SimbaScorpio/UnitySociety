@@ -65,6 +65,8 @@ ModelImporter:
     100114: root
     100116: //RootNode
     100118: spline
+    100120: A_pen_3
+    100122: A_pen_7
     400000: chest_ctrl
     400002: "Cinema4D_\u7F16\u8F91\u5668"
     400004: desk
@@ -125,19 +127,27 @@ ModelImporter:
     400114: root
     400116: //RootNode
     400118: spline
+    400120: A_pen_3
+    400122: A_pen_7
     2300000: desk
     2300002: ears
     2300004: hair
     2300006: pen
+    2300008: A_pen_3
+    2300010: A_pen_7
     3300000: desk
     3300002: ears
     3300004: hair
     3300006: pen
+    3300008: A_pen_3
+    3300010: A_pen_7
     4300000: desk
     4300002: pen
     4300004: mesh
     4300006: hair
     4300008: ears
+    4300010: A_pen_3
+    4300012: A_pen_7
     7400000: sit_draw_digital_3d_pen
     9500000: //RootNode
     13700000: mesh
@@ -187,7 +197,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -311,7 +335,7 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

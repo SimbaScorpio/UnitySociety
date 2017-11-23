@@ -10,6 +10,8 @@ namespace DesignSociety
 		public string m_name;
 		public string m_label;
 		public float[] m_data;
+		public string[] m_bubble_content;
+		public int m_bubble_direction;
 
 		public Vector3 position { 
 			get {

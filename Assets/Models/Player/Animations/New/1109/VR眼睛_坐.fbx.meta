@@ -63,6 +63,8 @@ ModelImporter:
     100110: spline
     100112: VR
     100114: //RootNode
+    100116: A_vr_glass_1
+    100118: A_vr_handle_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -121,23 +123,33 @@ ModelImporter:
     400110: spline
     400112: VR
     400114: //RootNode
+    400116: A_vr_glass_1
+    400118: A_vr_handle_1
     2300000: ears
     2300002: hair
     2300004: handle
     2300006: VR
+    2300008: A_vr_glass_1
+    2300010: A_vr_handle_1
     3300000: ears
     3300002: hair
     3300004: handle
     3300006: VR
+    3300008: A_vr_glass_1
+    3300010: A_vr_handle_1
     4300000: VR
     4300002: handle
     4300004: mesh
     4300006: hair
     4300008: ears
+    4300010: A_vr_glass_1
+    4300012: A_vr_handle_1
     7400000: sit_vr_pickup
     7400002: sit_vr
     7400004: sit_vr_handle
     7400006: sit_vr_putdown
+    7400008: sit_vr_begin
+    7400010: sit_vr_end
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -164,7 +176,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: sit_vr_pickup
+      name: sit_vr_begin
       takeName: CINEMA_4D_Main
       firstFrame: 12
       lastFrame: 40
@@ -186,9 +198,18 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: A_vr_glass_1
         weight: 1
       - path: ears
         weight: 1
@@ -250,7 +271,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/handle
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_vr_handle_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -301,8 +322,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: VR
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -334,6 +353,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_vr_glass_1
+        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -394,7 +415,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/handle
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_vr_handle_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -445,8 +466,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: VR
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
@@ -478,6 +497,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_vr_glass_1
+        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -538,7 +559,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/handle
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_vr_handle_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -590,13 +611,11 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: VR
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: sit_vr_putdown
+      name: sit_vr_end
       takeName: CINEMA_4D_Main
       firstFrame: 208
       lastFrame: 224
@@ -618,9 +637,18 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: A_vr_glass_1
         weight: 1
       - path: ears
         weight: 1
@@ -682,7 +710,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/handle
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_vr_handle_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -733,8 +761,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: VR
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

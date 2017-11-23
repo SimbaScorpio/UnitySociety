@@ -44,6 +44,10 @@ namespace DesignSociety
 			nameToSceneState = new Dictionary<string, SceneState> ();
 			nameToSceneCandidateNames = new Dictionary<string, HashSet<string>> ();
 			nameToStorylinePart = new Dictionary<string, StorylinePart> ();
+
+			nameToRandomActivity = new Dictionary<string, RandomActivity> ();
+			nameToActionDict = new Dictionary<string, Dictionary<string, RandomAction>> ();
+			nameToLandmarkDict = new Dictionary<string, Dictionary<Landmark, Person>> ();
 		}
 
 		public void AddStorylinePart (StorylinePart part)
@@ -78,12 +82,14 @@ namespace DesignSociety
 
 		public void Restart ()
 		{
-			GameObject[] objs = GameObject.FindGameObjectsWithTag ("Player");
+			GameObjectCollection.GetInstance ().Clear ("Player");
+			GameObject[] objs = GameObjectCollection.GetInstance ().Get ("Player");
 			for (int i = 0; i < objs.Length; ++i) {
 				Destroy (objs [i]);
 			}
 			InitializeVariables ();
 			Initialize ();
+			InitRandomInfo ();
 		}
 
 		void InitializeCharacters ()
@@ -285,5 +291,129 @@ namespace DesignSociety
 			int time = (int)nameToStorylinePart [spotName].time;
 			return "【" + time + "】，";
 		}
+
+
+		#region random
+
+		public Vector2 randomTime = new Vector2 (20f, 60f);
+		public Dictionary<string, RandomActivity> nameToRandomActivity;
+		public Dictionary<string, Dictionary<string, RandomAction>> nameToActionDict;
+		public Dictionary<string, Dictionary<Landmark, Person>> nameToLandmarkDict;
+		private List<Landmark> availableLandmark = new List<Landmark> ();
+
+		void InitRandomInfo ()
+		{
+			InitRandomActivity ();
+			foreach (string randomscene in nameToRandomActivity.Keys)
+				InitRandomPerson (nameToRandomActivity [randomscene]);
+		}
+
+		void InitRandomActivity ()
+		{
+			Storyline storyline;
+			RandomActivity temp;
+			for (int i = 0; i < storylineParts.Count; ++i) {
+				storyline = storylineParts [i].storyline;
+				if (storyline == null || storyline.random == null)
+					return;
+				for (int j = 0; j < storyline.random.Length; ++j) {
+					temp = storyline.random [j];
+					if (string.IsNullOrEmpty (temp.randomscene)) {
+						Log.error ("【" + temp.randomscene + "】随机动作表第【" + j + "】项命名为空");
+						continue;
+					}
+					if (nameToRandomActivity.ContainsKey (temp.randomscene)) {
+						Log.warn ("【" + temp.randomscene + "】随机动作表第【" + j + "】项命名重复");
+					}
+					nameToRandomActivity [temp.randomscene] = temp;
+					nameToActionDict [temp.randomscene] = new Dictionary<string, RandomAction> ();
+					InitRandomAction (temp);
+					nameToLandmarkDict [temp.randomscene] = new Dictionary<Landmark, Person> ();
+					InitRandomLandmark (temp);
+				}
+			}
+		}
+
+		void InitRandomAction (RandomActivity t)
+		{
+			if (nameToActionDict [t.randomscene] == null)
+				return;
+			Dictionary<string, RandomAction> dict = nameToActionDict [t.randomscene];
+			RandomAction temp;
+			for (int i = 0; i < t.randomaction.Length; ++i) {
+				temp = t.randomaction [i];
+				if (string.IsNullOrEmpty (temp.label)) {
+					Log.error ("【" + t.randomscene + "】随机动作表第【" + i + "】项动作命名为空");
+					continue;
+				}
+				if (dict.ContainsKey (temp.label)) {
+					Log.warn ("【" + t.randomscene + "】随机动作表第【" + i + "】项动作命名重复");
+				}
+				dict [temp.label] = temp;
+				ChangeHeader (temp.position, ref temp.main);
+				for (int j = 0; j < temp.aid.Length; ++j) {
+					ChangeHeader (temp.position, ref temp.aid [j]);
+				}
+			}
+		}
+
+		void InitRandomLandmark (RandomActivity t)
+		{
+			if (nameToLandmarkDict [t.randomscene] == null)
+				return;
+			Dictionary<Landmark, Person> dict = nameToLandmarkDict [t.randomscene];
+			Landmark landmark;
+			for (int i = 0; i < t.randomlocation.Length; ++i) {
+				landmark = LandmarkCollection.GetInstance ().Get (t.randomlocation [i]);
+				if (landmark == null) {
+					Log.error ("【" + t.randomscene + "】随机动作表第【" + i + "】项坐标未定义");
+					continue;
+				}
+				if (dict.ContainsKey (landmark)) {
+					Log.warn ("【" + t.randomscene + "】随机动作表第【" + i + "】项坐标重复");
+				}
+				dict [landmark] = null;
+			}
+		}
+
+		void InitRandomPerson (RandomActivity t)
+		{
+			for (int i = 0; i < t.randomperson.Length; ++i) {
+				string pname = t.randomperson [i];
+				if (!nameToCharacterObj.ContainsKey (pname)) {
+					Log.error ("【" + t.randomscene + "】随机动作表第【" + i + "】项人物【" + pname + "】未定义");
+					continue;
+				}
+				Person person = nameToCharacterObj [pname].GetComponent<Person> ();
+				if (person != null)
+					person.SetAsRandomPerson (t.randomscene);
+			}
+		}
+
+		public RandomAction AskForNewLocation (string randomscene, Person asker, ref Landmark landmark, ref float maxTime)
+		{
+			if (!nameToLandmarkDict.ContainsKey (randomscene)
+			    || !nameToActionDict.ContainsKey (randomscene))
+				return null;
+			Dictionary<Landmark, Person> dict = nameToLandmarkDict [randomscene];
+			availableLandmark.Clear ();
+			foreach (Landmark lm in dict.Keys) {
+				if (dict [lm] == null)
+					availableLandmark.Add (lm);
+			}
+			if (availableLandmark.Count != 0) {
+				if (dict.ContainsKey (landmark))
+					dict [landmark] = null;
+				int randomIndex = Random.Range (0, availableLandmark.Count);
+				landmark = availableLandmark [randomIndex];
+				dict [landmark] = asker;
+			}
+			maxTime = Random.Range (randomTime.x, randomTime.y);
+			if (nameToActionDict [randomscene].ContainsKey (landmark.m_label))
+				return nameToActionDict [randomscene] [landmark.m_label];
+			return null;
+		}
+
+		#endregion
 	}
 }

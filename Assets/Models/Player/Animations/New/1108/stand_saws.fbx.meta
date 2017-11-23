@@ -62,6 +62,7 @@ ModelImporter:
     100108: spline
     100110: //RootNode
     100112: wood
+    100114: A_saws_1
     400000: chest_ctrl
     400002: desk
     400004: ears
@@ -119,22 +120,26 @@ ModelImporter:
     400108: spline
     400110: //RootNode
     400112: wood
+    400114: A_saws_1
     2300000: desk
     2300002: ears
     2300004: hair
     2300006: saws
     2300008: wood
+    2300010: A_saws_1
     3300000: desk
     3300002: ears
     3300004: hair
     3300006: saws
     3300008: wood
+    3300010: A_saws_1
     4300000: wood
     4300002: desk
     4300004: saws
     4300006: mesh
     4300008: hair
     4300010: ears
+    4300012: A_saws_1
     7400000: stand_saws
     9500000: //RootNode
     13700000: mesh
@@ -184,7 +189,21 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -248,7 +267,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/saws
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_saws_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1

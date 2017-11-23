@@ -17,8 +17,6 @@ namespace DesignSociety
 		private float animationSpeed = 1.5f;
 
 		public MyRichAI ai;
-		private NavmeshCut navCut;
-		private TileHandlerHelper tileHandler;
 		private Animator anim;
 		private NetworkActionDealer dealer;
 
@@ -30,9 +28,7 @@ namespace DesignSociety
 
 		void Start ()
 		{
-			navCut = GetComponent<NavmeshCut> ();
 			ai = GetComponent<MyRichAI> ();
-			tileHandler = FindObjectOfType<TileHandlerHelper> ();
 			anim = GetComponent<Animator> ();
 			dealer = GetComponent<NetworkActionDealer> ();
 			initAISpeed = ai.maxSpeed;
@@ -129,16 +125,12 @@ namespace DesignSociety
 		void Navcut (bool flag)
 		{
 			if (!ai.cutMesh)
-				flag = false;
-			if (navCut != null && navCut.enabled != flag) {
-				navCut.enabled = flag;
-				tileHandler.ForceUpdate ();
-			}
+				return;
 		}
 
 		void DetectFrontPerson ()
 		{
-			float d = 2f;
+			float d = 1.5f;
 			Vector3 start = transform.position;
 			start -= transform.TransformDirection (Vector3.forward) * 0.25f;
 			start.y += 1f;
@@ -149,10 +141,6 @@ namespace DesignSociety
 			Debug.DrawLine (ray2.origin, ray2.origin + ray2.direction * d, Color.blue);
 			Ray ray3 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.left / 2)));
 			Debug.DrawLine (ray3.origin, ray3.origin + ray3.direction * d, Color.blue);
-//			Ray ray4 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.right / 6f)));
-//			Debug.DrawLine (ray4.origin, ray4.origin + ray4.direction * d, Color.blue);
-//			Ray ray5 = new Ray (start, transform.TransformDirection ((Vector3.forward + Vector3.left / 6f)));
-//			Debug.DrawLine (ray5.origin, ray5.origin + ray5.direction * d, Color.blue);
 
 			RaycastHit hit;
 			bool flag = false;
@@ -169,15 +157,6 @@ namespace DesignSociety
 					flag = DealWithDetect (hit.collider);
 				}
 			}
-//			} else if (!flag && Physics.Raycast (ray4, out hit, d)) {
-//				if (hit.collider.tag == "Player") {
-//					flag = DealWithDetect (hit.collider);
-//				}
-//			} else if (!flag && Physics.Raycast (ray5, out hit, d)) {
-//				if (hit.collider.tag == "Player") {
-//					flag = DealWithDetect (hit.collider);
-//				}
-//			}
 			if (!flag) {
 				ai.maxSpeed = initAISpeed;
 			}
@@ -195,9 +174,6 @@ namespace DesignSociety
 					ai.maxSpeed = sw.initAISpeed - 0.5f;
 					ai.maxSpeed = ai.maxSpeed <= 0 ? 0.5f : ai.maxSpeed;
 				} 
-				//else {
-				//	ai.maxSpeed = initAISpeed + 0.5f;
-				//}
 				return true;
 			}
 			return false;

@@ -498,6 +498,9 @@ namespace Pathfinding
 						dir *= acceleration;
 					}
 
+					//Vector3 sep = SteerSeperate () * 40f;
+					//Vector3 ali = SteerAlignment ();
+
 					//Debug.DrawRay (tr.position+Vector3.up, dir*3, Color.blue);
 					velocity += (dir + force * wallForce) * deltaTime;
 
@@ -723,5 +726,39 @@ namespace Pathfinding
 				UpdatePath ();
 			}
 		}
+
+
+
+		Vector3 SteerSeperate ()
+		{
+			float range = 2f;
+			Vector3 steer = Vector3.zero;
+			Vector3 temp, my;
+			float distance;
+			GameObject[] players = GameObjectCollection.GetInstance ().Get ("Player");
+			if (players == null)
+				return steer;
+			for (int i = 0; i < players.Length; ++i) {
+				if (players [i] == null)
+					continue;
+				my = transform.position;
+				temp = players [i].transform.position;
+				if (Mathf.Abs (my.y - temp.y) < 1f) {
+					my.y = temp.y = 0;
+					distance = Vector3.Distance (my, temp);
+					if (distance < 0.001f)
+						distance = 0.001f;
+					if (distance <= range) {
+						steer = steer + (my - temp).normalized / distance;
+					}
+				}
+			}
+			if (steer.magnitude > 0) {
+				steer = steer.normalized * maxSpeed;
+			}
+			return steer;
+		}
+
+
 	}
 }

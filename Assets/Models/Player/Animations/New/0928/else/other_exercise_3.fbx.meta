@@ -61,6 +61,8 @@ ModelImporter:
     100106: right_toe
     100108: root
     100110: spline
+    100112: B_dumbbell_1
+    100114: B_dumbbell_2
     400000: chest_ctrl
     400002: dumbbell1
     400004: dumbbell2
@@ -117,19 +119,27 @@ ModelImporter:
     400106: right_toe
     400108: root
     400110: spline
+    400112: B_dumbbell_1
+    400114: B_dumbbell_2
     2300000: dumbbell1
     2300002: dumbbell2
     2300004: ears
     2300006: hair
+    2300008: B_dumbbell_1
+    2300010: B_dumbbell_2
     3300000: dumbbell1
     3300002: dumbbell2
     3300004: ears
     3300006: hair
+    3300008: B_dumbbell_1
+    3300010: B_dumbbell_2
     4300000: dumbbell1
     4300002: dumbbell2
     4300004: mesh
     4300006: hair
     4300008: ears
+    4300010: B_dumbbell_1
+    4300012: B_dumbbell_2
     7400000: other_exercise_3
     9500000: //RootNode
     13700000: mesh
@@ -183,9 +193,9 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: dumbbell1
+      - path: B_dumbbell_1
         weight: 1
-      - path: dumbbell2
+      - path: B_dumbbell_2
         weight: 1
       - path: ears
         weight: 1

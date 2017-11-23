@@ -10,6 +10,9 @@ namespace DesignSociety
 		public bool isPlaying;
 		public Transform root;
 		public bool faceCamera = true;
+
+		private Action lastAction;
+
 		public List<Transform> chatBubbles;
 		public List<Transform> errorBubbles;
 		public List<Transform> iconBubbles;
@@ -59,7 +62,8 @@ namespace DesignSociety
 
 		public void OnActionCompleted (Action action)
 		{
-			isPlaying = false;
+			if (action == lastAction)
+				isPlaying = false;
 		}
 
 
@@ -73,6 +77,7 @@ namespace DesignSociety
 				ac = gameObject.AddComponent<SyncActionErrorBubble> ();
 			ac.Setting (errorBubbles, errorOffsets, root, faceCamera, content, duration, 0, this);
 			DealWithOverlap (ac);
+			lastAction = ac;
 		}
 
 		#endregion
@@ -87,6 +92,7 @@ namespace DesignSociety
 				ac = gameObject.AddComponent<SyncActionChatBubble> ();
 			ac.Setting (chatBubbles, chatOffsets, root, faceCamera, content, duration, type, this);
 			DealWithOverlap (ac);
+			lastAction = ac;
 		}
 
 		public void NetworkChatBubble (string content, float duration, int type)
@@ -115,7 +121,7 @@ namespace DesignSociety
 
 		#region 标签
 
-		public void ApplyIconBubble (string content, float duration)
+		void ApplyIconBubble (string content, float duration)
 		{
 			isPlaying = true;
 			SyncActionIconBubble ac = GetComponent<SyncActionIconBubble> ();
@@ -123,6 +129,7 @@ namespace DesignSociety
 				ac = gameObject.AddComponent<SyncActionIconBubble> ();
 			ac.Setting (iconBubbles, iconOffsets, root, faceCamera, content, duration, 0, this);
 			DealWithOverlap (ac);
+			lastAction = ac;
 		}
 
 		public void NetworkIconBubble (string content, float duration)
@@ -151,13 +158,14 @@ namespace DesignSociety
 
 		#region 屏幕
 
-		public void ApplyScreenBubble (string screen, float duration, int type)
+		void ApplyScreenBubble (string screen, float duration, int type)
 		{
 			isPlaying = true;
 			SyncActionScreenBubble ac = GetComponent<SyncActionScreenBubble> ();
 			if (ac == null)
 				ac = gameObject.AddComponent<SyncActionScreenBubble> ();
 			ac.Setting (screenBubbles, screenOffsets, null, false, screen, duration, type, this);
+			lastAction = ac;
 		}
 
 		public void NetworkScreenBubble (string screen, float duration, int type)
@@ -194,6 +202,7 @@ namespace DesignSociety
 				ac = gameObject.AddComponent<SyncActionKeywordBubble> ();
 			ac.Setting (keywordBubbles, keywordOffsets, root, faceCamera, content, duration, 0, this);
 			DealWithOverlap (ac);
+			lastAction = ac;
 		}
 
 		public void NetworkKeywordBubble (string content, float duration)

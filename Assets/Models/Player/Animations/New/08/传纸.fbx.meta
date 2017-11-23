@@ -61,6 +61,8 @@ ModelImporter:
     100106: root
     100108: spline
     100110: //RootNode
+    100112: A_paper_2
+    100114: A_pen_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -117,19 +119,27 @@ ModelImporter:
     400106: root
     400108: spline
     400110: //RootNode
+    400112: A_paper_2
+    400114: A_pen_1
     2300000: ears
     2300002: hair
     2300004: pen
     2300006: questionnaire
+    2300008: A_paper_2
+    2300010: A_pen_1
     3300000: ears
     3300002: hair
     3300004: pen
     3300006: questionnaire
+    3300008: A_paper_2
+    3300010: A_pen_1
     4300000: pen
     4300002: questionnaire
     4300004: mesh
     4300006: hair
     4300008: ears
+    4300010: A_pen_1
+    4300012: A_paper_2
     7400000: inter_paper_give
     7400002: stand_write_pen
     7400004: stand_write_pen_begin
@@ -326,6 +336,10 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_paper_2
+        weight: 1
+      - path: A_pen_1
+        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -423,10 +437,6 @@ ModelImporter:
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
       - path: mesh
-        weight: 1
-      - path: pen
-        weight: 1
-      - path: questionnaire
         weight: 1
       - path: right_foot_ctrl
         weight: 1
@@ -473,6 +483,10 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_paper_2
+        weight: 1
+      - path: A_pen_1
+        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -570,10 +584,6 @@ ModelImporter:
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
       - path: mesh
-        weight: 1
-      - path: pen
-        weight: 1
-      - path: questionnaire
         weight: 1
       - path: right_foot_ctrl
         weight: 1
@@ -620,6 +630,10 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_paper_2
+        weight: 1
+      - path: A_pen_1
+        weight: 1
       - path: ears
         weight: 1
       - path: hair
@@ -717,10 +731,6 @@ ModelImporter:
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
       - path: mesh
-        weight: 1
-      - path: pen
-        weight: 1
-      - path: questionnaire
         weight: 1
       - path: right_foot_ctrl
         weight: 1

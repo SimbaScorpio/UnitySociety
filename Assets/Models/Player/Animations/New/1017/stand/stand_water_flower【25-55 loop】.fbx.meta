@@ -63,6 +63,7 @@ ModelImporter:
     100110: spline
     100112: //RootNode
     100114: waterpot
+    100116: A_waterpot_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -121,16 +122,20 @@ ModelImporter:
     400110: spline
     400112: //RootNode
     400114: waterpot
+    400116: A_waterpot_1
     2300000: ears
     2300002: hair
     2300004: waterpot
+    2300006: A_waterpot_1
     3300000: ears
     3300002: hair
     3300004: waterpot
+    3300006: A_waterpot_1
     4300000: waterpot
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: A_waterpot_1
     7400000: stand_water_flower
     9500000: //RootNode
     13700000: mesh

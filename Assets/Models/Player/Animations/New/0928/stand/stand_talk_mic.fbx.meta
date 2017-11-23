@@ -64,6 +64,8 @@ ModelImporter:
     100112: root
     100114: spline
     100116: //RootNode
+    100118: mic_stand_talk_mic
+    100120: A_mic_1
     400000: chest_ctrl
     400002: CINEMA_4D_Editor
     400004: ears
@@ -123,16 +125,24 @@ ModelImporter:
     400112: root
     400114: spline
     400116: //RootNode
+    400118: mic_stand_talk_mic
+    400120: A_mic_1
     2300000: ears
     2300002: hair
     2300004: mic
+    2300006: mic_stand_talk_mic
+    2300008: A_mic_1
     3300000: ears
     3300002: hair
     3300004: mic
+    3300006: mic_stand_talk_mic
+    3300008: A_mic_1
     4300000: mic
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: mic_stand_talk_mic
+    4300010: A_mic_1
     7400000: stand_talk_mic
     9500000: //RootNode
     13700000: mesh
@@ -200,7 +210,7 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: CINEMA_4D_Editor
+      - path: A_mic_1
         weight: 1
       - path: ears
         weight: 1
@@ -209,8 +219,6 @@ ModelImporter:
       - path: hip_ctrl
         weight: 1
       - path: hip_ctrl/chest_ctrl
-        weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
         weight: 1
       - path: hip_ctrl/root
         weight: 1
@@ -300,11 +308,7 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
-        weight: 1
-      - path: mic
         weight: 1
       - path: right_foot_ctrl
         weight: 1
@@ -314,11 +318,9 @@ ModelImporter:
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
         weight: 1
-      - path: right_foot_ctrl/right_toe_2
-        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

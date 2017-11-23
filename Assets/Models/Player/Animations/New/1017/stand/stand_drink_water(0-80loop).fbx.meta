@@ -63,6 +63,7 @@ ModelImporter:
     100110: spline
     100112: //RootNode
     100114: watercup
+    100116: A_watercup_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -121,16 +122,20 @@ ModelImporter:
     400110: spline
     400112: //RootNode
     400114: watercup
+    400116: A_watercup_1
     2300000: ears
     2300002: hair
     2300004: watercup
+    2300006: A_watercup_1
     3300000: ears
     3300002: hair
     3300004: watercup
+    3300006: A_watercup_1
     4300000: watercup
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: A_watercup_1
     7400000: stand_drink_water
     9500000: //RootNode
     13700000: mesh
@@ -206,8 +211,6 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/chest_ctrl
         weight: 1
-      - path: hip_ctrl/chest_ctrl/neck_ctrl
-        weight: 1
       - path: hip_ctrl/root
         weight: 1
       - path: hip_ctrl/root/left_hip
@@ -258,7 +261,7 @@ ModelImporter:
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/left_hand_Goal
         weight: 1
-      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/watercup
+      - path: hip_ctrl/root/spline/right_chest/left_hand_Goal/A_watercup_1
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/neck
         weight: 1
@@ -298,8 +301,6 @@ ModelImporter:
         weight: 1
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
-      - path: left_foot_ctrl/left_toe_2
-        weight: 1
       - path: mesh
         weight: 1
       - path: right_foot_ctrl
@@ -309,8 +310,6 @@ ModelImporter:
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2
         weight: 1
       - path: right_foot_ctrl/right_foot_lift/right_ankle_2/right_ankle_Goal
-        weight: 1
-      - path: right_foot_ctrl/right_toe_2
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

@@ -63,6 +63,7 @@ ModelImporter:
     100110: right_toe
     100112: root
     100114: spline
+    100116: A_ipad_1
     400000: //RootNode
     400002: chest_ctrl
     400004: Cube
@@ -121,24 +122,29 @@ ModelImporter:
     400110: right_toe
     400112: root
     400114: spline
+    400116: A_ipad_1
     2300000: Cube
     2300002: ears
     2300004: hair
     2300006: ipad
+    2300008: A_ipad_1
     3300000: Cube
     3300002: ears
     3300004: hair
     3300006: ipad
+    3300008: A_ipad_1
     4300000: Cube
     4300002: ipad
     4300004: mesh
     4300006: hair
     4300008: ears
-    7400000: sit_ipad_pickup
+    4300010: A_ipad_1
+    7400000: sit_ipad_begin
     7400002: sit_ipad_putdown
     7400004: sit_ipad
     7400006: sit_ipad_click
     7400008: sit_ipad_scroll
+    7400010: sit_ipad_end
     9500000: //RootNode
     13700000: mesh
   materials:
@@ -165,7 +171,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: sit_ipad_pickup
+      name: sit_ipad_begin
       takeName: CINEMA_4D_Main
       firstFrame: 12
       lastFrame: 40
@@ -187,9 +193,18 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: A_ipad_1
         weight: 1
       - path: Cube
         weight: 1
@@ -284,8 +299,6 @@ ModelImporter:
       - path: hip_ctrl/root/spline/right_chest/right_arm_Pole
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
-        weight: 1
-      - path: ipad
         weight: 1
       - path: left_foot_ctrl
         weight: 1
@@ -309,7 +322,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: sit_ipad_putdown
+      name: sit_ipad_end
       takeName: CINEMA_4D_Main
       firstFrame: 208
       lastFrame: 228
@@ -331,9 +344,18 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: A_ipad_1
         weight: 1
       - path: Cube
         weight: 1
@@ -428,8 +450,6 @@ ModelImporter:
       - path: hip_ctrl/root/spline/right_chest/right_arm_Pole
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
-        weight: 1
-      - path: ipad
         weight: 1
       - path: left_foot_ctrl
         weight: 1
@@ -479,6 +499,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_ipad_1
+        weight: 1
       - path: Cube
         weight: 1
       - path: ears
@@ -572,8 +594,6 @@ ModelImporter:
       - path: hip_ctrl/root/spline/right_chest/right_arm_Pole
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
-        weight: 1
-      - path: ipad
         weight: 1
       - path: left_foot_ctrl
         weight: 1
@@ -623,6 +643,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_ipad_1
+        weight: 1
       - path: Cube
         weight: 1
       - path: ears
@@ -716,8 +738,6 @@ ModelImporter:
       - path: hip_ctrl/root/spline/right_chest/right_arm_Pole
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
-        weight: 1
-      - path: ipad
         weight: 1
       - path: left_foot_ctrl
         weight: 1
@@ -767,6 +787,8 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
+      - path: A_ipad_1
+        weight: 1
       - path: Cube
         weight: 1
       - path: ears
@@ -860,8 +882,6 @@ ModelImporter:
       - path: hip_ctrl/root/spline/right_chest/right_arm_Pole
         weight: 1
       - path: hip_ctrl/root/spline/right_chest/right_hand_Goal
-        weight: 1
-      - path: ipad
         weight: 1
       - path: left_foot_ctrl
         weight: 1

@@ -60,6 +60,7 @@ ModelImporter:
     100104: root
     100106: spline
     100108: //RootNode
+    100110: A_paper_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -115,16 +116,20 @@ ModelImporter:
     400104: root
     400106: spline
     400108: //RootNode
+    400110: A_paper_1
     2300000: ears
     2300002: hair
     2300004: Polygon
+    2300006: A_paper_1
     3300000: ears
     3300002: hair
     3300004: Polygon
+    3300006: A_paper_1
     4300000: Polygon
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: A_paper_1
     7400000: stand_talk_paper
     9500000: //RootNode
     13700000: mesh
@@ -191,6 +196,8 @@ ModelImporter:
         messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: A_paper_1
         weight: 1
       - path: ears
         weight: 1
@@ -290,8 +297,6 @@ ModelImporter:
         weight: 1
       - path: mesh
         weight: 1
-      - path: Polygon
-        weight: 1
       - path: right_foot_ctrl
         weight: 1
       - path: right_foot_ctrl/right_foot_lift
@@ -302,7 +307,7 @@ ModelImporter:
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []

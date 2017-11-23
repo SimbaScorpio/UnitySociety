@@ -61,6 +61,7 @@ ModelImporter:
     100106: spline
     100108: //RootNode
     100110: target
+    100112: C_poster_1
     400000: chest_ctrl
     400002: ears
     400004: end
@@ -117,16 +118,20 @@ ModelImporter:
     400106: spline
     400108: //RootNode
     400110: target
+    400112: C_poster_1
     2300000: ears
     2300002: hair
     2300004: poster
+    2300006: C_poster_1
     3300000: ears
     3300002: hair
     3300004: poster
+    3300006: C_poster_1
     4300000: poster
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: C_poster_1
     7400000: stand_poster
     9500000: //RootNode
     13700000: mesh
@@ -177,13 +182,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: OnItemReleased
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0
         functionName: OnItemCreated
         data: 
@@ -191,8 +189,17 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 1
+        functionName: OnItemReleased
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
+        weight: 1
+      - path: C_poster_1
         weight: 1
       - path: ears
         weight: 1
@@ -291,8 +298,6 @@ ModelImporter:
       - path: left_foot_ctrl/left_foot_lift/left_ankle_2/left_ankle_Goal
         weight: 1
       - path: mesh
-        weight: 1
-      - path: poster
         weight: 1
       - path: right_foot_ctrl
         weight: 1

@@ -61,6 +61,7 @@ ModelImporter:
     100106: root
     100108: spline
     100110: target
+    100112: B_barbell_1
     400000: barbell
     400002: chest_ctrl
     400004: ears
@@ -117,16 +118,20 @@ ModelImporter:
     400106: root
     400108: spline
     400110: target
+    400112: B_barbell_1
     2300000: barbell
     2300002: ears
     2300004: hair
+    2300006: B_barbell_1
     3300000: barbell
     3300002: ears
     3300004: hair
+    3300006: B_barbell_1
     4300000: barbell
     4300002: mesh
     4300004: hair
     4300006: ears
+    4300008: B_barbell_1
     7400000: other_exercise_1
     9500000: //RootNode
     13700000: mesh
@@ -194,7 +199,7 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: barbell
+      - path: B_barbell_1
         weight: 1
       - path: ears
         weight: 1

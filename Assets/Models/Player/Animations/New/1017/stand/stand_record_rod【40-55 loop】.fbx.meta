@@ -65,6 +65,7 @@ ModelImporter:
     100114: root
     100116: spline
     100118: //RootNode
+    100120: A_mic_3
     400000: chest_ctrl
     400002: "Cinema4D_\u7F16\u8F91\u5668"
     400004: ears
@@ -125,19 +126,23 @@ ModelImporter:
     400114: root
     400116: spline
     400118: //RootNode
+    400120: A_mic_3
     2300000: ears
     2300002: hair
     2300004: mic
     2300006: mic_2
+    2300008: A_mic_3
     3300000: ears
     3300002: hair
     3300004: mic
     3300006: mic_2
+    3300008: A_mic_3
     4300000: mic
     4300002: mic_2
     4300004: mesh
     4300006: hair
     4300008: ears
+    4300010: A_mic_3
     7400000: stand_record_rod
     7400002: stand_record_rod_begin
     7400004: stand_record_rod_end

@@ -64,6 +64,7 @@ ModelImporter:
     100112: root
     100114: spline
     100116: //RootNode
+    100118: A_mic_2
     400000: chest_ctrl
     400002: "Cinema4D_\u7F16\u8F91\u5668"
     400004: ears
@@ -123,18 +124,22 @@ ModelImporter:
     400112: root
     400114: spline
     400116: //RootNode
+    400118: A_mic_2
     2300000: ears
     2300002: hair
     2300004: mic
+    2300006: A_mic_2
     3300000: ears
     3300002: hair
     3300004: mic
+    3300006: A_mic_2
     4300000: mic
     4300002: mesh
     4300004: hair
     4300006: ears
-    7400000: stand_mic_putdown
-    7400002: stand_mic_pickup
+    4300008: A_mic_2
+    7400000: stand_mic_other_end
+    7400002: stand_mic_other_begin
     7400004: stand_mic_other
     9500000: //RootNode
     13700000: mesh
@@ -162,7 +167,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: stand_mic_pickup
+      name: stand_mic_other_begin
       takeName: CINEMA_4D_Main
       firstFrame: 0
       lastFrame: 30
@@ -184,7 +189,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0
+        functionName: OnItemShown
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -454,7 +466,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: stand_mic_putdown
+      name: stand_mic_other_end
       takeName: CINEMA_4D_Main
       firstFrame: 48
       lastFrame: 80
@@ -476,7 +488,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: OnItemHidden
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
