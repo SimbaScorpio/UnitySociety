@@ -1,0 +1,1129 @@
+{
+    "locationdata": [
+    {
+        "name": "arch_boss_初始位置"
+    },
+    {
+        "name": "arch_designer1_初始位置"
+    },
+    {
+        "name": "arch_designer2_初始位置"
+    },
+    {
+        "name": "arch_designer3_初始位置"
+    },
+    {
+        "name": "arch_designer4_初始位置"
+    },
+    {
+        "name": "arch_designer5_初始位置"
+    },
+    {
+        "name": "arch_engineer1_初始位置"
+    },
+    {
+        "name": "arch_engineer2_初始位置"
+    },
+    {
+        "name": "arch_engineer2_交谈1"
+    },
+    {
+        "name": "arch_engineer3_初始位置"
+    },
+    {
+        "name": "arch_engineer4_初始位置"
+    },
+    {
+        "name": "arch_engineer5_初始位置"
+    },
+    {
+        "name": "arch_engineer6_初始位置"
+    },
+    {
+        "name": "arch_engineer6_交谈1"
+    },
+    {
+        "name": "arch_engineer6_随机交谈1"
+    },
+    {
+        "name": "arch_engineer2_随机交谈1"
+    },
+    {
+        "name": "arch_researcher1_初始位置"
+    },
+    {
+        "name": "arch_researcher2_初始位置"
+    },
+    {
+        "name": "arch_researcher2_墙后"
+    },
+    {
+        "name": "arch_researcher1_看电路"
+    },
+    {
+        "name": "arch_boss_交谈1"
+    },
+    {
+        "name": "arch_boss_交谈2"
+    },
+    {
+        "name": "arch_boss_交谈3"
+    },
+    {
+        "name": "arch_boss_交谈4"
+    },
+    {
+        "name": "arch_boss_交谈5"
+    },
+    {
+        "name": "arch_boss_交谈6"
+    },
+    {
+        "name": "arch_designer3_交谈1"
+    },
+    {
+        "name": "arch_designer3_交谈2"
+    },
+    {
+        "name": "arch_designer1_交谈"
+    },
+    {
+        "name": "arch_designer2_交谈"
+    },
+    {
+        "name": "arch_designer_乱晃"
+    }],
+    "characterdata": [
+    {
+        "name": "arch_boss",
+        "chinesename": "",
+        "job": "首席设计师",
+        "initial_position": "arch_boss_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤43",
+        "hair": 2,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_designer1",
+        "chinesename": "",
+        "job": "景观设计师",
+        "initial_position": "arch_designer1_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_长袖衬衣长裤6",
+        "hair": 5,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_designer2",
+        "chinesename": "",
+        "job": "规划设计师",
+        "initial_position": "arch_designer2_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣短裤6",
+        "hair": 2,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_designer3",
+        "chinesename": "",
+        "job": "建筑设计师",
+        "initial_position": "arch_designer3_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子2",
+        "hair": 6,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "draw_pen",
+        "spare_time_aid_sit": ["chin_in_hand", "scratch_head"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_designer4",
+        "chinesename": "",
+        "job": "建筑设计师",
+        "initial_position": "arch_designer4_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_长袖衬衣长裤32",
+        "hair": 7,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "draw_digital_3d_pen",
+        "spare_time_aid_sit": ["nod", "scratch_head"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_designer5",
+        "chinesename": "",
+        "job": "建筑设计师",
+        "initial_position": "arch_designer5_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣长裤1",
+        "hair": 2,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "draw_digital_pen",
+        "spare_time_aid_sit": ["nod", "scratch_head"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_engineer1",
+        "chinesename": "",
+        "job": "结构工程师",
+        "initial_position": "arch_engineer1_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_马甲衬衣长裤15",
+        "hair": 7,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_engineer2",
+        "chinesename": "",
+        "job": "结构工程师",
+        "initial_position": "arch_engineer2_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子21",
+        "hair": 7,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_engineer3",
+        "chinesename": "",
+        "job": "土木工程师",
+        "initial_position": "arch_engineer3_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣短裤6",
+        "hair": 4,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_engineer4",
+        "chinesename": "",
+        "job": "电力工程师",
+        "initial_position": "arch_engineer4_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤42",
+        "hair": 3,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_engineer5",
+        "chinesename": "",
+        "job": "给排水工程师",
+        "initial_position": "arch_engineer5_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲短裤7",
+        "hair": 3,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_engineer6",
+        "chinesename": "",
+        "job": "中控工程师",
+        "initial_position": "arch_engineer6_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲短裤6",
+        "hair": 4,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_researcher1",
+        "chinesename": "",
+        "job": "结构力学研究员",
+        "initial_position": "arch_researcher1_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲短裤28",
+        "hair": 4,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "arch_researcher2",
+        "chinesename": "",
+        "job": "建造技术研究员",
+        "initial_position": "arch_researcher2_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖马甲短裤2",
+        "hair": 1,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    }],
+    "initcharacterdata": [
+    {
+        "name": "arch_boss",
+        "candidates": ["arch_boss"]
+    },
+    {
+        "name": "arch_designer1",
+        "candidates": ["arch_designer1"]
+    },
+    {
+        "name": "arch_designer2",
+        "candidates": ["arch_designer2"]
+    },
+    {
+        "name": "arch_designer3",
+        "candidates": ["arch_designer3"]
+    },
+    {
+        "name": "arch_designer5",
+        "candidates": ["arch_designer5"]
+    },
+    {
+        "name": "乱晃的人1",
+        "candidates": ["arch_designer4"]
+    },
+    {
+        "name": "arch_engineer2",
+        "candidates": ["arch_engineer2"]
+    },
+    {
+        "name": "arch_engineer6",
+        "candidates": ["arch_engineer6"]
+    },
+    {
+        "name": "engineer_talk",
+        "candidates": ["arch_engineer1", "arch_engineer3", "arch_engineer4", "arch_engineer5"]
+    },
+    {
+        "name": "arch_researcher1",
+        "candidates": ["arch_researcher1"]
+    },
+    {
+        "name": "arch_researcher2",
+        "candidates": ["arch_researcher2"]
+    }],
+    "compositemovementdata": [
+    {
+        "name": "all_开会",
+        "mainrole_position": "stand",
+        "otherrole_position": "sit",
+        "mainrole_main": "talk",
+        "mainrole_aid": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times", "nod"],
+        "wait_mainrole_main": "breathe",
+        "wait_mainrole_aid": ["nod", "watch", "cross_arm"],
+        "start_mainrole_main": [],
+        "end_mainrole_main": ["applaud"],
+        "otherroles_main": "breathe",
+        "otherroles_aid": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep", "backward", "hold_head_back", "shake_head", "cross_arm", "cross_arm_shake_head", "raise_righthand", "watch"],
+        "wait_otherroles_main": "breathe",
+        "wait_otherroles_aid": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep", "left30", "right30", "cross_arm", "watch"],
+        "start_otherroles_main": [],
+        "end_otherroles_main": ["applaud"]
+    },
+    {
+        "name": "all_站对站交谈",
+        "mainrole_position": "stand",
+        "otherrole_position": "stand",
+        "mainrole_main": "talk",
+        "mainrole_aid": ["nod", "scratch_head", "watch", "talk_point_near_times", "talk_point_far_times", "talk_point_far", "talk_point_near", "talk"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "breathe",
+        "otherroles_aid": ["nod", "shake_head", "cross_arm", "talk", "scratch_head"],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_站对坐（正视）交谈",
+        "mainrole_position": "stand",
+        "otherrole_position": "sit",
+        "mainrole_main": "talk_look_down",
+        "mainrole_aid": ["nod", "scratch_head", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "look_up",
+        "otherroles_aid": ["scratch_head", "nod", "chin_in_hand"],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_站对坐（左转）交谈",
+        "mainrole_position": "stand",
+        "otherrole_position": "sit",
+        "mainrole_main": "talk_look_down",
+        "mainrole_aid": ["nod", "scratch_head", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "head_left30",
+        "otherroles_aid": ["scratch_head", "nod", "chin_in_hand"],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_站对坐（右转）交谈",
+        "mainrole_position": "stand",
+        "otherrole_position": "sit",
+        "mainrole_main": "talk_look_down",
+        "mainrole_aid": ["nod", "scratch_head", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "head_right30",
+        "otherroles_aid": ["scratch_head", "nod", "chin_in_hand"],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_坐对坐交谈",
+        "mainrole_position": "stand",
+        "otherrole_position": "stand",
+        "mainrole_main": "talk",
+        "mainrole_aid": ["nod", "scratch_head", "watch", "talk_point_near_times", "talk_point_far_times", "talk_point_far", "talk_point_near", "talk"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "breathe",
+        "otherroles_aid": ["nod", "shake_head", "cross_arm", "talk", "scratch_head"],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_操作电脑",
+        "mainrole_position": "sit",
+        "otherrole_position": "sit",
+        "mainrole_main": "computer",
+        "mainrole_aid": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "computer",
+        "otherroles_aid": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_用纸笔写字",
+        "mainrole_position": "sit",
+        "otherrole_position": "sit",
+        "mainrole_main": "write_pen",
+        "mainrole_aid": ["spin_pen", "crumple_paper", "write_dictate", "draw_pen"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "write_pen",
+        "otherroles_aid": ["spin_pen", "crumple_paper", "write_dictate", "draw_pen"],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_用纸笔绘画",
+        "mainrole_position": "sit",
+        "otherrole_position": "sit",
+        "mainrole_main": "draw_pen",
+        "mainrole_aid": ["crumple_paper", "spin_pen", "write_pen"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "draw_pen",
+        "otherroles_aid": ["write_pen", "spin_pen", "crumple_paper"],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_站姿打手机",
+        "mainrole_position": "stand",
+        "otherrole_position": "stand",
+        "mainrole_main": "talk_cellphone",
+        "mainrole_aid": [],
+        "wait_mainrole_main": "play_cellphone_click",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["talk_cellphone_pickup"],
+        "end_mainrole_main": ["talk_cellphone_putdown"],
+        "otherroles_main": "talk_cellphone",
+        "otherroles_aid": [],
+        "wait_otherroles_main": "play_cellphone_click",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": ["talk_cellphone_pickup"],
+        "end_otherroles_main": ["talk_cellphone_putdown"]
+    },
+    {
+        "name": "all_坐姿打手机",
+        "mainrole_position": "sit",
+        "otherrole_position": "sit",
+        "mainrole_main": "talk_cellphone",
+        "mainrole_aid": [],
+        "wait_mainrole_main": "play_cellphone_click",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["talk_cellphone_pickup"],
+        "end_mainrole_main": ["talk_cellphone_putdown"],
+        "otherroles_main": "talk_cellphone",
+        "otherroles_aid": [],
+        "wait_otherroles_main": "play_cellphone_click",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": ["talk_cellphone_pickup"],
+        "end_otherroles_main": ["talk_cellphone_putdown"]
+    },
+    {
+        "name": "all_站姿采访",
+        "mainrole_position": "stand",
+        "otherrole_position": "stand",
+        "mainrole_main": "mic_other",
+        "mainrole_aid": ["mic_self"],
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["mic_pickup"],
+        "end_mainrole_main": ["mic_putdown"],
+        "otherroles_main": "talk",
+        "otherroles_aid": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": ["hello"],
+        "end_otherroles_main": ["bow"]
+    },
+    {
+        "name": "all_坐姿采访",
+        "mainrole_position": "sit",
+        "otherrole_position": "sit",
+        "mainrole_main": "mic_other",
+        "mainrole_aid": ["mic_self"],
+        "wait_mainrole_main": "breathe",
+        "wait_mainrole_aid": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep"],
+        "start_mainrole_main": ["mic_pickup"],
+        "end_mainrole_main": ["mic_putdown"],
+        "otherroles_main": "talk",
+        "otherroles_aid": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "wait_otherroles_main": "breathe",
+        "wait_otherroles_aid": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep"],
+        "start_otherroles_main": ["hello"],
+        "end_otherroles_main": ["bow"]
+    },
+    {
+        "name": "all_站姿录音",
+        "mainrole_position": "stand",
+        "otherrole_position": "stand",
+        "mainrole_main": "recorder",
+        "mainrole_aid": [],
+        "wait_mainrole_main": "breathe",
+        "wait_mainrole_aid": ["nod", "shake_head", "cross_arm", "watch"],
+        "start_mainrole_main": ["recorder_pickup"],
+        "end_mainrole_main": ["recorder_putdown"],
+        "otherroles_main": "talk",
+        "otherroles_aid": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "wait_otherroles_main": "breathe",
+        "wait_otherroles_aid": ["nod", "shake_head", "cross_arm", "watch"],
+        "start_otherroles_main": ["hello"],
+        "end_otherroles_main": ["nod"]
+    },
+    {
+        "name": "all_站姿拍照（仅一人）",
+        "mainrole_position": "stand",
+        "otherrole_position": "stand",
+        "mainrole_main": "camera",
+        "mainrole_aid": [],
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["camera_pickup"],
+        "end_mainrole_main": ["camera_putdown"],
+        "otherroles_aid": [],
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_站姿玩手机（仅一人）",
+        "mainrole_position": "stand",
+        "otherrole_position": "stand",
+        "mainrole_main": "play_cellphone_scroll",
+        "mainrole_aid": ["play_cellphone_click", "hold_cellphone"],
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["play_cellphone_pickup"],
+        "end_mainrole_main": ["play_cellphone_putdown"],
+        "otherroles_aid": [],
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_站姿玩ipad（仅一人）",
+        "mainrole_position": "stand",
+        "otherrole_position": "stand",
+        "mainrole_main": "ipad_scroll",
+        "mainrole_aid": ["ipad", "ipad_click"],
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["ipad_pickup"],
+        "end_mainrole_main": ["ipad_putdown"],
+        "otherroles_aid": [],
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_坐姿玩手机（仅一人）",
+        "mainrole_position": "sit",
+        "otherrole_position": "sit",
+        "mainrole_main": "play_cellphone_scroll",
+        "mainrole_aid": ["play_cellphone_click", "hold_cellphone"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["play_cellphone_pickup"],
+        "end_mainrole_main": ["play_cellphone_putdown"],
+        "otherroles_main": "",
+        "otherroles_aid": [],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_坐姿玩ipad（仅一人）",
+        "mainrole_position": "sit",
+        "otherrole_position": "sit",
+        "mainrole_main": "ipad_scroll",
+        "mainrole_aid": ["ipad", "ipad_click"],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["ipad_pickup"],
+        "end_mainrole_main": ["ipad_putdown"],
+        "otherroles_main": "",
+        "otherroles_aid": [],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "all_从书架拿出看书",
+        "mainrole_position": "stand",
+        "otherrole_position": "sit",
+        "mainrole_main": "book_read",
+        "mainrole_aid": [],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": ["book_pickup_table"],
+        "end_mainrole_main": ["book_putdown_table"],
+        "otherroles_main": "",
+        "otherroles_aid": [],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    },
+    {
+        "name": "arch_站对趴交谈",
+        "mainrole_position": "stand",
+        "otherrole_position": "sit",
+        "mainrole_main": "talk",
+        "mainrole_aid": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "wait_mainrole_main": "breathe",
+        "wait_mainrole_aid": ["nod", "shake_head", "cross_arm", "watch"],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "sleep",
+        "otherroles_aid": [],
+        "wait_otherroles_main": "sleep",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    }],
+    "scenedata": [
+    {
+        "start_time": "10",
+        "end_time": "300",
+        "spot_name": "arch_boss事件",
+        "principal": "arch_boss",
+        "principal_activity": [
+        {
+            "duration": "8",
+            "description": "arch_打电话",
+            "position": "composite",
+            "action": "all_站姿打手机",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_地理可视化", "3_2_定位"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 2,
+            "other_people": []
+        },
+        {
+            "duration": "13.8",
+            "description": "跟设计师1交流",
+            "position": "composite",
+            "action": "all_站对坐（正视）交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_boss_交谈1",
+                "bubble_content": ["3_4_点赞"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_designer1",
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_CAD计算机辅助建筑设计", ""],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        },
+        {
+            "duration": "20.7",
+            "description": "跟设计师2交流",
+            "position": "composite",
+            "action": "all_站对坐（正视）交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_boss_交谈2",
+                "bubble_content": ["2_室内设计"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_designer2",
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_4_聊天"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        },
+        {
+            "duration": "20.7",
+            "description": "跟设计师3交流",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_boss_交谈3",
+                "bubble_content": ["2_CAD计算机辅助建筑设计", ""],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_designer3",
+                "location_to_type": 1,
+                "location_to": "arch_designer3_交谈1",
+                "bubble_content": ["2_景观设计"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        },
+        {
+            "duration": "13.8",
+            "description": "（单方面）跟设计师交谈，设计师不鸟他（好惨啊）",
+            "position": "stand",
+            "action": "talk_point_near_times",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_boss_交谈4",
+                "bubble_content": ["2_3D画笔"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "13.8",
+            "description": "（单方面）跟设计师交谈，设计师趴着（好惨啊）",
+            "position": "composite",
+            "action": "arch_站对趴交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_boss_交谈5",
+                "bubble_content": ["2_三维渲染"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_designer5",
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_2_药丸"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        },
+        {
+            "duration": "27.6",
+            "description": "跟arch_researcher1交谈",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_boss_交谈6",
+                "bubble_content": null,
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_researcher1",
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_快速原型制造"],
+                "bubble_direction": 0,
+                "bubble_end": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": []
+            }]
+        }]
+    },
+    {
+        "start_time": "50",
+        "end_time": "110",
+        "spot_name": "arch_设计师交流事件",
+        "principal": "arch_designer1",
+        "principal_activity": [
+        {
+            "duration": "41.4",
+            "description": "设计师1，2，3一起交流",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_designer1_交谈",
+                "bubble_content": ["3_4_点赞"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_designer2",
+                "location_to_type": 1,
+                "location_to": "arch_designer2_交谈",
+                "bubble_content": ["2_参数化设计"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            },
+            {
+                "name": "arch_designer3",
+                "location_to_type": 1,
+                "location_to": "arch_designer3_交谈2",
+                "bubble_content": ["3_2_云链接"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        }]
+    },
+    {
+        "start_time": "60",
+        "end_time": "89",
+        "spot_name": "arch_乱晃的人事件",
+        "principal": "乱晃的人1",
+        "principal_activity": [
+        {
+            "duration": "20.7",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_designer_乱晃",
+                "bubble_content": null,
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "20",
+        "end_time": "138",
+        "spot_name": "arch_工程师交流事件",
+        "principal": "engineer_talk",
+        "principal_activity": [
+        {
+            "duration": "27.6",
+            "description": "工程师随机交流",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_engineer2_随机交谈1",
+                "bubble_content": ["2_BIM建筑信息模型技术"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_engineer2",
+                "location_to_type": 1,
+                "location_to": "arch_engineer2_交谈1",
+                "bubble_content": ["3_1_查找"],
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        },
+        {
+            "duration": "41.4",
+            "description": "工程师随机交流",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "arch_engineer6_随机交谈1",
+                "bubble_content": ["2_全息投影"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_engineer6",
+                "location_to_type": 1,
+                "location_to": "arch_engineer6_交谈1",
+                "bubble_content": ["3_4_开心"],
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        }]
+    },
+    {
+        "start_time": "30",
+        "end_time": "138",
+        "spot_name": "arch_researcher2事件",
+        "principal": "arch_researcher2",
+        "principal_activity": [
+        {
+            "duration": "69",
+            "description": "打完电话后绕墙后",
+            "position": "composite",
+            "action": "all_站姿打手机",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_CNC数控机床"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "arch_researcher2",
+                "location_to_type": 1,
+                "location_to": "arch_researcher2_墙后",
+                "bubble_content": ["1_好快啊!"],
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        }]
+    }]
+}

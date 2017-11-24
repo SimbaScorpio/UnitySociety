@@ -1,0 +1,1237 @@
+{
+    "locationdata": [
+    {
+        "name": "google_pm1_初始位置"
+    },
+    {
+        "name": "google_pm1_藏起来"
+    },
+    {
+        "name": "google_pm2_初始位置"
+    },
+    {
+        "name": "google_pm3_初始位置"
+    },
+    {
+        "name": "google_engineer1_初始位置"
+    },
+    {
+        "name": "google_engineer1_r2交谈"
+    },
+    {
+        "name": "google_researcher1_初始位置"
+    },
+    {
+        "name": "google_researcher2_初始位置"
+    },
+    {
+        "name": "google_researcher2_e1交谈"
+    },
+    {
+        "name": "google_researcher3_初始位置"
+    },
+    {
+        "name": "google_researcher3_r4交谈"
+    },
+    {
+        "name": "google_researcher4_初始位置"
+    },
+    {
+        "name": "google_researcher4_r3交谈"
+    },
+    {
+        "name": "google_researcher4_走出去"
+    },
+    {
+        "name": "google_researcher4_走来走去"
+    },
+    {
+        "name": "google_researcher5_初始位置"
+    },
+    {
+        "name": "google_researcher5_走来走去"
+    },
+    {
+        "name": "google_researcher6_初始位置"
+    },
+    {
+        "name": "google_researcher7_初始位置"
+    },
+    {
+        "name": "google_researcher7_走来走去"
+    },
+    {
+        "name": "google_researcher7_指指点点"
+    },
+    {
+        "name": "google_researcher8_初始位置"
+    },
+    {
+        "name": "google_researcher8_走来走去"
+    },
+    {
+        "name": "google_researcher9_初始位置"
+    },
+    {
+        "name": "google_researcher9_r7交谈"
+    },
+    {
+        "name": "google_researcher10_初始位置"
+    },
+    {
+        "name": "google_researcher10_乱走"
+    },
+    {
+        "name": "google_pm4_初始位置"
+    },
+    {
+        "name": "google_pm5_初始位置"
+    },
+    {
+        "name": "google_pm6_初始位置"
+    },
+    {
+        "name": "google_开会1"
+    },
+    {
+        "name": "google_开会2"
+    },
+    {
+        "name": "google_开会3"
+    },
+    {
+        "name": "google_开会4"
+    }],
+    "characterdata": [
+    {
+        "name": "google_pm1",
+        "chinesename": "",
+        "job": "pm",
+        "initial_position": "google_pm1_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤1",
+        "hair": 1,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["ipad_click", "ipad_scroll"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_pm2",
+        "chinesename": "",
+        "job": "pm",
+        "initial_position": "google_pm2_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖马甲短裤3",
+        "hair": 1,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "talk",
+        "spare_time_aid_sit": ["talk", "nod", "shake_head", "talk_point_far_times"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_pm3",
+        "chinesename": "",
+        "job": "pm",
+        "initial_position": "google_pm3_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子27",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "talk",
+        "spare_time_aid_sit": ["talk", "nod", "shake_head", "talk_point_far_times"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_engineer1",
+        "chinesename": "",
+        "job": "engineer",
+        "initial_position": "google_engineer1_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤14",
+        "hair": 3,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "write_pen",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["breathe", "right30", "left30", "shake_head", "nod", "cross_arm"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher1",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher1_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_长袖衬衣长裤15",
+        "hair": 7,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["computer", "scratch_head_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher2",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher2_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤27",
+        "hair": 2,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["computer", "scratch_head_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher3",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher3_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤3",
+        "hair": 2,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["computer", "scratch_head_computer", "keyboard", "mouse_click", "mouse_move"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher4",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher4_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子14",
+        "hair": 7,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "write_pen",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["write_pen", "talk"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher5",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher5_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣长裤4",
+        "hair": 1,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "write_pen",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["write_pen", "talk"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher6",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher6_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣短裤4",
+        "hair": 4,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "laugh_loud", "backward", "hold_head_back"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher7",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher7_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_长袖衬衣长裤26",
+        "hair": 8,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "write_pen",
+        "spare_time_aid_sit": ["nod", "shake_head", "chin_in_hand"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher8",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher8_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤20",
+        "hair": 2,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "write_pen",
+        "spare_time_aid_sit": ["nod", "shake_head", "chin_in_hand"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher9",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher9_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤40",
+        "hair": 3,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_researcher10",
+        "chinesename": "",
+        "job": "researcher",
+        "initial_position": "google_researcher10_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣短裤2",
+        "hair": 1,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_pm4",
+        "chinesename": "",
+        "job": "pm",
+        "initial_position": "google_pm4_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤25",
+        "hair": 1,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "talk",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_pm5",
+        "chinesename": "",
+        "job": "pm",
+        "initial_position": "google_pm5_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤48",
+        "hair": 4,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "talk",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "google_pm6",
+        "chinesename": "",
+        "job": "pm",
+        "initial_position": "google_pm6_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子12",
+        "hair": 8,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    }],
+    "initcharacterdata": [
+    {
+        "name": "google_pm甲",
+        "candidates": ["google_pm1"]
+    },
+    {
+        "name": "google_pm乙",
+        "candidates": ["google_pm2"]
+    },
+    {
+        "name": "google_pm丙",
+        "candidates": ["google_pm3"]
+    },
+    {
+        "name": "google_engineer甲",
+        "candidates": ["google_engineer1"]
+    },
+    {
+        "name": "google_researcher甲",
+        "candidates": ["google_researcher1"]
+    },
+    {
+        "name": "google_researcher乙",
+        "candidates": ["google_researcher2"]
+    },
+    {
+        "name": "google_researcher丙",
+        "candidates": ["google_researcher3"]
+    },
+    {
+        "name": "google_researcher丁",
+        "candidates": ["google_researcher4"]
+    },
+    {
+        "name": "google_researcher戊",
+        "candidates": ["google_researcher5"]
+    },
+    {
+        "name": "google_researcher七",
+        "candidates": ["google_researcher7"]
+    },
+    {
+        "name": "google_researcher八",
+        "candidates": ["google_researcher8"]
+    },
+    {
+        "name": "google_researcher九",
+        "candidates": ["google_researcher9"]
+    },
+    {
+        "name": "google_researcher十",
+        "candidates": ["google_researcher10"]
+    },
+    {
+        "name": "google_pm四",
+        "candidates": ["google_pm4"]
+    },
+    {
+        "name": "google_pm五",
+        "candidates": ["google_pm5"]
+    }],
+    "compositemovementdata": [
+    {
+        "name": "all_开会"
+    },
+    {
+        "name": "all_站对站交谈"
+    },
+    {
+        "name": "all_站对坐（正视）交谈"
+    },
+    {
+        "name": "all_站对坐（左转）交谈"
+    },
+    {
+        "name": "all_站对坐（右转）交谈"
+    },
+    {
+        "name": "all_坐对坐交谈"
+    },
+    {
+        "name": "all_操作电脑"
+    },
+    {
+        "name": "all_用纸笔写字"
+    },
+    {
+        "name": "all_用纸笔绘画"
+    },
+    {
+        "name": "all_站姿打手机"
+    },
+    {
+        "name": "all_坐姿打手机"
+    },
+    {
+        "name": "all_站姿采访"
+    },
+    {
+        "name": "all_坐姿采访"
+    },
+    {
+        "name": "all_站姿录音"
+    },
+    {
+        "name": "all_站姿拍照（仅一人）"
+    },
+    {
+        "name": "all_站姿玩手机（仅一人）"
+    },
+    {
+        "name": "all_站姿玩ipad（仅一人）"
+    },
+    {
+        "name": "all_坐姿玩手机（仅一人）"
+    },
+    {
+        "name": "all_坐姿玩ipad（仅一人）"
+    },
+    {
+        "name": "all_从书架拿出看书"
+    }],
+    "scenedata": [
+    {
+        "start_time": 0.1,
+        "end_time": "180",
+        "spot_name": "google_滑滑梯",
+        "principal": "google_pm甲",
+        "principal_activity": [
+        {
+            "duration": "5",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_pm1_藏起来",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 2,
+            "other_people": []
+        },
+        {
+            "duration": "5",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": null,
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "5",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_pm1_藏起来",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "5",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "5",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_pm1_藏起来",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "5",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "50",
+        "end_time": "180",
+        "spot_name": "google_开会",
+        "principal": "google_pm乙",
+        "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "composite",
+            "action": "all_开会",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_开会1",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "google_pm丙",
+                "location_to_type": 1,
+                "location_to": "google_开会2",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            },
+            {
+                "name": "google_pm四",
+                "location_to_type": 1,
+                "location_to": "google_开会3",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            },
+            {
+                "name": "google_pm五",
+                "location_to_type": 1,
+                "location_to": "google_开会4",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        }]
+    },
+    {
+        "start_time": "30",
+        "end_time": "70",
+        "spot_name": "google_eng1和r2交谈",
+        "principal": "google_engineer甲",
+        "principal_activity": [
+        {
+            "duration": "16",
+            "description": "",
+            "position": "stand",
+            "action": "write_pen",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_并行与分布式系统", "3_1_文件查找", "3_2_云链接"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "16",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_engineer1_r2交谈",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "google_researcher乙",
+                "location_to_type": 1,
+                "location_to": "google_researcher2_e1交谈",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        },
+        {
+            "duration": "25",
+            "description": "",
+            "position": "stand",
+            "action": "write_pen",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_数据库", "2_传感器", "3_2_连接", "3_2_设置", "3_2_芯片"],
+                "bubble_direction": 0,
+                "bubble_end": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "70",
+        "end_time": "130",
+        "spot_name": "google_r2和r1交谈",
+        "principal": "google_researcher乙",
+        "principal_activity": [
+        {
+            "duration": "15",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher2_e1交谈",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "google_researcher甲",
+                "location_to_type": 1,
+                "location_to": "google_engineer1_r2交谈",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        }]
+    },
+    {
+        "start_time": "20",
+        "end_time": "50",
+        "spot_name": "google_pm2和pm3交谈",
+        "principal": "google_pm乙",
+        "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对坐（正视）交谈",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_数据挖掘", "3_3_大数据", "", "3_3_编程"],
+                "bubble_direction": 0,
+                "bubble_end": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "google_pm丙",
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_柔性制造", "3_2_云端", "3_2_卫星"],
+                "bubble_direction": 0,
+                "bubble_end": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": []
+            }]
+        }]
+    },
+    {
+        "start_time": "20",
+        "end_time": "88",
+        "spot_name": "google_r3和r4交谈",
+        "principal": "google_researcher丙",
+        "principal_activity": [
+        {
+            "duration": "30",
+            "description": "",
+            "position": "composite",
+            "action": "all_操作电脑",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_计算机图形学", "3_3_C加加", "3_3_CSS3", "3_3_Html5"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "15",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher3_r4交谈",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "google_researcher丁",
+                "location_to_type": 1,
+                "location_to": "google_researcher4_r3交谈",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 1,
+                "following_actions": [
+                {
+                    "duration": "20",
+                    "description": "",
+                    "position": "stand",
+                    "action": "write_pen",
+                    "self":
+                    {
+                        "location_to_type": 2,
+                        "location_to": null,
+                        "bubble_content": ["2_认知科学", "2_脑机接口"],
+                        "bubble_direction": null,
+                        "bubble_end": "",
+                        "animation": null,
+                        "starttime": 0.1,
+                        "carrytype": 0,
+                        "carryobj": null,
+                        "dashboard_direction": 0
+                    },
+                    "other_people": []
+                }],
+                "bubble_end": ""
+            }]
+        }]
+    },
+    {
+        "start_time": "90",
+        "end_time": "167",
+        "spot_name": "google_r4乱晃",
+        "principal": "google_researcher丁",
+        "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher4_走出去",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "20",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher4_走来走去",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "44",
+        "end_time": "241",
+        "spot_name": "google_r5乱走",
+        "principal": "google_researcher戊",
+        "principal_activity": [
+        {
+            "duration": "24",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher5_走来走去",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "80",
+        "end_time": "160",
+        "spot_name": "google_r7乱走",
+        "principal": "google_researcher七",
+        "principal_activity": [
+        {
+            "duration": "15",
+            "description": "",
+            "position": "stand",
+            "action": "talk_point_far_times",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher7_指指点点",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "15",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher7_走来走去",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "149",
+        "end_time": "300",
+        "spot_name": "google_r8乱走",
+        "principal": "google_researcher八",
+        "principal_activity": [
+        {
+            "duration": "30",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_图像识别", "2_语音识别", "3_1_Idea", "3_2_设置", "3_3_大数据"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "20",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher8_走来走去",
+                "bubble_content": "",
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "46",
+        "end_time": "220",
+        "spot_name": "google_r9事件",
+        "principal": "google_researcher九",
+        "principal_activity": [
+        {
+            "duration": "15",
+            "description": "",
+            "position": "stand",
+            "action": "hello",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_自然语言处理", "2_聊天机器人", "3_2_芯片", "3_2_Wifi", "3_3_编程", "3_3_大数据"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "15",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher9_r7交谈",
+                "bubble_content": ["", "2_人体工程学", "3_3_圈A", "3_3_物联网"],
+                "bubble_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "google_researcher七",
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_3_编程", "3_3_大数据"],
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        }]
+    },
+    {
+        "start_time": "30",
+        "end_time": "269",
+        "spot_name": "google_r10事件",
+        "principal": "google_researcher十",
+        "principal_activity": [
+        {
+            "duration": "15",
+            "description": "",
+            "position": "stand",
+            "action": "talk_point_far_times",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_仿生学", "3_3_心跳", "3_2_生物工程", "3_2_连接"],
+                "bubble_direction": 2,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "10",
+            "description": "",
+            "position": "stand",
+            "action": "cross_arm_shake_head",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_机器学习", "3_3_编程", "3_3_大数据", "3_1_Idea"],
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "30",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "google_researcher10_乱走",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    }]
+}

@@ -53,7 +53,7 @@
         "bag": 0,
         "spare_time_main_position": "sit",
         "spare_time_main_action": "computer",
-        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
         "spare_time_aid_stand": [],
         "spare_time_aid_other": []
     }],
@@ -143,15 +143,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "home_看书",
-                "bubble_type": 0,
-                "bubble_content": null,
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["2_居家办公"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 2,
             "other_people": []
@@ -165,15 +163,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "home_接机",
-                "bubble_type": 3,
-                "bubble_content": "2_无人机送货",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["2_无人机"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -187,15 +183,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "home_收货",
-                "bubble_type": 3,
-                "bubble_content": "2_无人机送货",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_2_无人机送货", "3_4_购物"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -203,32 +197,50 @@
         {
             "duration": "30",
             "description": "",
-            "position": "stand",
-            "action": "breathe",
+            "position": "composite",
+            "action": "all_站姿拍照（仅一人）",
             "self":
             {
                 "location_to_type": 1,
                 "location_to": "home_看植物",
-                "bubble_type": 0,
-                "bubble_content": null,
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_4_FB"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
         }]
     },
     {
-        "start_time": "20",
-        "end_time": "100",
+        "start_time": "5",
+        "end_time": "120",
         "spot_name": "一楼主人事件",
         "principal": "home_主人乙",
         "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "composite",
+            "action": "all_操作电脑",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_电子商务","3_4_讨论","3_4_支付宝","2_在线支付"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": "",
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
         {
             "duration": "20",
             "description": "",
@@ -238,15 +250,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "home_看电视",
-                "bubble_type": 3,
-                "bubble_content": "4_爆米花",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["2_物联网", "3_2_心", "2_网络视频"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
-                "carrytype": 2,
-                "carryobj": "无人机货物 "
+                "carrytype": 0,
+                "carryobj": "",
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -260,15 +270,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "home_打电话",
-                "bubble_type": 3,
-                "bubble_content": "4_电话",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["2_即时通讯","3_4_聊天", "3_4_消费"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []

@@ -1,0 +1,576 @@
+[
+  {
+    "name": "all_开会",
+    "mainrole_position": "stand",
+    "otherrole_position": "sit",
+    "mainrole_main": "talk",
+    "mainrole_aid": [
+      "talk_point_ppt",
+      "talk_point_near",
+      "talk_point_far",
+      "talk_point_near_times",
+      "talk_point_far_times",
+      "nod"
+    ],
+    "wait_mainrole_main": "breathe",
+    "wait_mainrole_aid": [
+      "nod",
+      "watch",
+      "cross_arm"
+    ],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [
+      "applaud"
+    ],
+    "otherroles_main": "breathe",
+    "otherroles_aid": [
+      "shake_leg",
+      "scratch_head",
+      "nod",
+      "chin_in_hand",
+      "sleep",
+      "backward",
+      "hold_head_back",
+      "shake_head",
+      "cross_arm",
+      "cross_arm_shake_head",
+      "raise_righthand",
+      "watch"
+    ],
+    "wait_otherroles_main": "breathe",
+    "wait_otherroles_aid": [
+      "shake_leg",
+      "scratch_head",
+      "nod",
+      "chin_in_hand",
+      "sleep",
+      "left30",
+      "right30",
+      "cross_arm",
+      "watch"
+    ],
+    "start_otherroles_main": [],
+    "end_otherroles_main": [
+      "applaud"
+    ]
+  },
+  {
+    "name": "all_站对站交谈",
+    "mainrole_position": "stand",
+    "otherrole_position": "stand",
+    "mainrole_main": "talk",
+    "mainrole_aid": [
+      "nod",
+      "watch",
+      "talk_point_near_times",
+      "talk_point_far_times",
+      "talk_point_far",
+      "talk_point_near",
+      "talk"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [],
+    "otherroles_main": "breathe",
+    "otherroles_aid": [
+      "nod",
+      "shake_head",
+      "cross_arm",
+      "talk"
+    ],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_站对坐（正视）交谈",
+    "mainrole_position": "stand",
+    "otherrole_position": "sit",
+    "mainrole_main": "talk_look_down",
+    "mainrole_aid": [
+      "nod",
+      "talk_point_near",
+      "talk_point_far",
+      "talk_point_near_times",
+      "talk_point_far_times"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [],
+    "otherroles_main": "look_up",
+    "otherroles_aid": [
+      "scratch_head",
+      "nod",
+      "chin_in_hand"
+    ],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_站对坐（左转）交谈",
+    "mainrole_position": "stand",
+    "otherrole_position": "sit",
+    "mainrole_main": "talk_look_down",
+    "mainrole_aid": [
+      "nod",
+      "talk_point_near",
+      "talk_point_far",
+      "talk_point_near_times",
+      "talk_point_far_times"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [],
+    "otherroles_main": "head_left30",
+    "otherroles_aid": [
+      "scratch_head",
+      "nod",
+      "chin_in_hand"
+    ],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_站对坐（右转）交谈",
+    "mainrole_position": "stand",
+    "otherrole_position": "sit",
+    "mainrole_main": "talk_look_down",
+    "mainrole_aid": [
+      "nod",
+      "talk_point_near",
+      "talk_point_far",
+      "talk_point_near_times",
+      "talk_point_far_times"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [],
+    "otherroles_main": "head_right30",
+    "otherroles_aid": [
+      "scratch_head",
+      "nod",
+      "chin_in_hand"
+    ],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_坐对坐交谈",
+    "mainrole_position": "sit",
+    "otherrole_position": "sit",
+    "mainrole_main": "talk",
+    "mainrole_aid": [
+      "nod",
+      "watch",
+      "talk_point_near_times",
+      "talk_point_far_times",
+      "talk_point_far",
+      "talk_point_near",
+      "talk"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [],
+    "otherroles_main": "breathe",
+    "otherroles_aid": [
+      "nod",
+      "shake_head",
+      "cross_arm",
+      "talk",
+      "scratch_head"
+    ],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_操作电脑",
+    "mainrole_position": "sit",
+    "otherrole_position": "sit",
+    "mainrole_main": "computer",
+    "mainrole_aid": [
+      "scratch_head_computer",
+      "chin_in_hand_computer",
+      "keyboard",
+      "mouse_move",
+      "mouse_click"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [],
+    "otherroles_main": "computer",
+    "otherroles_aid": [
+      "scratch_head_computer",
+      "chin_in_hand_computer",
+      "keyboard",
+      "mouse_move",
+      "mouse_click"
+    ],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_用纸笔写字",
+    "mainrole_position": "sit",
+    "otherrole_position": "sit",
+    "mainrole_main": "write_pen",
+    "mainrole_aid": [
+      "spin_pen",
+      "crumple_paper",
+      "write_dictate",
+      "draw_pen"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [],
+    "otherroles_main": "write_pen",
+    "otherroles_aid": [
+      "spin_pen",
+      "crumple_paper",
+      "write_dictate",
+      "draw_pen"
+    ],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_用纸笔绘画",
+    "mainrole_position": "sit",
+    "otherrole_position": "sit",
+    "mainrole_main": "draw_pen",
+    "mainrole_aid": [
+      "crumple_paper",
+      "spin_pen",
+      "write_pen"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [],
+    "end_mainrole_main": [],
+    "otherroles_main": "draw_pen",
+    "otherroles_aid": [
+      "write_pen",
+      "spin_pen",
+      "crumple_paper"
+    ],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_站姿打手机",
+    "mainrole_position": "stand",
+    "otherrole_position": "stand",
+    "mainrole_main": "talk_cellphone",
+    "mainrole_aid": [],
+    "wait_mainrole_main": "play_cellphone_click",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "talk_cellphone_pickup"
+    ],
+    "end_mainrole_main": [
+      "talk_cellphone_putdown"
+    ],
+    "otherroles_main": "talk_cellphone",
+    "otherroles_aid": [],
+    "wait_otherroles_main": "play_cellphone_click",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [
+      "talk_cellphone_pickup"
+    ],
+    "end_otherroles_main": [
+      "talk_cellphone_putdown"
+    ]
+  },
+  {
+    "name": "all_坐姿打手机",
+    "mainrole_position": "sit",
+    "otherrole_position": "sit",
+    "mainrole_main": "talk_cellphone",
+    "mainrole_aid": [],
+    "wait_mainrole_main": "play_cellphone_click",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "talk_cellphone_pickup"
+    ],
+    "end_mainrole_main": [
+      "talk_cellphone_putdown"
+    ],
+    "otherroles_main": "talk_cellphone",
+    "otherroles_aid": [],
+    "wait_otherroles_main": "play_cellphone_click",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [
+      "talk_cellphone_pickup"
+    ],
+    "end_otherroles_main": [
+      "talk_cellphone_putdown"
+    ]
+  },
+  {
+    "name": "all_站姿采访",
+    "mainrole_position": "stand",
+    "otherrole_position": "stand",
+    "mainrole_main": "mic_other",
+    "mainrole_aid": [
+      "mic_self"
+    ],
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "mic_pickup"
+    ],
+    "end_mainrole_main": [
+      "mic_putdown"
+    ],
+    "otherroles_main": "talk",
+    "otherroles_aid": [
+      "talk_point_ppt",
+      "talk_point_near",
+      "talk_point_far",
+      "talk_point_near_times",
+      "talk_point_far_times"
+    ],
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [
+      "hello"
+    ],
+    "end_otherroles_main": [
+      "bow"
+    ]
+  },
+  {
+    "name": "all_坐姿采访",
+    "mainrole_position": "sit",
+    "otherrole_position": "sit",
+    "mainrole_main": "mic_other",
+    "mainrole_aid": [
+      "mic_self"
+    ],
+    "wait_mainrole_main": "breathe",
+    "wait_mainrole_aid": [
+      "shake_leg",
+      "scratch_head",
+      "nod",
+      "chin_in_hand",
+      "sleep"
+    ],
+    "start_mainrole_main": [
+      "mic_pickup"
+    ],
+    "end_mainrole_main": [
+      "mic_putdown"
+    ],
+    "otherroles_main": "talk",
+    "otherroles_aid": [
+      "talk_point_ppt",
+      "talk_point_near",
+      "talk_point_far",
+      "talk_point_near_times",
+      "talk_point_far_times"
+    ],
+    "wait_otherroles_main": "breathe",
+    "wait_otherroles_aid": [
+      "shake_leg",
+      "scratch_head",
+      "nod",
+      "chin_in_hand",
+      "sleep"
+    ],
+    "start_otherroles_main": [
+      "hello"
+    ],
+    "end_otherroles_main": [
+      "bow"
+    ]
+  },
+  {
+    "name": "all_站姿录音",
+    "mainrole_position": "stand",
+    "otherrole_position": "stand",
+    "mainrole_main": "recorder",
+    "mainrole_aid": [],
+    "wait_mainrole_main": "breathe",
+    "wait_mainrole_aid": [
+      "nod",
+      "shake_head",
+      "cross_arm",
+      "watch"
+    ],
+    "start_mainrole_main": [
+      "recorder_pickup"
+    ],
+    "end_mainrole_main": [
+      "recorder_putdown"
+    ],
+    "otherroles_main": "talk",
+    "otherroles_aid": [
+      "talk_point_ppt",
+      "talk_point_near",
+      "talk_point_far",
+      "talk_point_near_times",
+      "talk_point_far_times"
+    ],
+    "wait_otherroles_main": "breathe",
+    "wait_otherroles_aid": [
+      "nod",
+      "shake_head",
+      "cross_arm",
+      "watch"
+    ],
+    "start_otherroles_main": [
+      "hello"
+    ],
+    "end_otherroles_main": [
+      "nod"
+    ]
+  },
+  {
+    "name": "all_站姿拍照（仅一人）",
+    "mainrole_position": "stand",
+    "otherrole_position": "stand",
+    "mainrole_main": "camera",
+    "mainrole_aid": [],
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "camera_pickup"
+    ],
+    "end_mainrole_main": [
+      "camera_putdown"
+    ],
+    "otherroles_aid": [],
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_站姿玩手机（仅一人）",
+    "mainrole_position": "stand",
+    "otherrole_position": "stand",
+    "mainrole_main": "play_cellphone_scroll",
+    "mainrole_aid": [
+      "play_cellphone_click",
+      "hold_cellphone"
+    ],
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "play_cellphone_pickup"
+    ],
+    "end_mainrole_main": [
+      "play_cellphone_putdown"
+    ],
+    "otherroles_aid": [],
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_站姿玩ipad（仅一人）",
+    "mainrole_position": "stand",
+    "otherrole_position": "stand",
+    "mainrole_main": "ipad_scroll",
+    "mainrole_aid": [
+      "ipad",
+      "ipad_click"
+    ],
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "ipad_pickup"
+    ],
+    "end_mainrole_main": [
+      "ipad_putdown"
+    ],
+    "otherroles_aid": [],
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_坐姿玩手机（仅一人）",
+    "mainrole_position": "sit",
+    "otherrole_position": "sit",
+    "mainrole_main": "play_cellphone_scroll",
+    "mainrole_aid": [
+      "play_cellphone_click",
+      "hold_cellphone"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "play_cellphone_pickup"
+    ],
+    "end_mainrole_main": [
+      "play_cellphone_putdown"
+    ],
+    "otherroles_main": "",
+    "otherroles_aid": [],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_坐姿玩ipad（仅一人）",
+    "mainrole_position": "sit",
+    "otherrole_position": "sit",
+    "mainrole_main": "ipad_scroll",
+    "mainrole_aid": [
+      "ipad",
+      "ipad_click"
+    ],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "ipad_pickup"
+    ],
+    "end_mainrole_main": [
+      "ipad_putdown"
+    ],
+    "otherroles_main": "",
+    "otherroles_aid": [],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  },
+  {
+    "name": "all_从书架拿出看书",
+    "mainrole_position": "stand",
+    "otherrole_position": "sit",
+    "mainrole_main": "book_read",
+    "mainrole_aid": [],
+    "wait_mainrole_main": "",
+    "wait_mainrole_aid": [],
+    "start_mainrole_main": [
+      "book_pickup_table"
+    ],
+    "end_mainrole_main": [
+      "book_putdown_table"
+    ],
+    "otherroles_main": "",
+    "otherroles_aid": [],
+    "wait_otherroles_main": "",
+    "wait_otherroles_aid": [],
+    "start_otherroles_main": [],
+    "end_otherroles_main": []
+  }
+]

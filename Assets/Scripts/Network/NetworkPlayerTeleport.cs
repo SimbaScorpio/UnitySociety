@@ -27,7 +27,7 @@ namespace DesignSociety
 		public float gravity = -9.82f;
 
 		public GameObject ghostPref;
-		private GameObject ghost;
+		public GameObject ghost;
 		public float ghostZ = 200f;
 
 		private float velocity;
@@ -50,11 +50,14 @@ namespace DesignSociety
 		private Animator ghostAnim;
 
 		private NetworkPlayerAction playerAction;
+		private NetworkActionDealer ad;
 
 		void Start ()
 		{
 			if (isLocalPlayer) {
-				
+				playerAction = GetComponent<NetworkPlayerAction> ();
+				ad = GetComponent<NetworkActionDealer> ();
+
 				cameraEditor = Camera.main.GetComponent<CameraPerspectiveEditor> ();
 				cameraFollower = Camera.main.GetComponent<CameraFollower> ();
 				cameraFollower.target = this.gameObject;
@@ -63,12 +66,8 @@ namespace DesignSociety
 				ghost = Instantiate (ghostPref) as GameObject;
 				ghost.SetActive (false);
 				ghostAnim = ghost.GetComponent<Animator> ();
-				// should init ghost mesh and texture here
-				// ...
-				playerAction = GetComponent<NetworkPlayerAction> ();
 			}
 		}
-
 
 		void Update ()
 		{
@@ -105,7 +104,7 @@ namespace DesignSociety
 				pressCount += Time.deltaTime;
 				yield return null;
 				if (state == 0) {
-					if (alwaysPressing && !IsPressing (this.gameObject)) {
+					if (alwaysPressing && (!IsPressing (this.gameObject) || ad.IsPlaying ())) {
 						alwaysPressing = false;
 					}
 					if (alwaysPressing && pressCount > dragPressThreshold) {
@@ -123,9 +122,10 @@ namespace DesignSociety
 		{
 			SwitchPlayerToGhost ();
 			UIInformationMenu.GetInstance ().Hide ();
+			UIAppearanceMenu.GetInstance ().Hide ();
 			StartCoroutine (LerpView (true));
 			ghostAnim.Play ("drag_float", 0, 0);
-			playerAction.ApplyAction ("drag_float", null);
+			playerAction.ApplyAction ("drag_float");
 		}
 
 		// scale to normal view, waiting drop command
@@ -139,7 +139,8 @@ namespace DesignSociety
 		{
 			SwitchGhostToPlayer ();
 			UIInformationMenu.GetInstance ().Show ();
-			playerAction.ApplyAction ("walk_blend_tree", null);
+			UIAppearanceMenu.GetInstance ().Show ();
+			playerAction.ApplyAction ("walk_blend_tree");
 		}
 
 		// scroll view {true: large, false: normal}
@@ -189,6 +190,17 @@ namespace DesignSociety
 				return hit.point;
 			}
 			return Vector3.zero;
+		}
+
+		bool RaycastObstacle ()
+		{
+			Ray ray = cameraEditor.ScreenPointToRay (Input.mousePosition);
+			RaycastHit hit;
+			if (Physics.Raycast (ray, out hit, float.MaxValue)) {
+				if (hit.collider.tag == "Player" || hit.collider.tag == "KeywordBubble" || hit.collider.tag == "Car")
+					return true;
+			}
+			return false;
 		}
 
 		# region 方式一：拖拽人物
@@ -348,8 +360,18 @@ namespace DesignSociety
 		void OnClick ()
 		{
 			if (state == 0) {
-				mouseLandingPos = RaycastPoint ();
-				playerAction.WalkTo (mouseLandingPos);
+				if (ad.IsWalking () && IsPressing (this.gameObject)) {
+					ad.CallingStop ();
+				} else {
+					if (!RaycastObstacle ()) {
+						if (ad.IsWalking () || !ad.IsPlaying ()) {
+							mouseLandingPos = RaycastPoint ();
+							playerAction.WalkTo (mouseLandingPos);
+						} else {
+							ad.CallingStop ();
+						}
+					}
+				}
 			} else if (state == 4) {
 				state = 5;
 				StartCoroutine (LerpView (false));
@@ -380,6 +402,7 @@ namespace DesignSociety
 			// set player drop position
 			Vector3 dropingPos = new Vector3 (landingPos.x, landingPos.y + dropHeight - playerHeight / 2, landingPos.z);
 			transform.position = dropingPos;
+			transform.rotation = Quaternion.identity;
 			mouseLandingPos = landingPos;
 
 			// show player

@@ -1,0 +1,814 @@
+{
+    "locationdata": [
+    {
+        "name": "hotel_eating1_初始位置"
+    },
+    {
+        "name": "hotel_eating2_初始位置"
+    },
+    {
+        "name": "hotel_eating3_初始位置"
+    },
+    {
+        "name": "hotel_eating4_初始位置"
+    },
+    {
+        "name": "hotel_eating5_初始位置"
+    },
+    {
+        "name": "hotel_eating6_初始位置"
+    },
+    {
+        "name": "hotel_eating7_初始位置"
+    },
+    {
+        "name": "hotel_fitting1_初始位置"
+    },
+    {
+        "name": "hotel_fitting2_初始位置"
+    },
+    {
+        "name": "hotel_fitting3_初始位置"
+    },
+    {
+        "name": "hotel_fitting4_初始位置"
+    },
+    {
+        "name": "hotel_fitting_称体重"
+    },
+    {
+        "name": "hotel_fitting_交谈1"
+    },
+    {
+        "name": "hotel_fitting_交谈2"
+    },
+    {
+        "name": "hotel_drinking1_初始位置"
+    },
+    {
+        "name": "hotel_drinking3_初始位置"
+    },
+    {
+        "name": "hotel_drinking2_初始位置"
+    },
+    {
+        "name": "hotel_drinking4_初始位置"
+    },
+    {
+        "name": "hotel_酒保2_初始位置"
+    },
+    {
+        "name": "hotel_酒保1_初始位置"
+    },
+    {
+        "name": "hotel_dj_初始位置"
+    },
+    {
+        "name": "hotel_dancing1_初始位置"
+    },
+    {
+        "name": "hotel_dancing2_初始位置"
+    },
+    {
+        "name": "hotel_dancing3_初始位置"
+    },
+    {
+        "name": "hotel_dancing4_初始位置"
+    },
+    {
+        "name": "hotel_dancing_dancing1"
+    },
+    {
+        "name": "hotel_dancing_dancing2"
+    }],
+    "characterdata": [
+    {
+        "name": "hotel_eating1",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_eating1_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤46",
+        "hair": 1,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "wine", "wine_toast", "eat_with_tableware", "with_tableware", "talk_with_tableware", "play_cellphone_scroll", "play_cellphone_click", "hold_cellphone", "photo_cellphone"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_eating2",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_eating2_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣短裤19",
+        "hair": 3,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "wine", "wine_toast", "eat_with_tableware", "with_tableware", "talk_with_tableware", "play_cellphone_click", "play_cellphone_scroll", "hold_cellphone", "photo_cellphone"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_eating3",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_eating3_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_格子长裤2",
+        "hair": 8,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "wine", "wine_toast", "eat_with_tableware", "with_tableware", "talk_with_tableware", "hold_cellphone", "play_cellphone_scroll", "play_cellphone_click", "photo_cellphone"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_eating4",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_eating4_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子4",
+        "hair": 6,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "wine", "wine_toast", "eat_with_tableware", "with_tableware", "talk_with_tableware", "play_cellphone_scroll", "play_cellphone_click", "hold_cellphone", "photo_cellphone"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_eating5",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_eating5_初始位置",
+        "body_type": "男胖",
+        "hair": 3,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "wine", "wine_toast", "eat_with_tableware", "with_tableware", "talk_with_tableware", "hold_cellphone", "play_cellphone_scroll", "play_cellphone_click", "photo_cellphone"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_eating6",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_eating6_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣长裤1",
+        "hair": 2,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "wine", "wine_toast", "eat_with_tableware", "with_tableware", "talk_with_tableware", "hold_cellphone", "play_cellphone_scroll", "play_cellphone_click", "photo_cellphone"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_eating7",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_eating7_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲短裤26",
+        "hair": 3,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "wine", "wine_toast", "eat_with_tableware", "with_tableware", "talk_with_tableware", "hold_cellphone", "play_cellphone_scroll", "play_cellphone_click", "photo_cellphone"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_fitting1",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_fitting1_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣短裤5",
+        "hair": 1,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "walk",
+        "spare_time_main_action": "run",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_fitting2",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_fitting2_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤37",
+        "hair": 3,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "walk",
+        "spare_time_main_action": "run",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_fitting3",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_fitting3_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_长袖衬衣长裤34",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "other",
+        "spare_time_main_action": "exercise_1",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_fitting4",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_fitting4_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤42",
+        "hair": 4,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "other",
+        "spare_time_main_action": "exercise_1",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_drinking1",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_drinking1_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤4",
+        "hair": 3,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "nod", "chin_in_hand", "talk", "wine", "wine_pickup", "wine_putdown", "wine_toast"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_drinking2",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_drinking2_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_马甲衬衣长裤14",
+        "hair": 8,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "nod", "chin_in_hand", "talk", "wine", "wine_pickup", "wine_putdown", "wine_toast"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_drinking3",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_drinking3_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子7",
+        "hair": 7,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "nod", "chin_in_hand", "talk", "wine", "wine_pickup", "wine_putdown", "wine_toast"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_drinking4",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_drinking4_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣长裤5",
+        "hair": 3,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "nod", "chin_in_hand", "talk", "wine", "wine_pickup", "wine_putdown", "wine_toast"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_酒保1",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_酒保1_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤13",
+        "hair": 2,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "bartend",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["talk", "pour_wine"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_酒保2",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_酒保2_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_长袖衬衣长裤16",
+        "hair": 7,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "bartend",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["talk", "pour_wine"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_dj",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_dj_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子10",
+        "hair": 8,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "scratch_cd",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "hotel_dancing1",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_dancing1_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤17",
+        "hair": 1,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "other",
+        "spare_time_main_action": "dance1",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": ["dance2", "dance3"]
+    },
+    {
+        "name": "hotel_dancing2",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_dancing2_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_纯色短袖长裤2",
+        "hair": 6,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "other",
+        "spare_time_main_action": "dance1",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": ["dance2", "dance3"]
+    },
+    {
+        "name": "hotel_dancing3",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_dancing3_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_纯色短袖长裤3",
+        "hair": 8,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "other",
+        "spare_time_main_action": "dance1",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": ["dance2", "dance3"]
+    },
+    {
+        "name": "hotel_dancing4",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "hotel_dancing4_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子5",
+        "hair": 5,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "other",
+        "spare_time_main_action": "dance1",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": ["dance2", "dance3"]
+    }],
+    "initcharacterdata": [
+    {
+        "name": "hotel_runner1",
+        "candidates": ["hotel_fitting1"]
+    },
+    {
+        "name": "hotel_runner2",
+        "candidates": ["hotel_fitting2"]
+    },
+    {
+        "name": "hotel_fitting甲",
+        "candidates": ["hotel_fitting3", "hotel_fitting4"]
+    },
+    {
+        "name": "hotel_drinking甲",
+        "candidates": ["hotel_drinking1", "hotel_drinking2"]
+    },
+    {
+        "name": "hotel_drinking乙",
+        "candidates": ["hotel_drinking3", "hotel_drinking4"]
+    },
+    {
+        "name": "hotel_eating乙",
+        "candidates": ["hotel_eating1", "hotel_eating2", "hotel_eating3", "hotel_eating4"]
+    },
+    {
+        "name": "hotel_eating甲",
+        "candidates": ["hotel_eating5", "hotel_eating6", "hotel_eating7"]
+    }],
+    "compositemovementdata": [
+    {
+        "name": "all_开会"
+    },
+    {
+        "name": "all_站对站交谈"
+    },
+    {
+        "name": "all_站对坐（正视）交谈"
+    },
+    {
+        "name": "all_站对坐（左转）交谈"
+    },
+    {
+        "name": "all_站对坐（右转）交谈"
+    },
+    {
+        "name": "all_坐对坐交谈"
+    },
+    {
+        "name": "all_操作电脑"
+    },
+    {
+        "name": "all_用纸笔写字"
+    },
+    {
+        "name": "all_用纸笔绘画"
+    },
+    {
+        "name": "all_站姿打手机"
+    },
+    {
+        "name": "all_坐姿打手机"
+    },
+    {
+        "name": "all_站姿采访"
+    },
+    {
+        "name": "all_坐姿采访"
+    },
+    {
+        "name": "all_站姿录音"
+    },
+    {
+        "name": "all_站姿拍照（仅一人）"
+    },
+    {
+        "name": "all_站姿玩手机（仅一人）"
+    },
+    {
+        "name": "all_站姿玩ipad（仅一人）"
+    },
+    {
+        "name": "all_坐姿玩手机（仅一人）"
+    },
+    {
+        "name": "all_坐姿玩ipad（仅一人）"
+    },
+    {
+        "name": "all_从书架拿出看书"
+    },
+    {
+        "name": "hotel_蹦迪",
+        "mainrole_position": "stand",
+        "otherrole_position": "sit",
+        "mainrole_main": "",
+        "mainrole_aid": [],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "",
+        "otherroles_aid": [],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    }],
+    "scenedata": [
+    {
+        "start_time": "100",
+        "end_time": "150",
+        "spot_name": "hotel_runner交谈",
+        "principal": "hotel_runner2",
+        "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "hotel_fitting_交谈1",
+                "bubble_content": ["3_3_基因", "3_4_聊天"],
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": [],
+                "bubble_direction": ""
+            },
+            "num_other_people": 2,
+            "other_people": [
+            {
+                "name": "hotel_runner1",
+                "location_to_type": 1,
+                "location_to": "hotel_fitting_交谈2",
+                "bubble_content": ["3_3_献血", "3_4_FB"],
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": [],
+                "bubble_direction": ""
+            }]
+        }]
+    },
+    {
+        "start_time": "20",
+        "end_time": "70",
+        "spot_name": "hotel_称重",
+        "principal": "hotel_fitting甲",
+        "principal_activity": [
+        {
+            "duration": "7",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "hotel_fitting_称体重",
+                "bubble_content": ["3_3_减肥", "3_3_体重"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "30",
+        "end_time": "100",
+        "spot_name": "hotel_蹦迪",
+        "principal": "hotel_drinking甲",
+        "principal_activity": [
+        {
+            "duration": "15",
+            "description": "",
+            "position": "composite",
+            "action": "all_坐姿玩手机（仅一人）",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_在线支付", "3_2_扫码", "3_2_Wifi"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "30",
+            "description": "",
+            "position": "composite",
+            "action": "hotel_蹦迪",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "hotel_dancing_dancing1",
+                "bubble_content": ["3_4_开心","3_2_心"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "50",
+        "end_time": "140",
+        "spot_name": "hotel_蹦迪1",
+        "principal": "hotel_drinking乙",
+        "principal_activity": [
+        {
+            "duration": "15",
+            "description": "",
+            "position": "sit",
+            "action": "talk_point_far_times",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "hotel_dancing_dancing2",
+                "bubble_content": ["3_2_蓝牙", "3_4_FB","3_4_开心","3_2_心"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "35",
+            "description": "",
+            "position": "composite",
+            "action": "hotel_蹦迪",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "hotel_dancing_dancing2",
+                "bubble_content": ["3_4_开心","3_2_开"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "30",
+        "end_time": "100",
+        "spot_name": "hotel_runner跑步1",
+        "principal": "hotel_runner1",
+        "principal_activity": [
+        {
+            "duration": "50",
+            "description": "",
+            "position": "walk",
+            "action": "run",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_3_肌肉", "1_嘿！3_3_减肥", "3_3_心跳", "4_心电图"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "32",
+        "end_time": "92",
+        "spot_name": "hotel_runner跑步2",
+        "principal": "hotel_runner2",
+        "principal_activity": [
+        {
+            "duration": "30",
+            "description": "",
+            "position": "walk",
+            "action": "run",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_3_体重", "3_3_心跳", "1_哈！"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": 0.1,
+        "end_time": "20",
+        "spot_name": "hotel_ar应用1",
+        "principal": "hotel_eating乙",
+        "principal_activity": [
+        {
+            "duration": "10",
+            "description": "",
+            "position": "sit",
+            "action": "play_cellphone_scroll",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_即时通讯","3_4_微信","3_4_票券","3_4_点赞"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "30",
+        "end_time": "40",
+        "spot_name": "hotel_ar应用2",
+        "principal": "hotel_eating甲",
+        "principal_activity": [
+        {
+            "duration": "10",
+            "description": "",
+            "position": "sit",
+            "action": "play_cellphone_click",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_AR应用","3_4_3D眼镜","3_4_爆米花"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    }]
+}

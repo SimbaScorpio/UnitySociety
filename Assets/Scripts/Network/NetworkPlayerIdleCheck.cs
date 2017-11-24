@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 
 namespace DesignSociety
@@ -10,20 +11,44 @@ namespace DesignSociety
 		public float maxTimeToIdle = 10f;
 		public GameObject idleMark;
 		public float idleCount = 0f;
-		public bool isIdleForALongTime = true;
+		public bool isIdleForALongTime = false;
+
+		private NetworkActionDealer ad;
+
+		private GameObject bodymesh;
+
+		void Start ()
+		{
+			CheckLocal ();
+			ad = GetComponent<NetworkActionDealer> ();
+			bodymesh = transform.Find ("mesh").gameObject;
+			idleCount = maxTimeToIdle;
+		}
+
+		void CheckLocal ()
+		{
+			if (!isLocalPlayer)
+				enabled = false;
+		}
 
 		void Update ()
 		{
-			if (!isLocalPlayer)
+			CheckLocal ();
+			if (UIKeywordPanel.GetInstance ().isActive)
 				return;
-			ActionSingle ac = GetComponent<ActionSingle> ();
-			if (ac == null) {
-				idleCount += Time.deltaTime;
-				if (idleCount > maxTimeToIdle)
-					Idle ();
+			if (isIdleForALongTime) {
+				if (Input.GetMouseButtonDown (0) && !EventSystem.current.IsPointerOverGameObject ()) {
+					idleCount = 0;
+					NotIdle ();
+				}
 			} else {
-				idleCount = 0;
-				NotIdle ();
+				if (!ad.IsPlaying () && !Input.anyKeyDown && bodymesh.activeInHierarchy) {
+					idleCount += Time.deltaTime;
+					if (idleCount > maxTimeToIdle)
+						Idle ();
+				} else {
+					idleCount = 0;
+				}
 			}
 		}
 
@@ -33,6 +58,7 @@ namespace DesignSociety
 			if (idleMark != null) {
 				idleMark.SetActive (true);
 			}
+			UIInformationMenu.GetInstance ().ShowIdlePanel ();
 		}
 
 		void NotIdle ()
@@ -41,6 +67,7 @@ namespace DesignSociety
 			if (idleMark != null) {
 				idleMark.SetActive (false);
 			}
+			UIInformationMenu.GetInstance ().ShowActivePanel ();
 		}
 	}
 }

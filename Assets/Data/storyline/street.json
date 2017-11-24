@@ -1,0 +1,779 @@
+{
+    "locationdata": [
+    {
+        "name": "street_A1"
+    },
+    {
+        "name": "street_A2"
+    },
+    {
+        "name": "street_A3_公园椅子"
+    },
+    {
+        "name": "street_A4"
+    },
+    {
+        "name": "street_A5"
+    },
+    {
+        "name": "street_A6_公园椅子"
+    },
+    {
+        "name": "street_A7_公园椅子"
+    },
+    {
+        "name": "street_A8"
+    },
+    {
+        "name": "street_A9"
+    },
+    {
+        "name": "street_A10"
+    },
+    {
+        "name": "street_A11"
+    },
+    {
+        "name": "street_A12"
+    },
+    {
+        "name": "street_A13_bank后椅子"
+    },
+    {
+        "name": "street_A14_bank后椅子"
+    },
+    {
+        "name": "street_A15"
+    },
+    {
+        "name": "street_A16"
+    },
+    {
+        "name": "street_A17"
+    },
+    {
+        "name": "street_A18"
+    },
+    {
+        "name": "street_A19"
+    },
+    {
+        "name": "street_B1"
+    },
+    {
+        "name": "street_B2"
+    },
+    {
+        "name": "street_B3"
+    },
+    {
+        "name": "street_B4"
+    },
+    {
+        "name": "street_B5"
+    },
+    {
+        "name": "street_B6"
+    },
+    {
+        "name": "street_B7"
+    },
+    {
+        "name": "street_B8"
+    },
+    {
+        "name": "street_B9"
+    },
+    {
+        "name": "street_C1"
+    },
+    {
+        "name": "street_C2"
+    },
+    {
+        "name": "street_C3"
+    },
+    {
+        "name": "street_C4"
+    },
+    {
+        "name": "street_C5"
+    },
+    {
+        "name": "street_C6"
+    },
+    {
+        "name": "street_C7"
+    },
+    {
+        "name": "street_C8"
+    },
+    {
+        "name": "street_C9"
+    },
+    {
+        "name": "street_C10"
+    },
+    {
+        "name": "street_D1"
+    },
+    {
+        "name": "street_D2"
+    },
+    {
+        "name": "street_D3"
+    },
+    {
+        "name": "street_D4"
+    }],
+    "characterdata": [
+    {
+        "name": "street_路人1",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A1",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣长裤4",
+        "hair": 1,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人2",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A2",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣短裤20",
+        "hair": 4,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人4",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A4",
+        "body_type": "女裤",
+        "clothing": "2_纯色短袖长裤1",
+        "hair": 8,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人5",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A5",
+        "body_type": "女裙",
+        "clothing": "3_裙子28",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人8",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A8",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤21",
+        "hair": 3,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人9",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A9",
+        "body_type": "女裤",
+        "clothing": "2_马甲衬衣长裤14",
+        "hair": 8,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人10",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A10",
+        "body_type": "女裙",
+        "clothing": "3_裙子12",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人11",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A11",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣长裤3",
+        "hair": 1,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人12",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A12",
+        "body_type": "女裤",
+        "clothing": "2_格子长裤5",
+        "hair": 5,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人15",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A15",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤42",
+        "hair": 1,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人16",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A16",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤27",
+        "hair": 4,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人17",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_B1",
+        "body_type": "男胖",
+        "clothing": "1_短袖马甲短裤3",
+        "hair": 2,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人18",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_B2",
+        "body_type": "女裤",
+        "clothing": "2_长袖衬衣长裤24",
+        "hair": 6,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人19",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_B3",
+        "body_type": "女裙",
+        "clothing": "3_裙子9",
+        "hair": 8,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人20",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_B4",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣短裤5",
+        "hair": 3,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人21",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_B6",
+        "body_type": "女裤",
+        "clothing": "2_短袖格子长裤10",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人22",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_B7",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤42",
+        "hair": 4,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人23",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_B5",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤15",
+        "hair": 4,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人24",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_C1",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣短裤2",
+        "hair": 4,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人25",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_C2",
+        "body_type": "男瘦",
+        "clothing": "1_马甲长裤20",
+        "hair": 1,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人26",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_C3",
+        "body_type": "女裤",
+        "clothing": "2_纯色短袖长裤8",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人27",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_C4",
+        "body_type": "女裙",
+        "clothing": "3_裙子5",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人28",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_C5",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤45",
+        "hair": 4,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人29",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_C6",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣短裤35",
+        "hair": 2,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人30",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_C7",
+        "body_type": "女裤",
+        "clothing": "2_格子长裤2",
+        "hair": 5,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人31",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_C8",
+        "body_type": "女裙",
+        "clothing": "3_裙子12",
+        "hair": 7,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人32",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_D1",
+        "body_type": "男胖",
+        "clothing": "1_衬衣长裤43",
+        "hair": 3,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人33",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_D2",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤9",
+        "hair": 1,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人34",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_D3",
+        "body_type": "女裤",
+        "clothing": "2_马甲衬衣长裤18",
+        "hair": 5,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人35",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A6_公园椅子",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤38",
+        "hair": 1,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "laugh_loud", "backward", "hold_head_back"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人36",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A7_公园椅子",
+        "body_type": "女裤",
+        "clothing": "2_长袖衬衣长裤19",
+        "hair": 6,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "laugh_loud", "backward", "hold_head_back"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人37",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A3_公园椅子",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣短裤5",
+        "hair": 3,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "laugh_loud", "backward", "hold_head_back"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人38",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A13_bank后椅子",
+        "body_type": "男瘦",
+        "hair": 3,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "laugh_loud", "backward", "hold_head_back"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "street_路人39",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "street_A14_bank后椅子",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣短裤23",
+        "hair": 2,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "relax_1",
+        "spare_time_aid_sit": ["relax_2", "sprawl", "laugh_loud", "backward", "hold_head_back"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    }],
+    "initcharacterdata": [
+    {
+        "name": "",
+        "candidates": []
+    }],
+    "compositemovementdata": [
+    {
+        "name": "",
+        "mainrole_position": "",
+        "otherrole_position": "",
+        "mainrole_main": "",
+        "mainrole_aid": [],
+        "wait_mainrole_main": "",
+        "wait_mainrole_aid": [],
+        "start_mainrole_main": [],
+        "end_mainrole_main": [],
+        "otherroles_main": "",
+        "otherroles_aid": [],
+        "wait_otherroles_main": "",
+        "wait_otherroles_aid": [],
+        "start_otherroles_main": [],
+        "end_otherroles_main": []
+    }],
+    "scenedata": [
+    {
+        "start_time": 0.1,
+        "end_time": 0.1,
+        "spot_name": "",
+        "principal": "",
+        "principal_activity": [
+        {
+            "duration": 0.1,
+            "description": "",
+            "position": "sit",
+            "action": "",
+            "self":
+            {
+                "location_to_type": 0,
+                "location_to": "",
+                "bubble_type": 0,
+                "bubble_content": null,
+                "screen": null,
+                "dashboard_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null
+            },
+            "num_other_people": 2,
+            "other_people": [
+            {
+                "name": "",
+                "location_to_type": 0,
+                "location_to": null,
+                "bubble_type": 0,
+                "bubble_content": null,
+                "screen": null,
+                "dashboard_direction": 0,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 1,
+                "following_actions": [
+                {
+                    "duration": 0.1,
+                    "description": "",
+                    "position": "sit",
+                    "action": "",
+                    "self":
+                    {
+                        "location_to_type": 0,
+                        "location_to": null,
+                        "bubble_type": 0,
+                        "bubble_content": null,
+                        "screen": null,
+                        "dashboard_direction": 0,
+                        "animation": null,
+                        "starttime": 0.1,
+                        "carrytype": 0,
+                        "carryobj": null
+                    },
+                    "other_people": []
+                }]
+            }]
+        }]
+    }],
+    "random": [
+    {
+        "randomscene": "street_路人",
+        "randomperson": ["street_路人1", "street_路人2", "street_路人4", "street_路人5", "street_路人8", "street_路人9", "street_路人10", "street_路人11", "street_路人12", "street_路人15", "street_路人16", "street_路人17", "street_路人18", "street_路人19", "street_路人20", "street_路人21", "street_路人22", "street_路人23", "street_路人24", "street_路人25", "street_路人26", "street_路人27", "street_路人28", "street_路人29", "street_路人30", "street_路人31", "street_路人32", "street_路人33", "street_路人34", "street_路人35", "street_路人36", "street_路人37", "street_路人38", "street_路人39"],
+        "randomlocation": ["street_A1", "street_A2", "street_A3_公园椅子", "street_A4", "street_A5", "street_A6_公园椅子", "street_A7_公园椅子", "street_A8", "street_A9", "street_A10", "street_A11", "street_A12", "street_A13_bank后椅子", "street_A14_bank后椅子", "street_A15", "street_A16", "street_A17", "street_A18", "street_A19", "street_B1", "street_B2", "street_B3", "street_B4", "street_B5", "street_B6", "street_B7", "street_B8", "street_B9", "street_C1", "street_C2", "street_C3", "street_C4", "street_C5", "street_C6", "street_C7", "street_C8", "street_C9", "street_C10", "street_D1", "street_D2", "street_D3", "street_D4"],
+        "randomaction": [
+        {
+            "label": "street_walk",
+            "position": "stand",
+            "main": "look_around",
+            "aid": ["fixphone", "scratch_head","play_cellphone_scroll","play_cellphone_click","photo_cellphone","talk_cellphone","camera"]
+        },
+        {
+            "label": "street_sit",
+            "position": "sit",
+            "main": "breathe",
+            "aid": ["scratch_head", "relax_1", "shake_leg", "watch", "laugh_loud","fixphone","play_cellphone_scroll","play_cellphone_click","swing_with_music"]
+        }]
+    }]
+}

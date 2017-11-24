@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace DesignSociety
 {
@@ -30,7 +31,7 @@ namespace DesignSociety
 	/// 4) stuff always remain in scene
 	/// </summary>
 	/// 
-	public class NetworkActionPlay : MonoBehaviour
+	public class NetworkActionPlay : NetworkBehaviour
 	{
 		public bool isPlaying;
 		public ActionInfo info;
@@ -95,7 +96,7 @@ namespace DesignSociety
 		// 普通的显示和消失
 		public void OnItemShown ()
 		{
-			if (info.itemPaths == null)
+			if ((!isServer && !isLocalPlayer) || info.itemPaths == null)
 				return;
 			for (int i = 0; i < info.itemPaths.Length; ++i) {
 				transform.Find (info.itemPaths [i]).gameObject.SetActive (true);
@@ -105,7 +106,7 @@ namespace DesignSociety
 
 		public void OnItemHidden ()
 		{
-			if (info.itemPaths == null)
+			if ((!isServer && !isLocalPlayer) || info.itemPaths == null)
 				return;
 			for (int i = 0; i < info.itemPaths.Length; ++i) {
 				transform.Find (info.itemPaths [i]).gameObject.SetActive (false);
@@ -116,7 +117,7 @@ namespace DesignSociety
 		// 创建物品至场景
 		public void OnItemCreated ()
 		{
-			if (info.itemPaths == null)
+			if ((!isServer && !isLocalPlayer) || info.itemPaths == null)
 				return;
 			Transform parent = transform.Find (info.itemPaths [0]);
 			dealer.createdItem = Instantiate (Resources.Load ("Prefabs/Item/" + info.prefabName)) as GameObject;
@@ -125,6 +126,8 @@ namespace DesignSociety
 
 		public void OnItemReleased ()
 		{
+			if (!isServer && !isLocalPlayer)
+				return;
 			if (dealer.createdItem != null) {
 				dealer.createdItem.GetComponent<CopyTransform> ().target = null;
 				dealer.createdItem = null;

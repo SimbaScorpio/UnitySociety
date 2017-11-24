@@ -8,6 +8,7 @@ namespace DesignSociety
 	public class UIKeywordPanel : MonoBehaviour
 	{
 		public Keyword keyword;
+		public bool isActive = false;
 
 		public GameObject panel;
 		public Text headerTitle;
@@ -37,14 +38,18 @@ namespace DesignSociety
 
 		public void OnCloseButtonClicked ()
 		{
-			if (panel != null)
+			if (panel != null) {
 				panel.SetActive (false);
+				isActive = false;
+			}
 		}
 
 		public void OnOpenButtonClicked ()
 		{
-			if (panel != null)
+			if (panel != null) {
 				panel.SetActive (true);
+				isActive = true;
+			}
 			if (scrollrect != null)
 				scrollrect.verticalNormalizedPosition = 1;
 		}

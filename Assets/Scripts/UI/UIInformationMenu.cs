@@ -10,6 +10,9 @@ namespace DesignSociety
 		public float lerpRate = 20f;
 		public bool isLerping;
 
+		public GameObject IdlePanel;
+		public GameObject ActivePanel;
+
 		#region instance
 
 		private static UIInformationMenu instance;
@@ -97,5 +100,21 @@ namespace DesignSociety
 		}
 
 		#endregion
+
+		public void ShowIdlePanel ()
+		{
+			if (ActivePanel != null)
+				ActivePanel.SetActive (false);
+			if (IdlePanel != null)
+				IdlePanel.SetActive (true);
+		}
+
+		public void ShowActivePanel ()
+		{
+			if (ActivePanel != null)
+				ActivePanel.SetActive (true);
+			if (IdlePanel != null)
+				IdlePanel.SetActive (false);
+		}
 	}
 }

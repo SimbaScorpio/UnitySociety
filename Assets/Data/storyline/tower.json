@@ -1,0 +1,613 @@
+{
+    "locationdata": [
+    {
+        "name": "tower_数据员1_初始位置"
+    },
+    {
+        "name": "tower_数据员1_记笔记"
+    },
+    {
+        "name": "tower_数据员2_初始位置"
+    },
+    {
+        "name": "tower_数据员3_初始位置"
+    },
+    {
+        "name": "tower_数据员3_笔记"
+    },
+    {
+        "name": "tower_数据员4_初始位置"
+    },
+    {
+        "name": "tower_数据员5_初始位置"
+    },
+    {
+        "name": "tower_客服1_初始位置"
+    },
+    {
+        "name": "tower_客服2_初始位置"
+    },
+    {
+        "name": "tower_客服3_初始位置"
+    }],
+    "characterdata": [
+    {
+        "name": "tower_数据员1",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "tower_数据员1_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖马甲短裤4",
+        "hair": 3,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "tower_数据员2",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "tower_数据员2_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_马甲短裤21",
+        "hair": 1,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "tower_数据员3",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "tower_数据员3_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_短袖格子长裤1",
+        "hair": 5,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "tower_数据员4",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "tower_数据员4_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子19",
+        "hair": 5,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "tower_数据员5",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "tower_数据员5_初始位置",
+        "body_type": "女裙",
+        "clothing": "3_裙子19",
+        "hair": 5,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["nod", "shake_head", "cross_arm", "watch"],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "tower_客服1",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "tower_客服1_初始位置",
+        "body_type": "男胖",
+        "clothing": "1_短袖衬衣长裤2",
+        "hair": 3,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "tower_客服2",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "tower_客服2_初始位置",
+        "body_type": "男瘦",
+        "clothing": "1_衬衣长裤2",
+        "hair": 3,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    },
+    {
+        "name": "tower_客服3",
+        "chinesename": "",
+        "job": "",
+        "initial_position": "tower_客服3_初始位置",
+        "body_type": "女裤",
+        "clothing": "2_格子长裤6",
+        "hair": 8,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "computer",
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": []
+    }],
+    "initcharacterdata": [
+    {
+        "name": "tower_数据员一",
+        "candidates": ["tower_数据员1"]
+    },
+    {
+        "name": "tower_数据员二",
+        "candidates": ["tower_数据员2"]
+    },
+    {
+        "name": "tower_数据员三",
+        "candidates": ["tower_数据员3"]
+    },
+    {
+        "name": "tower_数据员四",
+        "candidates": ["tower_数据员4"]
+    },
+    {
+        "name": "tower_数据员五",
+        "candidates": ["tower_数据员5"]
+    },
+    {
+        "name": "tower_客服一",
+        "candidates": ["tower_客服1", "tower_客服3", "tower_客服2"]
+    },
+    {
+        "name": "tower_客服二",
+        "candidates": ["tower_客服1", "tower_客服2", "tower_客服3"]
+    },
+    {
+        "name": "tower_客服三",
+        "candidates": ["tower_客服1", "tower_客服2", "tower_客服3"]
+    }],
+    "compositemovementdata": [
+    {
+        "name": "all_开会"
+    },
+    {
+        "name": "all_站对站交谈"
+    },
+    {
+        "name": "all_站对坐（正视）交谈"
+    },
+    {
+        "name": "all_站对坐（左转）交谈"
+    },
+    {
+        "name": "all_站对坐（右转）交谈"
+    },
+    {
+        "name": "all_坐对坐交谈"
+    },
+    {
+        "name": "all_操作电脑"
+    },
+    {
+        "name": "all_用纸笔写字"
+    },
+    {
+        "name": "all_用纸笔绘画"
+    },
+    {
+        "name": "all_站姿打手机"
+    },
+    {
+        "name": "all_坐姿打手机"
+    },
+    {
+        "name": "all_站姿采访"
+    },
+    {
+        "name": "all_坐姿采访"
+    },
+    {
+        "name": "all_站姿录音"
+    },
+    {
+        "name": "all_站姿拍照（仅一人）"
+    },
+    {
+        "name": "all_站姿玩手机（仅一人）"
+    },
+    {
+        "name": "all_站姿玩ipad（仅一人）"
+    },
+    {
+        "name": "all_坐姿玩手机（仅一人）"
+    },
+    {
+        "name": "all_坐姿玩ipad（仅一人）"
+    },
+    {
+        "name": "all_从书架拿出看书"
+    }],
+    "scenedata": [
+    {
+        "start_time": "4",
+        "end_time": "90",
+        "spot_name": "tower_数据员一事件",
+        "principal": "tower_数据员一",
+        "principal_activity": [
+        {
+            "duration": "25",
+            "description": "",
+            "position": "composite",
+            "action": "all_站姿玩手机（仅一人）",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_云计算","3_2_云链接","3_2_Wifi","3_3_编程","3_3_C加加"],
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": "",
+                "bubble_direction": ""
+            },
+            "num_other_people": 2,
+            "other_people": []
+        },
+        {
+            "duration": "25",
+            "description": "",
+            "position": "stand",
+            "action": "write_pen",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "tower_数据员1_记笔记",
+                "bubble_content": ["3_2_信号塔","3_2_卫星","3_2_链接","3_2_芯片"],
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": "",
+                "bubble_direction": ""
+            },
+            "num_other_people": 2,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "10",
+        "end_time": "150",
+        "spot_name": "tower_数据员二事件",
+        "principal": "tower_数据员二",
+        "principal_activity": [
+        {
+            "duration": "30",
+            "description": "",
+            "position": "stand",
+            "action": "write_pen",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_大数据","3_2_大数据","3_3_移动互联网","3_1_文件查找"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "35",
+            "description": "",
+            "position": "composite",
+            "action": "all_站姿打手机",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_2_云链接","3_1_环状图","3_1_柱状图","3_3_圈A","3_3_物联网"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "25",
+            "description": "",
+            "position": "composite",
+            "action": "all_站姿玩手机（仅一人）",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_4_讨论","3_4_开心","3_3_编程"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "12",
+        "end_time": "140",
+        "spot_name": "tower_数据员三事件",
+        "principal": "tower_数据员三",
+        "principal_activity": [
+        {
+            "duration": "25",
+            "description": "",
+            "position": "composite",
+            "action": "all_站姿玩手机（仅一人）",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_互联网+","3_2_心","3_2_dropbox","3_3_物联网"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "45",
+            "description": "",
+            "position": "stand",
+            "action": "write_pen",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "tower_数据员3_初始位置",
+                "bubble_content": ["3_2_卫星","3_3_C加加","3_3_圈A","3_3_Wifi","3_3_大数据"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "20",
+        "end_time": "145",
+        "spot_name": "tower_数据员四事件",
+        "principal": "tower_数据员四",
+        "principal_activity": [
+        {
+            "duration": "32",
+            "description": "",
+            "position": "stand",
+            "action": "write_pen",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_语义网","3_1_查找","3_1_文件查找","3_2_连接","3_2_卫星"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "28",
+            "description": "",
+            "position": "composite",
+            "action": "all_站姿打手机",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_2_Wifi","3_4_讨论","3_4_3D眼镜","3_4_爆米花","3_4_开心"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "40",
+            "description": "",
+            "position": "composite",
+            "action": "all_站姿玩手机（仅一人）",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_4_微信","3_4_讨论"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "30",
+        "end_time": "130",
+        "spot_name": "tower_数据员五事件",
+        "principal": "tower_数据员五",
+        "principal_activity": [
+        {
+            "duration": "40",
+            "description": "",
+            "position": "composite",
+            "action": "all_站姿玩手机（仅一人）",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_并行与分布式系统","3_2_蓝牙","3_2_设置","3_2_卫星"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "45",
+            "description": "",
+            "position": "stand",
+            "action": "write_pen",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_2_卫星","3_3_大数据","3_3_移动互联网"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "90",
+        "end_time": "130",
+        "spot_name": "tower_客服一事件",
+        "principal": "tower_客服一",
+        "principal_activity": [
+        {
+            "duration": "30",
+            "description": "",
+            "position": "sit",
+            "action": "talk",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_互联网+","3_1_邮件","3_2_连接","3_2_云端"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "30",
+        "end_time": "60",
+        "spot_name": "tower_客服二事件",
+        "principal": "tower_客服二",
+        "principal_activity": [
+        {
+            "duration": "28",
+            "description": "",
+            "position": "sit",
+            "action": "talk",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_1_文件查找","3_2_芯片","3_2_信号塔","3_2_设置"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "23",
+        "end_time": "79",
+        "spot_name": "tower_客服三事件",
+        "principal": "tower_客服三",
+        "principal_activity": [
+        {
+            "duration": "24",
+            "description": "",
+            "position": "sit",
+            "action": "talk",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_2_连接","3_3_编程","3_3_大数据","3_3_物联网"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    }]
+}

@@ -7,8 +7,8 @@ public class ClientMessageTest : MonoBehaviour
 {
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			UIBubbleMessage.GetInstance ().PushMessage (Random.Range (0, 2), RandomText ("1"), RandomText ("2"));
+		if (Input.GetKeyDown (KeyCode.M)) {
+			UIClientMessageKeywordBlob.GetInstance ().PushBlob ("交互设计");
 		}
 		if (Input.GetKeyDown (KeyCode.Z)) {
 			UIInformationMenu.GetInstance ().Show ();

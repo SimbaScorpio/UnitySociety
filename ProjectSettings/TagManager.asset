@@ -13,6 +13,7 @@ TagManager:
   - dumbbell
   - cup
   - Car
+  - KeywordBubble
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,957 @@
+{
+    "locationdata": [
+    {
+        "name": "school1_student1_初始位置"
+    },
+    {
+        "name": "school1_student2_初始位置"
+    },
+    {
+        "name": "school1_student3_初始位置"
+    },
+    {
+        "name": "school1_student4_初始位置"
+    },
+    {
+        "name": "school1_student5_初始位置"
+    },
+    {
+        "name": "school1_student5_二楼操作电脑"
+    },
+    {
+        "name": "school1_student6_初始位置"
+    },
+    {
+        "name": "school1_student7_初始位置"
+    },
+    {
+        "name": "school1_student7_s10看电路板"
+    },
+    {
+        "name": "school1_student8_初始位置"
+    },
+    {
+        "name": "school1_student9_初始位置"
+    },
+    {
+        "name": "school1_student9_s6后指指点点"
+    },
+    {
+        "name": "school1_student10_初始位置"
+    },
+    {
+        "name": "school1_student10_t2交谈"
+    },
+    {
+        "name": "school1_student11_初始位置"
+    },
+    {
+        "name": "school1_student12_初始位置"
+    },
+    {
+        "name": "school1_student13_初始位置"
+    },
+    {
+        "name": "school1_student14_初始位置"
+    },
+    {
+        "name": "school1_student15_初始位置"
+    },
+    {
+        "name": "school1_student16_初始位置"
+    },
+    {
+        "name": "school1_student17_初始位置"
+    },
+    {
+        "name": "school1_student18_初始位置"
+    },
+    {
+        "name": "school1_student19_初始位置"
+    },
+    {
+        "name": "school1_student20_初始位置"
+    },
+    {
+        "name": "school1_student21_初始位置"
+    },
+    {
+        "name": "school1_student22_初始位置"
+    },
+    {
+        "name": "school1_student23_初始位置"
+    },
+    {
+        "name": "school1_student24_初始位置"
+    },
+    {
+        "name": "school1_student25_初始位置"
+    },
+    {
+        "name": "school1_student26_初始位置"
+    },
+    {
+        "name": "school1_student27_初始位置"
+    },
+    {
+        "name": "school1_teacher1_初始位置"
+    },
+    {
+        "name": "school1_teacher2_初始位置"
+    },
+    {
+        "name": "school1_teacher2_s10交谈"
+    },
+    {
+        "name": "school1_teacher3_初始位置"
+    },
+    {
+        "name": "school1_teacher4_初始位置"
+    },
+    {
+        "name": "school1_二层右边课堂1"
+    },
+    {
+        "name": "school1_二层右边课堂2"
+    },
+    {
+        "name": "school1_二层右边课堂3"
+    },
+    {
+        "name": "school1_二层右边课堂4"
+    },
+    {
+        "name": "school1_二层右边课堂5"
+    },
+    {
+        "name": "school1_teacher1边上演讲"
+    },
+    {
+        "name": "school1_三层沙发"
+    }],
+    "characterdata": [
+    {
+        "name": "school1_student1",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student1_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_衬衣长裤_3",
+        "hair": 3,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "talk",
+        "spare_time_aid_sit": ["shake_leg", "nod", "breathe"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男瘦"
+    },
+    {
+        "name": "school1_student2",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student2_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_2",
+        "hair": 3,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "scratch_head", "nod", "chin_in_hand", "sleep"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男胖"
+    },
+    {
+        "name": "school1_student3",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student3_初始位置",
+        "body_tyoe": "",
+        "clothing": "2_马甲衬衣长裤_11",
+        "hair": 5,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["shake_leg", "nod"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_student4",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student4_初始位置",
+        "body_tyoe": "",
+        "clothing": "3_裙子_23",
+        "hair": 6,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "breathe",
+        "spare_time_aid_sit": ["nod", "applaud", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裙"
+    },
+    {
+        "name": "school1_student5",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student5_初始位置",
+        "body_tyoe": "",
+        "clothing": "2_长袖衬衣长裤_11",
+        "hair": 7,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_student6",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student6_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_8",
+        "hair": 4,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男瘦"
+    },
+    {
+        "name": "school1_student7",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student7_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲短裤_3",
+        "hair": 3,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男胖"
+    },
+    {
+        "name": "school1_student8",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student8_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_15",
+        "hair": 2,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男瘦"
+    },
+    {
+        "name": "school1_student9",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student9_初始位置",
+        "body_tyoe": "",
+        "clothing": "2_马甲衬衣长裤_1",
+        "hair": 8,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_student10",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student10_初始位置",
+        "body_tyoe": "",
+        "clothing": "3_裙子_12",
+        "hair": 7,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "play_cellphone_scroll",
+        "spare_time_aid_sit": ["play_cellphone_click"],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裙"
+    },
+    {
+        "name": "school1_student11",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student11_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_17",
+        "hair": 2,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男胖"
+    },
+    {
+        "name": "school1_student12",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student12_初始位置",
+        "body_tyoe": "",
+        "clothing": "2_马甲衬衣长裤_32",
+        "hair": 6,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_student13",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student13_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_4",
+        "hair": 1,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男瘦"
+    },
+    {
+        "name": "school1_student14",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student14_初始位置",
+        "body_tyoe": "",
+        "clothing": "3_裙子_5",
+        "hair": 7,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裙"
+    },
+    {
+        "name": "school1_student15",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student15_初始位置",
+        "body_tyoe": "",
+        "clothing": "2_长袖衬衣长裤_9",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_student16",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student16_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_23",
+        "hair": 4,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男瘦"
+    },
+    {
+        "name": "school1_student17",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student17_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_衬衣短裤_30",
+        "hair": 1,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男胖"
+    },
+    {
+        "name": "school1_student18",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student18_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_34",
+        "hair": 4,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男瘦"
+    },
+    {
+        "name": "school1_student19",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student19_初始位置",
+        "body_tyoe": "",
+        "clothing": "3_裙子_10",
+        "hair": 7,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裙"
+    },
+    {
+        "name": "school1_student20",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student20_初始位置",
+        "body_tyoe": "",
+        "clothing": "2_长袖衬衣长裤_30",
+        "hair": 6,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_student21",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student21_初始位置",
+        "body_tyoe": "",
+        "clothing": "2_马甲衬衣长裤_5",
+        "hair": 5,
+        "glasses": 2,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_student22",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student22_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲短裤_12",
+        "hair": 2,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男瘦"
+    },
+    {
+        "name": "school1_student23",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student23_初始位置",
+        "body_tyoe": "",
+        "clothing": "3_裙子_11",
+        "hair": 5,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "女裙"
+    },
+    {
+        "name": "school1_student24",
+        "chinesename": "",
+        "job": "student",
+        "initial_position": "school1_student24_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_16",
+        "hair": 2,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": [],
+        "spare_time_aid_other": [],
+        "body_type": "男胖"
+    },
+    {
+        "name": "school1_teacher1",
+        "chinesename": "",
+        "job": "teacher",
+        "initial_position": "school1_teacher1_初始位置",
+        "body_tyoe": "",
+        "clothing": "1_马甲长裤_20",
+        "hair": 2,
+        "glasses": 1,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "talk",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times", "nod", "cross_arm"],
+        "spare_time_aid_other": [],
+        "body_type": "男瘦"
+    },
+    {
+        "name": "school1_teacher2",
+        "chinesename": "",
+        "job": "teacher",
+        "initial_position": "school1_teacher2_初始位置",
+        "body_tyoe": "",
+        "clothing": "2_纯色短袖长裤_4",
+        "hair": 5,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "stand",
+        "spare_time_main_action": "talk",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_teacher3",
+        "chinesename": "",
+        "job": "teacher",
+        "initial_position": "school1_teacher3_初始位置",
+        "clothing": "2_纯色短袖长裤_3",
+        "hair": 6,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    },
+    {
+        "name": "school1_teacher4",
+        "chinesename": "",
+        "job": "teacher",
+        "initial_position": "school1_teacher4_初始位置",
+        "clothing": "2_纯色短袖长裤_2",
+        "hair": 5,
+        "glasses": 3,
+        "bag": 0,
+        "spare_time_main_position": "sit",
+        "spare_time_main_action": "",
+        "spare_time_aid_sit": [],
+        "spare_time_aid_stand": ["talk_point_ppt", "talk_point_near", "talk_point_far", "talk_point_near_times", "talk_point_far_times"],
+        "spare_time_aid_other": [],
+        "body_type": "女裤"
+    }],
+    "initcharacterdata": [
+    {
+        "name": "school1_teacher甲",
+        "candidates": ["school1_teacher1"]
+    },
+    {
+        "name": "school1_teacher乙",
+        "candidates": ["school1_teacher2"]
+    },
+    {
+        "name": "school1_student甲",
+        "candidates": ["school1_student1", "school1_student3"]
+    },
+    {
+        "name": "school1_student乙",
+        "candidates": ["school1_student2"]
+    },
+    {
+        "name": "school1_student五",
+        "candidates": ["school1_student5"]
+    },
+    {
+        "name": "school1_student六",
+        "candidates": ["school1_student6"]
+    },
+    {
+        "name": "school1_student七",
+        "candidates": ["school1_student7"]
+    },
+    {
+        "name": "school1_student九",
+        "candidates": ["school1_student9"]
+    },
+    {
+        "name": "school1_student十",
+        "candidates": ["school1_student10"]
+    }],
+    "compositemovementdata": [
+    {
+        "name": "all_开会"
+    },
+    {
+        "name": "all_站对站交谈"
+    },
+    {
+        "name": "all_站对坐（正视）交谈"
+    },
+    {
+        "name": "all_站对坐（左转）交谈"
+    },
+    {
+        "name": "all_站对坐（右转）交谈"
+    },
+    {
+        "name": "all_坐对坐交谈"
+    },
+    {
+        "name": "all_操作电脑"
+    },
+    {
+        "name": "all_用纸笔写字"
+    },
+    {
+        "name": "all_用纸笔绘画"
+    },
+    {
+        "name": "all_站姿打手机"
+    },
+    {
+        "name": "all_坐姿打手机"
+    },
+    {
+        "name": "all_站姿采访"
+    },
+    {
+        "name": "all_坐姿采访"
+    },
+    {
+        "name": "all_站姿录音"
+    },
+    {
+        "name": "all_站姿拍照（仅一人）"
+    },
+    {
+        "name": "all_站姿玩手机（仅一人）"
+    },
+    {
+        "name": "all_站姿玩ipad（仅一人）"
+    },
+    {
+        "name": "all_坐姿玩手机（仅一人）"
+    },
+    {
+        "name": "all_坐姿玩ipad（仅一人）"
+    },
+    {
+        "name": "all_从书架拿出看书"
+    }],
+    "scenedata": [
+    {
+        "start_time": "18",
+        "end_time": "70",
+        "spot_name": "school1_s1演讲",
+        "principal": "school1_student甲",
+        "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "stand",
+            "action": "talk",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "school1_teacher1边上演讲",
+                "bubble_content": null,
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 2,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "70",
+        "end_time": "190",
+        "spot_name": "school1_s2演讲",
+        "principal": "school1_student乙",
+        "principal_activity": [
+        {
+            "duration": "24",
+            "description": "",
+            "position": "stand",
+            "action": "talk",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "school1_teacher1边上演讲",
+                "bubble_content": null,
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "23",
+        "end_time": "230",
+        "spot_name": "school1_s5事件",
+        "principal": "school1_student五",
+        "principal_activity": [
+        {
+            "duration": "21",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对坐（正视）交谈",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": null,
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "school1_student六",
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": ""
+            }]
+        },
+        {
+            "duration": "15",
+            "description": "",
+            "position": "composite",
+            "action": "all_操作电脑",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "school1_student5_二楼操作电脑",
+                "bubble_content": null,
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "40",
+        "end_time": "120",
+        "spot_name": "school1_s7看电路板",
+        "principal": "school1_student七",
+        "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "stand",
+            "action": "breathe",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "school1_student7_s10看电路板",
+                "bubble_content": null,
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": "65",
+        "end_time": "300",
+        "spot_name": "school1_t2交谈",
+        "principal": "school1_teacher乙",
+        "principal_activity": [
+        {
+            "duration": "36",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "school1_teacher2_s10交谈",
+                "bubble_content": null,
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": ""
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "school1_student十",
+                "location_to_type": 1,
+                "location_to": "school1_student10_t2交谈",
+                "bubble_content": null,
+                "bubble_direction": null,
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 1,
+                "following_actions": [
+                {
+                    "duration": "20",
+                    "description": "",
+                    "position": "composite",
+                    "action": "all_坐姿打手机",
+                    "self":
+                    {
+                        "location_to_type": 1,
+                        "location_to": "school1_三层沙发",
+                        "bubble_content": null,
+                        "bubble_direction": null,
+                        "animation": null,
+                        "starttime": 0.1,
+                        "carrytype": 0,
+                        "carryobj": null,
+                        "bubble_end": ""
+                    },
+                    "other_people": []
+                }],
+                "bubble_end": ""
+            }]
+        }]
+    }],
+    "random": [
+    {
+        "randomscene": "school1_1",
+        "randomperson": ["school1_student8", "school1_student11", "school1_student12", "school1_student13", "school1_student14", "school1_student15", "school1_student16", "school1_student17", "school1_student18", "school1_student19", "school1_student20", "school1_student21", "school1_student22", "school1_student23", "school1_student24"],
+        "randomlocation": ["school1_二层右边课堂1", "school1_二层右边课堂2", "school1_二层右边课堂3", "school1_二层右边课堂4", "school1_二层右边课堂5", "school1_student8_初始位置", "school1_student11_初始位置", "school1_student12_初始位置", "school1_student13_初始位置", "school1_student14_初始位置", "school1_student15_初始位置", "school1_student16_初始位置", "school1_student17_初始位置", "school1_student18_初始位置", "school1_student19_初始位置", "school1_student20_初始位置", "school1_student21_初始位置", "school1_student22_初始位置", "school1_student23_初始位置", "school1_student24_初始位置", "school1_student25_初始位置", "school1_student26_初始位置"],
+        "randomaction": [
+        {
+            "label": "坐着听",
+            "position": "sit",
+            "main": "breathe",
+            "aid": ["nod", "scratch_head"]
+        },
+        {
+            "label": "坐着打电脑",
+            "position": "sit",
+            "main": "computer",
+            "aid": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"]
+        },
+        {
+            "label": "坐着摆弄东西",
+            "position": "sit",
+            "main": "experiment_pioneerstoryline",
+            "aid": ["nod", "scratch_head"]
+        },
+        {
+            "label": "站着记笔记",
+            "position": "stand",
+            "main": "write_pen",
+            "aid": ["spin_pen", "crumple_paper", "nod", "scratch_head"]
+        },
+        {
+            "label": "站着用皮尺在桌面上量",
+            "position": "stand",
+            "main": "tailor_tape",
+            "aid": ["nod", "scratch_head"]
+        },
+        {
+            "label": "站着量模特",
+            "position": "stand",
+            "main": "tailor_tape_model",
+            "aid": ["nod", "scratch_head"]
+        },
+        {
+            "label": "站着操作缝纫机",
+            "position": "stand",
+            "main": "sewing_machine",
+            "aid": ["nod", "scratch_head"]
+        }]
+    }]
+}

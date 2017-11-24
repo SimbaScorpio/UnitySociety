@@ -1,1 +1,1351 @@
-{"locationdata":[{"name":"book_编辑1_初始位置"},{"name":"book_编辑2_初始位置"},{"name":"book_编辑3_初始位置"},{"name":"book_编辑4_初始位置"},{"name":"book_编辑5_初始位置"},{"name":"book_总监1_初始位置"},{"name":"book_校对1_初始位置"},{"name":"book_校对2_初始位置"},{"name":"book_校对3_初始位置"},{"name":"book_设计师1_初始位置"},{"name":"book_设计师2_初始位置"},{"name":"book_设计师3_初始位置"},{"name":"book_设计师4_初始位置"},{"name":"book_作家1_初始位置"},{"name":"book_开会1"},{"name":"book_开会2"},{"name":"book_开会3"},{"name":"book_开会4"},{"name":"book_采访1"},{"name":"book_采访2"},{"name":"book_编辑甲出走"},{"name":"book_编辑丙出走"},{"name":"book_三楼窗边"},{"name":"book_书架前看书"},{"name":"book_二楼沙发左"},{"name":"book_二楼沙发右"},{"name":"book_二楼沙发右前方"},{"name":"book_三楼小架子前"},{"name":"book_跟编辑戊说话"},{"name":"book_看设计师3的电脑"},{"name":"book_二楼左侧沙发右"},{"name":"book_二楼左侧沙发左"}],"characterdata":[{"name":"book_编辑1","chinesename":"张三","job":"编辑","initial_position":"book_编辑1_初始位置","body_type":"女裤","clothing":"2_马甲衬衣长裤33","hair":7,"glasses":2,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"computer","spare_time_aid_sit":["scratch_head_computer","chin_in_hand_comptuer","keyboard","mouse_move","mouse_click"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_编辑2","chinesename":"","job":"编辑","initial_position":"book_编辑2_初始位置","body_type":"男瘦","clothing":"1_衬衣长裤2","hair":1,"glasses":3,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"breathe","spare_time_aid_sit":["shake_leg","scratch_head","nod","chin_in_hand","sleep"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_编辑3","chinesename":"","job":"编辑","initial_position":"book_编辑3_初始位置","body_type":"男胖","clothing":"1_衬衣长裤42","hair":1,"glasses":1,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"computer","spare_time_aid_sit":["scratch_head_computer","chin_in_hand_comptuer","keyboard","mouse_move","mouse_click"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_编辑4","chinesename":"","job":"编辑","initial_position":"book_编辑4_初始位置","body_type":"女裤","clothing":"2_格子长裤11","hair":6,"glasses":2,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"breathe","spare_time_aid_sit":["shake_leg","scratch_head","nod","chin_in_hand","sleep"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_编辑5","chinesename":"","job":"编辑","initial_position":"book_编辑5_初始位置","body_type":"男瘦","clothing":"1_衬衣短裤13","hair":1,"glasses":3,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"breathe","spare_time_aid_sit":["shake_leg","scratch_head","nod","chin_in_hand","sleep"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_总监1","chinesename":"","job":"总监","initial_position":"book_总监1_初始位置","body_type":"男瘦","clothing":"1_马甲短裤8","hair":4,"glasses":1,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"breathe","spare_time_aid_sit":["shake_leg","scratch_head","nod","chin_in_hand","sleep"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_校对1","chinesename":"","job":"校对","initial_position":"book_校对1_初始位置","body_type":"男胖","clothing":"1_衬衣长裤46","hair":3,"glasses":3,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"computer","spare_time_aid_sit":["scratch_head_computer","chin_in_hand_comptuer","keyboard","mouse_move","mouse_click"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_校对2","chinesename":"","job":"校对","initial_position":"book_校对2_初始位置","body_type":"男胖","clothing":"1_短袖马甲短裤2","hair":3,"glasses":2,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"computer","spare_time_aid_sit":["scratch_head_computer","chin_in_hand_comptuer","keyboard","mouse_move","mouse_click"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_校对3","chinesename":"","job":"校对","initial_position":"book_校对3_初始位置","body_type":"男瘦","clothing":"1_衬衣长裤11","hair":1,"glasses":1,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"computer","spare_time_aid_sit":["scratch_head_computer","chin_in_hand_comptuer","keyboard","mouse_move","mouse_click"],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_设计师1","chinesename":"","job":"设计师","initial_position":"book_设计师1_初始位置","body_type":"女裤","clothing":"2_纯色短袖长裤10","hair":6,"glasses":2,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"draw_pen","spare_time_aid_sit":[],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_设计师2","chinesename":"","job":"设计师","initial_position":"book_设计师2_初始位置","body_type":"女裤","clothing":"2_长袖衬衣长裤37","hair":5,"glasses":1,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"draw_pen","spare_time_aid_sit":[],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_设计师3","chinesename":"","job":"设计师","initial_position":"book_设计师3_初始位置","body_type":"男瘦","clothing":"1_衬衣长裤14","hair":4,"glasses":3,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"draw_pen","spare_time_aid_sit":[],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_设计师4","chinesename":"","job":"设计师","initial_position":"book_设计师4_初始位置","body_type":"女裤","clothing":"2_纯色短袖长裤5","hair":8,"glasses":3,"bag":0,"spare_time_main_position":"sit","spare_time_main_action":"draw_pen","spare_time_aid_sit":[],"spare_time_aid_stand":[],"spare_time_aid_other":[]},{"name":"book_作家1","chinesename":"","job":"作家","initial_position":"book_作家1_初始位置","body_type":"男瘦","clothing":"1_衬衣长裤18","hair":3,"glasses":1,"bag":0,"spare_time_main_position":"stand","spare_time_main_action":"breathe","spare_time_aid_sit":["chin_in_hand_comptuer","keyboard","mouse_move"],"spare_time_aid_stand":["nod","shake_head","cross_arm","watch"],"spare_time_aid_other":[]}],"initcharacterdata":[{"name":"book_编辑甲","candidates":["book_编辑1","book_编辑2","book_编辑3"]},{"name":"book_编辑乙","candidates":["book_编辑1","book_编辑2","book_编辑3"]},{"name":"book_编辑丙","candidates":["book_编辑1","book_编辑3","book_编辑2"]},{"name":"book_编辑丁","candidates":["book_编辑4","book_编辑5"]},{"name":"book_编辑戊","candidates":["book_编辑5","book_编辑4"]},{"name":"book_总监甲","candidates":["book_总监1"]},{"name":"book_校对甲","candidates":["book_校对1","book_校对2"]},{"name":"book_校对乙","candidates":["book_校对1","book_校对2"]},{"name":"book_校对丙","candidates":["book_校对3"]},{"name":"book_设计师甲","candidates":["book_设计师1","book_设计师2","book_设计师3","book_设计师4"]},{"name":"book_设计师乙","candidates":["book_设计师1","book_设计师2","book_设计师3","book_设计师4"]},{"name":"book_设计师丙","candidates":["book_设计师1","book_设计师2","book_设计师3","book_设计师4"]},{"name":"book_设计师丁","candidates":["book_设计师1","book_设计师2","book_设计师3","book_设计师4"]},{"name":"book_作家甲","candidates":["book_作家1"]}],"compositemovementdata":[{"name":"all_开会","mainrole_position":"stand","otherrole_position":"sit","mainrole_main":"talk","mainrole_aid":["talk_point_ppt","talk_point_near","talk_point_far","talk_point_near_times","talk_point_far_times","nod"],"wait_mainrole_main":"breathe","wait_mainrole_aid":["nod","watch","cross_arm"],"start_mainrole_main":[],"end_mainrole_main":["applaud"],"otherroles_main":"breathe","otherroles_aid":["shake_leg","scratch_head","nod","chin_in_hand","sleep","backward","hold_head_back","shake_head","cross_arm","cross_arm_shake_head","raise_righthand","watch"],"wait_otherroles_main":"breathe","wait_otherroles_aid":["shake_leg","scratch_head","nod","chin_in_hand","sleep","left30","right30","cross_arm","watch"],"start_otherroles_main":[],"end_otherroles_main":["applaud"]},{"name":"all_坐对坐交谈","mainrole_position":"stand","otherrole_position":"stand","mainrole_main":"talk","mainrole_aid":["nod","scratch_head","watch","talk_point_near_times","talk_point_far_times","talk_point_far","talk_point_near","talk"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"breathe","otherroles_aid":["nod","shake_head","cross_arm","talk","scratch_head"],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_站对站交谈","mainrole_position":"stand","otherrole_position":"stand","mainrole_main":"talk","mainrole_aid":["nod","scratch_head","watch","talk_point_near_times","talk_point_far_times","talk_point_far","talk_point_near","talk"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"breathe","otherroles_aid":["nod","shake_head","cross_arm","talk","scratch_head"],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_站对坐（正视）交谈","mainrole_position":"stand","otherrole_position":"sit","mainrole_main":"talk_look_down","mainrole_aid":["nod","scratch_head","talk_point_near","talk_point_far","talk_point_near_times","talk_point_far_times"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"look_up","otherroles_aid":["scratch_head","nod","chin_in_hand"],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_站对坐（左转）交谈","mainrole_position":"stand","otherrole_position":"sit","mainrole_main":"talk_look_down","mainrole_aid":["nod","scratch_head","talk_point_near","talk_point_far","talk_point_near_times","talk_point_far_times"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"head_left30","otherroles_aid":["scratch_head","nod","chin_in_hand"],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_站对坐（右转）交谈","mainrole_position":"stand","otherrole_position":"sit","mainrole_main":"talk_look_down","mainrole_aid":["nod","scratch_head","talk_point_near","talk_point_far","talk_point_near_times","talk_point_far_times"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"head_right30","otherroles_aid":["scratch_head","nod","chin_in_hand"],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_发邮件","mainrole_position":"sit","otherrole_position":"sit","mainrole_main":"computer","mainrole_aid":["scratch_head_computer","chin_in_hand_comptuer","keyboard","mouse_move","mouse_click"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"computer","otherroles_aid":["scratch_head_computer","chin_in_hand_comptuer","keyboard","mouse_move","mouse_click"],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_打手机站对坐（前半个动作）","mainrole_position":"stand","otherrole_position":"sit","mainrole_main":"talk_cellphone","mainrole_aid":[],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":["play_cellphone_click"],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_打手机站对坐（后半个动作）","mainrole_position":"stand","otherrole_position":"sit","mainrole_main":"talk_cellphone","mainrole_aid":[],"wait_mainrole_main":"listen_cellphone","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":["talk_cellphone_putdown"],"otherroles_main":"listen_cellphone","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":["talk_cellphone_pickup"],"end_otherroles_main":["talk_cellphone_putdown"]},{"name":"all_打手机站对站（前半个动作）","mainrole_position":"stand","otherrole_position":"stand","mainrole_main":"talk_cellphone","mainrole_aid":[],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":["play_cellphone_click"],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_打手机站对站（后半个动作）","mainrole_position":"stand","otherrole_position":"stand","mainrole_main":"talk_cellphone","mainrole_aid":[],"wait_mainrole_main":"listen_cellphone","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":["talk_cellphone_putdown"],"otherroles_main":"listen_cellphone","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":["talk_cellphone_pickup"],"end_otherroles_main":["talk_cellphone_putdown"]},{"name":"all_打手机坐对坐（前半个动作）","mainrole_position":"sit","otherrole_position":"stand","mainrole_main":"talk_cellphone","mainrole_aid":[],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":[],"otherroles_main":"","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":["play_cellphone_click"],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_打手机坐对坐（后半个动作）","mainrole_position":"sit","otherrole_position":"stand","mainrole_main":"talk_cellphone","mainrole_aid":[],"wait_mainrole_main":"listen_cellphone","wait_mainrole_aid":[],"start_mainrole_main":[],"end_mainrole_main":["talk_cellphone_putdown"],"otherroles_main":"listen_cellphone","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":["talk_cellphone_pickup"],"end_otherroles_main":["talk_cellphone_putdown"]},{"name":"all_站姿采访","mainrole_position":"stand","otherrole_position":"stand","mainrole_main":"mic_other","mainrole_aid":["mic_self"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":["mic_pickup"],"end_mainrole_main":["mic_putdown"],"otherroles_main":"talk","otherroles_aid":["talk_point_ppt","talk_point_near","talk_point_far","talk_point_near_times","talk_point_far_times"],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":["hello"],"end_otherroles_main":["bow"]},{"name":"all_坐姿采访","mainrole_position":"sit","otherrole_position":"sit","mainrole_main":"mic_other","mainrole_aid":["mic_self"],"wait_mainrole_main":"breathe","wait_mainrole_aid":["shake_leg","scratch_head","nod","chin_in_hand","sleep"],"start_mainrole_main":["mic_pickup"],"end_mainrole_main":["mic_putdown"],"otherroles_main":"talk","otherroles_aid":["talk_point_ppt","talk_point_near","talk_point_far","talk_point_near_times","talk_point_far_times"],"wait_otherroles_main":"breathe","wait_otherroles_aid":["shake_leg","scratch_head","nod","chin_in_hand","sleep"],"start_otherroles_main":["hello"],"end_otherroles_main":["bow"]},{"name":"all_站姿录音","mainrole_position":"stand","otherrole_position":"stand","mainrole_main":"recorder","mainrole_aid":[],"wait_mainrole_main":"breathe","wait_mainrole_aid":["nod","shake_head","cross_arm","watch"],"start_mainrole_main":["recorder_pickup"],"end_mainrole_main":["recorder_putdown"],"otherroles_main":"talk","otherroles_aid":["talk_point_ppt","talk_point_near","talk_point_far","talk_point_near_times","talk_point_far_times"],"wait_otherroles_main":"breathe","wait_otherroles_aid":["nod","shake_head","cross_arm","watch"],"start_otherroles_main":["hello"],"end_otherroles_main":["nod"]},{"name":"all_拍照（仅一人）","mainrole_position":"stand","otherrole_position":"stand","mainrole_main":"camera","mainrole_aid":[],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":["camera_pickup"],"end_mainrole_main":["camera_putdown"],"otherroles_main":"","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_坐姿玩手机（仅一人）","mainrole_position":"sit","otherrole_position":"sit","mainrole_main":"play_cellphone_scroll","mainrole_aid":["play_cellphone_click","hold_cellphone"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":["play_cellphone_pickup"],"end_mainrole_main":["play_cellphone_putdown"],"otherroles_main":"","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"all_站姿玩手机（仅一人）","mainrole_position":"stand","otherrole_position":"stand","mainrole_main":"play_cellphone_scroll","mainrole_aid":["play_cellphone_click","hold_cellphone"],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":["play_cellphone_pickup"],"end_mainrole_main":["play_cellphone_putdown"],"otherroles_main":"","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]},{"name":"从书架拿出看书","mainrole_position":"stand","otherrole_position":"sit","mainrole_main":"book_read","mainrole_aid":[],"wait_mainrole_main":"","wait_mainrole_aid":[],"start_mainrole_main":["book_pickup_table"],"end_mainrole_main":["book_putdown_table"],"otherroles_main":"","otherroles_aid":[],"wait_otherroles_main":"","wait_otherroles_aid":[],"start_otherroles_main":[],"end_otherroles_main":[]}],"scenedata":[{"start_time":0.1,"end_time":"180","spot_name":"编辑甲的动作","principal":"book_编辑甲","principal_activity":[{"duration":"5","description":"","position":"composite","action":"all_发邮件","self":{"location_to_type":2,"location_to":null,"bubble_type":3,"bubble_content":"1_邮件","screen":null,"dashboard_direction":3,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":2,"other_people":[]},{"duration":"3","description":"","position":"composite","action":"all_打手机坐对坐（前半个动作）","self":{"location_to_type":0,"location_to":null,"bubble_type":3,"bubble_content":"4_电话","screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]},{"duration":"7","description":"","position":"composite","action":"all_打手机坐对坐（后半个动作）","self":{"location_to_type":0,"location_to":null,"bubble_type":3,"bubble_content":"4_电话","screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]},{"duration":"25","description":"","position":"composite","action":"all_开会","self":{"location_to_type":1,"location_to":"book_开会1","bubble_type":3,"bubble_content":"4_讨论","screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":2,"other_people":[{"name":"book_编辑丙","location_to_type":1,"location_to":"book_开会2","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null,"has_following_actions":0,"following_actions":[],"bubble_direction":0},{"name":"book_校对甲","location_to_type":1,"location_to":"book_开会3","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null,"has_following_actions":0,"following_actions":[]},{"name":"book_设计师乙","location_to_type":1,"location_to":"book_开会4","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null,"has_following_actions":0,"following_actions":[]}]},{"duration":"40","description":"出楼出走","position":"stand","action":"hello","self":{"location_to_type":1,"location_to":"book_编辑甲出走","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]},{"start_time":"10","end_time":"105","spot_name":"总监甲的采访","principal":"book_总监甲","principal_activity":[{"duration":"30","description":"","position":"composite","action":"all_坐姿采访","self":{"location_to_type":1,"location_to":"book_采访1","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[{"name":"book_作家甲","location_to_type":1,"location_to":"book_采访2","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null,"has_following_actions":0,"following_actions":[]}]}]},{"start_time":"0","end_time":"110","spot_name":"校对丙的动作","principal":"book_校对丙","principal_activity":[{"duration":"10","description":"","position":"composite","self":{"location_to_type":1,"location_to":"book_三楼小架子前","bubble_type":3,"bubble_content":"1_邮件","screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[],"action":"all_站姿玩手机（仅一人）"},{"duration":"80","description":"","position":"sit","action":"breathe","self":{"location_to_type":1,"location_to":"book_二楼沙发右","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]},{"duration":"20","description":"","position":"composite","action":"all_站对坐（正视）交谈","self":{"location_to_type":1,"location_to":"book_跟编辑戊说话","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[{"name":"book_编辑戊","location_to_type":0,"location_to":null,"bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null,"has_following_actions":0,"following_actions":[]}]}]},{"start_time":"0","end_time":"110","spot_name":"编辑乙的动作","principal":"book_编辑乙","principal_activity":[{"duration":"3","description":"","position":"composite","action":"all_打手机站对坐（前半个动作）","self":{"location_to_type":1,"location_to":"book_三楼窗边","bubble_type":3,"bubble_content":"4_电话","screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]},{"duration":"9","description":"","position":"composite","action":"all_打手机站对坐（后半个动作）","self":{"location_to_type":1,"location_to":"book_三楼窗边","bubble_type":3,"bubble_content":"4_电话","screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]},{"duration":"25","description":"","position":"composite","action":"从书架拿出看书","self":{"location_to_type":1,"location_to":"book_书架前看书","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]},{"duration":"20","description":"","position":"composite","action":"all_站对坐（正视）交谈","self":{"location_to_type":1,"location_to":"book_二楼沙发右前方","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[{"name":"book_校对丙","location_to_type":1,"location_to":"book_二楼沙发右","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null,"has_following_actions":0,"following_actions":[]}]}]},{"start_time":"5","end_time":"110","spot_name":"编辑丙","principal":"book_编辑丙","principal_activity":[{"duration":"12","description":"","position":"composite","action":"all_打手机坐对坐（前半个动作）","self":{"location_to_type":0,"location_to":null,"bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]},{"start_time":"20","end_time":"110","spot_name":"校对乙","principal":"book_校对乙","principal_activity":[{"duration":"40","description":"","position":"composite","action":"all_打手机站对坐（前半个动作）","self":{"location_to_type":1,"location_to":"book_三楼窗边","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]},{"start_time":"25","end_time":"110","spot_name":"设计师甲","principal":"book_设计师甲","principal_activity":[{"duration":"20","description":"","position":"stand","action":"cross_arm","self":{"location_to_type":1,"location_to":"book_看设计师3的电脑","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]},{"start_time":"46","end_time":"110","spot_name":"校对甲和设计师乙交谈","principal":"book_校对甲","principal_activity":[{"duration":"30","description":"","position":"composite","action":"all_坐对坐交谈","self":{"location_to_type":0,"location_to":null,"bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[{"name":"book_设计师乙","location_to_type":0,"location_to":null,"bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null,"has_following_actions":0,"following_actions":[]}]}]},{"start_time":"64","end_time":"110","spot_name":"校对乙去沙发","principal":"book_校对乙","principal_activity":[{"duration":"64","description":"","position":"composite","action":"all_坐姿玩手机（仅一人）","self":{"location_to_type":1,"location_to":"book_二楼沙发右","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]},{"start_time":"50","end_time":"110","spot_name":"设计师甲葛优躺","principal":"book_设计师甲","principal_activity":[{"duration":"20","description":"","position":"sit","action":"sprawl","self":{"location_to_type":1,"location_to":"book_二楼沙发左","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]},{"start_time":"48","end_time":"180","spot_name":"编辑丙出门","principal":"book_编辑丙","principal_activity":[{"duration":"19","description":"","position":"stand","action":"hello","self":{"location_to_type":1,"location_to":"book_编辑丙出走","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]},{"start_time":"35","end_time":"110","spot_name":"编辑丁戊起立交谈","principal":"book_编辑丁","principal_activity":[{"duration":"25","description":"","position":"composite","action":"all_站对站交谈","self":{"location_to_type":0,"location_to":null,"bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[{"name":"book_编辑戊","location_to_type":0,"location_to":null,"bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null,"has_following_actions":0,"following_actions":[]}]}]},{"start_time":"80","end_time":"110","spot_name":"编辑丁去沙发打电话","principal":"book_编辑丁","principal_activity":[{"duration":"30","description":"","position":"composite","action":"all_打手机坐对坐（前半个动作）","self":{"location_to_type":1,"location_to":"book_二楼沙发左","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]},{"start_time":"35","end_time":"110","spot_name":"设计师丁去看书","principal":"book_设计师丁","principal_activity":[{"duration":"70","description":"","position":"composite","action":"从书架拿出看书","self":{"location_to_type":1,"location_to":"book_书架前看书","bubble_type":0,"bubble_content":null,"screen":null,"dashboard_direction":0,"animation":null,"starttime":0.1,"carrytype":0,"carryobj":null},"num_other_people":0,"other_people":[]}]}]}
+{
+  "locationdata": [
+    {
+      "name": "book_编辑1_初始位置"
+    },
+    {
+      "name": "book_编辑2_初始位置"
+    },
+    {
+      "name": "book_编辑3_初始位置"
+    },
+    {
+      "name": "book_编辑4_初始位置"
+    },
+    {
+      "name": "book_编辑5_初始位置"
+    },
+    {
+      "name": "book_总监1_初始位置"
+    },
+    {
+      "name": "book_校对1_初始位置"
+    },
+    {
+      "name": "book_校对2_初始位置"
+    },
+    {
+      "name": "book_校对3_初始位置"
+    },
+    {
+      "name": "book_设计师1_初始位置"
+    },
+    {
+      "name": "book_设计师2_初始位置"
+    },
+    {
+      "name": "book_设计师3_初始位置"
+    },
+    {
+      "name": "book_设计师4_初始位置"
+    },
+    {
+      "name": "book_作家1_初始位置"
+    },
+    {
+      "name": "book_开会1"
+    },
+    {
+      "name": "book_开会2"
+    },
+    {
+      "name": "book_开会3"
+    },
+    {
+      "name": "book_开会4"
+    },
+    {
+      "name": "book_采访1"
+    },
+    {
+      "name": "book_采访2"
+    },
+    {
+      "name": "book_编辑甲出走"
+    },
+    {
+      "name": "book_编辑丙出走"
+    },
+    {
+      "name": "book_三楼窗边"
+    },
+    {
+      "name": "book_书架前看书"
+    },
+    {
+      "name": "book_二楼沙发左"
+    },
+    {
+      "name": "book_二楼沙发右"
+    },
+    {
+      "name": "book_二楼沙发右前方"
+    },
+    {
+      "name": "book_三楼小架子前"
+    },
+    {
+      "name": "book_跟编辑戊说话"
+    },
+    {
+      "name": "book_看设计师3的电脑"
+    },
+    {
+      "name": "book_二楼左侧沙发右"
+    },
+    {
+      "name": "book_二楼左侧沙发左"
+    }
+  ],
+  "characterdata": [
+    {
+      "name": "book_编辑1",
+      "chinesename": "张三",
+      "job": "编辑",
+      "initial_position": "book_编辑1_初始位置",
+      "body_type": "女裤",
+      "clothing": "2_马甲衬衣长裤33",
+      "hair": 7,
+      "glasses": 2,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "computer",
+      "spare_time_aid_sit": [
+        "scratch_head_computer",
+        "chin_in_hand_computer",
+        "keyboard",
+        "mouse_move",
+        "mouse_click"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_编辑2",
+      "chinesename": "",
+      "job": "编辑",
+      "initial_position": "book_编辑2_初始位置",
+      "body_type": "男瘦",
+      "clothing": "1_衬衣长裤2",
+      "hair": 1,
+      "glasses": 3,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "breathe",
+      "spare_time_aid_sit": [
+        "shake_leg",
+        "scratch_head",
+        "nod",
+        "chin_in_hand",
+        "sleep"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_编辑3",
+      "chinesename": "",
+      "job": "编辑",
+      "initial_position": "book_编辑3_初始位置",
+      "body_type": "男胖",
+      "clothing": "1_衬衣长裤42",
+      "hair": 1,
+      "glasses": 1,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "computer",
+      "spare_time_aid_sit": [
+        "scratch_head_computer",
+        "chin_in_hand_computer",
+        "keyboard",
+        "mouse_move",
+        "mouse_click"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_编辑4",
+      "chinesename": "",
+      "job": "编辑",
+      "initial_position": "book_编辑4_初始位置",
+      "body_type": "女裤",
+      "clothing": "2_格子长裤11",
+      "hair": 6,
+      "glasses": 2,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "breathe",
+      "spare_time_aid_sit": [
+        "shake_leg",
+        "scratch_head",
+        "nod",
+        "chin_in_hand",
+        "sleep"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_编辑5",
+      "chinesename": "",
+      "job": "编辑",
+      "initial_position": "book_编辑5_初始位置",
+      "body_type": "男瘦",
+      "clothing": "1_衬衣短裤13",
+      "hair": 1,
+      "glasses": 3,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "breathe",
+      "spare_time_aid_sit": [
+        "shake_leg",
+        "scratch_head",
+        "nod",
+        "chin_in_hand",
+        "sleep"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_总监1",
+      "chinesename": "",
+      "job": "总监",
+      "initial_position": "book_总监1_初始位置",
+      "body_type": "男瘦",
+      "clothing": "1_马甲短裤8",
+      "hair": 4,
+      "glasses": 1,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "breathe",
+      "spare_time_aid_sit": [
+        "shake_leg",
+        "scratch_head",
+        "nod",
+        "chin_in_hand",
+        "sleep"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_校对1",
+      "chinesename": "",
+      "job": "校对",
+      "initial_position": "book_校对1_初始位置",
+      "body_type": "男胖",
+      "clothing": "1_衬衣长裤46",
+      "hair": 3,
+      "glasses": 3,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "computer",
+      "spare_time_aid_sit": [
+        "scratch_head_computer",
+        "chin_in_hand_computer",
+        "keyboard",
+        "mouse_move",
+        "mouse_click"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_校对2",
+      "chinesename": "",
+      "job": "校对",
+      "initial_position": "book_校对2_初始位置",
+      "body_type": "男胖",
+      "clothing": "1_短袖马甲短裤2",
+      "hair": 3,
+      "glasses": 2,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "computer",
+      "spare_time_aid_sit": [
+        "scratch_head_computer",
+        "chin_in_hand_computer",
+        "keyboard",
+        "mouse_move",
+        "mouse_click"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_校对3",
+      "chinesename": "",
+      "job": "校对",
+      "initial_position": "book_校对3_初始位置",
+      "body_type": "男瘦",
+      "clothing": "1_衬衣长裤11",
+      "hair": 1,
+      "glasses": 1,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "computer",
+      "spare_time_aid_sit": [
+        "scratch_head_computer",
+        "chin_in_hand_computer",
+        "keyboard",
+        "mouse_move",
+        "mouse_click"
+      ],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_设计师1",
+      "chinesename": "",
+      "job": "设计师",
+      "initial_position": "book_设计师1_初始位置",
+      "body_type": "女裤",
+      "clothing": "2_纯色短袖长裤10",
+      "hair": 6,
+      "glasses": 2,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "draw_pen",
+      "spare_time_aid_sit": [],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_设计师2",
+      "chinesename": "",
+      "job": "设计师",
+      "initial_position": "book_设计师2_初始位置",
+      "body_type": "女裤",
+      "clothing": "2_长袖衬衣长裤37",
+      "hair": 5,
+      "glasses": 1,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "draw_pen",
+      "spare_time_aid_sit": [],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_设计师3",
+      "chinesename": "",
+      "job": "设计师",
+      "initial_position": "book_设计师3_初始位置",
+      "body_type": "男瘦",
+      "clothing": "1_衬衣长裤14",
+      "hair": 4,
+      "glasses": 3,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "draw_pen",
+      "spare_time_aid_sit": [],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_设计师4",
+      "chinesename": "",
+      "job": "设计师",
+      "initial_position": "book_设计师4_初始位置",
+      "body_type": "女裤",
+      "clothing": "2_纯色短袖长裤5",
+      "hair": 8,
+      "glasses": 3,
+      "bag": 0,
+      "spare_time_main_position": "sit",
+      "spare_time_main_action": "draw_pen",
+      "spare_time_aid_sit": [],
+      "spare_time_aid_stand": [],
+      "spare_time_aid_other": []
+    },
+    {
+      "name": "book_作家1",
+      "chinesename": "",
+      "job": "作家",
+      "initial_position": "book_作家1_初始位置",
+      "body_type": "男瘦",
+      "clothing": "1_衬衣长裤18",
+      "hair": 3,
+      "glasses": 1,
+      "bag": 0,
+      "spare_time_main_position": "stand",
+      "spare_time_main_action": "breathe",
+      "spare_time_aid_sit": [
+        "chin_in_hand_computer",
+        "keyboard",
+        "mouse_move"
+      ],
+      "spare_time_aid_stand": [
+        "nod",
+        "shake_head",
+        "cross_arm",
+        "watch"
+      ],
+      "spare_time_aid_other": []
+    }
+  ],
+  "initcharacterdata": [
+    {
+      "name": "book_编辑甲",
+      "candidates": [
+        "book_编辑1",
+        "book_编辑2",
+        "book_编辑3"
+      ]
+    },
+    {
+      "name": "book_编辑乙",
+      "candidates": [
+        "book_编辑1",
+        "book_编辑2",
+        "book_编辑3"
+      ]
+    },
+    {
+      "name": "book_编辑丙",
+      "candidates": [
+        "book_编辑1",
+        "book_编辑3",
+        "book_编辑2"
+      ]
+    },
+    {
+      "name": "book_编辑丁",
+      "candidates": [
+        "book_编辑4",
+        "book_编辑5"
+      ]
+    },
+    {
+      "name": "book_编辑戊",
+      "candidates": [
+        "book_编辑5",
+        "book_编辑4"
+      ]
+    },
+    {
+      "name": "book_总监甲",
+      "candidates": [
+        "book_总监1"
+      ]
+    },
+    {
+      "name": "book_校对甲",
+      "candidates": [
+        "book_校对1",
+        "book_校对2"
+      ]
+    },
+    {
+      "name": "book_校对乙",
+      "candidates": [
+        "book_校对1",
+        "book_校对2"
+      ]
+    },
+    {
+      "name": "book_校对丙",
+      "candidates": [
+        "book_校对3"
+      ]
+    },
+    {
+      "name": "book_设计师甲",
+      "candidates": [
+        "book_设计师1",
+        "book_设计师2",
+        "book_设计师3",
+        "book_设计师4"
+      ]
+    },
+    {
+      "name": "book_设计师乙",
+      "candidates": [
+        "book_设计师1",
+        "book_设计师2",
+        "book_设计师3",
+        "book_设计师4"
+      ]
+    },
+    {
+      "name": "book_设计师丙",
+      "candidates": [
+        "book_设计师1",
+        "book_设计师2",
+        "book_设计师3",
+        "book_设计师4"
+      ]
+    },
+    {
+      "name": "book_设计师丁",
+      "candidates": [
+        "book_设计师1",
+        "book_设计师2",
+        "book_设计师3",
+        "book_设计师4"
+      ]
+    },
+    {
+      "name": "book_作家甲",
+      "candidates": [
+        "book_作家1"
+      ]
+    }
+  ],
+  "compositemovementdata": [
+    {
+      "name": "all_开会"
+    },
+    {
+      "name": "all_站对站交谈"
+    },
+    {
+      "name": "all_站对坐（正视）交谈"
+    },
+    {
+      "name": "all_站对坐（左转）交谈"
+    },
+    {
+      "name": "all_站对坐（右转）交谈"
+    },
+    {
+      "name": "all_坐对坐交谈"
+    },
+    {
+      "name": "all_操作电脑"
+    },
+    {
+      "name": "all_用纸笔写字"
+    },
+    {
+      "name": "all_用纸笔绘画"
+    },
+    {
+      "name": "all_站姿打手机"
+    },
+    {
+      "name": "all_坐姿打手机"
+    },
+    {
+      "name": "all_站姿采访"
+    },
+    {
+      "name": "all_坐姿采访"
+    },
+    {
+      "name": "all_站姿录音"
+    },
+    {
+      "name": "all_站姿拍照（仅一人）"
+    },
+    {
+      "name": "all_站姿玩手机（仅一人）"
+    },
+    {
+      "name": "all_站姿玩ipad（仅一人）"
+    },
+    {
+      "name": "all_坐姿玩手机（仅一人）"
+    },
+    {
+      "name": "all_坐姿玩ipad（仅一人）"
+    },
+    {
+      "name": "all_从书架拿出看书"
+    }
+  ],
+  "scenedata": [
+    {
+      "start_time": "15",
+      "end_time": "300",
+      "spot_name": "编辑甲的动作",
+      "principal": "book_编辑甲",
+      "principal_activity": [
+        {
+          "duration": "7",
+          "description": "",
+          "position": "composite",
+          "action": "all_操作电脑",
+          "self": {
+            "location_to_type": 2,
+            "location_to": null,
+            "bubble_content": [
+              "2_书籍设计",
+              "4_Id",
+              "3_1_查找"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 2,
+          "other_people": []
+        },
+        {
+          "duration": "10",
+          "description": "",
+          "position": "composite",
+          "action": "all_坐姿打手机",
+          "self": {
+            "location_to_type": 0,
+            "location_to": null,
+            "bubble_content": [
+              "3_4_聊天",
+              "3_4_交易",
+              "3_4_握手"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        },
+        {
+          "duration": "25",
+          "description": "",
+          "position": "composite",
+          "action": "all_开会",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_开会1",
+            "bubble_content": [
+              "2_在线杂志",
+              "3_1_日历",
+              "3_1_线图",
+              "3_1_Idea",
+              "3_2_云端",
+              "3_3_移动互联网"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 2,
+          "other_people": [
+            {
+              "name": "book_编辑丙",
+              "location_to_type": 1,
+              "location_to": "book_开会2",
+              "bubble_content": [
+                "3_4_豆瓣",
+                "3_2_Wifi"
+              ],
+              "animation": null,
+              "starttime": 0.1,
+              "carrytype": 0,
+              "carryobj": null,
+              "has_following_actions": 0,
+              "following_actions": [],
+              "bubble_direction": "",
+              "bubble_end": ""
+            },
+            {
+              "name": "book_校对甲",
+              "location_to_type": 1,
+              "location_to": "book_开会3",
+              "bubble_content": [
+                "3_4_点赞",
+                "3_1_日历"
+              ],
+              "animation": null,
+              "starttime": 0.1,
+              "carrytype": 0,
+              "carryobj": null,
+              "has_following_actions": 0,
+              "following_actions": [],
+              "bubble_end": "",
+              "bubble_direction": ""
+            },
+            {
+              "name": "book_设计师乙",
+              "location_to_type": 1,
+              "location_to": "book_开会4",
+              "bubble_content": [
+                "3_4_讨论",
+                "3_2_心",
+                "3_4_开心"
+              ],
+              "animation": null,
+              "starttime": 0.1,
+              "carrytype": 0,
+              "carryobj": null,
+              "has_following_actions": 0,
+              "following_actions": [],
+              "bubble_end": "",
+              "bubble_direction": ""
+            }
+          ]
+        },
+        {
+          "duration": "30",
+          "description": "出楼出走",
+          "position": "stand",
+          "action": "hello",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_编辑甲出走",
+            "bubble_content": null,
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    },
+    {
+      "start_time": "30",
+      "end_time": "205",
+      "spot_name": "总监甲的采访",
+      "principal": "book_总监甲",
+      "principal_activity": [
+        {
+          "duration": "10",
+          "description": "",
+          "position": "sit",
+          "action": "relax_2",
+          "self": {
+            "location_to_type": 2,
+            "location_to": null,
+            "bubble_content": [
+              "2_电子出版",
+              "3_3_移动互联网",
+              "3_3_圈A",
+              "3_2_云端"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        },
+        {
+          "duration": "30",
+          "description": "",
+          "position": "composite",
+          "action": "all_坐姿采访",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_采访1",
+            "bubble_content": [
+              "3_4_话筒",
+              "3_4_点赞",
+              "3_4_握手",
+              "3_4_拍照"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": [
+            {
+              "name": "book_作家甲",
+              "location_to_type": 1,
+              "location_to": "book_采访2",
+              "bubble_content": [
+                "3_4_讨论",
+                "3_3_移动互联网",
+                "3_4_图库"
+              ],
+              "animation": null,
+              "starttime": 0.1,
+              "carrytype": 0,
+              "carryobj": null,
+              "has_following_actions": 0,
+              "following_actions": [],
+              "bubble_end": "",
+              "bubble_direction": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "start_time": "15",
+      "end_time": "240",
+      "spot_name": "校对丙的动作",
+      "principal": "book_校对丙",
+      "principal_activity": [
+        {
+          "duration": "10",
+          "description": "",
+          "position": "composite",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_三楼小架子前",
+            "bubble_content": [
+              "3_1_查找",
+              "3_1_事项",
+              "3_1_邮件"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": [],
+          "action": "all_站姿玩手机（仅一人）"
+        },
+        {
+          "duration": "80",
+          "description": "",
+          "position": "composite",
+          "action": "all_站姿玩ipad（仅一人）",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_二楼沙发右",
+            "bubble_content": [
+              "3_1_笔记",
+              "3_1_打印机",
+              "3_1_Idea",
+              "3_1_心",
+              "3_4_图库"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        },
+        {
+          "duration": "20",
+          "description": "",
+          "position": "composite",
+          "action": "all_站对坐（正视）交谈",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_跟编辑戊说话",
+            "bubble_content": [
+              "3_4_讨论",
+              "3_4_微信",
+              "3_4_微博",
+              "3_4_支付宝"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": [
+            {
+              "name": "book_编辑戊",
+              "location_to_type": 0,
+              "location_to": null,
+              "bubble_content": [
+                "3_4_点赞",
+                "3_4_票券",
+                "2_IP知识产权"
+              ],
+              "animation": null,
+              "starttime": 0.1,
+              "carrytype": 0,
+              "carryobj": null,
+              "has_following_actions": 0,
+              "following_actions": [],
+              "bubble_end": "",
+              "bubble_direction": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "start_time": "20",
+      "end_time": "250",
+      "spot_name": "编辑乙的动作",
+      "principal": "book_编辑乙",
+      "principal_activity": [
+        {
+          "duration": "10",
+          "description": "",
+          "position": "composite",
+          "action": "all_坐姿打手机",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_三楼窗边",
+            "bubble_content": [
+              "3_4_交易",
+              "3_4_聊天",
+              "3_4_握手",
+              "3_4_咖啡",
+              "3_4_干杯"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        },
+        {
+          "duration": "15",
+          "description": "",
+          "position": "composite",
+          "action": "all_从书架拿出看书",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_三楼窗边",
+            "bubble_content": [
+              "3_2_Wifi",
+              "3_2_云端",
+              "3_2_VR",
+              "3_2_心"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        },
+        {
+          "duration": "20",
+          "description": "",
+          "position": "composite",
+          "action": "all_站对坐（正视）交谈",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_二楼沙发右前方",
+            "bubble_content": [
+              "3_1_事项",
+              "3_1_邮件",
+              "3_1_散点图",
+              "3_2_dropbox"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": [
+            {
+              "name": "book_校对丙",
+              "location_to_type": 1,
+              "location_to": "book_二楼沙发右",
+              "bubble_content": [
+                "3_1_正确",
+                "3_2_扫码",
+                "3_3_移动互联网"
+              ],
+              "animation": null,
+              "starttime": 0.1,
+              "carrytype": 0,
+              "carryobj": null,
+              "has_following_actions": 0,
+              "following_actions": [],
+              "bubble_end": "",
+              "bubble_direction": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "start_time": "5",
+      "end_time": "190",
+      "spot_name": "编辑丙",
+      "principal": "book_编辑丙",
+      "principal_activity": [
+        {
+          "duration": "12",
+          "description": "",
+          "position": "composite",
+          "action": "all_坐姿打手机",
+          "self": {
+            "location_to_type": 0,
+            "location_to": null,
+            "bubble_content": [
+              "3_4_3D眼镜",
+              "3_4_爆米花",
+              "3_4_开心"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    },
+    {
+      "start_time": "20",
+      "end_time": "231",
+      "spot_name": "校对乙",
+      "principal": "book_校对乙",
+      "principal_activity": [
+        {
+          "duration": "40",
+          "description": "",
+          "position": "composite",
+          "action": "all_坐姿打手机",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_三楼窗边",
+            "bubble_content": [
+              "3_4_难过",
+              "3_4_讨论",
+              "3_1_错误"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    },
+    {
+      "start_time": "25",
+      "end_time": "245",
+      "spot_name": "设计师甲",
+      "principal": "book_设计师甲",
+      "principal_activity": [
+        {
+          "duration": "20",
+          "description": "",
+          "position": "composite",
+          "action": "all_操作电脑",
+          "self": {
+            "location_to_type": 2,
+            "location_to": null,
+            "bubble_content": [
+              "2_在线翻译",
+              "4_Ai",
+              "3_1_色卡",
+              "3_1_笔尺"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        },
+        {
+          "duration": "20",
+          "description": "",
+          "position": "stand",
+          "action": "cross_arm",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_看设计师3的电脑",
+            "bubble_content": [
+              "3_1_错误",
+              "3_1_正确",
+              "3_1_Idea"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    },
+    {
+      "start_time": "46",
+      "end_time": "208",
+      "spot_name": "校对甲和设计师乙交谈",
+      "principal": "book_校对甲",
+      "principal_activity": [
+        {
+          "duration": "30",
+          "description": "",
+          "position": "composite",
+          "action": "all_坐对坐交谈",
+          "self": {
+            "location_to_type": 0,
+            "location_to": null,
+            "bubble_content": [
+              "2_排版设计",
+              "3_1_文件查找",
+              "3_1_打印机"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": [
+            {
+              "name": "book_设计师乙",
+              "location_to_type": 0,
+              "location_to": null,
+              "bubble_content": [
+                "3_1_笔记",
+                "3_1_环状图"
+              ],
+              "animation": null,
+              "starttime": 0.1,
+              "carrytype": 0,
+              "carryobj": null,
+              "has_following_actions": 0,
+              "following_actions": [],
+              "bubble_end": "",
+              "bubble_direction": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "start_time": "64",
+      "end_time": "215",
+      "spot_name": "校对乙去沙发",
+      "principal": "book_校对乙",
+      "principal_activity": [
+        {
+          "duration": "44",
+          "description": "",
+          "position": "composite",
+          "action": "all_坐姿玩手机（仅一人）",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_二楼沙发右",
+            "bubble_content": [
+              "3_4_微信",
+              "3_4_消费",
+              "3_4_聊天"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    },
+    {
+      "start_time": "50",
+      "end_time": "222",
+      "spot_name": "设计师甲葛优躺",
+      "principal": "book_设计师甲",
+      "principal_activity": [
+        {
+          "duration": "20",
+          "description": "",
+          "position": "sit",
+          "action": "sprawl",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_二楼沙发左",
+            "bubble_content": null,
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    },
+    {
+      "start_time": "48",
+      "end_time": "180",
+      "spot_name": "编辑丙出门",
+      "principal": "book_编辑丙",
+      "principal_activity": [
+        {
+          "duration": "19",
+          "description": "",
+          "position": "stand",
+          "action": "hello",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_编辑丙出走",
+            "bubble_content": null,
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    },
+    {
+      "start_time": "35",
+      "end_time": "180",
+      "spot_name": "编辑丁戊起立交谈",
+      "principal": "book_编辑丁",
+      "principal_activity": [
+        {
+          "duration": "25",
+          "description": "",
+          "position": "composite",
+          "action": "all_站对站交谈",
+          "self": {
+            "location_to_type": 0,
+            "location_to": null,
+            "bubble_content": [
+              "2_在线新闻",
+              "3_1_查找",
+              "3_1_趋势图"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": [
+            {
+              "name": "book_编辑戊",
+              "location_to_type": 0,
+              "location_to": null,
+              "bubble_content": [
+                "3_1_闹钟",
+                "3_1_柱状图",
+                "3_3_编程"
+              ],
+              "animation": null,
+              "starttime": 0.1,
+              "carrytype": 0,
+              "carryobj": null,
+              "has_following_actions": 0,
+              "following_actions": [],
+              "bubble_end": "",
+              "bubble_direction": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "start_time": "80",
+      "end_time": "200",
+      "spot_name": "编辑丁去沙发打电话",
+      "principal": "book_编辑丁",
+      "principal_activity": [
+        {
+          "duration": "30",
+          "description": "",
+          "position": "composite",
+          "action": "all_坐姿打手机",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_二楼沙发左",
+            "bubble_content": [
+              "3_3_编程",
+              "3_3_大数据",
+              "3_2_云链接",
+              "3_3_移动互联网"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    },
+    {
+      "start_time": "35",
+      "end_time": "190",
+      "spot_name": "设计师丁去看书",
+      "principal": "book_设计师丁",
+      "principal_activity": [
+        {
+          "duration": "43",
+          "description": "",
+          "position": "composite",
+          "action": "all_从书架拿出看书",
+          "self": {
+            "location_to_type": 1,
+            "location_to": "book_书架前看书",
+            "bubble_content": [
+              "3_1_笔尺",
+              "3_1_色卡",
+              "3_1_正确"
+            ],
+            "animation": null,
+            "starttime": 0.1,
+            "carrytype": 0,
+            "carryobj": null,
+            "bubble_end": "",
+            "bubble_direction": ""
+          },
+          "num_other_people": 0,
+          "other_people": []
+        }
+      ]
+    }
+  ]
+}

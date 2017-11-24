@@ -809,7 +809,9 @@ namespace DesignSociety
 		sit_jump_cheer,
 		//sit_xbox,
 		//sit_table_soccer,
-		//sit_pose_icecream
+		//sit_pose_icecream,
+
+		sit_smoke
 	}
 
 	public enum StandActionName
@@ -986,6 +988,7 @@ namespace DesignSociety
 
 		stand_smoke,
 		stand_pipe,
+		stand_motion_sensor,
 		inter_shake_hand,
 		//inter_hug,
 		//other_get_on_car,
@@ -1006,7 +1009,8 @@ namespace DesignSociety
 		other_dance_1,
 		other_dance_2,
 		other_dance_3,
-		other_play_slide
+		other_play_slide,
+		drag_float
 	}
 
 	public enum SitActionWithBorder
@@ -1067,6 +1071,7 @@ namespace DesignSociety
 		sit_talk_with_tableware,
 
 		sit_drive,
+		sit_smoke
 	}
 
 	public enum StandActionWithBorder

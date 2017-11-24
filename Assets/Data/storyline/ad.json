@@ -106,7 +106,7 @@
         "bag": 0,
         "spare_time_main_position": "sit",
         "spare_time_main_action": "computer",
-        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
         "spare_time_aid_stand": [],
         "spare_time_aid_other": []
     },
@@ -122,7 +122,7 @@
         "bag": 0,
         "spare_time_main_position": "sit",
         "spare_time_main_action": "computer",
-        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click", "scratch_head"],
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click", "scratch_head"],
         "spare_time_aid_stand": [],
         "spare_time_aid_other": []
     },
@@ -170,7 +170,7 @@
         "bag": 0,
         "spare_time_main_position": "sit",
         "spare_time_main_action": "computer",
-        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
         "spare_time_aid_stand": [],
         "spare_time_aid_other": []
     },
@@ -202,7 +202,7 @@
         "bag": 0,
         "spare_time_main_position": "sit",
         "spare_time_main_action": "computer",
-        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
         "spare_time_aid_stand": [],
         "spare_time_aid_other": []
     },
@@ -218,7 +218,7 @@
         "bag": 0,
         "spare_time_main_position": "sit",
         "spare_time_main_action": "computer",
-        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_comptuer", "keyboard", "mouse_move", "mouse_click"],
+        "spare_time_aid_sit": ["scratch_head_computer", "chin_in_hand_computer", "keyboard", "mouse_move", "mouse_click"],
         "spare_time_aid_stand": [],
         "spare_time_aid_other": []
     },
@@ -265,7 +265,11 @@
     },
     {
         "name": "ad_阿康甲",
-        "candidates": ["ad_account1", "ad_account2"]
+        "candidates": ["ad_account1"]
+    },
+    {
+        "name": "ad_阿康乙",
+        "candidates": ["ad_account2"]
     },
     {
         "name": "ad_总监甲",
@@ -368,23 +372,6 @@
         "wait_otherroles_aid": [],
         "start_otherroles_main": [],
         "end_otherroles_main": []
-    },
-    {
-        "name": "ad_玩手机",
-        "mainrole_position": "sit",
-        "otherrole_position": "sit",
-        "mainrole_main": "play_cellphone_scroll",
-        "mainrole_aid": ["play_cellphone_click"],
-        "wait_mainrole_main": "",
-        "wait_mainrole_aid": [],
-        "start_mainrole_main": ["play_cellphone_pickup"],
-        "end_mainrole_main": ["play_cellphone_putdown"],
-        "otherroles_main": "",
-        "otherroles_aid": [],
-        "wait_otherroles_main": "",
-        "wait_otherroles_aid": [],
-        "start_otherroles_main": [],
-        "end_otherroles_main": []
     }],
     "scenedata": [
     {
@@ -402,15 +389,13 @@
             {
                 "location_to_type": 2,
                 "location_to": null,
-                "bubble_type": 1,
-                "bubble_content": "好烦啊",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["2_文案设计", "3_1_Idea", "3_1_正确"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 2,
             "other_people": []
@@ -424,26 +409,84 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_copy2_随便走走",
-                "bubble_type": 1,
-                "bubble_content": "偷下懒",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": [],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "5",
+            "description": "",
+            "position": "stand",
+            "action": "ipad_scroll",
+            "self":
+            {
+                "location_to_type": 0,
+                "location_to": null,
+                "bubble_content": ["3_1_邮件"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "5",
+            "description": "",
+            "position": "sit",
+            "action": "cross_arm_shake_head",
+            "self":
+            {
+                "location_to_type": 0,
+                "location_to": null,
+                "bubble_content": ["3_1_事项"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
         }]
     },
     {
-        "start_time": "15",
-        "end_time": "85",
-        "spot_name": "ad_乱走",
+        "start_time": "0.1",
+        "end_time": "145",
+        "spot_name": "ad_d1事件",
         "principal": "ad_designer甲",
         "principal_activity": [
+        {
+            "duration": "20",
+            "description": "",
+            "position": "sit",
+            "action": "draw_digital_pen",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_响应式设计", "4_Ps", "4_Ai"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
         {
             "duration": "15",
             "description": "",
@@ -453,15 +496,87 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_designer1_看",
-                "bubble_type": 1,
-                "bubble_content": "伸个懒腰",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_1_色卡", "3_1_查找"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "20",
+            "description": "",
+            "position": "sit",
+            "action": "draw_digital_pen",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_响应式设计", "4_Ps", "4_Ai"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "8",
+            "description": "",
+            "position": "composite",
+            "action": "all_站对站交谈",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "ad_designer1_阿康2交谈",
+                "bubble_content": ["3_2_云端", "3_2_Java"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": [
+            {
+                "name": "ad_阿康甲",
+                "location_to_type": 1,
+                "location_to": "ad_account2_desiner交谈",
+                "bubble_content": ["2_传播范围", "3_1_环状图", "3_4_微博", "3_4_豆瓣"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": []
+            }]
+        },
+        {
+            "duration": "40",
+            "description": "",
+            "position": "composite",
+            "action": "all_操作电脑",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["2_多感官设计", "3_2_VR", "3_1_Idea", "2_用户生产内容","3_3_全景影像","2_模块化设计","2_所见即所得","3_4_点赞"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -474,7 +589,7 @@
         "principal": "ad_pr甲",
         "principal_activity": [
         {
-            "duration": "10",
+            "duration": "20",
             "description": "",
             "position": "composite",
             "action": "all_坐姿打手机",
@@ -482,15 +597,13 @@
             {
                 "location_to_type": 2,
                 "location_to": null,
-                "bubble_type": 0,
-                "bubble_content": null,
-                "bubble_direction": 0,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["2_媒体策略", "3_3_大数据", "3_4_交易", "3_1_日历"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -504,15 +617,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_pr1_玩手机",
-                "bubble_type": 3,
-                "bubble_content": "4_图库",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_4_支付宝", "3_4_微信", "3_2_定位"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -520,12 +631,12 @@
     },
     {
         "start_time": "15",
-        "end_time": "95",
+        "end_time": "140",
         "spot_name": "ad_总监2事件",
         "principal": "ad_总监乙",
         "principal_activity": [
         {
-            "duration": "6",
+            "duration": "10",
             "description": "",
             "position": "composite",
             "action": "all_操作电脑",
@@ -533,15 +644,13 @@
             {
                 "location_to_type": 2,
                 "location_to": null,
-                "bubble_type": 3,
-                "bubble_content": "1_邮件",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["4_脑图", "4_统计", "3_1_打印机"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -555,15 +664,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_director2_总监2交流",
-                "bubble_type": 3,
-                "bubble_content": "4_聊天",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_4_图库", "3_4_邮件"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": [
@@ -571,37 +678,52 @@
                 "name": "ad_designer丙",
                 "location_to_type": 1,
                 "location_to": "ad_designer3_总监2交流",
-                "bubble_type": 0,
-                "bubble_content": null,
-                "bubble_direction": 0,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_1_Idea", "3_1_笔尺", "2_用户界面"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
                 "carryobj": null,
                 "has_following_actions": 0,
-                "following_actions": []
+                "bubble_end": [],
+                "following_actions": [
+                {
+                    "duration": 40,
+                    "description": "",
+                    "position": "sit",
+                    "action": "draw_digital_pen",
+                    "self":
+                    {
+                        "location_to_type": 2,
+                        "location_to": null,
+                        "bubble_direction": 0,
+                        "bubble_content": ["2_思维导图","3_1_Idea","2_数据可视化","2_知识付费","3_4_Book","2_设计众包","3_1_会议","2_共享知识","3_3_移动互联网"],
+                        "bubble_end": "",
+                        "animation": null,
+                        "starttime": 0.1,
+                        "carrytype": 0,
+                        "carryobj": null
+                    },
+                    "other_people": []
+                }]
             }]
         },
         {
             "duration": "10",
             "description": "出门溜达",
-            "position": "stand",
-            "action": "breathe",
+            "position": "composite",
+            "action": "all_站姿打手机",
             "self":
             {
                 "location_to_type": 1,
                 "location_to": "ad_客人_初始位置",
-                "bubble_type": 1,
-                "bubble_content": "溜达溜达",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_4_电话", "3_4_摄像", "3_4_采访"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -622,15 +744,13 @@
             {
                 "location_to_type": 2,
                 "location_to": null,
-                "bubble_type": 3,
-                "bubble_content": "1_事项",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["2_IP知识产权", "2_扁平化管理"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -644,15 +764,13 @@
             {
                 "location_to_type": 2,
                 "location_to": null,
-                "bubble_type": 3,
-                "bubble_content": "4_FB",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["4_手机支付", "4_排期"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -666,28 +784,46 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_director1_指指点点",
-                "bubble_type": 1,
-                "bubble_content": "(ノ｀Д´)ノ",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_4_聊天", "1_LxU做的好棒呀"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "10",
+            "description": "",
+            "position": "stand",
+            "action": "applaud",
+            "self":
+            {
+                "location_to_type": 1,
+                "location_to": "ad_director1_指指点点",
+                "bubble_content": ["1_好棒哟", "3_1_奖章"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
         }]
     },
     {
-        "start_time": "100",
-        "end_time": "160",
+        "start_time": "90",
+        "end_time": "140",
         "spot_name": "ad_开会",
         "principal": "ad_总监甲",
         "principal_activity": [
         {
-            "duration": "25",
+            "duration": "20",
             "description": "",
             "position": "composite",
             "action": "all_开会",
@@ -695,15 +831,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_开会1",
-                "bubble_type": 3,
-                "bubble_content": "4_讨论",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_1_会议", "2_媒体策略"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": [
@@ -711,49 +845,43 @@
                 "name": "ad_copy乙",
                 "location_to_type": 1,
                 "location_to": "ad_开会2",
-                "bubble_type": 3,
-                "bubble_content": "4_讨论",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_1_演示", "2_策略性设计"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
                 "carryobj": null,
                 "has_following_actions": 0,
-                "following_actions": []
+                "following_actions": [],
+                "bubble_end": []
             },
             {
                 "name": "ad_pr甲",
                 "location_to_type": 1,
                 "location_to": "ad_开会3",
-                "bubble_type": 1,
-                "bubble_content": "(ง •̀_•́)ง",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_1_散点图"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
                 "carryobj": null,
                 "has_following_actions": 0,
-                "following_actions": []
+                "following_actions": [],
+                "bubble_end": []
             },
             {
                 "name": "ad_阿康甲",
                 "location_to_type": 1,
                 "location_to": "ad_开会4",
-                "bubble_type": 1,
-                "bubble_content": "(•̀ᴗ•́)و ̑̑ ",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_1_日历", "2_用户体验"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
                 "carryobj": null,
                 "has_following_actions": 0,
-                "following_actions": []
+                "following_actions": [],
+                "bubble_end": []
             }]
         }]
     },
@@ -766,24 +894,36 @@
         {
             "duration": "20",
             "description": "",
-            "position": "stand",
-            "action": "talk_point_far_times",
+            "position": "composite",
+            "action": "all_站对站交谈",
             "self":
             {
                 "location_to_type": 1,
                 "location_to": "ad_客人_前台接待",
-                "bubble_type": 1,
-                "bubble_content": "见领导",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["1_你好","1_我有传播需求"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
-            "other_people": []
+            "other_people": [
+            {
+                "name": "ad_前台甲",
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["1_HI","1_OK"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "has_following_actions": 0,
+                "following_actions": [],
+                "bubble_end": []
+            }]
         },
         {
             "duration": "25",
@@ -794,15 +934,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_客人_pr接待",
-                "bubble_type": 3,
-                "bubble_content": "4_交易",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["1_扩大市场"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": [
@@ -810,23 +948,21 @@
                 "name": "ad_pr甲",
                 "location_to_type": 1,
                 "location_to": "ad_pr1_pr接待",
-                "bubble_type": 0,
-                "bubble_content": null,
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["1_受众定位", "2_市场调查", "2_消费者行为模式"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
                 "carryobj": null,
                 "has_following_actions": 0,
-                "following_actions": []
+                "following_actions": [],
+                "bubble_end": []
             }]
         }]
     },
     {
         "start_time": "50",
-        "end_time": "90",
+        "end_time": "100",
         "spot_name": "ad_接无人机",
         "principal": "ad_前台甲",
         "principal_activity": [
@@ -839,15 +975,13 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_receiver1_接快递",
-                "bubble_type": 2,
-                "bubble_content": "无人机飞行器",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["2_无人机"],
+                "bubble_direction": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
-                "carryobj": null
+                "carryobj": null,
+                "bubble_end": []
             },
             "num_other_people": 0,
             "other_people": []
@@ -861,11 +995,103 @@
             {
                 "location_to_type": 1,
                 "location_to": "ad_receiver1_放快递",
-                "bubble_type": 1,
-                "bubble_content": "无人机有点厉害",
-                "bubble_direction": null,
-                "screen": null,
-                "dashboard_direction": 0,
+                "bubble_content": ["3_2_无人机送货"],
+                "bubble_direction": "",
+                "bubble_end": [],
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "10",
+            "description": "",
+            "position": "sit",
+            "action": "ipad_scroll",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_2_扫码,3_2_云链接"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        },
+        {
+            "duration": "10",
+            "description": "",
+            "position": "sit",
+            "action": "ipad_scroll",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_content": ["3_2_扫码,3_2_云链接"],
+                "bubble_direction": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null,
+                "bubble_end": []
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": 0.1,
+        "end_time": 150,
+        "spot_name": "ad_阿康乙事件",
+        "principal": "ad_阿康乙",
+        "principal_activity": [
+        {
+            "duration": 145,
+            "description": "",
+            "position": "composite",
+            "action": "all_操作电脑",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_direction": 0,
+                "bubble_content": ["2_内容营销", "3_1_分享", "3_1_云下载", "2_数字营销", "3_3_大数据", "3_2_VR", "3_3_Html5", "2_互联网思维", "3_3_物联网", "3_3_3D预览", "3_4_微博", "3_4_微信"],
+                "bubble_end": "",
+                "animation": null,
+                "starttime": 0.1,
+                "carrytype": 0,
+                "carryobj": null
+            },
+            "num_other_people": 0,
+            "other_people": []
+        }]
+    },
+    {
+        "start_time": 0.1,
+        "end_time": 50,
+        "spot_name": "ad_阿康甲事件",
+        "principal": "ad_阿康甲",
+        "principal_activity": [
+        {
+            "duration": 48,
+            "description": "",
+            "position": "composite",
+            "action": "all_操作电脑",
+            "self":
+            {
+                "location_to_type": 2,
+                "location_to": null,
+                "bubble_direction": 0,
+                "bubble_content": ["2_B2B模式", "3_4_握手", "3_4_交易", "2_文化创意产业", "3_4_学习", "3_1_Idea", "2_网络直播", "3_4_新闻", "3_4_摄像", "3_2_心"],
+                "bubble_end": "",
                 "animation": null,
                 "starttime": 0.1,
                 "carrytype": 0,
